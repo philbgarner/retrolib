@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "babel --out-file bundle.js main.ts"
+  },
+  "dependencies": {
+    "typescript": "^5.2.2"
+  }
+}

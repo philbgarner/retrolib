@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "module": "NodeNext",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "allowJs": true,
+      "target": "es2016",
+      "outDir": "./dist",
+      "sourceMap": true,
+      "moduleResolution": "NodeNext",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+    },
+    "include": ["src/**/*"],
+    "exclude": ["**/*.spec.ts"]
+  }
