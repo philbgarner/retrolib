@@ -1,0 +1,55 @@
+[
+    { "name": "tileset", "image": null, "filename": "images/tileset.png" },
+
+    { "name": "sky", "image": null, "filename": "images/sky.png" },
+    { "name": "hills", "image": null, "filename": "images/hills.png" },
+    { "name": "near-hills", "image": null, "filename": "images/near-hills.png" },
+
+    { "name": "Knight-Idle", "image": null, "filename": "images/Knight-Idle.png" },
+    { "name": "Knight-Attack", "image": null, "filename": "images/Knight-Attack.png" },
+    { "name": "Knight-Hurt", "image": null, "filename": "images/Knight-Hurt.png" },
+    { "name": "Knight-Death", "image": null, "filename": "images/Knight-Death.png" },
+
+    { "name": "Slime-Idle", "image": null, "filename": "images/Slime-Idle.png" },
+    { "name": "Slime-Hurt", "image": null, "filename": "images/Slime-Hurt.png" },
+
+    { "name": "Bat-Idle", "image": null, "filename": "images/Bat-Idle.png" },
+    { "name": "Bat-Hurt", "image": null, "filename": "images/Bat-Hurt.png" },
+
+    { "name": "BigSlime-Idle", "image": null, "filename": "images/BigSlime-Idle.png" },
+    { "name": "BigSlime-Hurt", "image": null, "filename": "images/BigSlime-Hurt.png" },
+
+    { "name": "Toad-Idle", "image": null, "filename": "images/Toad-Idle.png" },
+    { "name": "Toad-Hurt", "image": null, "filename": "images/Toad-Hurt.png" },
+
+    { "name": "King Slime-Idle", "image": null, "filename": "images/King Slime-Idle.png" },
+    { "name": "King Slime-Hurt", "image": null, "filename": "images/King Slime-Idle.png" },
+
+    { "name": "Slime-Particle", "image": null, "filename": "images/Slime-Particle.png"},
+    { "name": "Spark-Particle", "image": null, "filename": "images/Spark-Particle.png"},
+    { "name": "Blood-Particle", "image": null, "filename": "images/Blood-Particle.png"},
+    { "name": "Gem-Particle", "image": null, "filename": "images/Gem-Particle.png"},
+    { "name": "Acid-Particle", "image": null, "filename": "images/Acid-Particle.png"},
+    { "name": "Smoke-Particle", "image": null, "filename": "images/Smoke-Particle.png"},
+
+    { "name": "Arrow", "image": null, "filename": "images/Arrow.png"},
+
+    { "name": "titlebg", "image": null, "filename": "images/titlebg.png" },
+
+    { "name": "title1", "image": null, "filename": "images/title.png" },
+    { "name": "title2", "image": null, "filename": "images/title2.png" },
+
+    { "name": "uiframe", "image": null, "filename": "images/uiframe.png" },
+    { "name": "button-up", "image": null, "filename": "images/button-up.png" },
+    { "name": "button-down", "image": null, "filename": "images/button-down.png" },
+
+    { "name": "ressurect-beam.png", "image": null, "filename": "images/ressurect-beam.png"},
+
+    { "name": "Skull", "image": null, "filename": "images/Skull.png" },
+    { "name": "icon-heart", "image": null, "filename": "images/icon-heart.png" },
+    { "name": "ui-xpcard", "image": null, "filename": "images/ui-xpcard.png" },
+    { "name": "select-arrow", "image": null, "filename": "images/selectarrow.png" },
+    { "name": "ui-xpbar-full", "image": null, "filename": "images/xpbar-full.png" },
+    { "name": "ui-xpbar-empty", "image": null, "filename": "images/xpbar-empty.png" },
+    { "name": "xp-gem", "image": null, "filename": "images/xpgem.png" }
+]

@@ -1,0 +1,1 @@
+{"version":3,"file":"ImageDefinition.js","sourceRoot":"","sources":["ImageDefinition.ts"],"names":[],"mappings":"AAAA,MAAM,eAAe;IACV,IAAI,CAAQ;IACZ,KAAK,CAAkB;IACvB,QAAQ,CAAQ;IAEhB,MAAM,CAAC,QAAQ,CAAC,IAAY;QAC/B,OAAO,MAAM,CAAC,MAAM,CAAC,IAAI,eAAe,EAAE,EAAE,IAAI,CAAC,CAAA;IACrD,CAAC;CACJ;AAED,eAAe,eAAe,CAAA"}

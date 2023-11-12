@@ -1,8 +1,11 @@
 {
   "scripts": {
-    "build": "babel --out-file bundle.js main.ts"
+    "build": "webpack"
   },
-  "dependencies": {
-    "typescript": "^5.2.2"
+  "devDependencies": {
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }

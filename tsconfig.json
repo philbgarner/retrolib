@@ -1,17 +1,9 @@
 {
-    "compilerOptions": {
-      "module": "NodeNext",
-      "noImplicitAny": true,
-      "removeComments": true,
-      "preserveConstEnums": true,
-      "allowJs": true,
-      "target": "es2016",
-      "outDir": "./dist",
-      "sourceMap": true,
-      "moduleResolution": "NodeNext",
+  "compilerOptions": {
+      "module": "commonjs",
+      "lib": ["es5", "es6", "dom"],
+      "rootDir": "src",
       "resolveJsonModule": true,
-      "esModuleInterop": true,
-    },
-    "include": ["src/**/*"],
-    "exclude": ["**/*.spec.ts"]
+      "esModuleInterop": true
   }
+}
