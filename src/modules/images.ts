@@ -3,6 +3,13 @@ import Rect from "./Rect"
 
 const images : Array<ImageDefinition> = []
 
+/**
+ * Populate images manifest with JSON list of definitions.
+ * @param json JSON representation of image definitions.
+ */
+function imageManifestFromJSON(json: Array<object>) {
+    json.forEach(((def: object) => images.push(ImageDefinition.fromJSON(def))))
+}
 // Canvas 2d context.
 var ctx: CanvasRenderingContext2D = null
 
@@ -116,4 +123,4 @@ function loadAllImages() {
     return Promise.allSettled(promises)
 }
 
-export { loadAllImages, loadImage, drawImage, getImage, getImages, setContext, drawImageCtx, getContext }
+export { loadAllImages, loadImage, drawImage, getImage, getImages, setContext, drawImageCtx, getContext, imageManifestFromJSON }
