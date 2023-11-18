@@ -1,17 +1,17 @@
 import ImageDefinition from "./ImageDefinition"
 import Rect from "./Rect"
 
-const images : Array<ImageDefinition> = []
+const images: ImageDefinition[] = []
 
 /**
  * Populate images manifest with JSON list of definitions.
  * @param json JSON representation of image definitions.
  */
-function imageManifestFromJSON(json: Array<object>): void {
+function imageManifestFromJSON(json: object[]): void {
     json.forEach(((def: object) => images.push(ImageDefinition.fromJSON(def))))
 }
 // Canvas 2d context.
-var ctx: CanvasRenderingContext2D = null
+let ctx: CanvasRenderingContext2D = null
 
 // Set the canvas 2d context.
 function setContext(context: CanvasRenderingContext2D): void {
@@ -25,12 +25,12 @@ function getContext(): CanvasRenderingContext2D {
 
 // Return loaded image object from the list.
 function getImage(name: string): HTMLImageElement {
-    let img = images.filter(f => f.name === name)
+    const img = images.filter(f => f.name === name)
     return img.length > 0 ? img[0].image : null
 }
 
 // Returns the full list of image objects.
-function getImages(): Array<ImageDefinition> {
+function getImages(): ImageDefinition[] {
     return images
 }
 
@@ -56,7 +56,7 @@ function drawImage(name: string, x: number, y: number, srcRect: Rect, flipped: b
  * @param {boolean} flipped 
  */
 function drawImageCtx(context: CanvasRenderingContext2D, name: string, x: number, y: number, srcRect: Rect, flipped: boolean): void {
-    let img: ImageDefinition[] = images.filter(f => f.name === name)
+    const img: ImageDefinition[] = images.filter(f => f.name === name)
     if (img.length > 0) {
         try {
             if (srcRect) {
@@ -78,7 +78,9 @@ function drawImageCtx(context: CanvasRenderingContext2D, name: string, x: number
                     context.drawImage(img[0].image, x, y)
                 }
             }
-        } catch {}
+        } catch {
+            // empty
+        }
     }
 }
 
@@ -89,15 +91,15 @@ function drawImageCtx(context: CanvasRenderingContext2D, name: string, x: number
  */
 function loadImage(filename: string): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
-        let img: HTMLImageElement = new Image()
-        img.onload = (e) => {
+        const img: HTMLImageElement = new Image()
+        img.onload = () => {
             resolve(img)
         }
-        img.onerror = (e) => {
+        img.onerror = (e: Event) => {
             console.error(`Failed to load file ${filename}:`, e)
             reject(null)
         }
-        let image: ImageDefinition[] = images.filter(f => f.filename === filename)
+        const image: ImageDefinition[] = images.filter(f => f.filename === filename)
         if (image.length > 0) {
             img.src = filename
         } else {
@@ -111,11 +113,11 @@ function loadImage(filename: string): Promise<HTMLImageElement> {
  * Load all images in the images list.
  * @returns 
  */
-function loadAllImages(): Promise<PromiseSettledResult<any>[]> {
-    let promises: Promise<any>[] = []
-    for (let i in images) {
-        let image: ImageDefinition = images[i]
-        promises.push(new Promise((resolve, reject) => loadImage(image.filename).then(r => {
+function loadAllImages(): Promise<PromiseSettledResult<HTMLImageElement>[]> {
+    const promises: Promise<HTMLImageElement>[] = []
+    for (const i in images) {
+        const image: ImageDefinition = images[i]
+        promises.push(new Promise(resolve => loadImage(image.filename).then(r => {
             image.image = r
             resolve(r)
         }).catch(e => console.error('Failed to load', image.filename, e))))

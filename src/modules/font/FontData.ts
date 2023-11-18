@@ -4,7 +4,7 @@ class FontData {
     cwidth: number
     cheight: number
     imagedata: string
-    codepage: Array<Glyph>
+    codepage: Glyph[]
     image: HTMLImageElement
 }
 

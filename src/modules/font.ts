@@ -1,7 +1,7 @@
 import defaultFont from './font/defaultFont.json'
 import FontData from "./font/FontData"
 
-var fonts = {
+const fonts = {
     default: {}
 }
 
@@ -11,7 +11,7 @@ function LoadDefaultFonts() {
 
 function LoadFromJSON(font : object) {
     try {
-        let fontData = Object.assign(new FontData(), font)
+        const fontData = Object.assign(new FontData(), font)
         fontData.image = new Image()
         fontData.image.src = 'data:image/png;base64,' + fontData.imagedata
         return font

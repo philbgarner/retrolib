@@ -5,7 +5,7 @@ import Rect from "./Rect"
  * Populate images manifest with JSON list of definitions.
  * @param json JSON representation of image definitions.
  */
-export function imageManifestFromJSON(json: Array<object>): void
+export function imageManifestFromJSON(json: object[]): void
 
 // Set the canvas 2d context.
 export function setContext(context: CanvasRenderingContext2D): void
@@ -17,7 +17,7 @@ export function getContext(): CanvasRenderingContext2D
 export function getImage(name: string): HTMLImageElement
 
 // Returns the full list of image objects.
-export function getImages(): Array<ImageDefinition>
+export function getImages(): ImageDefinition[]
 
 /**
  * Draws an image at x,y coordinates on the canas.
@@ -51,4 +51,4 @@ export function loadImage(filename: string): Promise<HTMLImageElement>
  * Load all images in the images list.
  * @returns 
  */
-export function loadAllImages(): Promise<PromiseSettledResult<any>[]>
+export function loadAllImages(): Promise<PromiseSettledResult<HTMLImageElement>[]> 
