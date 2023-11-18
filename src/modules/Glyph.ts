@@ -1,4 +1,4 @@
-import Rect from "../Rect"
+import Rect from "./Rect"
 
 class Glyph {
     codenumber: number

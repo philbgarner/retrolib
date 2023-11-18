@@ -1,5 +1,5 @@
 import defaultFont from './font/defaultFont.json'
-import FontData from "./font/FontData"
+import FontData from "./FontData"
 
 const fonts = {
     default: {}
