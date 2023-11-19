@@ -11,14 +11,6 @@ import ImageDefinition from './modules/ImageDefinition'
 import SfxDefinition from './modules/SfxDefinition'
 import Rect from './modules/Rect'
 
-export type LibraryOptions = {
-    buildCanvas: boolean,
-    width: number,
-    height: number,
-    canvasId: string,
-    autoResize: boolean
-}
-
 // Game Canvas metadata Globals.
 let gameCanvas: HTMLCanvasElement = null
 let canvasWidth: number = 0
@@ -58,15 +50,15 @@ function prependCanvas(canvasId: string, width: number, height: number, autoResi
  * Initialize the retrolib engine.
  * @param options
  */
-function Initialize(options: LibraryOptions): void {
-    options.width = options.width ? options.width : 256
-    options.height = options.height ? options.height : 256
-    options.canvasId = options.canvasId ? options.canvasId : 'gamecanvas'
+function Initialize(buildCanvas: boolean, width: number, height: number, canvasId: string, autoResize: boolean): void {
+    width = width ? width : 256
+    height = height ? height : 256
+    canvasId = canvasId ? canvasId : 'gamecanvas'
     
-    if (gameCanvas === null && options.buildCanvas) {
-        gameCanvas = prependCanvas(options.canvasId, options.width, options.height, options.autoResize)
+    if (gameCanvas === null && buildCanvas) {
+        gameCanvas = prependCanvas(canvasId, width, height, autoResize)
     } else if (gameCanvas === null) {
-        gameCanvas = document.getElementById(options.canvasId) as HTMLCanvasElement
+        gameCanvas = document.getElementById(canvasId) as HTMLCanvasElement
     }
 }
 

@@ -32,4 +32,4 @@ export function prependCanvas(canvasId: string, width: number, height: number, a
  * Initialize the retrolib engine.
  * @param options
  */
-export function Initialize(options: LibraryOptions): void
+export function Initialize(buildCanvas: boolean, width: number, height: number, canvasId: string, autoResize: boolean): void
