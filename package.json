@@ -1,4 +1,5 @@
 {
+  "name": "retrolib",
   "scripts": {
     "build": "webpack",
     "lint": "eslint . --ext .ts"
