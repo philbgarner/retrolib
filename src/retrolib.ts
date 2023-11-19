@@ -58,7 +58,7 @@ function prependCanvas(canvasId: string, width: number, height: number, autoResi
  * Initialize the retrolib engine.
  * @param options
  */
-function Initialize(options: LibraryOptions) {
+function Initialize(options: LibraryOptions): void {
     options.width = options.width ? options.width : 256
     options.height = options.height ? options.height : 256
     options.canvasId = options.canvasId ? options.canvasId : 'gamecanvas'

@@ -28,4 +28,8 @@ export function resize(): void
 
 export function prependCanvas(canvasId: string, width: number, height: number, autoResize: boolean): HTMLCanvasElement
 
-export function Initialize(options: LibraryOptions)
+/**
+ * Initialize the retrolib engine.
+ * @param options
+ */
+export function Initialize(options: LibraryOptions): void
