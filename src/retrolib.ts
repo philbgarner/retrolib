@@ -1,15 +1,8 @@
-import * as images from './modules/images'
-import * as font from './modules/font'
-import * as scenes from './modules/scenes'
-import * as sfx from './modules/sfx'
-import * as music from './modules/music'
-
-import Scene from './modules/scene'
-import FontData from './modules/FontData'
-import Glyph from './modules/Glyph'
-import ImageDefinition from './modules/ImageDefinition'
-import SfxDefinition from './modules/SfxDefinition'
-import Rect from './modules/Rect'
+export * as images from './modules/images'
+export * as font from './modules/font'
+export * as scenes from './modules/scenes'
+export * as sfx from './modules/sfx'
+export * as music from './modules/music'
 
 // Game Canvas metadata Globals.
 let gameCanvas: HTMLCanvasElement = null
@@ -62,13 +55,6 @@ function Initialize(buildCanvas: boolean, width: number, height: number, canvasI
     }
 }
 
-/**
- * Bundle modules together into one single interface ready
- * for use in your project.
- */
-
 export {
-    images, font, scenes, sfx, music, // Modules
-    Scene, FontData, Glyph, ImageDefinition, SfxDefinition, Rect, // Classes/Interfaces
     Initialize
 }
