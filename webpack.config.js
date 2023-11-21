@@ -9,7 +9,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: "retrolib.js" // <--- Will be compiled to this single file
+    filename: "retrolib.js", // <--- Will be compiled to this single file
+    library: 'retrolib',
+    libraryTarget: 'umd'
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],

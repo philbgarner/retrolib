@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Hello World Sample</title></head>
+    <body>
+        <!--Include the retrolib web bundle.-->
+        <script src="../../dist/retrolib.js"></script>
+        <script>
+            // Set the canvas background color.
+            retrolib.setCanvasBackground('black')
+            // canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean
+            retrolib.initialize('gamecanvas', 320, 200, true, true)
+        </script>
+    </body>
+</html>

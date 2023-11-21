@@ -8,8 +8,15 @@ export * as music from './modules/music'
 let gameCanvas: HTMLCanvasElement = null
 let canvasWidth: number = 0
 let canvasHeight: number = 0
+let canvasBackground: string = 'transparent'
+
+function setCanvasBackground(color: string) {
+    canvasBackground = color
+    gameCanvas.style.background = canvasBackground
+}
 
 function resize(): void {
+    // TODO: calculate the width to height ratio and scale cSize by that before setting values.
     let cSize : number = window.innerHeight > window.innerWidth ? window.innerWidth : window.innerHeight
     gameCanvas.style.display = 'block'
     gameCanvas.style.position = 'absolute'
@@ -17,7 +24,7 @@ function resize(): void {
     gameCanvas.style.height = cSize + 'px'
     gameCanvas.style.top = window.innerHeight / 2 - cSize / 2  + 'px'
     gameCanvas.style.left = window.innerWidth / 2 - cSize / 2 + 'px'
-    gameCanvas.style.background = 'transparent'
+    gameCanvas.style.background = canvasBackground
 }
 
 function prependCanvas(canvasId: string, width: number, height: number, autoResize: boolean): HTMLCanvasElement {
@@ -25,6 +32,7 @@ function prependCanvas(canvasId: string, width: number, height: number, autoResi
 
     canvas.id = canvasId
     document.body.prepend(canvas)
+    gameCanvas = canvas
     canvas.width = width
     canvas.height = height
 
@@ -43,7 +51,7 @@ function prependCanvas(canvasId: string, width: number, height: number, autoResi
  * Initialize the retrolib engine.
  * @param options
  */
-function Initialize(buildCanvas: boolean, width: number, height: number, canvasId: string, autoResize: boolean): void {
+function initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void {
     width = width ? width : 256
     height = height ? height : 256
     canvasId = canvasId ? canvasId : 'gamecanvas'
@@ -56,5 +64,5 @@ function Initialize(buildCanvas: boolean, width: number, height: number, canvasI
 }
 
 export {
-    Initialize
+    initialize, setCanvasBackground
 }
