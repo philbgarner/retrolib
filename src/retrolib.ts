@@ -64,5 +64,6 @@ function Initialize(canvasId: string, width: number, height: number, buildCanvas
 }
 
 export {
-    Initialize, SetCanvasBackground
+    Initialize, SetCanvasBackground,
+    gameCanvas, canvasWidth, canvasHeight
 }

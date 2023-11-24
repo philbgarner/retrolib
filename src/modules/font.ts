@@ -1,10 +1,11 @@
-import defaultFont from './defaultFont.json'
 import FontData from "./FontData"
 import fontCodepage437 from './fonts/default.json'
-import codelist from './codepage.js'
-import { createCanvas, Image as canvasImage } from 'canvas'
+import codelist from './codepage'
+//import { createCanvas, Canvas } from 'canvas'
+import { gameCanvas } from '../retrolib'
 
 import { getImage } from './images'
+import Rect from "./Rect"
 
 export type ColorRGBA = {
     r: number,
@@ -13,17 +14,17 @@ export type ColorRGBA = {
     a: number
 }
 
-const fonts = {
-    default: {}
+const fonts: FontData[] = []
+function LoadDefaultFonts(): void {
+    const loadedFont: FontData = LoadFromJSON(fontCodepage437)
+    if (loadedFont) {
+        fonts.push(loadedFont)
+    }
 }
 
-function LoadDefaultFonts() {
-    fonts.default = LoadFromJSON(defaultFont)
-}
-
-function LoadFromJSON(font : object): FontData {
+function LoadFromJSON(fontJson : object): FontData {
     try {
-        const fontData = Object.assign(new FontData(), font)
+        const fontData = Object.assign(new FontData(), fontJson)
         fontData.image = new Image()
         fontData.image.src = 'data:image/png;base64,' + fontData.imagedata
         return fontData
@@ -45,7 +46,7 @@ function HexToRgba(hex: string): ColorRGBA {
     } else if (hex.length === 8) {
         hex += '0'
     }
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
       r: parseInt(result[1], 16),
       g: parseInt(result[2], 16),
@@ -67,42 +68,51 @@ function RgbaToHex(rgb: ColorRGBA): string {
     return `#${r}${g}${b}${a}`
 }
 
-function ColorLerp(color1, color2, t): ColorRGBA {
+function ColorLerp(color1: ColorRGBA, color2: ColorRGBA, t: number): ColorRGBA {
     return {
-        r: parseInt(color1.r + (color2.r - color1.r) * t),
-        g: parseInt(color1.g + (color2.g - color1.g) * t),
-        b: parseInt(color1.b + (color2.b - color1.b) * t),
+        r: Math.floor(color1.r + (color2.r - color1.r) * t),
+        g: Math.floor(color1.g + (color2.g - color1.g) * t),
+        b: Math.floor(color1.b + (color2.b - color1.b) * t),
         a: color1.a
     }
 }
 
 function ImageToBase64(img: HTMLImageElement, outputFormat?: string) {
-    let canvas: any = null
     outputFormat = outputFormat ? outputFormat : 'image/png'
     try {
-        canvas = document.createElement('canvas')
+        const canvas: HTMLCanvasElement = document.createElement('canvas')
+        const contx = canvas.getContext('2d');
+        canvas.height = img.height
+        canvas.width = img.width
+        contx.drawImage(img, 0, 0)
+        const data = canvas.toDataURL(outputFormat)
+        const index = data.indexOf(';base64,') + ';base64,'.length
+        return data.slice(index)
     } catch {
-        canvas = createCanvas(img.width, img.height)
+        console.error('Cannot do this outside of the DOM yet.')
+        /*
+        const canvas: Canvas = createCanvas(img.width, img.height)
+        const contx = canvas.getContext('2d');
+        canvas.height = img.height
+        canvas.width = img.width
+        contx.drawImage(img, 0, 0)
+        const data = canvas.toDataURL(outputFormat)
+        const index = data.indexOf(';base64,') + ';base64,'.length
+        return data.slice(index)*/
     }
-    let contx = canvas.getContext('2d');
-    canvas.height = img.height
-    canvas.width = img.width
-    contx.drawImage(img, 0, 0)
-    let data = canvas.toDataURL(outputFormat)
-    let index = data.indexOf(';base64,') + ';base64,'.length
-    return data.slice(index)
+
   }
 
 
 /**
  * Loads bitmap from path (string param type) or uses Image to get the base64 image data and build a precompiled font JSON object.
- * @param bitmap 
+ * @param imageName 
  * @param max_y 
  * @param cw Character width. 
  * @param ch Character height.
  * @returns 
  */
-function CodepageAndBitmaptoJSON(bitmap: any, max_y: number, cw: number, ch: number) {
+function CodepageAndBitmaptoJSON(imageName: string, max_y: number, cw: number, ch: number) {
     return new Promise((resolve, reject) => {
         try {
             let sx = 0      // Source X
@@ -110,20 +120,15 @@ function CodepageAndBitmaptoJSON(bitmap: any, max_y: number, cw: number, ch: num
             cw = cw ? cw : 9      // Character Width
             ch = ch ? ch : 16     // Character Height
 
-            let codepage = []
+            const codepage = []
             let imagedata = null
-            let image = new Image()
-            if (typeof bitmap === 'string') {
-                imagedata = ImageToBase64(getImage(bitmap))
-                image.src = 'data:image/png;base64,' + imagedata
-            } else {
-                image = bitmap
-                imagedata = ImageToBase64(image)
-            }
+            const image = new Image()
+            imagedata = ImageToBase64(getImage(imageName))
+            image.src = 'data:image/png;base64,' + imagedata
             max_y = max_y ? max_y : image.height
         
             for (let code = 0; code < 256; code++) {
-                let codeitem = codelist.filter(f => f.codenumber === code)
+                const codeitem = codelist.filter(f => f.codenumber === code)
                 if (codeitem.length > 0) {
                     codeitem[0].rect = undefined // { x: sx, y: sy, w: cw, h: ch } //TODO: Make this a parameter to control whether we auto-generate rects
                     codepage.push(codeitem[0])
@@ -148,7 +153,196 @@ function CodepageAndBitmaptoJSON(bitmap: any, max_y: number, cw: number, ch: num
     })
 }
 
+
+function TextHeight(text: string, font: FontData) {
+    try {
+        if (text.length === 0) {
+            return 0
+        }
+        const txt: string[] = text.split('\n')
+        return txt.length * font.cheight
+    } catch { return 0 }
+}
+
+function TextWidth(text: string, font: FontData) {
+    try {
+        if (text.length === 0) {
+            return 0
+        }
+        let maxw = 0
+        const txt = text.split('\n')
+        for (const index in txt) {
+            const txt = text[index]
+            let linewidth = 0
+            for (let char = 0; char < txt.length; char++) {
+                const glyph = font.codepage.filter(f => f.codenumber === txt.charCodeAt(char))
+                const rect = glyph.length > 0 ? glyph[0].rect : null
+                if (rect) {
+                    linewidth += rect.w
+                } else {
+                    linewidth += font.cwidth
+                }
+            }
+            if (linewidth > maxw) {
+                maxw = linewidth
+            }
+        }
+        return maxw
+    } catch { return 0 }
+}
+
+
+/**
+ * Draws the specified text on the canvas.
+ * 
+ * @param {object} ctx 2d context from canvas element.
+ * @param {number} x Left location for text.
+ * @param {number} y Top location for text
+ * @param {string} text Text to be drawn on canvas.
+ * @param {string} color Colour to use (white if undefined).
+ * @param {object} font Font to use (default DOS codepage 437 font if undefined).
+ * @param {object} effects Any effects and parameters to apply when rendering this text.
+ */
+function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font: FontData/*, effects: object*/): Rect {
+    
+    if (text.length === 0) {
+        return { x: x, y: y, w: 0, h: 0 }
+    }
+
+    //effects = effects ? effects : {}
+
+    if (!font && fonts.length > 0) {
+        font = fonts[0]
+    } else if (!font || fonts.length === 0) {
+        throw new Error('Font parameter empty and default fonts are not loaded.')
+    }
+    if (!color) {
+        color = HexToRgba('#ffffffff')
+    }
+
+    if (!font || !font.codepage || !font.imagedata || !font.image || !font.cwidth || !font.cheight) {
+        throw new Error('Invalid font or font not loaded.')
+    }
+
+    let textwidth = TextWidth(text, font)//font.cwidth * text.length
+    const textheight = TextHeight(text, font)
+
+    if (typeof text === 'number') {
+        textwidth = font.cwidth
+    }
+
+    gameCanvas.width = textwidth
+    gameCanvas.height = textheight
+    const fontctx = gameCanvas.getContext('2d')
+    fontctx.clearRect(0, 0, textwidth, textheight)
+    
+    let dx = 0
+    let maxdx = 0
+    if (typeof text === 'number') {
+        const glyph = font.codepage.filter(f => f.codenumber === text)
+        const rect = glyph.length > 0 ? glyph[0].rect : null
+        if (rect) {
+            fontctx.drawImage(font.image, rect.x, rect.y, rect.w, rect.h, dx, 0, rect.w, rect.h)
+            dx += rect.w
+        } else {
+            console.log('Error finding value in codepage for', text)
+            return
+        }
+    } else {
+        const rows = text.split('\n')
+        let dy = 0
+        for (const rowIndex in rows) {
+            const txt = rows[rowIndex]
+            for (let index = 0; index < txt.length; index++) {
+                let glyph = font.codepage.filter(f => f.symbol === txt[index])
+                if (glyph.length === 0) {
+                    glyph = font.codepage.filter(f => f.codenumber === txt[index].charCodeAt(0))
+                }
+                const rect = glyph.length > 0 ? glyph[0].rect : null
+                if (rect) {
+                    fontctx.drawImage(font.image, rect.x, rect.y, rect.w, rect.h, dx, dy, rect.w, rect.h)
+                    dx += rect.w
+                } else {
+                    console.log('Error finding value in codepage for', txt[index], `(${txt[index].charCodeAt(0)})`)
+                }
+            }
+            dy += font.cheight
+            if (dx > maxdx) {
+                maxdx = dx
+            }
+            dx = 0
+        }
+    }
+    textwidth = maxdx
+    let imageData: ImageData = null
+    if (textwidth > 0) {
+        try {
+            imageData = fontctx.getImageData(0, 0, textwidth, textheight)
+        } catch {
+            console.log('Error getting image data:', textwidth, textheight)
+            return
+        }
+        const pixels: Uint8ClampedArray = imageData.data
+
+        for (let py = 0; py < textheight; py++) {
+            for (let px = 0; px < textwidth; px++) {
+                const pixel = GetPixelAtRgba(pixels, px, py, textwidth)
+                // if (Object.keys(effects).length > 0) {
+                //     let setDefaultPixel = true
+                //     if (effects.gradient && pixel && pixel.a > 0) {
+                //         const vertical = effects.gradient.horizontal ? false : true
+                //         const lerpT = vertical ? py / textheight : px / textwidth
+                //         const gradientColour: ColorRGBA = HexToRgba(effects.gradient.color)
+                //         const lerpColr: ColorRGBA = ColorLerp(color, gradientColour, lerpT)
+                //         SetPixelAtRgba(pixels, lerpColr, px, py, textwidth)
+                //         setDefaultPixel = false
+                //     }
+                //     if (pixel && pixel.a > 0 && setDefaultPixel) {
+                //         SetPixelAtRgba(pixels, color, px, py, textwidth)
+                //     }
+                // } else {
+                    if (pixel && pixel.a > 0) {
+                        SetPixelAtRgba(pixels, color, px, py, textwidth)
+                    }
+                // }
+            }
+        }
+
+        fontctx.clearRect(0, 0, textwidth, textheight)
+        // if (effects.background) {
+        //     ctx.fillStyle = effects.background.colour
+        //     ctx.fillRect(x, y, textwidth, textheight)
+        // }
+        fontctx.putImageData(imageData, 0, 0)
+        ctx.drawImage(gameCanvas, 0, 0, textwidth, textheight, x, y, textwidth, textheight)
+    }
+    return { x: x, y: y, w: textwidth, h: textheight }
+}
+
+function SetPixelAtRgba(pixels: Uint8ClampedArray, color: ColorRGBA, x: number, y: number, pixelswidth: number) {
+    const offset = (x + pixelswidth * y) * 4
+    if (offset < 0 || offset >= pixels.length) {
+        return false
+    }
+    pixels[offset] = color.r
+    pixels[offset + 1] = color.g
+    pixels[offset + 2] = color.b
+    pixels[offset + 3] = color.a
+    
+    return true
+}
+
+function GetPixelAtRgba(pixels: Uint8ClampedArray, x: number, y: number, pixelswidth: number): ColorRGBA {
+    const offset = (x + pixelswidth * y) * 4
+    if (offset < 0 || offset >= pixels.length) {
+        return null
+    }
+    return { r: pixels[offset], g: pixels[offset + 1], b: pixels[offset + 2], a: pixels[offset + 3] }
+}
+
 export { LoadFromJSON, LoadDefaultFonts, Fonts,
             ColorLerp, RgbaToHex, HexToRgba,
-            ImageToBase64, CodepageAndBitmaptoJSON
+            ImageToBase64, CodepageAndBitmaptoJSON,
+            TextHeight, TextWidth,
+            DrawText
         }
