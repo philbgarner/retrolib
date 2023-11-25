@@ -42,16 +42,18 @@ function prependCanvas(canvasId: string, width: number, height: number, autoResi
     return canvas
 }
 
-function SetCanvasBackground(color: string) {
+function setCanvasBackground(color: string) {
     canvasBackground = color
-    gameCanvas.style.background = canvasBackground
+    if (gameCanvas) {
+        gameCanvas.style.background = canvasBackground
+    }
 }
 
 /**
  * Initialize the retrolib engine.
  * @param options
  */
-function Initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void {
+function initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void {
     width = width ? width : 256
     height = height ? height : 256
     canvasId = canvasId ? canvasId : 'gamecanvas'
@@ -64,6 +66,6 @@ function Initialize(canvasId: string, width: number, height: number, buildCanvas
 }
 
 export {
-    Initialize, SetCanvasBackground,
+    initialize, setCanvasBackground,
     gameCanvas, canvasWidth, canvasHeight
 }

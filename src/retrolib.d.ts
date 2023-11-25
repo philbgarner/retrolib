@@ -6,10 +6,10 @@ export * as music from './modules/music';
 declare let gameCanvas: HTMLCanvasElement;
 declare let canvasWidth: number;
 declare let canvasHeight: number;
-declare function SetCanvasBackground(color: string): void;
+declare function setCanvasBackground(color: string): void;
 /**
  * Initialize the retrolib engine.
  * @param options
  */
-declare function Initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void;
-export { Initialize, SetCanvasBackground, gameCanvas, canvasWidth, canvasHeight };
+declare function initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void;
+export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight };
