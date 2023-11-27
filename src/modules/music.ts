@@ -7,7 +7,8 @@ const sfxs: MusicDefinition[] = []
 export interface OnEndedFunction { (sfx: MusicDefinition): void }
 
 /**
- * Populate sfx manifest with JSON list of definitions.
+ * Populate sfx manifest with JSON list of definitions.  Manifest is an arry of
+ * objects matching format { "name": "track id ref", "filename": "./file_path/filename.ext" },
  * @param json JSON representation of image definitions.
  */
 function musicManifestFromJSON(json: object[]): void {

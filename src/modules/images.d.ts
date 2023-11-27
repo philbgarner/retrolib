@@ -1,7 +1,8 @@
 import ImageDefinition from "./ImageDefinition";
 import Rect from "./Rect";
 /**
- * Populate images manifest with JSON list of definitions.
+ * Populate images manifest with JSON list of definitions. Manifest is an array of objects
+ * like { "name": "image id ref", "filename": "file_path/filename.ext" }
  * @param json JSON representation of image definitions.
  */
 declare function imageManifestFromJSON(json: object[]): void;

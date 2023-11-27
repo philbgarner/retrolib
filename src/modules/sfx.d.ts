@@ -3,7 +3,8 @@ export interface OnEndedFunction {
     (sfx: SfxDefinition): void;
 }
 /**
- * Populate sfx manifest with JSON list of definitions.
+ * Populate sfx manifest with JSON list of definitions. Manifest is an arry of
+ * objects matching format { "name": "sfx id ref", "filename": "./file_path/filename.ext" },
  * @param json JSON representation of image definitions.
  */
 declare function sfxManifestFromJSON(json: object[]): void;

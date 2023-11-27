@@ -4,7 +4,8 @@ import Rect from "./Rect"
 const images: ImageDefinition[] = []
 
 /**
- * Populate images manifest with JSON list of definitions.
+ * Populate images manifest with JSON list of definitions. Manifest is an array of objects
+ * like { "name": "image id ref", "filename": "file_path/filename.ext" }
  * @param json JSON representation of image definitions.
  */
 function imageManifestFromJSON(json: object[]): void {
