@@ -22,8 +22,8 @@ declare function ImageToBase64(img: HTMLImageElement, outputFormat?: string): st
  * @returns
  */
 declare function CodepageAndBitmaptoJSON(imageName: string, max_y: number, cw: number, ch: number): Promise<unknown>;
-declare function TextHeight(text: string, font: FontData): number;
-declare function TextWidth(text: string, font: FontData): number;
+declare function TextHeight(text: string, font?: FontData): number;
+declare function TextWidth(text: string, font?: FontData): number;
 /**
  * Draws the specified text on the canvas.
  *
@@ -35,5 +35,5 @@ declare function TextWidth(text: string, font: FontData): number;
  * @param {FontData} font Font to use (default DOS codepage 437 font if undefined).
  * @param {object} effects Any effects and parameters to apply when rendering this text.
  */
-declare function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font: FontData): Rect;
+declare function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font?: FontData): Rect;
 export { LoadFromJSON, LoadDefaultFonts, Fonts, ColorLerp, RgbaToHex, HexToRgba, ImageToBase64, CodepageAndBitmaptoJSON, TextHeight, TextWidth, DrawText };

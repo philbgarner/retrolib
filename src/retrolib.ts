@@ -13,14 +13,14 @@ let canvasHeight: number = 0
 let canvasBackground: string = 'transparent'
 
 function resize(): void {
-    // TODO: calculate the width to height ratio and scale cSize by that before setting values.
-    const cSize : number = window.innerHeight > window.innerWidth ? window.innerWidth : window.innerHeight
+    const width = window.innerWidth
+    const height = window.innerHeight
     gameCanvas.style.display = 'block'
     gameCanvas.style.position = 'absolute'
-    gameCanvas.style.width = cSize + 'px'
-    gameCanvas.style.height = cSize + 'px'
-    gameCanvas.style.top = window.innerHeight / 2 - cSize / 2  + 'px'
-    gameCanvas.style.left = window.innerWidth / 2 - cSize / 2 + 'px'
+    gameCanvas.style.width = width + 'px'
+    gameCanvas.style.height = height + 'px'
+    gameCanvas.style.top = '0px'
+    gameCanvas.style.left = '0px'
     gameCanvas.style.background = canvasBackground
     gameCanvas.style.imageRendering = 'pixelated'
 }

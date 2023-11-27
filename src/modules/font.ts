@@ -156,7 +156,12 @@ function CodepageAndBitmaptoJSON(imageName: string, max_y: number, cw: number, c
 }
 
 
-function TextHeight(text: string, font: FontData) {
+function TextHeight(text: string, font?: FontData) {
+    if (!font && fonts.length > 0) {
+        font = fonts[0]
+    } else if (!font || fonts.length === 0) {
+        throw new Error('Font parameter empty and default fonts are not loaded.')
+    }
     try {
         if (text.length === 0) {
             return 0
@@ -166,7 +171,12 @@ function TextHeight(text: string, font: FontData) {
     } catch { return 0 }
 }
 
-function TextWidth(text: string, font: FontData) {
+function TextWidth(text: string, font?: FontData) {
+    if (!font && fonts.length > 0) {
+        font = fonts[0]
+    } else if (!font || fonts.length === 0) {
+        throw new Error('Font parameter empty and default fonts are not loaded.')
+    }
     try {
         if (text.length === 0) {
             return 0
@@ -205,7 +215,7 @@ function TextWidth(text: string, font: FontData) {
  * @param {FontData} font Font to use (default DOS codepage 437 font if undefined).
  * @param {object} effects Any effects and parameters to apply when rendering this text.
  */
-function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font: FontData/*, effects: object*/): Rect {
+function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font?: FontData/*, effects: object*/): Rect {
     
     if (typeof color === 'string') {
         color = HexToRgba(color)

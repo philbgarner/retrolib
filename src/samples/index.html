@@ -14,6 +14,7 @@
                 window.requestAnimationFrame(update)
                 let ctx = retrolib.gameCanvas.getContext('2d')
                 let message = 'Hello World!'
+                console.log('textwidth',retrolib.font.TextWidth(message))
                 retrolib.font.DrawText(ctx, Math.floor(160 - retrolib.font.TextWidth(message) / 2), Math.floor(100 - retrolib.font.TextHeight(message) / 2), message, '#f1f1f1ff')
             }
 
