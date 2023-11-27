@@ -7,6 +7,8 @@ import { gameCanvas } from '../retrolib'
 import { getImage } from './images'
 import Rect from "./Rect"
 
+let fontCanvas = null
+
 export type ColorRGBA = {
     r: number,
     g: number,
@@ -46,7 +48,7 @@ function HexToRgba(hex: string): ColorRGBA {
     } else if (hex.length === 8) {
         hex += '0'
     }
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
     return result ? {
       r: parseInt(result[1], 16),
       g: parseInt(result[2], 16),
@@ -105,7 +107,7 @@ function ImageToBase64(img: HTMLImageElement, outputFormat?: string) {
 
 
 /**
- * Loads bitmap from path (string param type) or uses Image to get the base64 image data and build a precompiled font JSON object.
+ * Get base64 image data and build a precompiled font JSON object.
  * @param imageName 
  * @param max_y 
  * @param cw Character width. 
@@ -172,10 +174,10 @@ function TextWidth(text: string, font: FontData) {
         let maxw = 0
         const txt = text.split('\n')
         for (const index in txt) {
-            const txt = text[index]
+            const line = txt[index]
             let linewidth = 0
-            for (let char = 0; char < txt.length; char++) {
-                const glyph = font.codepage.filter(f => f.codenumber === txt.charCodeAt(char))
+            for (let char = 0; char < line.length; char++) {
+                const glyph = font.codepage.filter(f => f.codenumber === line.charCodeAt(char))
                 const rect = glyph.length > 0 ? glyph[0].rect : null
                 if (rect) {
                     linewidth += rect.w
@@ -195,22 +197,26 @@ function TextWidth(text: string, font: FontData) {
 /**
  * Draws the specified text on the canvas.
  * 
- * @param {object} ctx 2d context from canvas element.
+ * @param {HTMLCanvasElement} ctx 2d context to draw text on.
  * @param {number} x Left location for text.
  * @param {number} y Top location for text
  * @param {string} text Text to be drawn on canvas.
- * @param {string} color Colour to use (white if undefined).
- * @param {object} font Font to use (default DOS codepage 437 font if undefined).
+ * @param {ColorRGBA} color Colour to use (white if undefined).
+ * @param {FontData} font Font to use (default DOS codepage 437 font if undefined).
  * @param {object} effects Any effects and parameters to apply when rendering this text.
  */
 function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font: FontData/*, effects: object*/): Rect {
     
+    if (typeof color === 'string') {
+        color = HexToRgba(color)
+    }
+
     if (text.length === 0) {
         return { x: x, y: y, w: 0, h: 0 }
     }
-
+    
     //effects = effects ? effects : {}
-
+    
     if (!font && fonts.length > 0) {
         font = fonts[0]
     } else if (!font || fonts.length === 0) {
@@ -219,59 +225,53 @@ function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
     if (!color) {
         color = HexToRgba('#ffffffff')
     }
-
+    
     if (!font || !font.codepage || !font.imagedata || !font.image || !font.cwidth || !font.cheight) {
         throw new Error('Invalid font or font not loaded.')
     }
 
-    let textwidth = TextWidth(text, font)//font.cwidth * text.length
+    
+    let textwidth = TextWidth(text, font)
     const textheight = TextHeight(text, font)
 
-    if (typeof text === 'number') {
-        textwidth = font.cwidth
+    if (!fontCanvas) {
+        fontCanvas = document.createElement('canvas')
+        fontCanvas.id = 'fontCanvas'
     }
 
-    gameCanvas.width = textwidth
-    gameCanvas.height = textheight
-    const fontctx = gameCanvas.getContext('2d')
+    fontCanvas.width = textwidth
+    fontCanvas.height = textheight
+    const fontctx = fontCanvas.getContext('2d')
     fontctx.clearRect(0, 0, textwidth, textheight)
     
     let dx = 0
     let maxdx = 0
-    if (typeof text === 'number') {
-        const glyph = font.codepage.filter(f => f.codenumber === text)
-        const rect = glyph.length > 0 ? glyph[0].rect : null
-        if (rect) {
-            fontctx.drawImage(font.image, rect.x, rect.y, rect.w, rect.h, dx, 0, rect.w, rect.h)
-            dx += rect.w
-        } else {
-            console.log('Error finding value in codepage for', text)
-            return
-        }
-    } else {
-        const rows = text.split('\n')
-        let dy = 0
-        for (const rowIndex in rows) {
-            const txt = rows[rowIndex]
-            for (let index = 0; index < txt.length; index++) {
-                let glyph = font.codepage.filter(f => f.symbol === txt[index])
-                if (glyph.length === 0) {
-                    glyph = font.codepage.filter(f => f.codenumber === txt[index].charCodeAt(0))
-                }
-                const rect = glyph.length > 0 ? glyph[0].rect : null
-                if (rect) {
-                    fontctx.drawImage(font.image, rect.x, rect.y, rect.w, rect.h, dx, dy, rect.w, rect.h)
-                    dx += rect.w
-                } else {
-                    console.log('Error finding value in codepage for', txt[index], `(${txt[index].charCodeAt(0)})`)
-                }
+
+    const rows = text.split('\n')
+    let dy = 0
+    for (const rowIndex in rows) {
+        const txt = rows[rowIndex]
+        for (let index = 0; index < txt.length; index++) {
+            const glyphs = font.codepage.filter(f => f.symbol === txt[index])
+            let glyph = null
+            if (glyphs.length === 0) {
+                glyph = font.codepage.filter(f => f.codenumber === txt[index].charCodeAt(0))
+            } else {
+                glyph = glyphs[0]
             }
-            dy += font.cheight
-            if (dx > maxdx) {
-                maxdx = dx
+            const rect = glyph ? glyph.rect : null
+            if (rect) {
+                fontctx.drawImage(font.image, rect.x, rect.y, rect.w, rect.h, dx, dy, rect.w, rect.h)
+                dx += rect.w
+            } else {
+                console.log('Error finding value in codepage for', txt[index], `(${txt[index].charCodeAt(0)})`)
             }
-            dx = 0
         }
+        dy += font.cheight
+        if (dx > maxdx) {
+            maxdx = dx
+        }
+        dx = 0
     }
     textwidth = maxdx
     let imageData: ImageData = null
@@ -307,14 +307,15 @@ function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
                 // }
             }
         }
+        let newImageData = new ImageData(pixels, textwidth, textheight)
 
         fontctx.clearRect(0, 0, textwidth, textheight)
         // if (effects.background) {
         //     ctx.fillStyle = effects.background.colour
         //     ctx.fillRect(x, y, textwidth, textheight)
         // }
-        fontctx.putImageData(imageData, 0, 0)
-        ctx.drawImage(gameCanvas, 0, 0, textwidth, textheight, x, y, textwidth, textheight)
+        fontctx.putImageData(newImageData, 0, 0)
+        ctx.drawImage(fontCanvas, 0, 0, textwidth, textheight, x, y, textwidth, textheight)
     }
     return { x: x, y: y, w: textwidth, h: textheight }
 }

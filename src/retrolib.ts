@@ -1,3 +1,5 @@
+import { LoadDefaultFonts } from './modules/font'
+
 export * as images from './modules/images'
 export * as font from './modules/font'
 export * as scenes from './modules/scenes'
@@ -20,6 +22,7 @@ function resize(): void {
     gameCanvas.style.top = window.innerHeight / 2 - cSize / 2  + 'px'
     gameCanvas.style.left = window.innerWidth / 2 - cSize / 2 + 'px'
     gameCanvas.style.background = canvasBackground
+    gameCanvas.style.imageRendering = 'pixelated'
 }
 
 function prependCanvas(canvasId: string, width: number, height: number, autoResize: boolean): HTMLCanvasElement {
@@ -63,6 +66,8 @@ function initialize(canvasId: string, width: number, height: number, buildCanvas
     } else if (gameCanvas === null) {
         gameCanvas = document.getElementById(canvasId) as HTMLCanvasElement
     }
+
+    LoadDefaultFonts()
 }
 
 export {

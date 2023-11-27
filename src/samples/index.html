@@ -9,6 +9,15 @@
             retrolib.setCanvasBackground('black')
             // canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean
             retrolib.initialize('gamecanvas', 320, 200, true, true)
+            
+            function update() {
+                window.requestAnimationFrame(update)
+                let ctx = retrolib.gameCanvas.getContext('2d')
+                let message = 'Hello World!'
+                retrolib.font.DrawText(ctx, Math.floor(160 - retrolib.font.TextWidth(message) / 2), Math.floor(100 - retrolib.font.TextHeight(message) / 2), message, '#f1f1f1ff')
+            }
+
+            window.requestAnimationFrame(update)
         </script>
     </body>
 </html>

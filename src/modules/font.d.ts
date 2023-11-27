@@ -14,7 +14,7 @@ declare function RgbaToHex(rgb: ColorRGBA): string;
 declare function ColorLerp(color1: ColorRGBA, color2: ColorRGBA, t: number): ColorRGBA;
 declare function ImageToBase64(img: HTMLImageElement, outputFormat?: string): string;
 /**
- * Loads bitmap from path (string param type) or uses Image to get the base64 image data and build a precompiled font JSON object.
+ * Get base64 image data and build a precompiled font JSON object.
  * @param imageName
  * @param max_y
  * @param cw Character width.
@@ -27,12 +27,12 @@ declare function TextWidth(text: string, font: FontData): number;
 /**
  * Draws the specified text on the canvas.
  *
- * @param {object} ctx 2d context from canvas element.
+ * @param {HTMLCanvasElement} ctx 2d context to draw text on.
  * @param {number} x Left location for text.
  * @param {number} y Top location for text
  * @param {string} text Text to be drawn on canvas.
- * @param {string} color Colour to use (white if undefined).
- * @param {object} font Font to use (default DOS codepage 437 font if undefined).
+ * @param {ColorRGBA} color Colour to use (white if undefined).
+ * @param {FontData} font Font to use (default DOS codepage 437 font if undefined).
  * @param {object} effects Any effects and parameters to apply when rendering this text.
  */
 declare function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font: FontData): Rect;
