@@ -16,15 +16,15 @@ export type ColorRGBA = {
     a: number
 }
 
-const fonts: FontData[] = []
-function LoadDefaultFonts(): void {
-    const loadedFont: FontData = LoadFromJSON(fontCodepage437)
+const fontList: FontData[] = []
+function loadDefaultFonts(): void {
+    const loadedFont: FontData = loadFromJSON(fontCodepage437)
     if (loadedFont) {
-        fonts.push(loadedFont)
+        fontList.push(loadedFont)
     }
 }
 
-function LoadFromJSON(fontJson : object): FontData {
+function loadFromJSON(fontJson : object): FontData {
     try {
         const fontData = Object.assign(new FontData(), fontJson)
         fontData.image = new Image()
@@ -35,14 +35,14 @@ function LoadFromJSON(fontJson : object): FontData {
     }
 }
 
-function Fonts(): FontData[] {
-    if (Object.keys(fonts).length === 0) {
-        LoadDefaultFonts()
+function fonts(): FontData[] {
+    if (Object.keys(fontList).length === 0) {
+        loadDefaultFonts()
     }
-    return Object.keys(fonts).map(m => fonts[m])
+    return Object.keys(fontList).map(m => fontList[m])
 }
 
-function HexToRgba(hex: string): ColorRGBA {
+function hextToRgba(hex: string): ColorRGBA {
     if (hex.length === 7) {
         hex += 'ff'
     } else if (hex.length === 8) {
@@ -57,7 +57,7 @@ function HexToRgba(hex: string): ColorRGBA {
     } : null;
   }
 
-function RgbaToHex(rgb: ColorRGBA): string {
+function rgbaToHex(rgb: ColorRGBA): string {
     let r = rgb.r.toString(16)
     let g = rgb.g.toString(16)
     let b = rgb.b.toString(16)
@@ -70,7 +70,7 @@ function RgbaToHex(rgb: ColorRGBA): string {
     return `#${r}${g}${b}${a}`
 }
 
-function ColorLerp(color1: ColorRGBA, color2: ColorRGBA, t: number): ColorRGBA {
+function colorLerp(color1: ColorRGBA, color2: ColorRGBA, t: number): ColorRGBA {
     return {
         r: Math.floor(color1.r + (color2.r - color1.r) * t),
         g: Math.floor(color1.g + (color2.g - color1.g) * t),
@@ -79,7 +79,7 @@ function ColorLerp(color1: ColorRGBA, color2: ColorRGBA, t: number): ColorRGBA {
     }
 }
 
-function ImageToBase64(img: HTMLImageElement, outputFormat?: string) {
+function imageToBase64(img: HTMLImageElement, outputFormat?: string) {
     outputFormat = outputFormat ? outputFormat : 'image/png'
     try {
         const canvas: HTMLCanvasElement = document.createElement('canvas')
@@ -114,7 +114,7 @@ function ImageToBase64(img: HTMLImageElement, outputFormat?: string) {
  * @param ch Character height.
  * @returns 
  */
-function CodepageAndBitmaptoJSON(imageName: string, max_y: number, cw: number, ch: number) {
+function codepageAndBitmaptoJSON(imageName: string, max_y: number, cw: number, ch: number) {
     return new Promise((resolve, reject) => {
         try {
             let sx = 0      // Source X
@@ -125,7 +125,7 @@ function CodepageAndBitmaptoJSON(imageName: string, max_y: number, cw: number, c
             const codepage = []
             let imagedata = null
             const image = new Image()
-            imagedata = ImageToBase64(getImage(imageName))
+            imagedata = imageToBase64(getImage(imageName))
             image.src = 'data:image/png;base64,' + imagedata
             max_y = max_y ? max_y : image.height
         
@@ -156,10 +156,10 @@ function CodepageAndBitmaptoJSON(imageName: string, max_y: number, cw: number, c
 }
 
 
-function TextHeight(text: string, font?: FontData) {
-    if (!font && fonts.length > 0) {
-        font = fonts[0]
-    } else if (!font || fonts.length === 0) {
+function textHeight(text: string, font?: FontData) {
+    if (!font && fontList.length > 0) {
+        font = fontList[0]
+    } else if (!font || fontList.length === 0) {
         throw new Error('Font parameter empty and default fonts are not loaded.')
     }
     try {
@@ -171,10 +171,10 @@ function TextHeight(text: string, font?: FontData) {
     } catch { return 0 }
 }
 
-function TextWidth(text: string, font?: FontData) {
-    if (!font && fonts.length > 0) {
-        font = fonts[0]
-    } else if (!font || fonts.length === 0) {
+function textWidth(text: string, font?: FontData) {
+    if (!font && fontList.length > 0) {
+        font = fontList[0]
+    } else if (!font || fontList.length === 0) {
         throw new Error('Font parameter empty and default fonts are not loaded.')
     }
     try {
@@ -215,10 +215,10 @@ function TextWidth(text: string, font?: FontData) {
  * @param {FontData} font Font to use (default DOS codepage 437 font if undefined).
  * @param {object} effects Any effects and parameters to apply when rendering this text.
  */
-function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font?: FontData/*, effects: object*/): Rect {
+function drawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font?: FontData/*, effects: object*/): Rect {
     
     if (typeof color === 'string') {
-        color = HexToRgba(color)
+        color = hextToRgba(color)
     }
 
     if (text.length === 0) {
@@ -227,13 +227,13 @@ function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
     
     //effects = effects ? effects : {}
     
-    if (!font && fonts.length > 0) {
-        font = fonts[0]
-    } else if (!font || fonts.length === 0) {
+    if (!font && fontList.length > 0) {
+        font = fontList[0]
+    } else if (!font || fontList.length === 0) {
         throw new Error('Font parameter empty and default fonts are not loaded.')
     }
     if (!color) {
-        color = HexToRgba('#ffffffff')
+        color = hextToRgba('#ffffffff')
     }
     
     if (!font || !font.codepage || !font.imagedata || !font.image || !font.cwidth || !font.cheight) {
@@ -241,8 +241,8 @@ function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
     }
 
     
-    let textwidth = TextWidth(text, font)
-    const textheight = TextHeight(text, font)
+    let textwidth = textWidth(text, font)
+    const textheight = textHeight(text, font)
 
     if (!fontCanvas) {
         fontCanvas = document.createElement('canvas')
@@ -296,7 +296,7 @@ function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
 
         for (let py = 0; py < textheight; py++) {
             for (let px = 0; px < textwidth; px++) {
-                const pixel = GetPixelAtRgba(pixels, px, py, textwidth)
+                const pixel = getPixelAtRgba(pixels, px, py, textwidth)
                 // if (Object.keys(effects).length > 0) {
                 //     let setDefaultPixel = true
                 //     if (effects.gradient && pixel && pixel.a > 0) {
@@ -312,7 +312,7 @@ function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
                 //     }
                 // } else {
                     if (pixel && pixel.a > 0) {
-                        SetPixelAtRgba(pixels, color, px, py, textwidth)
+                        setPixelAtRgba(pixels, color, px, py, textwidth)
                     }
                 // }
             }
@@ -330,7 +330,7 @@ function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
     return { x: x, y: y, w: textwidth, h: textheight }
 }
 
-function SetPixelAtRgba(pixels: Uint8ClampedArray, color: ColorRGBA, x: number, y: number, pixelswidth: number) {
+function setPixelAtRgba(pixels: Uint8ClampedArray, color: ColorRGBA, x: number, y: number, pixelswidth: number) {
     const offset = (x + pixelswidth * y) * 4
     if (offset < 0 || offset >= pixels.length) {
         return false
@@ -343,7 +343,7 @@ function SetPixelAtRgba(pixels: Uint8ClampedArray, color: ColorRGBA, x: number, 
     return true
 }
 
-function GetPixelAtRgba(pixels: Uint8ClampedArray, x: number, y: number, pixelswidth: number): ColorRGBA {
+function getPixelAtRgba(pixels: Uint8ClampedArray, x: number, y: number, pixelswidth: number): ColorRGBA {
     const offset = (x + pixelswidth * y) * 4
     if (offset < 0 || offset >= pixels.length) {
         return null
@@ -351,9 +351,9 @@ function GetPixelAtRgba(pixels: Uint8ClampedArray, x: number, y: number, pixelsw
     return { r: pixels[offset], g: pixels[offset + 1], b: pixels[offset + 2], a: pixels[offset + 3] }
 }
 
-export { LoadFromJSON, LoadDefaultFonts, Fonts,
-            ColorLerp, RgbaToHex, HexToRgba,
-            ImageToBase64, CodepageAndBitmaptoJSON,
-            TextHeight, TextWidth,
-            DrawText
+export { loadFromJSON, loadDefaultFonts, fonts,
+            colorLerp, rgbaToHex, hextToRgba,
+            imageToBase64, codepageAndBitmaptoJSON,
+            textHeight, textWidth,
+            drawText
         }

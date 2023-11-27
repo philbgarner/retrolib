@@ -6,13 +6,13 @@ export type ColorRGBA = {
     b: number;
     a: number;
 };
-declare function LoadDefaultFonts(): void;
-declare function LoadFromJSON(fontJson: object): FontData;
-declare function Fonts(): FontData[];
-declare function HexToRgba(hex: string): ColorRGBA;
-declare function RgbaToHex(rgb: ColorRGBA): string;
-declare function ColorLerp(color1: ColorRGBA, color2: ColorRGBA, t: number): ColorRGBA;
-declare function ImageToBase64(img: HTMLImageElement, outputFormat?: string): string;
+declare function loadDefaultFonts(): void;
+declare function loadFromJSON(fontJson: object): FontData;
+declare function fonts(): FontData[];
+declare function hextToRgba(hex: string): ColorRGBA;
+declare function rgbaToHex(rgb: ColorRGBA): string;
+declare function colorLerp(color1: ColorRGBA, color2: ColorRGBA, t: number): ColorRGBA;
+declare function imageToBase64(img: HTMLImageElement, outputFormat?: string): string;
 /**
  * Get base64 image data and build a precompiled font JSON object.
  * @param imageName
@@ -21,9 +21,9 @@ declare function ImageToBase64(img: HTMLImageElement, outputFormat?: string): st
  * @param ch Character height.
  * @returns
  */
-declare function CodepageAndBitmaptoJSON(imageName: string, max_y: number, cw: number, ch: number): Promise<unknown>;
-declare function TextHeight(text: string, font?: FontData): number;
-declare function TextWidth(text: string, font?: FontData): number;
+declare function codepageAndBitmaptoJSON(imageName: string, max_y: number, cw: number, ch: number): Promise<unknown>;
+declare function textHeight(text: string, font?: FontData): number;
+declare function textWidth(text: string, font?: FontData): number;
 /**
  * Draws the specified text on the canvas.
  *
@@ -35,5 +35,5 @@ declare function TextWidth(text: string, font?: FontData): number;
  * @param {FontData} font Font to use (default DOS codepage 437 font if undefined).
  * @param {object} effects Any effects and parameters to apply when rendering this text.
  */
-declare function DrawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font?: FontData): Rect;
-export { LoadFromJSON, LoadDefaultFonts, Fonts, ColorLerp, RgbaToHex, HexToRgba, ImageToBase64, CodepageAndBitmaptoJSON, TextHeight, TextWidth, DrawText };
+declare function drawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font?: FontData): Rect;
+export { loadFromJSON, loadDefaultFonts, fonts, colorLerp, rgbaToHex, hextToRgba, imageToBase64, codepageAndBitmaptoJSON, textHeight, textWidth, drawText };

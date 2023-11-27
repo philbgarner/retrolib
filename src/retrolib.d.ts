@@ -13,3 +13,5 @@ declare function setCanvasBackground(color: string): void;
  */
 declare function initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void;
 export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight };
+declare const _default: {};
+export default _default;

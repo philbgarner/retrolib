@@ -1,4 +1,4 @@
-import { LoadDefaultFonts } from './modules/font'
+import { loadDefaultFonts } from './modules/font'
 
 export * as images from './modules/images'
 export * as font from './modules/font'
@@ -67,10 +67,14 @@ function initialize(canvasId: string, width: number, height: number, buildCanvas
         gameCanvas = document.getElementById(canvasId) as HTMLCanvasElement
     }
 
-    LoadDefaultFonts()
+    loadDefaultFonts()
 }
 
 export {
     initialize, setCanvasBackground,
     gameCanvas, canvasWidth, canvasHeight
+}
+
+export default {
+
 }
