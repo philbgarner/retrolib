@@ -57,7 +57,6 @@ function setCanvasBackground(color: string) {
 
 /**
  * Initialize the retrolib engine.
- * @param options
  */
 function initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void {
     width = width ? width : 256

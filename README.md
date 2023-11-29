@@ -46,18 +46,29 @@ Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite export
 
 # Getting Started
 
-Import the module and function you need to use in your script:
+Import the library into your script:
 
 ```
-import { drawImage } from 'retrolib/images'
-
+import retrolib from './src/retrolib'
 ```
 
-And then draw an image to the current canvas.
+Or you can import the web bundle in your HTML file:
+```
+<script src="./dist/retrolib.js"></script>
+```
+
+And then draw an image to the current canvas by its Id in the manifest (see Initialization)
 
 ```
 drawImage(x, y, imageId, { x: 0, y: 0, w: 8, h: 8 }, options)
+```
 
+## Initialization
+
+Retrolib will create the canvas, set its CSS style for pixel art and resize it to fit the window
+if you call the initialize function in your HTML file like this:
+```
+retrolib.initialize('gamecanvas', 320, 200, true, true) // Creates a <Canvas/> element with pixel resolution 320x200 and resize to fill the window.
 ```
 
 ## Sample Projects
