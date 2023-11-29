@@ -62,4 +62,4 @@ drawImage(x, y, imageId, { x: 0, y: 0, w: 8, h: 8 }, options)
 
 ## Sample Projects
 
-There are some sample projects in the samples folder to demonstrate each module and how they're used.
+A hello world example exists for drawing using the font on the canvas both with and without the scene management module.

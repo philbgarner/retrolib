@@ -6,6 +6,9 @@ export * as scenes from './modules/scenes'
 export * as sfx from './modules/sfx'
 export * as music from './modules/music'
 
+import * as scenes from './modules/scenes'
+import Scene from './modules/scene'
+
 // Game Canvas metadata Globals.
 let gameCanvas: HTMLCanvasElement = null
 let canvasWidth: number = 0
@@ -68,13 +71,15 @@ function initialize(canvasId: string, width: number, height: number, buildCanvas
     }
 
     loadDefaultFonts()
+
+    // Register the scene controller's animation frame function with the window.
+    // Now any scene objects you add with scenes.addScene() will be called as long
+    // as they are active status.
+    window.requestAnimationFrame(scenes.handleAnimationFrame)
 }
 
 export {
     initialize, setCanvasBackground,
-    gameCanvas, canvasWidth, canvasHeight
-}
-
-export default {
-
+    gameCanvas, canvasWidth, canvasHeight,
+    Scene
 }

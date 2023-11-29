@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Hello World Scene Sample</title></head>
+    <body>
+        <!--Include the retrolib web bundle.-->
+        <script src="../../../dist/retrolib.js"></script>
+        <script>
+            retrolib.setCanvasBackground('black')
+            retrolib.initialize('gamecanvas', 320, 200, true, true)
+            let ctx = retrolib.gameCanvas.getContext('2d')
+            
+            // Instead of registering our own animation frame function with the window, 
+            // we can use the scene management system.
+            retrolib.scenes.addScene(new retrolib.Scene('hello world', (delta) => {
+                let message = 'Hello World!'
+                retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2), message, '#f1f1f1ff')
+            }, true))
+
+        </script>
+    </body>
+</html>
