@@ -57,10 +57,10 @@ Or you can import the web bundle in your HTML file:
 <script src="./dist/retrolib.js"></script>
 ```
 
-And then draw an image to the current canvas by its Id in the manifest (see Initialization)
+And then draw text using the default font on the current canvas.
 
 ```
-drawImage(x, y, imageId, { x: 0, y: 0, w: 8, h: 8 }, options)
+retrolib.font.drawText(ctx, 0, 0, 'Text', '#f1f1f1ff')
 ```
 
 ## Initialization
