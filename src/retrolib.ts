@@ -5,7 +5,9 @@ export * as font from './modules/font'
 export * as scenes from './modules/scenes'
 export * as sfx from './modules/sfx'
 export * as music from './modules/music'
+export * as input from './modules/input'
 
+import * as input from './modules/input'
 import * as scenes from './modules/scenes'
 import Scene from './modules/scene'
 
@@ -75,6 +77,8 @@ function initialize(canvasId: string, width: number, height: number, buildCanvas
     // Now any scene objects you add with scenes.addScene() will be called as long
     // as they are active status.
     window.requestAnimationFrame(scenes.handleAnimationFrame)
+
+    input.initialize()
 }
 
 export {

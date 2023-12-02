@@ -1,4 +1,5 @@
 import Scene from "./scene"
+import { input } from "../retrolib"
 
 let start: number = null
 const scenes: Scene[] = []
@@ -38,6 +39,11 @@ function handleAnimationFrame(timeStamp: number) {
     }
     const delta: number = timeStamp - start;
     start = timeStamp;
+
+    // Check for gamepad updates, fire off 
+    input.gamepadsDidUpdate()
+
+    // Run animationFrame for each active scene.
     scenes.filter((f: Scene) => f.active).forEach((scene: Scene) => {
         scene.animationFrame(delta)
     })

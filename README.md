@@ -1,6 +1,6 @@
 # Keywords
 
-retro pixel-art low-res 8-bit library
+retro pixel-art low-res 8-bit library vga-nostalgia
 
 # What is this?
 
@@ -13,9 +13,17 @@ Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite export
 - Promise-based image resource loaders.
 - 'Blit' style functions to draw image resources on the canvas.
 
-### Animation Controller
+### Aseprite Export Animation Controller
 
 - Animation controller class that uses the image module and imported Aseprite JSON to draw the correct frame on the canvas using the image module functions.
+
+## Font Module
+
+- Text 'blit' style function to draw a string on the canvas with a raster (bitmap) font.
+
+## Input Module
+
+- Supports keyboard and gamepad polling.
 
 ## Sfx Module
 
@@ -40,10 +48,6 @@ Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite export
 - Keyboard/gamepad/mouse event handlers with auto-navigation.
 - Manually speicify navigation option.
 
-## Font Module
-
-- Text 'blit' style function to draw a string on the canvas with a raster (bitmap) font
-
 # Getting Started
 
 Import the library into your script:
@@ -57,7 +61,7 @@ Or you can import the web bundle in your HTML file:
 <script src="./dist/retrolib.js"></script>
 ```
 
-And then draw text using the default font on the current canvas.
+And then draw text using the default font on the specified canvas 2d context.
 
 ```
 retrolib.font.drawText(ctx, 0, 0, 'Text', '#f1f1f1ff')
