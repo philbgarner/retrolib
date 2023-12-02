@@ -8,6 +8,9 @@ let gamepadConnected: Function = (event: GamepadEvent) => {}
 let gamepadDisconnected: Function = (event: GamepadEvent) => {}
 let gamepadUpdated: Function = (gamepad: Gamepad) => {}
 
+let keyboardDownHandler: Function = (event: GamepadEvent) => {}
+let keyboardReleaseHandler: Function = (event: GamepadEvent) => {}
+
 export type KeyboardInputRelationship = {
     inputName: string,
     key: string
@@ -54,12 +57,22 @@ export function initialize(): void {
  * 
  */
 
+export function onKeyboardDown(fn: Function) {
+    keyboardDownHandler = fn
+}
+
+export function onKeyboardRelease(fn: Function) {
+    keyboardReleaseHandler = fn
+}
+
 export function keyboardDown(e: KeyboardEvent): void {
     keysState[e.key] = true
+    keyboardDownHandler(e)
 }
 
 export function keyboardRelease(e: KeyboardEvent): void {
     keysState[e.key] = false
+    keyboardReleaseHandler(e)
 }
 
 export function setMappedKey(inputName: string, key: string): void {

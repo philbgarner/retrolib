@@ -24,6 +24,8 @@ export declare function initialize(): void;
  *  Keyboard Input Functions
  *
  */
+export declare function onKeyboardDown(fn: Function): void;
+export declare function onKeyboardRelease(fn: Function): void;
 export declare function keyboardDown(e: KeyboardEvent): void;
 export declare function keyboardRelease(e: KeyboardEvent): void;
 export declare function setMappedKey(inputName: string, key: string): void;
