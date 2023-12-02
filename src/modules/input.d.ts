@@ -1,3 +1,18 @@
+export interface KeyboardDownFunction {
+    (event: KeyboardEvent): void;
+}
+export interface KeyboardReleaseFunction {
+    (event: KeyboardEvent): void;
+}
+export interface GamepadUpdatedFunction {
+    (gamepad: Gamepad): void;
+}
+export interface GamepadConnectedFunction {
+    (event: GamepadEvent): void;
+}
+export interface GamepadDisonnectedFunction {
+    (event: GamepadEvent): void;
+}
 export type KeyboardInputRelationship = {
     inputName: string;
     key: string;
@@ -24,8 +39,8 @@ export declare function initialize(): void;
  *  Keyboard Input Functions
  *
  */
-export declare function onKeyboardDown(fn: Function): void;
-export declare function onKeyboardRelease(fn: Function): void;
+export declare function onKeyboardDown(fn: KeyboardDownFunction): void;
+export declare function onKeyboardRelease(fn: KeyboardReleaseFunction): void;
 export declare function keyboardDown(e: KeyboardEvent): void;
 export declare function keyboardRelease(e: KeyboardEvent): void;
 export declare function setMappedKey(inputName: string, key: string): void;
@@ -38,9 +53,9 @@ export declare function getInput(inputName: string): boolean;
  *  Gamepad Input Functions
  *
  */
-export declare function onGamepadConnected(fn: Function): void;
-export declare function onGamepadDisconnected(fn: Function): void;
-export declare function onGamepadUpdated(fn: Function): void;
+export declare function onGamepadConnected(fn: GamepadConnectedFunction): void;
+export declare function onGamepadDisconnected(fn: GamepadDisonnectedFunction): void;
+export declare function onGamepadUpdated(fn: GamepadUpdatedFunction): void;
 export declare function gamepadsDidUpdate(): void;
 export declare function getGamepads(): Gamepad[];
 export declare function getMappedButtonIndex(inputName: string): number;

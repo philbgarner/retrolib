@@ -4,12 +4,31 @@ let keysMap: { [key: string]: string } = {}
 let buttonsMap: { [key: string]: number } = {}
 let axisMap: { [key: string]: number } = {}
 let gamepadsTimestamps: { [key: number]: number } = {}
-let gamepadConnected: Function = (event: GamepadEvent) => {}
-let gamepadDisconnected: Function = (event: GamepadEvent) => {}
-let gamepadUpdated: Function = (gamepad: Gamepad) => {}
+let gamepadConnected: GamepadConnectedFunction = () => {}
+let gamepadDisconnected: GamepadDisonnectedFunction = () => {}
+let gamepadUpdated: GamepadUpdatedFunction = () => {}
 
-let keyboardDownHandler: Function = (event: GamepadEvent) => {}
-let keyboardReleaseHandler: Function = (event: GamepadEvent) => {}
+let keyboardDownHandler: KeyboardDownFunction = () => {}
+let keyboardReleaseHandler: KeyboardReleaseFunction = () => {}
+
+export interface KeyboardDownFunction {
+    (event: KeyboardEvent): void
+}
+
+export interface KeyboardReleaseFunction {
+    (event: KeyboardEvent): void
+}
+
+export interface GamepadUpdatedFunction {
+    (gamepad: Gamepad): void
+}
+
+export interface GamepadConnectedFunction {
+    (event: GamepadEvent): void
+}
+export interface GamepadDisonnectedFunction {
+    (event: GamepadEvent): void
+}
 
 export type KeyboardInputRelationship = {
     inputName: string,
@@ -34,7 +53,14 @@ export type GamepadAxisState = {
 
 export function initialize(): void {
     keysState = {}
-    
+    keysMap = {}
+    buttonsMap = {}
+    axisMap = {}
+    gamepadsTimestamps = {}
+    gamepadConnected = () => {}
+    gamepadDisconnected = () => {}
+    gamepadUpdated = () => {}
+   
     window.removeEventListener('keydown', keyboardDown)
     window.addEventListener('keydown', keyboardDown)
 
@@ -57,11 +83,11 @@ export function initialize(): void {
  * 
  */
 
-export function onKeyboardDown(fn: Function) {
+export function onKeyboardDown(fn: KeyboardDownFunction) {
     keyboardDownHandler = fn
 }
 
-export function onKeyboardRelease(fn: Function) {
+export function onKeyboardRelease(fn: KeyboardReleaseFunction) {
     keyboardReleaseHandler = fn
 }
 
@@ -89,7 +115,7 @@ export function getMappedKey(inputName: string): string {
 export function getMappedKeys(): KeyboardInputRelationship[] {
     let inputMap: KeyboardInputRelationship[]
     Object.keys(keysMap).forEach((key: string) => {
-        let rel: KeyboardInputRelationship = { inputName: key, key: keysMap[key] }
+        const rel: KeyboardInputRelationship = { inputName: key, key: keysMap[key] }
         inputMap.push(rel)
     })
     return inputMap
@@ -109,15 +135,15 @@ export function getInput(inputName: string) {
  * 
  */
 
-export function onGamepadConnected(fn: Function) {
+export function onGamepadConnected(fn: GamepadConnectedFunction) {
     gamepadConnected = fn
 }
 
-export function onGamepadDisconnected(fn: Function) {
+export function onGamepadDisconnected(fn: GamepadDisonnectedFunction) {
     gamepadDisconnected = fn
 }
 
-export function onGamepadUpdated(fn: Function) {
+export function onGamepadUpdated(fn: GamepadUpdatedFunction) {
     gamepadUpdated = fn
 }
 
@@ -151,7 +177,7 @@ export function getMappedAxisIndex(inputName: string): number {
 export function getMappedButtons(): GamepadInputRelationship[] {
     let inputMap: GamepadInputRelationship[]
     Object.keys(keysMap).forEach((key: string) => {
-        let rel: GamepadInputRelationship = { inputName: key, button: buttonsMap[key] }
+        const rel: GamepadInputRelationship = { inputName: key, button: buttonsMap[key] }
         inputMap.push(rel)
     })
     return inputMap
@@ -160,10 +186,10 @@ export function getMappedButtons(): GamepadInputRelationship[] {
 export function getButtonState(inputName: string): GamepadButtonState[] {
     let states: GamepadButtonState[]
     getGamepads().forEach((g: Gamepad) => {
-        let buttonIndex = getMappedButtonIndex(inputName)
+        const buttonIndex = getMappedButtonIndex(inputName)
         if (buttonIndex !== null) {
-            let button = g.buttons[buttonIndex]
-            let buttonState: GamepadButtonState = { controller: g.index, inputName: inputName, value: button.value, pressed: button.pressed, touched: button.touched }
+            const button = g.buttons[buttonIndex]
+            const buttonState: GamepadButtonState = { controller: g.index, inputName: inputName, value: button.value, pressed: button.pressed, touched: button.touched }
             states.push(buttonState)
         }
     })
@@ -174,7 +200,7 @@ export function getAxisState(inputName: string): GamepadAxisState[] {
     let states: GamepadAxisState[]
     getGamepads().forEach((g: Gamepad) => {
         if (axisMap[inputName] !== undefined) {
-            let axisState: GamepadAxisState = { controller: g.index, x: g.axes[axisMap[inputName]][0], y: g.axes[axisMap[inputName]][1] }
+            const axisState: GamepadAxisState = { controller: g.index, x: g.axes[axisMap[inputName]][0], y: g.axes[axisMap[inputName]][1] }
             states.push(axisState)
         }
     })

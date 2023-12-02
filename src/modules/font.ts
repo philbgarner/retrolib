@@ -1,9 +1,7 @@
 import FontData from "./FontData"
 import fontCodepage437 from './fonts/default.json'
 import codelist from './codepage'
-//import { createCanvas, Canvas } from 'canvas'
-import { gameCanvas } from '../retrolib'
-
+ 
 import { getImage } from './images'
 import Rect from "./Rect"
 
@@ -317,7 +315,7 @@ function drawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
                 // }
             }
         }
-        let newImageData = new ImageData(pixels, textwidth, textheight)
+        const newImageData = new ImageData(pixels, textwidth, textheight)
 
         fontctx.clearRect(0, 0, textwidth, textheight)
         // if (effects.background) {
