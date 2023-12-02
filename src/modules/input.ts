@@ -3,7 +3,7 @@ let keysMap: { [key: string]: string } = {}
 
 let buttonsMap: { [key: string]: number } = {}
 let axisMap: { [key: string]: number } = {}
-let gamepadsTimestamps: { [key: number]: number }
+let gamepadsTimestamps: { [key: number]: number } = {}
 let gamepadConnected: Function = (event: GamepadEvent) => {}
 let gamepadDisconnected: Function = (event: GamepadEvent) => {}
 let gamepadUpdated: Function = (gamepad: Gamepad) => {}
