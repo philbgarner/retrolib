@@ -35,6 +35,11 @@ export type GamepadAxisState = {
 };
 export declare function initialize(): void;
 /**
+ * Reset button mappings to defaults.
+ */
+export declare function resetGamepadButtonMappings(): void;
+export declare function resetGamepadAxisMappings(): void;
+/**
  *
  *  Keyboard Input Functions
  *
@@ -59,7 +64,7 @@ export declare function onGamepadUpdated(fn: GamepadUpdatedFunction): void;
 export declare function gamepadsDidUpdate(): void;
 export declare function getGamepads(): Gamepad[];
 export declare function getMappedButtonIndex(inputName: string): number;
-export declare function getMappedAxisIndex(inputName: string): number;
 export declare function getMappedButtons(): GamepadInputRelationship[];
+export declare function setMappedButton(inputName: string, buttonIndex: number): void;
 export declare function getButtonState(inputName: string): GamepadButtonState[];
 export declare function getAxisState(inputName: string): GamepadAxisState[];

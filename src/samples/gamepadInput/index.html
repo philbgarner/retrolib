@@ -16,8 +16,41 @@
 
             retrolib.scenes.addScene(new retrolib.Scene('Gamepad Connection', (delta) => {
                 ctx.clearRect(0, 0, 320, 200)
-                let message = lastMessage.length === 0 ? 'Activate gamepad...' : lastMessage
-                retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2), message, '#f1f1f1ff')
+                const gamepad0Action = retrolib.input.getButtonState('action')[0]
+                const gamepad0Cancel = retrolib.input.getButtonState('cancel')[0]
+                const gamepadButtons = []
+                if (gamepad0Action?.pressed) {
+                    gamepadButtons.push('Gamepad 0 Pressed  "Action"')
+                } else {
+                    gamepadButtons.push('Gamepad 0 Released "Action"')
+                }
+                if (gamepad0Cancel?.pressed) {
+                    gamepadButtons.push('Gamepad 0 Pressed  "Cancel"')
+                } else {
+                    gamepadButtons.push('Gamepad 0 Released "Cancel"')
+                }
+
+                const gamepad0LeftAxis = retrolib.input.getAxisState('leftAxis')[0]
+                if (gamepad0LeftAxis !== undefined) {
+                    retrolib.font.drawText(ctx, 25, 25, 'Left Joystick', '#f1f1f1ff')
+                    const width = retrolib.font.textWidth('Left Joystick')
+                    const leftX = Math.floor(gamepad0LeftAxis.x * 25)
+                    const topY = Math.floor(gamepad0LeftAxis.y * 25 + 12.5)
+                    retrolib.font.drawText(ctx, 25 + Math.floor(width / 2) + leftX, 50 + topY, 'X', '#f1f1f1ff')
+                }
+
+                const gamepad0RightAxis = retrolib.input.getAxisState('rightAxis')[0]
+                if (gamepad0RightAxis !== undefined) {
+                    const width = retrolib.font.textWidth('Right Joystick')
+                    const left = 320 - width - 25
+                    const leftX = Math.floor(gamepad0RightAxis.x * 25) - 25
+                    const topY = Math.floor(gamepad0RightAxis.y * 25 + 12.5)
+                    retrolib.font.drawText(ctx, 25 + Math.floor(width / 2) + leftX + left, 50 + topY, 'X', '#f1f1f1ff')
+                    retrolib.font.drawText(ctx, left, 25, 'Right Joystick', '#f1f1f1ff')
+                }
+
+                const message = lastMessage.length === 0 ? 'Activate gamepad...' : lastMessage + '\n' + gamepadButtons.join('\n')
+                retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2) + 25, message, '#c0c0c0ff')
             }, true))
 
         </script>
