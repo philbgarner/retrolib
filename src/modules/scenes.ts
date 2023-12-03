@@ -45,6 +45,7 @@ function handleAnimationFrame(timeStamp: number) {
 
     // Run animationFrame for each active scene.
     scenes.filter((f: Scene) => f.active).forEach((scene: Scene) => {
+        scene.elapsed += delta
         scene.animationFrame(delta)
     })
 }

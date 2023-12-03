@@ -10,6 +10,7 @@ class Scene {
     onActivate: OnActivateFunction
     onDeactivate: OnDeactivateFunction
     handleInput: InputHandlerFunction
+    elapsed: number
 
     /**
      * Create a new scene object.
@@ -27,6 +28,7 @@ class Scene {
         this.onActivate = onActivate
         this.onDeactivate = onDeactivate
         this.handleInput = handleInput
+        this.elapsed = 0
     }
 }
 
