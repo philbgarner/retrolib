@@ -85,7 +85,7 @@ export function resetGamepadButtonMappings() {
 }
 
 export function resetGamepadAxisMappings() {
-    axisMap = { 'leftAxis': [0, 1], 'rightAxis': [3, 4] }
+    axisMap = { 'leftAxis': [0, 1], 'rightAxis': [3, 4], 'dPad': [6, 7], 'trigger': [2, 5] }
 }
 
 /**

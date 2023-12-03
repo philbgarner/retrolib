@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head><title>Hello World Scene Sample</title></head>
+    <head><title>Hello World Gamepad Sample</title></head>
     <body>
         <!--Include the retrolib web bundle.-->
         <script src="../../../dist/retrolib.js"></script>
@@ -16,8 +16,10 @@
 
             retrolib.scenes.addScene(new retrolib.Scene('Gamepad Connection', (delta) => {
                 ctx.clearRect(0, 0, 320, 200)
+                // Get the current button states for gamepad 1 (index 0).
                 const gamepad0Action = retrolib.input.getButtonState('action')[0]
                 const gamepad0Cancel = retrolib.input.getButtonState('cancel')[0]
+                // Check whether or not the buttons are pressed and change text accordingly.
                 const gamepadButtons = []
                 if (gamepad0Action?.pressed) {
                     gamepadButtons.push('Gamepad 0 Pressed  "Action"')
@@ -30,6 +32,7 @@
                     gamepadButtons.push('Gamepad 0 Released "Cancel"')
                 }
 
+                // Get the current left joystick position on gamepad 1.
                 const gamepad0LeftAxis = retrolib.input.getAxisState('leftAxis')[0]
                 if (gamepad0LeftAxis !== undefined) {
                     retrolib.font.drawText(ctx, 25, 25, 'Left Joystick', '#f1f1f1ff')
@@ -39,6 +42,7 @@
                     retrolib.font.drawText(ctx, 25 + Math.floor(width / 2) + leftX, 50 + topY, 'X', '#f1f1f1ff')
                 }
 
+                // Get the current right joystick position on gamepad 1.
                 const gamepad0RightAxis = retrolib.input.getAxisState('rightAxis')[0]
                 if (gamepad0RightAxis !== undefined) {
                     const width = retrolib.font.textWidth('Right Joystick')
@@ -47,6 +51,20 @@
                     const topY = Math.floor(gamepad0RightAxis.y * 25 + 12.5)
                     retrolib.font.drawText(ctx, 25 + Math.floor(width / 2) + leftX + left, 50 + topY, 'X', '#f1f1f1ff')
                     retrolib.font.drawText(ctx, left, 25, 'Right Joystick', '#f1f1f1ff')
+                }
+
+                // Trigger is similar to the joystick axes except the range of it's value is
+                // 2 (-1 to 1).  Left trigger value is mapped to x in the state object and
+                // right trigger value to y.
+                const gamepad0Trigger = retrolib.input.getAxisState('trigger')[0]
+                if (gamepad0Trigger !== undefined) {
+                    const lTrigPct = ((gamepad0Trigger.x + 1) / 2 * 100).toFixed(1) + '%'
+                    retrolib.font.drawText(ctx, 10, 160, 'L. Trig. ' + lTrigPct, '#f1f1f1ff')
+
+                    const rTrigPct = ((gamepad0Trigger.y + 1) / 2 * 100).toFixed(1) + '%'
+                    const width = retrolib.font.textWidth('R. Trig. ' + rTrigPct)
+                    const left = 320 - width - 10
+                    retrolib.font.drawText(ctx, left, 160, 'R. Trig. ' + rTrigPct, '#f1f1f1ff')
                 }
 
                 const message = lastMessage.length === 0 ? 'Activate gamepad...' : lastMessage + '\n' + gamepadButtons.join('\n')
