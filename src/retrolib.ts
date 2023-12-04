@@ -6,10 +6,12 @@ export * as scenes from './modules/scenes'
 export * as sfx from './modules/sfx'
 export * as music from './modules/music'
 export * as input from './modules/input'
-
+export * as menus from './modules/menus'
 import * as input from './modules/input'
 import * as scenes from './modules/scenes'
 import Scene from './modules/scene'
+import Menu from './modules/menu'
+import { setContext } from './modules/images'
 
 // Game Canvas metadata Globals.
 let gameCanvas: HTMLCanvasElement = null
@@ -70,6 +72,7 @@ function initialize(canvasId: string, width: number, height: number, buildCanvas
     } else if (gameCanvas === null) {
         gameCanvas = document.getElementById(canvasId) as HTMLCanvasElement
     }
+    setContext(gameCanvas.getContext('2d'))
 
     loadDefaultFonts()
 
@@ -84,5 +87,5 @@ function initialize(canvasId: string, width: number, height: number, buildCanvas
 export {
     initialize, setCanvasBackground,
     gameCanvas, canvasWidth, canvasHeight,
-    Scene
+    Scene, Menu
 }
