@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Hello World Agnostic Input Sample</title></head>
+    <body>
+        <!--Include the retrolib web bundle.-->
+        <script src="../../../dist/retrolib.js"></script>
+        <script>
+            let lastMessage = ''
+            retrolib.setCanvasBackground('black')
+            retrolib.initialize('gamecanvas', 320, 200, true, true)
+            let ctx = retrolib.gameCanvas.getContext('2d')
+
+            // Register our gamepad connect/disconnect event callbacks.
+            retrolib.input.onGamepadConnected((event) => lastMessage = 'Gamepad ' + event.gamepad.index + ' connected.')
+            retrolib.input.onGamepadDisconnected((event) => lastMessage = 'Gamepad ' + event.gamepad.index + ' disonnected.')
+
+            retrolib.scenes.addScene(new retrolib.Scene('Gamepad Connection', (delta) => {
+                ctx.clearRect(0, 0, 320, 200)
+
+                const gamepadButtons = []
+                gamepadButtons.push('Move Left ' + (retrolib.input.inputPressed('left') ? 'Pressed' : 'Not Pressed'))
+                gamepadButtons.push('Move Right ' + (retrolib.input.inputPressed('right') ? 'Pressed' : 'Not Pressed'))
+                gamepadButtons.push('Move Up ' + (retrolib.input.inputPressed('up') ? 'Pressed' : 'Not Pressed'))
+                gamepadButtons.push('Move Down ' + (retrolib.input.inputPressed('down') ? 'Pressed' : 'Not Pressed'))
+
+                const message = lastMessage.length === 0 ? 'Activate gamepad...' : lastMessage + '\n' + gamepadButtons.join('\n')
+                
+                retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2) + 25, message, '#c0c0c0ff')
+
+                if (lastMessage.length > 0) {
+                    const title = `Press left/right/up and down\non keyboard or your gamepad's\nleft joystick.`
+                    retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(title) / 2), 25, title, '#c0c0c0ff')
+                }
+            }, true))
+
+        </script>
+    </body>
+</html>

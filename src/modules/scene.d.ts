@@ -17,6 +17,7 @@ declare class Scene {
     onActivate: OnActivateFunction;
     onDeactivate: OnDeactivateFunction;
     handleInput: InputHandlerFunction;
+    elapsed: number;
     /**
      * Create a new scene object.
      * @param id Scene name, unique identifier to fetch with.

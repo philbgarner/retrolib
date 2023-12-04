@@ -1,3 +1,9 @@
+/**
+ * 
+ * Globals
+ * 
+ */
+
 let keysState: { [key: string]: boolean } = {}
 let keysMap: { [key: string]: string } = {}
 
@@ -10,6 +16,42 @@ let gamepadUpdated: GamepadUpdatedFunction = () => {}
 
 let keyboardDownHandler: KeyboardDownFunction = () => {}
 let keyboardReleaseHandler: KeyboardReleaseFunction = () => {}
+
+let inputMaps: { [key: string]: InputMap[] }
+
+const settings: InputSettings = {
+    axisPressedThreshold: 0
+}
+
+/**
+ * 
+ * Enums
+ * 
+ */
+
+export enum InputType {
+    Keyboard = 0,
+    GamepadButton,
+    GamepadAxis
+}
+
+/**
+ * 
+ * Types
+ * 
+ */
+
+export type InputMap = {
+    type: InputType,
+    mapKey: string,
+    axisPlane: string,
+    axisCheckDirection: number
+}
+
+
+export type InputSettings = {
+    axisPressedThreshold: number
+}
 
 export interface KeyboardDownFunction {
     (event: KeyboardEvent): void
@@ -53,9 +95,11 @@ export type GamepadAxisState = {
 
 export function initialize(): void {
     keysState = {}
-    keysMap = {}
+    resetKeyboardMappings()
     resetGamepadButtonMappings()
     resetGamepadAxisMappings()
+    inputMaps = {}
+    resetInputMaps()
     gamepadsTimestamps = {}
     gamepadConnected = () => {}
     gamepadDisconnected = () => {}
@@ -86,6 +130,32 @@ export function resetGamepadButtonMappings() {
 
 export function resetGamepadAxisMappings() {
     axisMap = { 'leftAxis': [0, 1], 'rightAxis': [3, 4], 'dPad': [6, 7], 'trigger': [2, 5] }
+}
+
+export function resetKeyboardMappings() {
+    keysMap = {
+        'left': 'ArrowLeft',
+        'right': 'ArrowRight',
+        'up': 'ArrowUp',
+        'down': 'ArrowDown'
+    }
+}
+
+export function resetInputMaps() {
+    inputMaps = {
+        'left': [
+            { type: InputType.Keyboard, mapKey: 'ArrowLeft', axisPlane: '', axisCheckDirection: 0 },
+            { type: InputType.GamepadAxis, mapKey: 'leftAxis', axisPlane: 'x', axisCheckDirection: -1 }],
+        'right': [
+            { type: InputType.Keyboard, mapKey: 'ArrowRight', axisPlane: '', axisCheckDirection: 0 },
+            { type: InputType.GamepadAxis, mapKey: 'leftAxis', axisPlane: 'x', axisCheckDirection: 1 }],
+        'up': [
+            { type: InputType.Keyboard, mapKey: 'ArrowUp', axisPlane: '', axisCheckDirection: 0 },
+            { type: InputType.GamepadAxis, mapKey: 'leftAxis', axisPlane: 'y', axisCheckDirection: -1 }],
+        'down': [
+            { type: InputType.Keyboard, mapKey: 'ArrowDown', axisPlane: '', axisCheckDirection: 0},
+            { type: InputType.GamepadAxis, mapKey: 'leftAxis', axisPlane: 'y', axisCheckDirection: 1 }],
+    }
 }
 
 /**
@@ -136,7 +206,7 @@ export function getKeyState(stateKey: string): boolean {
     return keysState[stateKey]
 }
 
-export function getInput(inputName: string) {
+export function getInputKeyState(inputName: string): boolean {
     return getKeyState(getMappedKey(inputName))
 }
 
@@ -211,3 +281,49 @@ export function getAxisState(inputName: string): GamepadAxisState[] {
     })
     return states.sort((a: GamepadAxisState, b: GamepadAxisState) => a.controller - b.controller)
 }
+
+/**
+ * Whether or not the specified button or key that maps to inputName is pressed. Not used for axes or triggers.
+ * @param inputName Input name mapped to a button.
+ * @param gamepadNumber 
+ * @returns 
+ */
+export function inputPressed(inputName: string, gamepadNumber?: number): boolean {
+    gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber
+    const inputs = []
+    Object.keys(inputMaps).filter(f => f === inputName).forEach(key => inputs.push(...inputMaps[key]))
+    let ret: boolean = false
+    inputs.forEach(input => {
+        if (input.type === InputType.Keyboard && getInputKeyState(inputName)) {
+            ret = true
+        } else if (input.type === InputType.GamepadAxis && axisPressed(input.mapKey, input.axisPlane, input.axisCheckDirection, gamepadNumber)) {
+            ret = true
+        } else if (input.type === InputType.GamepadButton && buttonPressed(input.mapKey, gamepadNumber)) {
+            ret = true
+        }
+    })
+    return ret
+}
+
+export function buttonPressed(inputName: string, gamepadNumber?: number): boolean {
+    gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber
+    const button = getButtonState(inputName)[gamepadNumber]
+    if (button && button.pressed) {
+        return true
+    }
+    return false
+}
+
+export function axisPressed(inputName: string, axisPlane: number, direction: number, gamepadNumber?: number): boolean {
+    gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber
+    const state = getAxisState(inputName)[gamepadNumber]
+    if (state) {
+        if (direction < 0 && state[axisPlane] < 0 && state[axisPlane] <= -settings.axisPressedThreshold) {
+            return true
+        } else if (direction > 0 && state[axisPlane] > 0 && state[axisPlane] >= settings.axisPressedThreshold) {
+            return true
+        }
+    }
+    return false
+}
+

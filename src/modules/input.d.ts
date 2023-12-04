@@ -1,3 +1,32 @@
+/**
+ *
+ * Globals
+ *
+ */
+/**
+ *
+ * Enums
+ *
+ */
+export declare enum InputType {
+    Keyboard = 0,
+    GamepadButton = 1,
+    GamepadAxis = 2
+}
+/**
+ *
+ * Types
+ *
+ */
+export type InputMap = {
+    type: InputType;
+    mapKey: string;
+    axisPlane: string;
+    axisCheckDirection: number;
+};
+export type InputSettings = {
+    axisPressedThreshold: number;
+};
 export interface KeyboardDownFunction {
     (event: KeyboardEvent): void;
 }
@@ -39,6 +68,8 @@ export declare function initialize(): void;
  */
 export declare function resetGamepadButtonMappings(): void;
 export declare function resetGamepadAxisMappings(): void;
+export declare function resetKeyboardMappings(): void;
+export declare function resetInputMaps(): void;
 /**
  *
  *  Keyboard Input Functions
@@ -52,7 +83,7 @@ export declare function setMappedKey(inputName: string, key: string): void;
 export declare function getMappedKey(inputName: string): string;
 export declare function getMappedKeys(): KeyboardInputRelationship[];
 export declare function getKeyState(stateKey: string): boolean;
-export declare function getInput(inputName: string): boolean;
+export declare function getInputKeyState(inputName: string): boolean;
 /**
  *
  *  Gamepad Input Functions
@@ -68,3 +99,12 @@ export declare function getMappedButtons(): GamepadInputRelationship[];
 export declare function setMappedButton(inputName: string, buttonIndex: number): void;
 export declare function getButtonState(inputName: string): GamepadButtonState[];
 export declare function getAxisState(inputName: string): GamepadAxisState[];
+/**
+ * Whether or not the specified button or key that maps to inputName is pressed. Not used for axes or triggers.
+ * @param inputName Input name mapped to a button.
+ * @param gamepadNumber
+ * @returns
+ */
+export declare function inputPressed(inputName: string, gamepadNumber?: number): boolean;
+export declare function buttonPressed(inputName: string, gamepadNumber?: number): boolean;
+export declare function axisPressed(inputName: string, axisPlane: number, direction: number, gamepadNumber?: number): boolean;
