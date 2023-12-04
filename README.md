@@ -24,6 +24,7 @@ Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite export
 ## Input Module
 
 - Supports keyboard and gamepad polling.
+- Supports input mapping agnostically: 'left' will poll any input mapped to that name regardless of type (keyboard or gamepad).
 
 ## Sfx Module
 
