@@ -18,6 +18,8 @@
                 ctx.clearRect(0, 0, 320, 200)
 
                 const gamepadButtons = []
+                // The inputPressed() function returns true/false whether it was coming from the keyboard or the
+                // gamepad. Quick and easy way to get input going without worrying about what the player is using.
                 gamepadButtons.push('Move Left ' + (retrolib.input.inputPressed('left') ? 'Pressed' : 'Not Pressed'))
                 gamepadButtons.push('Move Right ' + (retrolib.input.inputPressed('right') ? 'Pressed' : 'Not Pressed'))
                 gamepadButtons.push('Move Up ' + (retrolib.input.inputPressed('up') ? 'Pressed' : 'Not Pressed'))
