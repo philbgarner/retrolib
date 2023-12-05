@@ -1,7 +1,3 @@
-# Keywords
-
-retro pixel-art low-res 8-bit library vga-nostalgia
-
 # What is this?
 
 Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite exported animation wrapper, scene management, sound and image management, particle support.
@@ -83,3 +79,7 @@ Generated markdown documentation available in the [docs folder](./docs/modules.m
 ## Sample Projects
 
 Some features are demonstrated in the [samples folder](./src/samples/).
+
+# Keywords
+
+retro pixel-art low-res 8-bit library vga-nostalgia
