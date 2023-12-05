@@ -54,7 +54,7 @@ Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite export
 Import the library into your script:
 
 ```
-import retrolib from './src/retrolib'
+import * as retrolib from './src/retrolib'
 ```
 
 Or you can import the web bundle in your HTML file:
