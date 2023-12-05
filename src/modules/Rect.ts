@@ -1,3 +1,6 @@
+/**
+ * A rectangle.
+ */
 class Rect {
     x: number
     y: number

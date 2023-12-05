@@ -1,3 +1,6 @@
+/**
+ * Helper class to store sound effects and deserialize them from JSON.
+ */
 class SfxDefinition {
     public name: string
     public sfx: HTMLAudioElement

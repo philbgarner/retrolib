@@ -3,6 +3,10 @@ export interface AnimationFrameFunction { (delta: number): void }
 export interface OnActivateFunction { (): void }
 export interface OnDeactivateFunction { (): void }
 
+/**
+ * Scene classes know how to draw themselves with animationFrame and a handleInput callback
+ * for keyboard/gamepad controls.
+ */
 class Scene {
     id: string
     animationFrame: AnimationFrameFunction

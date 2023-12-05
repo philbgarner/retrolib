@@ -16,6 +16,11 @@ function musicManifestFromJSON(json: object[]): void {
 }
 
 
+/**
+ * Whether or not the named track is currently playing.
+ * @param name Music track asset id.
+ * @returns 
+ */
 function isPlaying(name: string): boolean {
     const sf = getTrack(name)
     if (sf) {
@@ -24,13 +29,23 @@ function isPlaying(name: string): boolean {
     return false
 }
 
+/**
+ * Get the named audio element.
+ * @param name Music track asset id.
+ * @returns 
+ */
 function getTrack(name: string): HTMLAudioElement {
     const sf: MusicDefinition[] = sfxs.filter(f => f.name === name)
     return sf.length > 0 ? sf[0].track : null
 }
 
-
-function playTrack(name: string, onEnded: OnEndedFunction): Promise<void> {
+/**
+ * Play specified track.
+ * @param name Music track asset id.
+ * @param onEnded Optional callback for when the track ends.
+ * @returns 
+ */
+function playTrack(name: string, onEnded?: OnEndedFunction): Promise<void> {
     return new Promise(resolve => {
         try {
             const sf = sfxs.filter(f => f.name === name)
@@ -56,7 +71,12 @@ function playTrack(name: string, onEnded: OnEndedFunction): Promise<void> {
     })
 }
 
-function loadTrack(filename: string): Promise< HTMLAudioElement> {
+/**
+ * Load track from location.
+ * @param filename Path to audio asset.
+ * @returns 
+ */
+function loadTrack(filename: string): Promise<HTMLAudioElement> {
     return new Promise((resolve, reject) => {
         const sf: HTMLAudioElement = new Audio(filename)
         sf.oncanplaythrough = () => {
@@ -69,6 +89,10 @@ function loadTrack(filename: string): Promise< HTMLAudioElement> {
     })
 }
 
+/**
+ * Load all tracks that have been loaded into the manifest.
+ * @returns 
+ */
 function loadAllTracks(): Promise<PromiseSettledResult<HTMLAudioElement>[]> {
     return new Promise((resolveAll, rejectAll) => {
         const promises: Promise<HTMLAudioElement>[] = []

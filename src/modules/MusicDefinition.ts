@@ -1,3 +1,6 @@
+/**
+ * Helper class to store music tracks and deserialize them from JSON.
+ */
 class MusicDefinition {
     public name: string
     public track: HTMLAudioElement
