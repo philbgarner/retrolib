@@ -11,6 +11,9 @@ export type MenuOption = {
     rect: Rect
 }
 
+/**
+ * Menu Flavour of Scenes.
+ */
 class Menu extends Scene {
     offsetX: number
     offsetY: number
@@ -26,7 +29,7 @@ class Menu extends Scene {
 
     constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], nextSceneId: string, prevSceneId: string) {
         const animationFrame: AnimationFrameFunction = (delta: number) => {
-
+            this.Draw(delta)
         }
         super(id, animationFrame, active, undefined, undefined, (event) => console.log('event', event))
 

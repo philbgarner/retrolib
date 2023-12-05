@@ -12,10 +12,7 @@
             const menu = retrolib.menus.LayoutMenu('menu1', ['New Game', 'Load Game', 'Settings', 'About', 'Exit'], 0, 2, 15, 15)
 
             // Sample main menu, keyboard and gamepad selection works automatically.
-            retrolib.scenes.addScene(new retrolib.Scene('menu sample', (delta) => {
-                menu.Draw(delta)
-            }, true))
-
+            retrolib.scenes.addScene(menu, true)
         </script>
     </body>
 </html>

@@ -7,6 +7,9 @@ export type MenuOption = {
     text: string;
     rect: Rect;
 };
+/**
+ * Menu Flavour of Scenes.
+ */
 declare class Menu extends Scene {
     offsetX: number;
     offsetY: number;
