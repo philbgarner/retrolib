@@ -1,3 +1,5 @@
+retrolib / [Exports](modules.md)
+
 # Keywords
 
 retro pixel-art low-res 8-bit library vga-nostalgia
@@ -76,10 +78,6 @@ if you call the initialize function in your HTML file like this:
 retrolib.initialize('gamecanvas', 320, 200, true, true) // Creates a <Canvas/> element with pixel resolution 320x200 and resize to fill the window.
 ```
 
-# Documentation
-
-Generated markdown documentation available in the [docs folder](./docs/modules.md).
-
 ## Sample Projects
 
-Some features are demonstrated in the [samples folder](./src/samples/).
+A hello world example exists for drawing using the font on the canvas both with and without the scene management module.
