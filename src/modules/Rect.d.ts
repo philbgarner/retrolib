@@ -1,3 +1,6 @@
+/**
+ * A rectangle.
+ */
 declare class Rect {
     x: number;
     y: number;

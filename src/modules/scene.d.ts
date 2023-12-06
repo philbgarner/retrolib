@@ -10,6 +10,10 @@ export interface OnActivateFunction {
 export interface OnDeactivateFunction {
     (): void;
 }
+/**
+ * Scene classes know how to draw themselves with animationFrame and a handleInput callback
+ * for keyboard/gamepad controls.
+ */
 declare class Scene {
     id: string;
     animationFrame: AnimationFrameFunction;

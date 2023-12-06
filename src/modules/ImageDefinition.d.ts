@@ -1,3 +1,6 @@
+/**
+ * Helper class to store images aand deserialize them from JSON.
+ */
 declare class ImageDefinition {
     name: string;
     image: HTMLImageElement;

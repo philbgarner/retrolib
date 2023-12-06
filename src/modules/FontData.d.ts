@@ -1,4 +1,7 @@
 import Glyph from "./Glyph";
+/**
+ * Helper class to store font data.
+ */
 declare class FontData {
     cwidth: number;
     cheight: number;

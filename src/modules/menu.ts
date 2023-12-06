@@ -8,7 +8,13 @@ import { LayoutDirection } from "./menus"
 export type MenuOption = { 
     id: string,
     text: string,
-    rect: Rect
+    rect: Rect,
+    onAction?: OnSelectionFunction,
+    onCancel?: OnSelectionFunction
+}
+
+export interface OnSelectionFunction {
+    (menu: Menu, option: MenuOption): void
 }
 
 /**
@@ -26,6 +32,12 @@ class Menu extends Scene {
     selectSpeed: number
     incrementSelectionInput: string
     decrementSelectionInput: string
+
+    nextSceneId: string
+    prevSceneId: string
+
+    actionInput: string
+    cancelInput: string
 
     constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], nextSceneId: string, prevSceneId: string) {
         const animationFrame: AnimationFrameFunction = (delta: number) => {
@@ -45,8 +57,25 @@ class Menu extends Scene {
 
         this.incrementSelectionInput = direction === LayoutDirection.TopDown ? 'down' : 'right'
         this.decrementSelectionInput = direction === LayoutDirection.TopDown ? 'up' : 'left'
+
+        this.nextSceneId = nextSceneId
+        this.prevSceneId = prevSceneId
+
+        this.actionInput = 'action'
+        this.cancelInput = 'cancel'
     }
 
+    /**
+     * Returns the currently selected menu option.
+     */
+    Selected(): MenuOption {
+        return this.options[Math.floor(this.selectedOption)]
+    }
+
+    /**
+     * Draw the menu.
+     * @param delta 
+     */
     Draw(delta: number) {
         if (input.inputPressed(this.incrementSelectionInput)) {
             this.selectedOption += 1 * this.selectSpeed
@@ -59,6 +88,12 @@ class Menu extends Scene {
             if (this.selectedOption <= 0) {
                 this.selectedOption = this.options.length - 1
             }
+        }
+        if (input.inputPressed(this.actionInput) && this.Selected().onAction) {
+            this.Selected().onAction(this, this.Selected())
+        }
+        if (input.inputPressed(this.cancelInput) && this.Selected().onCancel) {
+            this.Selected().onCancel(this, this.Selected())
         }
 
         this.options.forEach((option, index) => {
