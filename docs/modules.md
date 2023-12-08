@@ -68,7 +68,7 @@ Menu item.
 
 #### Defined in
 
-[modules/menu.ts:10](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L10)
+[modules/menu.ts:10](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/menu.ts#L10)
 
 ## Variables
 
@@ -76,9 +76,11 @@ Menu item.
 
 • **canvasHeight**: `number` = `0`
 
+Canvas height (resolution y).
+
 #### Defined in
 
-[retrolib.ts:32](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L32)
+[retrolib.ts:42](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L42)
 
 ___
 
@@ -86,9 +88,11 @@ ___
 
 • **canvasWidth**: `number` = `0`
 
+Canvas width (resolution x).
+
 #### Defined in
 
-[retrolib.ts:31](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L31)
+[retrolib.ts:38](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L38)
 
 ___
 
@@ -96,9 +100,11 @@ ___
 
 • **gameCanvas**: `HTMLCanvasElement` = `null`
 
+Canvas element to draw on.
+
 #### Defined in
 
-[retrolib.ts:30](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L30)
+[retrolib.ts:34](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L34)
 
 ## Functions
 
@@ -124,7 +130,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:78](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L78)
+[retrolib.ts:91](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L91)
 
 ___
 
@@ -144,4 +150,4 @@ ___
 
 #### Defined in
 
-[retrolib.ts:68](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L68)
+[retrolib.ts:81](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L81)

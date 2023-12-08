@@ -38,7 +38,7 @@ A rectangle.
 
 #### Defined in
 
-modules/rect.ts:10
+[modules/rect.ts:10](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/rect.ts#L10)
 
 ## Properties
 
@@ -48,7 +48,7 @@ modules/rect.ts:10
 
 #### Defined in
 
-modules/rect.ts:8
+[modules/rect.ts:8](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/rect.ts#L8)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-modules/rect.ts:7
+[modules/rect.ts:7](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/rect.ts#L7)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-modules/rect.ts:5
+[modules/rect.ts:5](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/rect.ts#L5)
 
 ___
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-modules/rect.ts:6
+[modules/rect.ts:6](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/rect.ts#L6)

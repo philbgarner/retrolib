@@ -27,9 +27,22 @@ import { setContext } from './modules/images'
 
 
 // Game Canvas metadata Globals.
+
+/**
+ * Canvas element to draw on.
+ */
 let gameCanvas: HTMLCanvasElement = null
+/**
+ * Canvas width (resolution x).
+ */
 let canvasWidth: number = 0
+/**
+ * Canvas height (resolution y).
+ */
 let canvasHeight: number = 0
+/**
+ * CSS for canvas background.
+ */
 let canvasBackground: string = 'transparent'
 
 function resize(): void {

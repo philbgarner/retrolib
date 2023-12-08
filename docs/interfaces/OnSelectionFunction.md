@@ -21,4 +21,4 @@
 
 #### Defined in
 
-[modules/menu.ts:19](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L19)
+[modules/menu.ts:19](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/menu.ts#L19)
