@@ -40,11 +40,11 @@ Create a new scene object.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `id` | `string` | Scene name, unique identifier to fetch with. |
-| `animationFrame` | `AnimationFrameFunction` | Scene's render/update callback. |
+| `animationFrame` | [`AnimationFrameFunction`](../interfaces/AnimationFrameFunction.md) | Scene's render/update callback. |
 | `active` | `boolean` | Whether or not the scene is initialized active. |
-| `onActivate` | `OnActivateFunction` | Call this function when the scene activates. |
-| `onDeactivate` | `OnDeactivateFunction` | Call this function when the scene deactivates. |
-| `handleInput` | `InputHandlerFunction` | This function gets called when the scene receives input. |
+| `onActivate` | [`OnActivateFunction`](../interfaces/OnActivateFunction.md) | Call this function when the scene activates. |
+| `onDeactivate` | [`OnDeactivateFunction`](../interfaces/OnDeactivateFunction.md) | Call this function when the scene deactivates. |
+| `handleInput` | [`InputHandlerFunction`](../interfaces/InputHandlerFunction.md) | This function gets called when the scene receives input. |
 
 #### Returns
 
@@ -52,7 +52,7 @@ Create a new scene object.
 
 #### Defined in
 
-[modules/scene.ts:28](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L28)
+[modules/scene.ts:43](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L43)
 
 ## Properties
 
@@ -62,17 +62,17 @@ Create a new scene object.
 
 #### Defined in
 
-[modules/scene.ts:13](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L13)
+[modules/scene.ts:25](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L25)
 
 ___
 
 ### animationFrame
 
-• **animationFrame**: `AnimationFrameFunction`
+• **animationFrame**: [`AnimationFrameFunction`](../interfaces/AnimationFrameFunction.md)
 
 #### Defined in
 
-[modules/scene.ts:12](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L12)
+[modules/scene.ts:24](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L24)
 
 ___
 
@@ -82,17 +82,19 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:17](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L17)
+[modules/scene.ts:32](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L32)
 
 ___
 
 ### handleInput
 
-• **handleInput**: `InputHandlerFunction`
+• **handleInput**: [`InputHandlerFunction`](../interfaces/InputHandlerFunction.md)
+
+Callback function for input directed at the scene.
 
 #### Defined in
 
-[modules/scene.ts:16](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L16)
+[modules/scene.ts:31](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L31)
 
 ___
 
@@ -102,24 +104,24 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:11](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L11)
+[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L23)
 
 ___
 
 ### onActivate
 
-• **onActivate**: `OnActivateFunction`
+• **onActivate**: [`OnActivateFunction`](../interfaces/OnActivateFunction.md)
 
 #### Defined in
 
-[modules/scene.ts:14](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L14)
+[modules/scene.ts:26](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L26)
 
 ___
 
 ### onDeactivate
 
-• **onDeactivate**: `OnDeactivateFunction`
+• **onDeactivate**: [`OnDeactivateFunction`](../interfaces/OnDeactivateFunction.md)
 
 #### Defined in
 
-[modules/scene.ts:15](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L15)
+[modules/scene.ts:27](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L27)

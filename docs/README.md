@@ -1,9 +1,5 @@
 retrolib / [Exports](modules.md)
 
-# Keywords
-
-retro pixel-art low-res 8-bit library vga-nostalgia
-
 # What is this?
 
 Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite exported animation wrapper, scene management, sound and image management, particle support.
@@ -56,7 +52,7 @@ Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite export
 Import the library into your script:
 
 ```
-import retrolib from './src/retrolib'
+import * as retrolib from './src/retrolib'
 ```
 
 Or you can import the web bundle in your HTML file:
@@ -67,7 +63,7 @@ Or you can import the web bundle in your HTML file:
 And then draw text using the default font on the specified canvas 2d context.
 
 ```
-retrolib.font.drawText(ctx, 0, 0, 'Text', '#f1f1f1ff')
+retrolib.font.drawText(0, 0, 'Text', '#f1f1f1ff')
 ```
 
 ## Initialization
@@ -78,6 +74,14 @@ if you call the initialize function in your HTML file like this:
 retrolib.initialize('gamecanvas', 320, 200, true, true) // Creates a <Canvas/> element with pixel resolution 320x200 and resize to fill the window.
 ```
 
+# Documentation
+
+Generated markdown documentation available in the [docs folder](./docs/modules.md).
+
 ## Sample Projects
 
-A hello world example exists for drawing using the font on the canvas both with and without the scene management module.
+Some features are demonstrated in the [samples folder](./src/samples/).
+
+# Keywords
+
+retro pixel-art low-res 8-bit library vga-nostalgia

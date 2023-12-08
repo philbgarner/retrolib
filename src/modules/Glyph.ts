@@ -1,4 +1,4 @@
-import Rect from "./Rect"
+import Rect from "./rect"
 
 /**
  * Helper class to store Glyph (font symbol/codenumber and image Rect location).

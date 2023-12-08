@@ -16,7 +16,7 @@
             retrolib.scenes.addScene(new retrolib.Scene('Key Press', (delta) => {
                 ctx.clearRect(0, 0, 320, 200)
                 let message = lastPressed.length === 0 ? 'Press any key...' : 'Pressed ' + lastPressed
-                retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2), message, '#f1f1f1ff')
+                retrolib.font.drawText(Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2), message, '#f1f1f1ff')
             }, true))
 
         </script>

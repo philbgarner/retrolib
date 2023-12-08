@@ -1,10 +1,12 @@
-import Rect from "./Rect"
+import Rect from "./rect"
 import Scene, { AnimationFrameFunction } from "./scene"
 import * as font from './font'
 import * as input from './input'
-import { getContext } from "./images"
 import { LayoutDirection } from "./menus"
 
+/**
+ * Menu item.
+ */
 export type MenuOption = { 
     id: string,
     text: string,
@@ -33,13 +35,17 @@ class Menu extends Scene {
     incrementSelectionInput: string
     decrementSelectionInput: string
 
-    nextSceneId: string
-    prevSceneId: string
-
     actionInput: string
     cancelInput: string
 
-    constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], nextSceneId: string, prevSceneId: string) {
+    /**
+     * 
+     * @param id Scene id.
+     * @param active Whether or not the scene starts activated.
+     * @param direction Layout direction.
+     * @param options Menu options (items).
+     */
+    constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[]) {
         const animationFrame: AnimationFrameFunction = (delta: number) => {
             this.Draw(delta)
         }
@@ -50,16 +56,12 @@ class Menu extends Scene {
 
         this.selectedOption = 0
         this.options = options
-        this.ctx = getContext()
         this.color = { r: 128, g: 128, b: 128, a: 255 }
         this.selectedColor = { r: 245, g: 245, b: 245, a: 255 }
         this.selectSpeed = 0.1
 
         this.incrementSelectionInput = direction === LayoutDirection.TopDown ? 'down' : 'right'
         this.decrementSelectionInput = direction === LayoutDirection.TopDown ? 'up' : 'left'
-
-        this.nextSceneId = nextSceneId
-        this.prevSceneId = prevSceneId
 
         this.actionInput = 'action'
         this.cancelInput = 'cancel'
@@ -76,7 +78,8 @@ class Menu extends Scene {
      * Draw the menu.
      * @param delta 
      */
-    Draw(/*delta: number*/) {
+    // eslint-disable-next-line
+    Draw(delta: number) {
         if (input.inputPressed(this.incrementSelectionInput)) {
             this.selectedOption += 1 * this.selectSpeed
             if (this.selectedOption >= this.options.length) {
@@ -98,7 +101,7 @@ class Menu extends Scene {
 
         this.options.forEach((option, index) => {
             const colr = Math.floor(this.selectedOption) === index ? this.selectedColor : this.color
-            font.drawText(this.ctx, option.rect.x, option.rect.y, option.text, colr)
+            font.drawText(option.rect.x, option.rect.y, option.text, colr)
         })
     }
 }

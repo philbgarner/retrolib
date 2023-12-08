@@ -16,8 +16,26 @@
 
 ### Classes
 
+- [FontData](classes/FontData.md)
+- [Glyph](classes/Glyph.md)
+- [ImageDefinition](classes/ImageDefinition.md)
 - [Menu](classes/Menu.md)
+- [MusicDefinition](classes/MusicDefinition.md)
+- [Rect](classes/Rect.md)
 - [Scene](classes/Scene.md)
+- [SfxDefinition](classes/SfxDefinition.md)
+
+### Interfaces
+
+- [AnimationFrameFunction](interfaces/AnimationFrameFunction.md)
+- [InputHandlerFunction](interfaces/InputHandlerFunction.md)
+- [OnActivateFunction](interfaces/OnActivateFunction.md)
+- [OnDeactivateFunction](interfaces/OnDeactivateFunction.md)
+- [OnSelectionFunction](interfaces/OnSelectionFunction.md)
+
+### Type Aliases
+
+- [MenuOption](modules.md#menuoption)
 
 ### Variables
 
@@ -30,6 +48,28 @@
 - [initialize](modules.md#initialize)
 - [setCanvasBackground](modules.md#setcanvasbackground)
 
+## Type Aliases
+
+### MenuOption
+
+Ƭ **MenuOption**: `Object`
+
+Menu item.
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+| `onAction?` | [`OnSelectionFunction`](interfaces/OnSelectionFunction.md) |
+| `onCancel?` | [`OnSelectionFunction`](interfaces/OnSelectionFunction.md) |
+| `rect` | [`Rect`](classes/Rect.md) |
+| `text` | `string` |
+
+#### Defined in
+
+[modules/menu.ts:10](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L10)
+
 ## Variables
 
 ### canvasHeight
@@ -38,7 +78,7 @@
 
 #### Defined in
 
-[retrolib.ts:19](https://github.com/philbgarner/retrolib/blob/61e1edc/src/retrolib.ts#L19)
+[retrolib.ts:32](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L32)
 
 ___
 
@@ -48,7 +88,7 @@ ___
 
 #### Defined in
 
-[retrolib.ts:18](https://github.com/philbgarner/retrolib/blob/61e1edc/src/retrolib.ts#L18)
+[retrolib.ts:31](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L31)
 
 ___
 
@@ -58,7 +98,7 @@ ___
 
 #### Defined in
 
-[retrolib.ts:17](https://github.com/philbgarner/retrolib/blob/61e1edc/src/retrolib.ts#L17)
+[retrolib.ts:30](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L30)
 
 ## Functions
 
@@ -84,7 +124,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:65](https://github.com/philbgarner/retrolib/blob/61e1edc/src/retrolib.ts#L65)
+[retrolib.ts:78](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L78)
 
 ___
 
@@ -104,4 +144,4 @@ ___
 
 #### Defined in
 
-[retrolib.ts:55](https://github.com/philbgarner/retrolib/blob/61e1edc/src/retrolib.ts#L55)
+[retrolib.ts:68](https://github.com/philbgarner/retrolib/blob/84e78a1/src/retrolib.ts#L68)

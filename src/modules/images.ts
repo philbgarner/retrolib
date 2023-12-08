@@ -1,5 +1,5 @@
 import ImageDefinition from "./ImageDefinition"
-import Rect from "./Rect"
+import Rect from "./rect"
 
 const images: ImageDefinition[] = []
 

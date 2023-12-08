@@ -35,11 +35,11 @@
                 // Get the current left joystick position on gamepad 1.
                 const gamepad0LeftAxis = retrolib.input.getAxisState('leftAxis')[0]
                 if (gamepad0LeftAxis !== undefined) {
-                    retrolib.font.drawText(ctx, 25, 25, 'Left Joystick', '#f1f1f1ff')
+                    retrolib.font.drawText(25, 25, 'Left Joystick', '#f1f1f1ff')
                     const width = retrolib.font.textWidth('Left Joystick')
                     const leftX = Math.floor(gamepad0LeftAxis.x * 25)
                     const topY = Math.floor(gamepad0LeftAxis.y * 25 + 12.5)
-                    retrolib.font.drawText(ctx, 25 + Math.floor(width / 2) + leftX, 50 + topY, 'X', '#f1f1f1ff')
+                    retrolib.font.drawText(25 + Math.floor(width / 2) + leftX, 50 + topY, 'X', '#f1f1f1ff')
                 }
 
                 // Get the current right joystick position on gamepad 1.
@@ -49,8 +49,8 @@
                     const left = 320 - width - 25
                     const leftX = Math.floor(gamepad0RightAxis.x * 25) - 25
                     const topY = Math.floor(gamepad0RightAxis.y * 25 + 12.5)
-                    retrolib.font.drawText(ctx, 25 + Math.floor(width / 2) + leftX + left, 50 + topY, 'X', '#f1f1f1ff')
-                    retrolib.font.drawText(ctx, left, 25, 'Right Joystick', '#f1f1f1ff')
+                    retrolib.font.drawText(25 + Math.floor(width / 2) + leftX + left, 50 + topY, 'X', '#f1f1f1ff')
+                    retrolib.font.drawText(left, 25, 'Right Joystick', '#f1f1f1ff')
                 }
 
                 // Trigger is similar to the joystick axes except the range of it's value is
@@ -59,16 +59,16 @@
                 const gamepad0Trigger = retrolib.input.getAxisState('trigger')[0]
                 if (gamepad0Trigger !== undefined) {
                     const lTrigPct = ((gamepad0Trigger.x + 1) / 2 * 100).toFixed(1) + '%'
-                    retrolib.font.drawText(ctx, 10, 160, 'L. Trig. ' + lTrigPct, '#f1f1f1ff')
+                    retrolib.font.drawText(10, 160, 'L. Trig. ' + lTrigPct, '#f1f1f1ff')
 
                     const rTrigPct = ((gamepad0Trigger.y + 1) / 2 * 100).toFixed(1) + '%'
                     const width = retrolib.font.textWidth('R. Trig. ' + rTrigPct)
                     const left = 320 - width - 10
-                    retrolib.font.drawText(ctx, left, 160, 'R. Trig. ' + rTrigPct, '#f1f1f1ff')
+                    retrolib.font.drawText(left, 160, 'R. Trig. ' + rTrigPct, '#f1f1f1ff')
                 }
 
                 const message = lastMessage.length === 0 ? 'Activate gamepad...' : lastMessage + '\n' + gamepadButtons.join('\n')
-                retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2) + 25, message, '#c0c0c0ff')
+                retrolib.font.drawText(Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2) + 25, message, '#c0c0c0ff')
             }, true))
 
         </script>

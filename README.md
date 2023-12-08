@@ -61,7 +61,7 @@ Or you can import the web bundle in your HTML file:
 And then draw text using the default font on the specified canvas 2d context.
 
 ```
-retrolib.font.drawText(ctx, 0, 0, 'Text', '#f1f1f1ff')
+retrolib.font.drawText(0, 0, 'Text', '#f1f1f1ff')
 ```
 
 ## Initialization

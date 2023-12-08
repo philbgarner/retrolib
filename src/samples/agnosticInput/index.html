@@ -27,11 +27,11 @@
 
                 const message = lastMessage.length === 0 ? 'Activate gamepad...' : lastMessage + '\n' + movementStatus.join('\n')
                 
-                retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2) + 25, message, '#c0c0c0ff')
+                retrolib.font.drawText(Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2) + 25, message, '#c0c0c0ff')
 
                 if (lastMessage.length > 0) {
                     const title = `Press left/right/up and down\non keyboard or your gamepad's\nleft joystick.`
-                    retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(title) / 2), 25, title, '#c0c0c0ff')
+                    retrolib.font.drawText(Math.floor(160 - retrolib.font.textWidth(title) / 2), 25, title, '#c0c0c0ff')
                 }
             }, true))
 

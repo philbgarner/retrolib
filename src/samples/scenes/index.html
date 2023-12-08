@@ -13,7 +13,7 @@
             // we can use the scene management system.
             retrolib.scenes.addScene(new retrolib.Scene('hello world', (delta) => {
                 let message = 'Hello World!'
-                retrolib.font.drawText(ctx, Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2), message, '#f1f1f1ff')
+                retrolib.font.drawText(Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2), message, '#f1f1f1ff')
             }, true))
 
         </script>

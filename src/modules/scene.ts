@@ -1,6 +1,18 @@
+/**
+ * Callback function for input directed at the scene.
+ */
 export interface InputHandlerFunction { (input: string, amt: number, released: boolean): void }
+/**
+ * Callback function for the animation frame event.
+ */
 export interface AnimationFrameFunction { (delta: number): void }
+/**
+ * Callback function for the activation event.
+ */
 export interface OnActivateFunction { (): void }
+/**
+ * Callback function for the deactivate event.
+ */
 export interface OnDeactivateFunction { (): void }
 
 /**
@@ -13,6 +25,9 @@ class Scene {
     active: boolean
     onActivate: OnActivateFunction
     onDeactivate: OnDeactivateFunction
+    /**
+     * Callback function for input directed at the scene.
+     */
     handleInput: InputHandlerFunction
     elapsed: number
 

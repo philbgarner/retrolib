@@ -28,6 +28,8 @@
 
 Ƭ **ColorRGBA**: `Object`
 
+RGBA colour representation.
+
 #### Type declaration
 
 | Name | Type |
@@ -39,7 +41,7 @@
 
 #### Defined in
 
-[modules/font.ts:10](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L10)
+[modules/font.ts:14](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L14)
 
 ## Functions
 
@@ -64,7 +66,7 @@ Get base64 image data and build a precompiled font JSON object.
 
 #### Defined in
 
-[modules/font.ts:115](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L115)
+[modules/font.ts:119](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L119)
 
 ___
 
@@ -86,13 +88,13 @@ ___
 
 #### Defined in
 
-[modules/font.ts:71](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L71)
+[modules/font.ts:75](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L75)
 
 ___
 
 ### drawText
 
-▸ **drawText**(`ctx`, `x`, `y`, `text`, `color`, `font?`): `Rect`
+▸ **drawText**(`x`, `y`, `text`, `color`, `font?`): [`Rect`](../classes/Rect.md)
 
 Draws the specified text on the canvas.
 
@@ -100,34 +102,35 @@ Draws the specified text on the canvas.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `ctx` | `CanvasRenderingContext2D` | 2d context to draw text on. |
 | `x` | `number` | Left location for text. |
-| `y` | `number` | Top location for text |
+| `y` | `number` | Top location for text. |
 | `text` | `string` | Text to be drawn on canvas. |
 | `color` | [`ColorRGBA`](font.md#colorrgba) | Colour to use (white if undefined). |
-| `font?` | `FontData` | Font to use (default DOS codepage 437 font if undefined). |
+| `font?` | [`FontData`](../classes/FontData.md) | Font to use (default DOS codepage 437 font if undefined). |
 
 #### Returns
 
-`Rect`
+[`Rect`](../classes/Rect.md)
+
+Rect object with the x, y, width, height of the text drawn.
 
 #### Defined in
 
-[modules/font.ts:216](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L216)
+[modules/font.ts:231](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L231)
 
 ___
 
 ### fonts
 
-▸ **fonts**(): `FontData`[]
+▸ **fonts**(): [`FontData`](../classes/FontData.md)[]
 
 #### Returns
 
-`FontData`[]
+[`FontData`](../classes/FontData.md)[]
 
 #### Defined in
 
-[modules/font.ts:36](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L36)
+[modules/font.ts:40](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L40)
 
 ___
 
@@ -147,7 +150,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:43](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L43)
+[modules/font.ts:47](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L47)
 
 ___
 
@@ -168,7 +171,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:80](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L80)
+[modules/font.ts:84](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L84)
 
 ___
 
@@ -182,13 +185,13 @@ ___
 
 #### Defined in
 
-[modules/font.ts:18](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L18)
+[modules/font.ts:22](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L22)
 
 ___
 
 ### loadFromJSON
 
-▸ **loadFromJSON**(`fontJson`): `FontData`
+▸ **loadFromJSON**(`fontJson`): [`FontData`](../classes/FontData.md)
 
 #### Parameters
 
@@ -198,11 +201,11 @@ ___
 
 #### Returns
 
-`FontData`
+[`FontData`](../classes/FontData.md)
 
 #### Defined in
 
-[modules/font.ts:25](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L25)
+[modules/font.ts:29](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L29)
 
 ___
 
@@ -222,7 +225,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:58](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L58)
+[modules/font.ts:62](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L62)
 
 ___
 
@@ -235,7 +238,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `text` | `string` |
-| `font?` | `FontData` |
+| `font?` | [`FontData`](../classes/FontData.md) |
 
 #### Returns
 
@@ -243,7 +246,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:157](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L157)
+[modules/font.ts:161](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L161)
 
 ___
 
@@ -256,7 +259,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `text` | `string` |
-| `font?` | `FontData` |
+| `font?` | [`FontData`](../classes/FontData.md) |
 
 #### Returns
 
@@ -264,4 +267,4 @@ ___
 
 #### Defined in
 
-[modules/font.ts:172](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/font.ts#L172)
+[modules/font.ts:176](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/font.ts#L176)

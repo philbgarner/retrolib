@@ -1,4 +1,4 @@
-import Rect from "./Rect";
+import Rect from "./rect";
 import * as fonts from "./font";
 import Menu, { MenuOption } from "./menu";
 
@@ -31,5 +31,5 @@ export function LayoutMenu(id: string, options: string[], direction: LayoutDirec
         menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h) })
     })
     
-    return new Menu(id, true, direction, menuOptions, '', '')
+    return new Menu(id, true, direction, menuOptions)
 }

@@ -2,11 +2,15 @@ import FontData from "./FontData"
 import fontCodepage437 from './fonts/default.json'
 import codelist from './codepage'
  
-import { getImage } from './images'
-import Rect from "./Rect"
+import { getContext, getImage } from './images'
+import Rect from "./rect"
 
 let fontCanvas = null
+let ctx = null
 
+/**
+ * RGBA colour representation.
+ */
 export type ColorRGBA = {
     r: number,
     g: number,
@@ -212,8 +216,19 @@ function textWidth(text: string, font?: FontData) {
  * @param {ColorRGBA} color Colour to use (white if undefined).
  * @param {FontData} font Font to use (default DOS codepage 437 font if undefined).
  * @param {object} effects Any effects and parameters to apply when rendering this text.
+ * @returns {Rect}
  */
-function drawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font?: FontData/*, effects: object*/): Rect {
+
+/**
+ * Draws the specified text on the canvas.
+ * @param x Left location for text.
+ * @param y Top location for text.
+ * @param text Text to be drawn on canvas.
+ * @param color Colour to use (white if undefined).
+ * @param font Font to use (default DOS codepage 437 font if undefined).
+ * @returns Rect object with the x, y, width, height of the text drawn.
+ */
+function drawText(x: number, y: number, text: string, color: ColorRGBA, font?: FontData/*, effects: object*/): Rect {
     
     if (typeof color === 'string') {
         color = hextToRgba(color)
@@ -245,6 +260,10 @@ function drawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: str
     if (!fontCanvas) {
         fontCanvas = document.createElement('canvas')
         fontCanvas.id = 'fontCanvas'
+    }
+
+    if (!ctx) {
+        ctx = getContext()
     }
 
     fontCanvas.width = textwidth

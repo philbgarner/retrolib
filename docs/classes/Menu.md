@@ -18,8 +18,10 @@ Menu Flavour of Scenes.
 
 ### Properties
 
+- [actionInput](Menu.md#actioninput)
 - [active](Menu.md#active)
 - [animationFrame](Menu.md#animationframe)
+- [cancelInput](Menu.md#cancelinput)
 - [color](Menu.md#color)
 - [ctx](Menu.md#ctx)
 - [decrementSelectionInput](Menu.md#decrementselectioninput)
@@ -39,23 +41,22 @@ Menu Flavour of Scenes.
 ### Methods
 
 - [Draw](Menu.md#draw)
+- [Selected](Menu.md#selected)
 
 ## Constructors
 
 ### constructor
 
-• **new Menu**(`id`, `active`, `direction`, `options`, `nextSceneId`, `prevSceneId`): [`Menu`](Menu.md)
+• **new Menu**(`id`, `active`, `direction`, `options`): [`Menu`](Menu.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-| `active` | `boolean` |
-| `direction` | [`LayoutDirection`](../enums/menus.LayoutDirection.md) |
-| `options` | `MenuOption`[] |
-| `nextSceneId` | `string` |
-| `prevSceneId` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `id` | `string` | Scene id. |
+| `active` | `boolean` | Whether or not the scene starts activated. |
+| `direction` | [`LayoutDirection`](../enums/menus.LayoutDirection.md) | Layout direction. |
+| `options` | [`MenuOption`](../modules.md#menuoption)[] | Menu options (items). |
 
 #### Returns
 
@@ -67,9 +68,19 @@ Menu Flavour of Scenes.
 
 #### Defined in
 
-[modules/menu.ts:30](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L30)
+[modules/menu.ts:48](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L48)
 
 ## Properties
+
+### actionInput
+
+• **actionInput**: `string`
+
+#### Defined in
+
+[modules/menu.ts:38](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L38)
+
+___
 
 ### active
 
@@ -81,13 +92,13 @@ Menu Flavour of Scenes.
 
 #### Defined in
 
-[modules/scene.ts:13](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L13)
+[modules/scene.ts:25](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L25)
 
 ___
 
 ### animationFrame
 
-• **animationFrame**: `AnimationFrameFunction`
+• **animationFrame**: [`AnimationFrameFunction`](../interfaces/AnimationFrameFunction.md)
 
 #### Inherited from
 
@@ -95,7 +106,17 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:12](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L12)
+[modules/scene.ts:24](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L24)
+
+___
+
+### cancelInput
+
+• **cancelInput**: `string`
+
+#### Defined in
+
+[modules/menu.ts:39](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L39)
 
 ___
 
@@ -105,7 +126,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:23](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L23)
+[modules/menu.ts:31](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L31)
 
 ___
 
@@ -115,7 +136,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:22](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L22)
+[modules/menu.ts:30](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L30)
 
 ___
 
@@ -125,7 +146,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:28](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L28)
+[modules/menu.ts:36](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L36)
 
 ___
 
@@ -139,13 +160,15 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:17](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L17)
+[modules/scene.ts:32](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L32)
 
 ___
 
 ### handleInput
 
-• **handleInput**: `InputHandlerFunction`
+• **handleInput**: [`InputHandlerFunction`](../interfaces/InputHandlerFunction.md)
+
+Callback function for input directed at the scene.
 
 #### Inherited from
 
@@ -153,7 +176,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:16](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L16)
+[modules/scene.ts:31](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L31)
 
 ___
 
@@ -167,7 +190,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:11](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L11)
+[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L23)
 
 ___
 
@@ -177,7 +200,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:27](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L27)
+[modules/menu.ts:35](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L35)
 
 ___
 
@@ -187,7 +210,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:18](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L18)
+[modules/menu.ts:26](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L26)
 
 ___
 
@@ -197,13 +220,13 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:19](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L19)
+[modules/menu.ts:27](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L27)
 
 ___
 
 ### onActivate
 
-• **onActivate**: `OnActivateFunction`
+• **onActivate**: [`OnActivateFunction`](../interfaces/OnActivateFunction.md)
 
 #### Inherited from
 
@@ -211,13 +234,13 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:14](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L14)
+[modules/scene.ts:26](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L26)
 
 ___
 
 ### onDeactivate
 
-• **onDeactivate**: `OnDeactivateFunction`
+• **onDeactivate**: [`OnDeactivateFunction`](../interfaces/OnDeactivateFunction.md)
 
 #### Inherited from
 
@@ -225,17 +248,17 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:15](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/scene.ts#L15)
+[modules/scene.ts:27](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/scene.ts#L27)
 
 ___
 
 ### options
 
-• **options**: `MenuOption`[]
+• **options**: [`MenuOption`](../modules.md#menuoption)[]
 
 #### Defined in
 
-[modules/menu.ts:20](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L20)
+[modules/menu.ts:28](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L28)
 
 ___
 
@@ -245,7 +268,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:26](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L26)
+[modules/menu.ts:34](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L34)
 
 ___
 
@@ -255,7 +278,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:24](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L24)
+[modules/menu.ts:32](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L32)
 
 ___
 
@@ -265,13 +288,15 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:21](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L21)
+[modules/menu.ts:29](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L29)
 
 ## Methods
 
 ### Draw
 
 ▸ **Draw**(`delta`): `void`
+
+Draw the menu.
 
 #### Parameters
 
@@ -285,4 +310,20 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:50](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/menu.ts#L50)
+[modules/menu.ts:81](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L81)
+
+___
+
+### Selected
+
+▸ **Selected**(): [`MenuOption`](../modules.md#menuoption)
+
+Returns the currently selected menu option.
+
+#### Returns
+
+[`MenuOption`](../modules.md#menuoption)
+
+#### Defined in
+
+[modules/menu.ts:73](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/menu.ts#L73)

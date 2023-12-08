@@ -14,7 +14,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `sfx` | `SfxDefinition` |
+| `sfx` | [`SfxDefinition`](../classes/SfxDefinition.md) |
 
 #### Returns
 
@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modules/sfx.ts:7](https://github.com/philbgarner/retrolib/blob/61e1edc/src/modules/sfx.ts#L7)
+[modules/sfx.ts:7](https://github.com/philbgarner/retrolib/blob/84e78a1/src/modules/sfx.ts#L7)
