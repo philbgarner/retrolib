@@ -37,4 +37,4 @@ Take a list of strings and create a menu with the options automatically laid out
 
 #### Defined in
 
-[modules/menus.ts:19](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/menus.ts#L19)
+[modules/menus.ts:19](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/menus.ts#L19)

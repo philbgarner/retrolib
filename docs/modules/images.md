@@ -40,7 +40,7 @@ Draws an image at x,y coordinates on the canas.
 
 #### Defined in
 
-[modules/images.ts:46](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/images.ts#L46)
+[modules/images.ts:46](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/images.ts#L46)
 
 ___
 
@@ -67,7 +67,7 @@ Raw image drawing function (use drawImage unless you want to draw to another 2d 
 
 #### Defined in
 
-[modules/images.ts:59](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/images.ts#L59)
+[modules/images.ts:59](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/images.ts#L59)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[modules/images.ts:23](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/images.ts#L23)
+[modules/images.ts:23](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/images.ts#L23)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[modules/images.ts:28](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/images.ts#L28)
+[modules/images.ts:28](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/images.ts#L28)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[modules/images.ts:34](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/images.ts#L34)
+[modules/images.ts:34](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/images.ts#L34)
 
 ___
 
@@ -138,7 +138,7 @@ like { "name": "image id ref", "filename": "file_path/filename.ext" }
 
 #### Defined in
 
-[modules/images.ts:11](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/images.ts#L11)
+[modules/images.ts:11](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/images.ts#L11)
 
 ___
 
@@ -154,7 +154,7 @@ Load all images in the images list.
 
 #### Defined in
 
-[modules/images.ts:117](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/images.ts#L117)
+[modules/images.ts:117](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/images.ts#L117)
 
 ___
 
@@ -176,7 +176,7 @@ Load Image
 
 #### Defined in
 
-[modules/images.ts:93](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/images.ts#L93)
+[modules/images.ts:93](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/images.ts#L93)
 
 ___
 
@@ -196,4 +196,4 @@ ___
 
 #### Defined in
 
-[modules/images.ts:18](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/images.ts#L18)
+[modules/images.ts:18](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/images.ts#L18)

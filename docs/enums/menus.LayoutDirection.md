@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[modules/menus.ts:7](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/menus.ts#L7)
+[modules/menus.ts:7](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/menus.ts#L7)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[modules/menus.ts:6](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/menus.ts#L6)
+[modules/menus.ts:6](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/menus.ts#L6)

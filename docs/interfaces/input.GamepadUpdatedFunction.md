@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modules/input.ts:65](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/input.ts#L65)
+[modules/input.ts:65](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L65)

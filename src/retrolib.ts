@@ -24,10 +24,6 @@ import MusicDefinition from './modules/MusicDefinition'
 import SfxDefinition from './modules/SfxDefinition'
 import { setContext } from './modules/images'
 
-
-
-// Game Canvas metadata Globals.
-
 /**
  * Canvas element to draw on.
  */
@@ -78,6 +74,10 @@ function prependCanvas(canvasId: string, width: number, height: number, autoResi
     return canvas
 }
 
+/**
+ * Set the canvas element's background value.
+ * @param color CSS background for canvas element.
+ */
 function setCanvasBackground(color: string) {
     canvasBackground = color
     if (gameCanvas) {
@@ -87,6 +87,11 @@ function setCanvasBackground(color: string) {
 
 /**
  * Initialize the retrolib engine.
+ * @param canvasId Id attribute of existing canvas, or id attribute to give to created canvas element.
+ * @param width X resolution.
+ * @param height Y resolution.
+ * @param buildCanvas Whether or not to create a canvas element.
+ * @param autoResize Whether or not to autoresize the canvas to the window.
  */
 function initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void {
     width = width ? width : 256

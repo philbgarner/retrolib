@@ -68,7 +68,7 @@ Menu item.
 
 #### Defined in
 
-[modules/menu.ts:10](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/modules/menu.ts#L10)
+[modules/menu.ts:10](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/menu.ts#L10)
 
 ## Variables
 
@@ -80,7 +80,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:42](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L42)
+[retrolib.ts:38](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L38)
 
 ___
 
@@ -92,7 +92,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:38](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L38)
+[retrolib.ts:34](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L34)
 
 ___
 
@@ -104,7 +104,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:34](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L34)
+[retrolib.ts:30](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L30)
 
 ## Functions
 
@@ -116,13 +116,13 @@ Initialize the retrolib engine.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `canvasId` | `string` |
-| `width` | `number` |
-| `height` | `number` |
-| `buildCanvas` | `boolean` |
-| `autoResize` | `boolean` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `canvasId` | `string` | Id attribute of existing canvas, or id attribute to give to created canvas element. |
+| `width` | `number` | X resolution. |
+| `height` | `number` | Y resolution. |
+| `buildCanvas` | `boolean` | Whether or not to create a canvas element. |
+| `autoResize` | `boolean` | Whether or not to autoresize the canvas to the window. |
 
 #### Returns
 
@@ -130,7 +130,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:91](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L91)
+[retrolib.ts:96](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L96)
 
 ___
 
@@ -138,11 +138,13 @@ ___
 
 ▸ **setCanvasBackground**(`color`): `void`
 
+Set the canvas element's background value.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `color` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `color` | `string` | CSS background for canvas element. |
 
 #### Returns
 
@@ -150,4 +152,4 @@ ___
 
 #### Defined in
 
-[retrolib.ts:81](https://github.com/philbgarner/retrolib/blob/5cc28cc/src/retrolib.ts#L81)
+[retrolib.ts:81](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L81)
