@@ -76,7 +76,7 @@ class Menu extends Scene {
      * Draw the menu.
      * @param delta 
      */
-    Draw(delta: number) {
+    Draw(/*delta: number*/) {
         if (input.inputPressed(this.incrementSelectionInput)) {
             this.selectedOption += 1 * this.selectSpeed
             if (this.selectedOption >= this.options.length) {

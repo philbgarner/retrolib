@@ -246,7 +246,7 @@ export function getMappedButtonIndex(inputName: string): number {
 }
 
 export function getMappedButtons(): GamepadInputRelationship[] {
-    let inputMap: GamepadInputRelationship[] = []
+    const inputMap: GamepadInputRelationship[] = []
     Object.keys(buttonsMap).forEach((key: string) => {
         const rel: GamepadInputRelationship = { inputName: key, button: buttonsMap[key] }
         inputMap.push(rel)
@@ -259,7 +259,7 @@ export function setMappedButton(inputName: string, buttonIndex: number): void {
 }
 
 export function getButtonState(inputName: string): GamepadButtonState[] {
-    let states: GamepadButtonState[] = []
+    const states: GamepadButtonState[] = []
     getGamepads().forEach((g: Gamepad) => {
         const buttonIndex = getMappedButtonIndex(inputName)
         if (buttonIndex !== null) {
@@ -272,7 +272,7 @@ export function getButtonState(inputName: string): GamepadButtonState[] {
 }
 
 export function getAxisState(inputName: string): GamepadAxisState[] {
-    let states: GamepadAxisState[] = []
+    const states: GamepadAxisState[] = []
     getGamepads().forEach((g: Gamepad) => {
         if (axisMap[inputName] !== undefined) {
             const axisState: GamepadAxisState = { controller: g.index, x: g.axes[axisMap[inputName][0]], y: g.axes[axisMap[inputName][1]] }

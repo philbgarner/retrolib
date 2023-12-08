@@ -17,7 +17,7 @@ export enum LayoutDirection {
  * @returns 
  */
 export function LayoutMenu(id: string, options: string[], direction: LayoutDirection, margin: number, startX: number, startY: number): Menu {
-    let menuOptions: MenuOption[] = []
+    const menuOptions: MenuOption[] = []
     let dx = startX
     let dy = startY
     options.forEach((value, index) => {
