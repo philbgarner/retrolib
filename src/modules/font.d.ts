@@ -1,5 +1,8 @@
 import FontData from "./FontData";
-import Rect from "./Rect";
+import Rect from "./rect";
+/**
+ * RGBA colour representation.
+ */
 export type ColorRGBA = {
     r: number;
     g: number;
@@ -34,6 +37,16 @@ declare function textWidth(text: string, font?: FontData): number;
  * @param {ColorRGBA} color Colour to use (white if undefined).
  * @param {FontData} font Font to use (default DOS codepage 437 font if undefined).
  * @param {object} effects Any effects and parameters to apply when rendering this text.
+ * @returns {Rect}
  */
-declare function drawText(ctx: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font?: FontData): Rect;
+/**
+ * Draws the specified text on the canvas.
+ * @param x Left location for text.
+ * @param y Top location for text.
+ * @param text Text to be drawn on canvas.
+ * @param color Colour to use (white if undefined).
+ * @param font Font to use (default DOS codepage 437 font if undefined).
+ * @returns Rect object with the x, y, width, height of the text drawn.
+ */
+declare function drawText(x: number, y: number, text: string, color: ColorRGBA, font?: FontData): Rect;
 export { loadFromJSON, loadDefaultFonts, fonts, colorLerp, rgbaToHex, hextToRgba, imageToBase64, codepageAndBitmaptoJSON, textHeight, textWidth, drawText };

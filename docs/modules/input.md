@@ -71,7 +71,7 @@
 
 #### Defined in
 
-[modules/input.ts:90](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L90)
+[modules/input.ts:90](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L90)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:83](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L83)
+[modules/input.ts:83](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L83)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:79](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L79)
+[modules/input.ts:79](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L79)
 
 ___
 
@@ -129,7 +129,7 @@ Types
 
 #### Defined in
 
-[modules/input.ts:44](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L44)
+[modules/input.ts:44](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L44)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:52](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L52)
+[modules/input.ts:52](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L52)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:75](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L75)
+[modules/input.ts:75](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L75)
 
 ## Functions
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:317](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L317)
+[modules/input.ts:317](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L317)
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:308](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L308)
+[modules/input.ts:308](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L308)
 
 ___
 
@@ -220,7 +220,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:231](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L231)
+[modules/input.ts:231](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L231)
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:274](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L274)
+[modules/input.ts:274](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L274)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:261](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L261)
+[modules/input.ts:261](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L261)
 
 ___
 
@@ -274,7 +274,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:240](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L240)
+[modules/input.ts:240](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L240)
 
 ___
 
@@ -294,7 +294,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:209](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L209)
+[modules/input.ts:209](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L209)
 
 ___
 
@@ -314,7 +314,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:205](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L205)
+[modules/input.ts:205](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L205)
 
 ___
 
@@ -334,7 +334,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:244](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L244)
+[modules/input.ts:244](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L244)
 
 ___
 
@@ -348,7 +348,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:248](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L248)
+[modules/input.ts:248](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L248)
 
 ___
 
@@ -368,7 +368,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:189](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L189)
+[modules/input.ts:189](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L189)
 
 ___
 
@@ -382,7 +382,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:196](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L196)
+[modules/input.ts:196](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L196)
 
 ___
 
@@ -396,7 +396,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:96](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L96)
+[modules/input.ts:96](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L96)
 
 ___
 
@@ -419,7 +419,7 @@ Whether or not the specified button or key that maps to inputName is pressed. No
 
 #### Defined in
 
-[modules/input.ts:291](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L291)
+[modules/input.ts:291](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L291)
 
 ___
 
@@ -439,7 +439,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:175](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L175)
+[modules/input.ts:175](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L175)
 
 ___
 
@@ -459,7 +459,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:180](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L180)
+[modules/input.ts:180](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L180)
 
 ___
 
@@ -481,7 +481,7 @@ Gamepad Input Functions
 
 #### Defined in
 
-[modules/input.ts:219](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L219)
+[modules/input.ts:219](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L219)
 
 ___
 
@@ -501,7 +501,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:223](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L223)
+[modules/input.ts:223](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L223)
 
 ___
 
@@ -521,7 +521,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:227](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L227)
+[modules/input.ts:227](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L227)
 
 ___
 
@@ -543,7 +543,7 @@ Keyboard Input Functions
 
 #### Defined in
 
-[modules/input.ts:167](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L167)
+[modules/input.ts:167](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L167)
 
 ___
 
@@ -563,7 +563,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:171](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L171)
+[modules/input.ts:171](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L171)
 
 ___
 
@@ -577,7 +577,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:131](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L131)
+[modules/input.ts:131](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L131)
 
 ___
 
@@ -593,7 +593,7 @@ Reset button mappings to defaults.
 
 #### Defined in
 
-[modules/input.ts:127](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L127)
+[modules/input.ts:127](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L127)
 
 ___
 
@@ -607,7 +607,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:144](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L144)
+[modules/input.ts:144](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L144)
 
 ___
 
@@ -621,7 +621,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:135](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L135)
+[modules/input.ts:135](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L135)
 
 ___
 
@@ -642,7 +642,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:257](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L257)
+[modules/input.ts:257](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L257)
 
 ___
 
@@ -663,4 +663,4 @@ ___
 
 #### Defined in
 
-[modules/input.ts:185](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/input.ts#L185)
+[modules/input.ts:185](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/input.ts#L185)

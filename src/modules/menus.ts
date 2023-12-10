@@ -28,7 +28,9 @@ export function LayoutMenu(id: string, options: string[], direction: LayoutDirec
         } else if (direction === LayoutDirection.LeftToRight) {
             dx += w + margin
         }
-        menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h) })
+        menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h), onInput: (menu, option, event) => {
+            console.log('Menu option onInput', event)
+        } })
     })
     
     return new Menu(id, true, direction, menuOptions)

@@ -11,12 +11,30 @@ export type MenuOption = {
     id: string,
     text: string,
     rect: Rect,
-    onAction?: OnSelectionFunction,
-    onCancel?: OnSelectionFunction
+    onInput: OnInputFunction
 }
 
+export enum MenuInputType {
+    Selection=0,
+    Cancel,
+    IncrementPrimary,
+    DecrementPrimary,
+    IncrementSecondary,
+    DecrementSecondary
+}
+
+/**
+ * Function that fires when the user presses either the 'action' or 'cancel' mapped inputs.
+ */
 export interface OnSelectionFunction {
     (menu: Menu, option: MenuOption): void
+}
+
+/**
+ * Function that fires when an input event occurs on a selected menu item.
+ */
+export interface OnInputFunction {
+    (menu: Menu, option: MenuOption, event: MenuInputType): void
 }
 
 /**
@@ -37,6 +55,9 @@ class Menu extends Scene {
 
     actionInput: string
     cancelInput: string
+
+    incrementSecondaryInput: string
+    decrementSecondaryInput: string
 
     /**
      * 
@@ -63,6 +84,9 @@ class Menu extends Scene {
         this.incrementSelectionInput = direction === LayoutDirection.TopDown ? 'down' : 'right'
         this.decrementSelectionInput = direction === LayoutDirection.TopDown ? 'up' : 'left'
 
+        this.incrementSecondaryInput = direction === LayoutDirection.TopDown ? 'right' : 'down'
+        this.decrementSecondaryInput = direction === LayoutDirection.TopDown ? 'left' : 'up'
+
         this.actionInput = 'action'
         this.cancelInput = 'cancel'
     }
@@ -85,18 +109,26 @@ class Menu extends Scene {
             if (this.selectedOption >= this.options.length) {
                 this.selectedOption = 0
             }
+            this.Selected().onInput(this, this.Selected(), MenuInputType.IncrementPrimary)
         }
         if (input.inputPressed(this.decrementSelectionInput)) {
             this.selectedOption += -1 * this.selectSpeed
             if (this.selectedOption <= 0) {
                 this.selectedOption = this.options.length - 1
             }
+            this.Selected().onInput(this, this.Selected(), MenuInputType.DecrementPrimary)
         }
-        if (input.inputPressed(this.actionInput) && this.Selected().onAction) {
-            this.Selected().onAction(this, this.Selected())
+        if (input.inputPressed(this.actionInput) && this.Selected().onInput) {
+            this.Selected().onInput(this, this.Selected(), MenuInputType.Selection)
         }
-        if (input.inputPressed(this.cancelInput) && this.Selected().onCancel) {
-            this.Selected().onCancel(this, this.Selected())
+        if (input.inputPressed(this.cancelInput) && this.Selected().onInput) {
+            this.Selected().onInput(this, this.Selected(), MenuInputType.Cancel)
+        }
+        if (input.inputPressed(this.incrementSecondaryInput) && this.Selected().onInput) {
+            this.Selected().onInput(this, this.Selected(), MenuInputType.IncrementSecondary)
+        }
+        if (input.inputPressed(this.decrementSecondaryInput) && this.Selected().onInput) {
+            this.Selected().onInput(this, this.Selected(), MenuInputType.DecrementSecondary)
         }
 
         this.options.forEach((option, index) => {

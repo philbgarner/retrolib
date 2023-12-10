@@ -2,6 +2,8 @@
 
 # Interface: OnSelectionFunction
 
+Function that fires when the user presses either the 'action' or 'cancel' mapped inputs.
+
 ## Callable
 
 ### OnSelectionFunction
@@ -21,4 +23,4 @@
 
 #### Defined in
 
-[modules/menu.ts:19](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/menu.ts#L19)
+[modules/menu.ts:30](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/menu.ts#L30)

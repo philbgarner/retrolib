@@ -38,7 +38,7 @@ Helper class to store sound effects and deserialize them from JSON.
 
 #### Defined in
 
-[modules/SfxDefinition.ts:7](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/SfxDefinition.ts#L7)
+[modules/SfxDefinition.ts:7](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/SfxDefinition.ts#L7)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[modules/SfxDefinition.ts:5](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/SfxDefinition.ts#L5)
+[modules/SfxDefinition.ts:5](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/SfxDefinition.ts#L5)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[modules/SfxDefinition.ts:6](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/SfxDefinition.ts#L6)
+[modules/SfxDefinition.ts:6](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/SfxDefinition.ts#L6)
 
 ## Methods
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[modules/SfxDefinition.ts:9](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/SfxDefinition.ts#L9)
+[modules/SfxDefinition.ts:9](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/SfxDefinition.ts#L9)

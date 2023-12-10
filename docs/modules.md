@@ -61,14 +61,13 @@ Menu item.
 | Name | Type |
 | :------ | :------ |
 | `id` | `string` |
-| `onAction?` | [`OnSelectionFunction`](interfaces/OnSelectionFunction.md) |
-| `onCancel?` | [`OnSelectionFunction`](interfaces/OnSelectionFunction.md) |
+| `onInput` | `OnInputFunction` |
 | `rect` | [`Rect`](classes/Rect.md) |
 | `text` | `string` |
 
 #### Defined in
 
-[modules/menu.ts:10](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/modules/menu.ts#L10)
+[modules/menu.ts:10](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/menu.ts#L10)
 
 ## Variables
 
@@ -80,7 +79,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:38](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L38)
+[retrolib.ts:38](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L38)
 
 ___
 
@@ -92,7 +91,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:34](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L34)
+[retrolib.ts:34](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L34)
 
 ___
 
@@ -104,7 +103,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:30](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L30)
+[retrolib.ts:30](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L30)
 
 ## Functions
 
@@ -130,7 +129,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:96](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L96)
+[retrolib.ts:96](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L96)
 
 ___
 
@@ -152,4 +151,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:81](https://github.com/philbgarner/retrolib/blob/a3f3c14/src/retrolib.ts#L81)
+[retrolib.ts:81](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L81)

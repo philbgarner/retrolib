@@ -1,5 +1,5 @@
 import ImageDefinition from "./ImageDefinition";
-import Rect from "./Rect";
+import Rect from "./rect";
 /**
  * Populate images manifest with JSON list of definitions. Manifest is an array of objects
  * like { "name": "image id ref", "filename": "file_path/filename.ext" }

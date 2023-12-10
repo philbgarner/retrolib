@@ -1,4 +1,4 @@
-import Rect from "./Rect";
+import Rect from "./rect";
 export type CodeData = {
     codenumber: number;
     symbol: string;
