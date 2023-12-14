@@ -1,15 +1,19 @@
-import Menu from "./menu";
+import Menu, { OnInputFunction } from "./menu";
 export declare enum LayoutDirection {
     TopDown = 0,
     LeftToRight = 1
 }
+export type LayoutExtras = {
+    onInput: OnInputFunction;
+};
 /**
  * Take a list of strings and create a menu with the options automatically laid out.
- * @param options
- * @param direction
- * @param margin
- * @param startX
- * @param startY
+ * @param options Items in the menu list.
+ * @param direction TopDown (row) or LeftToRight (column) layout.
+ * @param margin Number of pixels to add between options.
+ * @param startX Top left coordinate of starting point.
+ * @param startY Top left coordinate of starting point.
+ * @param extras Extra options for layout (optional).
  * @returns
  */
-export declare function LayoutMenu(id: string, options: string[], direction: LayoutDirection, margin: number, startX: number, startY: number): Menu;
+export declare function LayoutMenu(id: string, options: string[], direction: LayoutDirection, margin: number, startX: number, startY: number, nextSceneId: string, prevSceneId: string, extras?: LayoutExtras): Menu;

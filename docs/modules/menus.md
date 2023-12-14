@@ -8,28 +8,51 @@
 
 - [LayoutDirection](../enums/menus.LayoutDirection.md)
 
+### Type Aliases
+
+- [LayoutExtras](menus.md#layoutextras)
+
 ### Functions
 
 - [LayoutMenu](menus.md#layoutmenu)
+
+## Type Aliases
+
+### LayoutExtras
+
+Ƭ **LayoutExtras**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `onInput` | `OnInputFunction` |
+
+#### Defined in
+
+[modules/menus.ts:11](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menus.ts#L11)
 
 ## Functions
 
 ### LayoutMenu
 
-▸ **LayoutMenu**(`id`, `options`, `direction`, `margin`, `startX`, `startY`): [`Menu`](../classes/Menu.md)
+▸ **LayoutMenu**(`id`, `options`, `direction`, `margin`, `startX`, `startY`, `nextSceneId`, `prevSceneId`, `extras?`): [`Menu`](../classes/Menu.md)
 
 Take a list of strings and create a menu with the options automatically laid out.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-| `options` | `string`[] |
-| `direction` | [`LayoutDirection`](../enums/menus.LayoutDirection.md) |
-| `margin` | `number` |
-| `startX` | `number` |
-| `startY` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `id` | `string` | - |
+| `options` | `string`[] | Items in the menu list. |
+| `direction` | [`LayoutDirection`](../enums/menus.LayoutDirection.md) | TopDown (row) or LeftToRight (column) layout. |
+| `margin` | `number` | Number of pixels to add between options. |
+| `startX` | `number` | Top left coordinate of starting point. |
+| `startY` | `number` | Top left coordinate of starting point. |
+| `nextSceneId` | `string` | - |
+| `prevSceneId` | `string` | - |
+| `extras?` | [`LayoutExtras`](menus.md#layoutextras) | Extra options for layout (optional). |
 
 #### Returns
 
@@ -37,4 +60,4 @@ Take a list of strings and create a menu with the options automatically laid out
 
 #### Defined in
 
-[modules/menus.ts:19](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/menus.ts#L19)
+[modules/menus.ts:25](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menus.ts#L25)

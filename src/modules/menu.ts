@@ -1,7 +1,6 @@
 import Rect from "./rect"
 import Scene, { AnimationFrameFunction } from "./scene"
 import * as font from './font'
-import * as input from './input'
 import { LayoutDirection } from "./menus"
 
 /**
@@ -89,6 +88,13 @@ class Menu extends Scene {
 
         this.actionInput = 'action'
         this.cancelInput = 'cancel'
+
+        this.handleInput = (input: string, amt: number, released: boolean) => {
+            console.log('menu scene handleInput', input, amt, released)
+        }
+
+        this.onActivate = () => {}
+        this.onDeactivate = () => {}
     }
 
     /**
@@ -104,32 +110,32 @@ class Menu extends Scene {
      */
     // eslint-disable-next-line
     Draw(delta: number) {
-        if (input.inputPressed(this.incrementSelectionInput)) {
-            this.selectedOption += 1 * this.selectSpeed
-            if (this.selectedOption >= this.options.length) {
-                this.selectedOption = 0
-            }
-            this.Selected().onInput(this, this.Selected(), MenuInputType.IncrementPrimary)
-        }
-        if (input.inputPressed(this.decrementSelectionInput)) {
-            this.selectedOption += -1 * this.selectSpeed
-            if (this.selectedOption <= 0) {
-                this.selectedOption = this.options.length - 1
-            }
-            this.Selected().onInput(this, this.Selected(), MenuInputType.DecrementPrimary)
-        }
-        if (input.inputPressed(this.actionInput) && this.Selected().onInput) {
-            this.Selected().onInput(this, this.Selected(), MenuInputType.Selection)
-        }
-        if (input.inputPressed(this.cancelInput) && this.Selected().onInput) {
-            this.Selected().onInput(this, this.Selected(), MenuInputType.Cancel)
-        }
-        if (input.inputPressed(this.incrementSecondaryInput) && this.Selected().onInput) {
-            this.Selected().onInput(this, this.Selected(), MenuInputType.IncrementSecondary)
-        }
-        if (input.inputPressed(this.decrementSecondaryInput) && this.Selected().onInput) {
-            this.Selected().onInput(this, this.Selected(), MenuInputType.DecrementSecondary)
-        }
+        // if (input.inputPressed(this.incrementSelectionInput)) {
+        //     this.selectedOption += 1 * this.selectSpeed
+        //     if (this.selectedOption >= this.options.length) {
+        //         this.selectedOption = 0
+        //     }
+        //     this.Selected().onInput(this, this.Selected(), MenuInputType.IncrementPrimary)
+        // }
+        // if (input.inputPressed(this.decrementSelectionInput)) {
+        //     this.selectedOption += -1 * this.selectSpeed
+        //     if (this.selectedOption <= 0) {
+        //         this.selectedOption = this.options.length - 1
+        //     }
+        //     this.Selected().onInput(this, this.Selected(), MenuInputType.DecrementPrimary)
+        // }
+        // if (input.inputPressed(this.actionInput) && this.Selected().onInput) {
+        //     this.Selected().onInput(this, this.Selected(), MenuInputType.Selection)
+        // }
+        // if (input.inputPressed(this.cancelInput) && this.Selected().onInput) {
+        //     this.Selected().onInput(this, this.Selected(), MenuInputType.Cancel)
+        // }
+        // if (input.inputPressed(this.incrementSecondaryInput) && this.Selected().onInput) {
+        //     this.Selected().onInput(this, this.Selected(), MenuInputType.IncrementSecondary)
+        // }
+        // if (input.inputPressed(this.decrementSecondaryInput) && this.Selected().onInput) {
+        //     this.Selected().onInput(this, this.Selected(), MenuInputType.DecrementSecondary)
+        // }
 
         this.options.forEach((option, index) => {
             const colr = Math.floor(this.selectedOption) === index ? this.selectedColor : this.color

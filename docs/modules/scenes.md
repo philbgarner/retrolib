@@ -11,6 +11,7 @@
 - [deActivateScene](scenes.md#deactivatescene)
 - [handleAnimationFrame](scenes.md#handleanimationframe)
 - [handleInput](scenes.md#handleinput)
+- [hasScene](scenes.md#hasscene)
 
 ## Functions
 
@@ -30,7 +31,7 @@
 
 #### Defined in
 
-[modules/scenes.ts:12](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/scenes.ts#L12)
+[modules/scenes.ts:17](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scenes.ts#L17)
 
 ___
 
@@ -50,7 +51,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:7](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/scenes.ts#L7)
+[modules/scenes.ts:8](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scenes.ts#L8)
 
 ___
 
@@ -70,7 +71,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:20](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/scenes.ts#L20)
+[modules/scenes.ts:25](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scenes.ts#L25)
 
 ___
 
@@ -90,7 +91,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:34](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/scenes.ts#L34)
+[modules/scenes.ts:42](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scenes.ts#L42)
 
 ___
 
@@ -112,4 +113,24 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:28](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/scenes.ts#L28)
+[modules/scenes.ts:33](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scenes.ts#L33)
+
+___
+
+### hasScene
+
+▸ **hasScene**(`id`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `string` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[modules/scenes.ts:13](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scenes.ts#L13)

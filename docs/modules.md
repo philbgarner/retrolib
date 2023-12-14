@@ -7,8 +7,10 @@
 ### Namespaces
 
 - [font](modules/font.md)
+- [gamepad](modules/gamepad.md)
 - [images](modules/images.md)
 - [input](modules/input.md)
+- [keyboard](modules/keyboard.md)
 - [menus](modules/menus.md)
 - [music](modules/music.md)
 - [scenes](modules/scenes.md)
@@ -67,7 +69,7 @@ Menu item.
 
 #### Defined in
 
-[modules/menu.ts:10](https://github.com/philbgarner/retrolib/blob/83b44df/src/modules/menu.ts#L10)
+[modules/menu.ts:9](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L9)
 
 ## Variables
 
@@ -79,7 +81,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:38](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L38)
+[retrolib.ts:40](https://github.com/philbgarner/retrolib/blob/f0d6031/src/retrolib.ts#L40)
 
 ___
 
@@ -91,7 +93,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:34](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L34)
+[retrolib.ts:36](https://github.com/philbgarner/retrolib/blob/f0d6031/src/retrolib.ts#L36)
 
 ___
 
@@ -103,7 +105,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:30](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L30)
+[retrolib.ts:32](https://github.com/philbgarner/retrolib/blob/f0d6031/src/retrolib.ts#L32)
 
 ## Functions
 
@@ -129,7 +131,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:96](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L96)
+[retrolib.ts:98](https://github.com/philbgarner/retrolib/blob/f0d6031/src/retrolib.ts#L98)
 
 ___
 
@@ -151,4 +153,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:81](https://github.com/philbgarner/retrolib/blob/83b44df/src/retrolib.ts#L81)
+[retrolib.ts:83](https://github.com/philbgarner/retrolib/blob/f0d6031/src/retrolib.ts#L83)

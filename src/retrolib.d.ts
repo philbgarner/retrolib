@@ -4,6 +4,8 @@ export * as scenes from './modules/scenes';
 export * as sfx from './modules/sfx';
 export * as music from './modules/music';
 export * as input from './modules/input';
+export * as gamepad from './modules/input-gamepad';
+export * as keyboard from './modules/input-keyboard';
 export * as menus from './modules/menus';
 export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scene';
 export { MenuOption } from './modules/menu';

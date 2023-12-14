@@ -9,10 +9,13 @@
             retrolib.initialize('gamecanvas', 320, 200, true, true)
 
             // Layout helper function to create a menu object ready for rendering.
-            const menu = retrolib.menus.LayoutMenu('menu1', ['New Game', 'Load Game', 'Settings', 'About', 'Exit'], 0, 2, 15, 15)
+            const menu = retrolib.menus.LayoutMenu('menu1', ['New Game', 'Load Game', 'Settings', 'About', 'Exit'], 0, 2, 15, 15, 'menu2', '')
+            // const menu2 = retrolib.menus.LayoutMenu('menu2', ['Menu 2', 'Test'], 0, 2, 15, 15, '', 'menu1')
+            // menu2.active = false
 
             // Sample main menu, keyboard and gamepad selection works automatically.
-            retrolib.scenes.addScene(menu, true)
+            retrolib.scenes.addScene(menu)
+            //retrolib.scenes.addScene(menu2)
         </script>
     </body>
 </html>

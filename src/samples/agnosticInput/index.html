@@ -11,8 +11,8 @@
             let ctx = retrolib.gameCanvas.getContext('2d')
 
             // Register our gamepad connect/disconnect event callbacks.
-            retrolib.input.onGamepadConnected((event) => lastMessage = 'Gamepad ' + event.gamepad.index + ' connected.')
-            retrolib.input.onGamepadDisconnected((event) => lastMessage = 'Gamepad ' + event.gamepad.index + ' disonnected.')
+            retrolib.gamepad.onGamepadConnected((event) => lastMessage = 'Gamepad ' + event.gamepad.index + ' connected.')
+            retrolib.gamepad.onGamepadDisconnected((event) => lastMessage = 'Gamepad ' + event.gamepad.index + ' disonnected.')
 
             retrolib.scenes.addScene(new retrolib.Scene('Gamepad Connection', (delta) => {
                 ctx.clearRect(0, 0, 320, 200)
