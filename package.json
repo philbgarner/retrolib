@@ -5,7 +5,8 @@
   "main": "lib-esm/retrolib.js",
   "scripts": {
     "build": "webpack --mode production",
-    "build-lib": "tsc -m es6 --outDir lib-dist --clean",
+    "build-lib": "tsc -m es6 --outDir dist-lib",
+    "clean": "rm dist* -r -f",
     "typedocs": "typedoc --plugin typedoc-plugin-markdown --out docs src/retrolib.ts",
     "lint": "eslint . --ext .ts"
   },
