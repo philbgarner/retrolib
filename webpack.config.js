@@ -2,7 +2,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   devtool: "inline-source-map",
   entry: {
     main: "./src/retrolib.ts",
@@ -12,6 +12,7 @@ module.exports = {
     filename: "retrolib.js", // <--- Will be compiled to this single file
     library: 'retrolib',
     libraryTarget: 'umd'
+    //libraryTarget: 'commonjs2'
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],

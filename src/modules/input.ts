@@ -89,11 +89,9 @@ export function initialize(): void {
     }
 
     onInputPressed = (inputName: string) => {
-        console.log('pressed', inputName)
         scenes.handleInput(inputName, 1, false)
     }
     onInputReleased = (inputName: string) => {
-        console.log('released', inputName)
         scenes.handleInput(inputName, 0, true)
     }
 }

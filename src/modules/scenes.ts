@@ -31,7 +31,6 @@ function deActivateScene(id: string) {
 }
 
 function handleInput(input: string, amt: number, released: boolean) {
-    console.log('scene handle input', input)
     scenes.filter(f => f.active).forEach(scene => {
         if (scene.handleInput) {
             scene.handleInput(input, amt, released)
