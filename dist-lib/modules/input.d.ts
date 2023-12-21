@@ -3,6 +3,9 @@
  * Globals
  *
  */
+export declare let inputState: {
+    [key: string]: InputState;
+};
 export declare let onInputReleased: InputReleasedFunction;
 export declare let onInputPressed: InputPressedFunction;
 /**

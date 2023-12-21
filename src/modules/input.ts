@@ -8,6 +8,8 @@ import * as keyboard from './input-keyboard'
  * 
  */
 
+export let inputState: { [key: string]: InputState } = {}
+
 export let onInputReleased: InputReleasedFunction = () => {}
 export let onInputPressed: InputPressedFunction = () => {}
 
@@ -134,17 +136,15 @@ export function inputPressed(inputName: string, gamepadNumber?: number): boolean
     Object.keys(inputMaps).filter(f => f === inputName).forEach(key => inputs.push(...inputMaps[key]))
     let ret: boolean = false
     inputs.forEach(input => {
-        if (input.type === InputType.Keyboard && keyboard.getInputKeyState(inputName)) {
+        if (input.type === InputType.Keyboard && keyboard.getInputKeyState(inputName) && inputState[inputName] !== InputState.Pressed) {
             ret = true
-        } else if (input.type === InputType.GamepadAxis && axisPressed(input.mapKey, input.axisPlane, input.axisCheckDirection, gamepadNumber)) {
+            inputState[inputName] = InputState.Pressed
+        } else if (input.type === InputType.GamepadAxis && axisPressed(input.mapKey, input.axisPlane, input.axisCheckDirection, gamepadNumber) && inputState[inputName] !== InputState.Pressed) {
             ret = true
-        } else if (input.type === InputType.GamepadButton && buttonPressed(input.mapKey, gamepadNumber)) {
+            inputState[inputName] = InputState.Pressed
+        } else if (input.type === InputType.GamepadButton && buttonPressed(input.mapKey, gamepadNumber) && inputState[inputName] !== InputState.Pressed) {
             ret = true
-            // // Handle button state so we can fire synthetic event callbacks.
-            // if (buttonsState[inputName] === undefined || buttonsState[inputName] === InputState.Released) {
-            //     buttonsState[inputName] = InputState.Pressed
-            //     onInputPressed(inputName, gamepadNumber)
-            // }
+            inputState[inputName] = InputState.Pressed
         }
     })
     if (ret) {
@@ -166,21 +166,19 @@ export function inputReleased(inputName: string, gamepadNumber?: number): boolea
     Object.keys(inputMaps).filter(f => f === inputName).forEach(key => inputs.push(...inputMaps[key]))
     let ret: boolean = false
     inputs.forEach(input => {
-        if (input.type === InputType.Keyboard && !keyboard.getInputKeyState(inputName)) {
+        // if (input.type === InputType.Keyboard && !keyboard.getInputKeyState(inputName) && inputState[inputName] === InputState.Pressed) {
+        //     ret = true
+        // }
+        // if (input.type === InputType.GamepadAxis && !axisPressed(input.mapKey, input.axisPlane, input.axisCheckDirection, gamepadNumber) && inputState[inputName] === InputState.Pressed) {
+        //     ret = true
+        // }
+        if (input.type === InputType.GamepadButton && !buttonPressed(input.mapKey, gamepadNumber) && inputState[inputName] === InputState.Pressed) {
             ret = true
-        } else if (input.type === InputType.GamepadAxis && !axisPressed(input.mapKey, input.axisPlane, input.axisCheckDirection, gamepadNumber)) {
-            ret = true
-        } else if (input.type === InputType.GamepadButton && !buttonPressed(input.mapKey, gamepadNumber)) {
-            ret = true
-            // Handle button state so we can fire synthetic event callbacks.
-            if (gamepad.buttonsState[inputName] === undefined || gamepad.buttonsState[inputName] === InputState.Releasing) {
-                gamepad.buttonsState[inputName] = InputState.Released
-                onInputReleased(inputName, gamepadNumber)
-            }
+            inputState[inputName] = InputState.Released
         }
     })
     if (ret) {
-        onInputPressed(inputName, gamepadNumber)
+        onInputReleased(inputName, gamepadNumber)
     }
     return ret
 }

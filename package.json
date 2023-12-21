@@ -1,6 +1,6 @@
 {
   "name": "retrolib",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "Render low-res scenes to the canvas in a retro 8-bit era style. Aseprite exported animation wrapper, scene management, sound and image management, particle support.",
   "main": "dist-lib/retrolib.js",
   "scripts": {
@@ -11,7 +11,8 @@
     "lint": "eslint . --ext .ts"
   },
   "files": [
-    "build",
+    "dist/**/*.d.ts",
+    "dist-lib/**/*.d.ts",
     "src/**/*.d.ts"
   ],
   "repository": {
