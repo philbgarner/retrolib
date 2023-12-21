@@ -1,8 +1,8 @@
 {
   "name": "retrolib",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Render low-res scenes to the canvas in a retro 8-bit era style. Aseprite exported animation wrapper, scene management, sound and image management, particle support.",
-  "main": "lib-esm/retrolib.js",
+  "main": "dist-lib/retrolib.js",
   "scripts": {
     "build": "webpack --mode production",
     "build-lib": "tsc -m es6 --outDir dist-lib",
