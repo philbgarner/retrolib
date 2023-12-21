@@ -42,7 +42,9 @@ Menu Flavour of Scenes.
 
 ### Methods
 
+- [DecrementSelection](Menu.md#decrementselection)
 - [Draw](Menu.md#draw)
+- [IncrementSelection](Menu.md#incrementselection)
 - [Selected](Menu.md#selected)
 
 ## Constructors
@@ -70,7 +72,7 @@ Menu Flavour of Scenes.
 
 #### Defined in
 
-[modules/menu.ts:68](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L68)
+[modules/menu.ts:68](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L68)
 
 ## Properties
 
@@ -80,7 +82,7 @@ Menu Flavour of Scenes.
 
 #### Defined in
 
-[modules/menu.ts:55](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L55)
+[modules/menu.ts:55](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L55)
 
 ___
 
@@ -94,7 +96,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:25](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L25)
+[modules/scene.ts:25](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L25)
 
 ___
 
@@ -108,7 +110,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:24](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L24)
+[modules/scene.ts:24](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L24)
 
 ___
 
@@ -118,7 +120,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:56](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L56)
+[modules/menu.ts:56](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L56)
 
 ___
 
@@ -128,7 +130,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:48](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L48)
+[modules/menu.ts:48](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L48)
 
 ___
 
@@ -138,7 +140,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:47](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L47)
+[modules/menu.ts:47](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L47)
 
 ___
 
@@ -148,7 +150,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:59](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L59)
+[modules/menu.ts:59](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L59)
 
 ___
 
@@ -158,7 +160,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:53](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L53)
+[modules/menu.ts:53](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L53)
 
 ___
 
@@ -172,7 +174,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:32](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L32)
+[modules/scene.ts:32](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L32)
 
 ___
 
@@ -188,7 +190,7 @@ Callback function for input directed at the scene.
 
 #### Defined in
 
-[modules/scene.ts:31](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L31)
+[modules/scene.ts:31](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L31)
 
 ___
 
@@ -202,7 +204,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L23)
+[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L23)
 
 ___
 
@@ -212,7 +214,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:58](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L58)
+[modules/menu.ts:58](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L58)
 
 ___
 
@@ -222,7 +224,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:52](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L52)
+[modules/menu.ts:52](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L52)
 
 ___
 
@@ -232,7 +234,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:43](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L43)
+[modules/menu.ts:43](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L43)
 
 ___
 
@@ -242,7 +244,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:44](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L44)
+[modules/menu.ts:44](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L44)
 
 ___
 
@@ -256,7 +258,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:26](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L26)
+[modules/scene.ts:26](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L26)
 
 ___
 
@@ -270,7 +272,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:27](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L27)
+[modules/scene.ts:27](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L27)
 
 ___
 
@@ -280,7 +282,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:45](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L45)
+[modules/menu.ts:45](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L45)
 
 ___
 
@@ -290,7 +292,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:51](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L51)
+[modules/menu.ts:51](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L51)
 
 ___
 
@@ -300,7 +302,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:49](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L49)
+[modules/menu.ts:49](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L49)
 
 ___
 
@@ -310,9 +312,31 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:46](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L46)
+[modules/menu.ts:46](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L46)
 
 ## Methods
+
+### DecrementSelection
+
+▸ **DecrementSelection**(`speed?`): `void`
+
+Decrement the selection (move up or left depending on orientation).
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `speed?` | `number` | Adjust the selectSpeed specified on the menu by this factor. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/menu.ts:116](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L116)
+
+___
 
 ### Draw
 
@@ -332,7 +356,29 @@ Draw the menu.
 
 #### Defined in
 
-[modules/menu.ts:112](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L112)
+[modules/menu.ts:141](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L141)
+
+___
+
+### IncrementSelection
+
+▸ **IncrementSelection**(`speed?`): `void`
+
+Increment the selection (move down or right depending on orientation).
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `speed?` | `number` | Adjust the selectSpeed specified on the menu by this factor. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/menu.ts:128](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L128)
 
 ___
 
@@ -348,4 +394,4 @@ Returns the currently selected menu option.
 
 #### Defined in
 
-[modules/menu.ts:103](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/menu.ts#L103)
+[modules/menu.ts:108](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/menu.ts#L108)

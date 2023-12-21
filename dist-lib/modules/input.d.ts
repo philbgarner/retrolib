@@ -9,6 +9,24 @@ export declare let inputState: {
 export declare let onInputReleased: InputReleasedFunction;
 export declare let onInputPressed: InputPressedFunction;
 /**
+ * Input Released Event Handler. This gets called by keyboard/gamepad event handlers
+ * when a state changes.
+ * @param inputName
+ * @param controller
+ */
+export declare function handleInputReleased(inputName: string, controller?: number): void;
+/**
+ * Input Pressed Event Handler.  This gets called by keyboard/gamepad event handlers
+ * when a state changes.
+ * @param inputName
+ * @param controller
+ */
+export declare function handleInputPressed(inputName: string, controller?: number): void;
+export declare let inputMaps: {
+    [key: string]: InputMap[];
+};
+export declare const settings: InputSettings;
+/**
  *
  * Enums
  *
@@ -31,6 +49,7 @@ export declare enum InputState {
 export type InputMap = {
     type: InputType;
     mapKey: string;
+    parent: string;
     axisPlane: string;
     axisCheckDirection: number;
 };

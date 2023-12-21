@@ -62,6 +62,16 @@ declare class Menu extends Scene {
      */
     Selected(): MenuOption;
     /**
+     * Decrement the selection (move up or left depending on orientation).
+     * @param speed Adjust the selectSpeed specified on the menu by this factor.
+     */
+    DecrementSelection(speed?: number): void;
+    /**
+     * Increment the selection (move down or right depending on orientation).
+     * @param speed Adjust the selectSpeed specified on the menu by this factor.
+     */
+    IncrementSelection(speed?: number): void;
+    /**
      * Draw the menu.
      * @param delta
      */

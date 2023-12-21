@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modules/sfx.ts:7](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/sfx.ts#L7)
+[modules/sfx.ts:7](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/sfx.ts#L7)

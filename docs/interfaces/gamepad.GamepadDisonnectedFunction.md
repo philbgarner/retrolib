@@ -22,4 +22,4 @@
 
 #### Defined in
 
-modules/input-gamepad.ts:50
+[modules/input-gamepad.ts:51](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L51)

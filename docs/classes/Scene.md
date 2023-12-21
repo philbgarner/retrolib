@@ -52,7 +52,7 @@ Create a new scene object.
 
 #### Defined in
 
-[modules/scene.ts:43](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L43)
+[modules/scene.ts:43](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L43)
 
 ## Properties
 
@@ -62,7 +62,7 @@ Create a new scene object.
 
 #### Defined in
 
-[modules/scene.ts:25](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L25)
+[modules/scene.ts:25](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L25)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:24](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L24)
+[modules/scene.ts:24](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L24)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:32](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L32)
+[modules/scene.ts:32](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L32)
 
 ___
 
@@ -94,7 +94,7 @@ Callback function for input directed at the scene.
 
 #### Defined in
 
-[modules/scene.ts:31](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L31)
+[modules/scene.ts:31](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L31)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L23)
+[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L23)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:26](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L26)
+[modules/scene.ts:26](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L26)
 
 ___
 
@@ -124,4 +124,4 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:27](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/scene.ts#L27)
+[modules/scene.ts:27](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/scene.ts#L27)

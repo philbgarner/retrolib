@@ -23,4 +23,4 @@
 
 #### Defined in
 
-[modules/input.ts:60](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L60)
+[modules/input.ts:86](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L86)

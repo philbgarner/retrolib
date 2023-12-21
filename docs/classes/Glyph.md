@@ -35,7 +35,7 @@ Helper class to store Glyph (font symbol/codenumber and image Rect location).
 
 #### Defined in
 
-[modules/Glyph.ts:7](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/Glyph.ts#L7)
+[modules/Glyph.ts:7](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/Glyph.ts#L7)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[modules/Glyph.ts:9](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/Glyph.ts#L9)
+[modules/Glyph.ts:9](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/Glyph.ts#L9)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[modules/Glyph.ts:10](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/Glyph.ts#L10)
+[modules/Glyph.ts:10](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/Glyph.ts#L10)
 
 ___
 
@@ -65,4 +65,4 @@ ___
 
 #### Defined in
 
-[modules/Glyph.ts:8](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/Glyph.ts#L8)
+[modules/Glyph.ts:8](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/Glyph.ts#L8)

@@ -22,7 +22,7 @@ Enums
 
 #### Defined in
 
-[modules/input.ts:29](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L29)
+[modules/input.ts:55](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L55)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:28](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L28)
+[modules/input.ts:54](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L54)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[modules/input.ts:27](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L27)
+[modules/input.ts:53](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L53)

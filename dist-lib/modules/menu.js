@@ -57,7 +57,13 @@ var Menu = /** @class */ (function (_super) {
         _this.actionInput = 'action';
         _this.cancelInput = 'cancel';
         _this.handleInput = function (input, amt, released) {
-            console.log('menu scene handleInput', input, amt, released);
+            console.log('menu scene handleInput', input, amt, 'released', released);
+            if (input === 'up' && released) {
+                _this.DecrementSelection();
+            }
+            else if (input === 'down' && released) {
+                _this.IncrementSelection();
+            }
         };
         _this.onActivate = function () { };
         _this.onDeactivate = function () { };
@@ -70,37 +76,33 @@ var Menu = /** @class */ (function (_super) {
         return this.options[Math.floor(this.selectedOption)];
     };
     /**
+     * Decrement the selection (move up or left depending on orientation).
+     * @param speed Adjust the selectSpeed specified on the menu by this factor.
+     */
+    Menu.prototype.DecrementSelection = function (speed) {
+        speed = speed === undefined ? 1 : (this.selectSpeed * speed);
+        this.selectedOption -= speed;
+        if (this.selectedOption < 0) {
+            this.selectedOption = this.options.length - 1;
+        }
+    };
+    /**
+     * Increment the selection (move down or right depending on orientation).
+     * @param speed Adjust the selectSpeed specified on the menu by this factor.
+     */
+    Menu.prototype.IncrementSelection = function (speed) {
+        speed = speed === undefined ? 1 : (this.selectSpeed * speed);
+        this.selectedOption += speed;
+        if (this.selectedOption >= this.options.length) {
+            this.selectedOption = 0;
+        }
+    };
+    /**
      * Draw the menu.
      * @param delta
      */
     // eslint-disable-next-line
     Menu.prototype.Draw = function (delta) {
-        // if (input.inputPressed(this.incrementSelectionInput)) {
-        //     this.selectedOption += 1 * this.selectSpeed
-        //     if (this.selectedOption >= this.options.length) {
-        //         this.selectedOption = 0
-        //     }
-        //     this.Selected().onInput(this, this.Selected(), MenuInputType.IncrementPrimary)
-        // }
-        // if (input.inputPressed(this.decrementSelectionInput)) {
-        //     this.selectedOption += -1 * this.selectSpeed
-        //     if (this.selectedOption <= 0) {
-        //         this.selectedOption = this.options.length - 1
-        //     }
-        //     this.Selected().onInput(this, this.Selected(), MenuInputType.DecrementPrimary)
-        // }
-        // if (input.inputPressed(this.actionInput) && this.Selected().onInput) {
-        //     this.Selected().onInput(this, this.Selected(), MenuInputType.Selection)
-        // }
-        // if (input.inputPressed(this.cancelInput) && this.Selected().onInput) {
-        //     this.Selected().onInput(this, this.Selected(), MenuInputType.Cancel)
-        // }
-        // if (input.inputPressed(this.incrementSecondaryInput) && this.Selected().onInput) {
-        //     this.Selected().onInput(this, this.Selected(), MenuInputType.IncrementSecondary)
-        // }
-        // if (input.inputPressed(this.decrementSecondaryInput) && this.Selected().onInput) {
-        //     this.Selected().onInput(this, this.Selected(), MenuInputType.DecrementSecondary)
-        // }
         var _this = this;
         this.options.forEach(function (option, index) {
             var colr = Math.floor(_this.selectedOption) === index ? _this.selectedColor : _this.color;

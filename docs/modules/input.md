@@ -19,10 +19,18 @@
 - [InputMap](input.md#inputmap)
 - [InputSettings](input.md#inputsettings)
 
+### Variables
+
+- [inputMaps](input.md#inputmaps)
+- [inputState](input.md#inputstate)
+- [settings](input.md#settings)
+
 ### Functions
 
 - [axisPressed](input.md#axispressed)
 - [buttonPressed](input.md#buttonpressed)
+- [handleInputPressed](input.md#handleinputpressed)
+- [handleInputReleased](input.md#handleinputreleased)
 - [initialize](input.md#initialize)
 - [inputPressed](input.md#inputpressed)
 - [inputReleased](input.md#inputreleased)
@@ -46,11 +54,12 @@ Types
 | `axisCheckDirection` | `number` |
 | `axisPlane` | `string` |
 | `mapKey` | `string` |
+| `parent` | `string` |
 | `type` | [`InputType`](../enums/input.InputType.md) |
 
 #### Defined in
 
-[modules/input.ts:44](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L44)
+[modules/input.ts:70](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L70)
 
 ___
 
@@ -66,7 +75,47 @@ ___
 
 #### Defined in
 
-[modules/input.ts:52](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L52)
+[modules/input.ts:78](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L78)
+
+## Variables
+
+### inputMaps
+
+• **inputMaps**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: [`InputMap`](input.md#inputmap)[]
+
+#### Defined in
+
+[modules/input.ts:40](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L40)
+
+___
+
+### inputState
+
+• **inputState**: `Object` = `{}`
+
+Globals
+
+#### Index signature
+
+▪ [key: `string`]: [`InputState`](../enums/input.InputState.md)
+
+#### Defined in
+
+[modules/input.ts:11](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L11)
+
+___
+
+### settings
+
+• `Const` **settings**: [`InputSettings`](input.md#inputsettings)
+
+#### Defined in
+
+[modules/input.ts:42](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L42)
 
 ## Functions
 
@@ -89,7 +138,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:199](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L199)
+[modules/input.ts:224](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L224)
 
 ___
 
@@ -110,7 +159,55 @@ ___
 
 #### Defined in
 
-[modules/input.ts:190](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L190)
+[modules/input.ts:215](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L215)
+
+___
+
+### handleInputPressed
+
+▸ **handleInputPressed**(`inputName`, `controller?`): `void`
+
+Input Pressed Event Handler.  This gets called by keyboard/gamepad event handlers
+when a state changes.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `inputName` | `string` |
+| `controller?` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/input.ts:34](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L34)
+
+___
+
+### handleInputReleased
+
+▸ **handleInputReleased**(`inputName`, `controller?`): `void`
+
+Input Released Event Handler. This gets called by keyboard/gamepad event handlers
+when a state changes.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `inputName` | `string` |
+| `controller?` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/input.ts:22](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L22)
 
 ___
 
@@ -124,7 +221,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:63](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L63)
+[modules/input.ts:89](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L89)
 
 ___
 
@@ -147,7 +244,7 @@ Whether or not the specified button or key that maps to inputName is pressed. No
 
 #### Defined in
 
-[modules/input.ts:133](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L133)
+[modules/input.ts:157](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L157)
 
 ___
 
@@ -170,7 +267,7 @@ Whether or not the specified button or key that maps to inputName is released. N
 
 #### Defined in
 
-[modules/input.ts:165](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L165)
+[modules/input.ts:187](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L187)
 
 ___
 
@@ -191,15 +288,13 @@ ___
 
 #### Defined in
 
-[modules/input.ts:60](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L60)
+[modules/input.ts:86](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L86)
 
 ___
 
 ### onInputReleased
 
 ▸ **onInputReleased**(`inputName`, `controller?`): `void`
-
-Globals
 
 #### Parameters
 
@@ -214,7 +309,7 @@ Globals
 
 #### Defined in
 
-[modules/input.ts:57](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L57)
+[modules/input.ts:83](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L83)
 
 ___
 
@@ -230,7 +325,7 @@ Reset button mappings to defaults.
 
 #### Defined in
 
-[modules/input.ts:104](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L104)
+[modules/input.ts:128](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L128)
 
 ___
 
@@ -244,4 +339,4 @@ ___
 
 #### Defined in
 
-[modules/input.ts:212](https://github.com/philbgarner/retrolib/blob/f0d6031/src/modules/input.ts#L212)
+[modules/input.ts:237](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L237)

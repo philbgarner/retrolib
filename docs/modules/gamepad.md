@@ -19,6 +19,7 @@
 ### Variables
 
 - [axisMap](gamepad.md#axismap)
+- [axisState](gamepad.md#axisstate)
 - [buttonsMap](gamepad.md#buttonsmap)
 - [buttonsState](gamepad.md#buttonsstate)
 - [gamepadsTimestamps](gamepad.md#gamepadstimestamps)
@@ -63,7 +64,7 @@
 
 #### Defined in
 
-modules/input-gamepad.ts:66
+[modules/input-gamepad.ts:67](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L67)
 
 ___
 
@@ -83,7 +84,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:58
+[modules/input-gamepad.ts:59](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L59)
 
 ___
 
@@ -100,7 +101,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:53
+[modules/input-gamepad.ts:54](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L54)
 
 ## Variables
 
@@ -114,7 +115,23 @@ modules/input-gamepad.ts:53
 
 #### Defined in
 
-modules/input-gamepad.ts:11
+[modules/input-gamepad.ts:12](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L12)
+
+___
+
+### axisState
+
+• **axisState**: `Object` = `{}`
+
+Globals
+
+#### Index signature
+
+▪ [key: `string`]: [`InputState`](../enums/input.InputState.md)
+
+#### Defined in
+
+[modules/input-gamepad.ts:9](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L9)
 
 ___
 
@@ -128,15 +145,13 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:10
+[modules/input-gamepad.ts:11](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L11)
 
 ___
 
 ### buttonsState
 
-• **buttonsState**: `Object`
-
-Globals
+• **buttonsState**: `Object` = `{}`
 
 #### Index signature
 
@@ -144,7 +159,7 @@ Globals
 
 #### Defined in
 
-modules/input-gamepad.ts:9
+[modules/input-gamepad.ts:10](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L10)
 
 ___
 
@@ -158,7 +173,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:12
+[modules/input-gamepad.ts:13](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L13)
 
 ## Functions
 
@@ -178,7 +193,7 @@ modules/input-gamepad.ts:12
 
 #### Defined in
 
-modules/input-gamepad.ts:46
+[modules/input-gamepad.ts:47](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L47)
 
 ___
 
@@ -198,7 +213,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:50
+[modules/input-gamepad.ts:51](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L51)
 
 ___
 
@@ -218,7 +233,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:42
+[modules/input-gamepad.ts:43](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L43)
 
 ___
 
@@ -232,7 +247,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:101
+[modules/input-gamepad.ts:102](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L102)
 
 ___
 
@@ -252,7 +267,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:144
+[modules/input-gamepad.ts:211](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L211)
 
 ___
 
@@ -272,7 +287,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:131
+[modules/input-gamepad.ts:198](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L198)
 
 ___
 
@@ -286,7 +301,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:110
+[modules/input-gamepad.ts:177](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L177)
 
 ___
 
@@ -306,7 +321,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:114
+[modules/input-gamepad.ts:181](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L181)
 
 ___
 
@@ -320,7 +335,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:118
+[modules/input-gamepad.ts:185](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L185)
 
 ___
 
@@ -342,7 +357,7 @@ Gamepad Input Functions
 
 #### Defined in
 
-modules/input-gamepad.ts:89
+[modules/input-gamepad.ts:90](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L90)
 
 ___
 
@@ -362,7 +377,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:93
+[modules/input-gamepad.ts:94](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L94)
 
 ___
 
@@ -382,7 +397,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:97
+[modules/input-gamepad.ts:98](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L98)
 
 ___
 
@@ -396,7 +411,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:17
+[modules/input-gamepad.ts:18](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L18)
 
 ___
 
@@ -410,7 +425,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:79
+[modules/input-gamepad.ts:80](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L80)
 
 ___
 
@@ -426,7 +441,7 @@ Reset button mappings to defaults.
 
 #### Defined in
 
-modules/input-gamepad.ts:75
+[modules/input-gamepad.ts:76](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L76)
 
 ___
 
@@ -440,7 +455,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:21
+[modules/input-gamepad.ts:22](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L22)
 
 ___
 
@@ -460,7 +475,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:33
+[modules/input-gamepad.ts:34](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L34)
 
 ___
 
@@ -480,7 +495,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:37
+[modules/input-gamepad.ts:38](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L38)
 
 ___
 
@@ -501,7 +516,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:25
+[modules/input-gamepad.ts:26](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L26)
 
 ___
 
@@ -521,7 +536,7 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:29
+[modules/input-gamepad.ts:30](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L30)
 
 ___
 
@@ -542,4 +557,4 @@ ___
 
 #### Defined in
 
-modules/input-gamepad.ts:127
+[modules/input-gamepad.ts:194](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-gamepad.ts#L194)

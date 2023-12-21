@@ -4,6 +4,9 @@ import { InputState } from "./input";
  * Globals
  *
  */
+export declare let axisState: {
+    [key: string]: InputState;
+};
 export declare let buttonsState: {
     [key: string]: InputState;
 };

@@ -1,9 +1,11 @@
+import { settings, InputState, handleInputPressed, handleInputReleased, inputMaps } from "./input";
 /**
  *
  * Globals
  *
  */
-export var buttonsState;
+export var axisState = {};
+export var buttonsState = {};
 export var buttonsMap = {};
 export var axisMap = {};
 export var gamepadsTimestamps = {};
@@ -35,7 +37,7 @@ export function resetGamepadButtonMappings() {
     buttonsMap = { 'action': 0, 'cancel': 1 };
 }
 export function resetGamepadAxisMappings() {
-    axisMap = { 'leftAxis': [0, 1], 'rightAxis': [3, 4], 'dPad': [6, 7], 'trigger': [2, 5] };
+    axisMap = { 'leftJoystick': [0, 1], 'rightJoystick': [3, 4], 'dPad': [6, 7], 'trigger': [2, 5] };
 }
 /**
  *
@@ -55,6 +57,72 @@ export function gamepadsDidUpdate() {
     getGamepads().forEach(function (g) {
         if (gamepadsTimestamps[g.index] !== undefined && gamepadsTimestamps[g.index] < g.timestamp) {
             gamepadUpdated(g);
+            Object.keys(axisMap).forEach(function (axis) {
+                var maps = [];
+                Object.keys(inputMaps).forEach(function (input) {
+                    if (inputMaps[input].filter(function (f) { return f.mapKey === axis; }).length > 0) {
+                        maps.push.apply(maps, inputMaps[input].filter(function (f) { return f.mapKey === axis; }));
+                    }
+                });
+                if (maps.length > 0) {
+                    maps.forEach(function (map) {
+                        // Handle left/right/up/down pressed axis scenarios.
+                        var state = getAxisState(map.mapKey)[g.index];
+                        if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x < -settings.axisPressedThreshold
+                            && axisState[map.parent] !== InputState.Pressed) {
+                            axisState[map.parent] = InputState.Pressed;
+                            handleInputPressed(map.parent, g.index);
+                        }
+                        if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x > settings.axisPressedThreshold
+                            && axisState[map.parent] !== InputState.Pressed) {
+                            axisState[map.parent] = InputState.Pressed;
+                            handleInputPressed(map.parent, g.index);
+                        }
+                        if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y < -settings.axisPressedThreshold
+                            && axisState[map.parent] !== InputState.Pressed) {
+                            axisState[map.parent] = InputState.Pressed;
+                            handleInputPressed(map.parent, g.index);
+                        }
+                        if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y > settings.axisPressedThreshold
+                            && axisState[map.parent] !== InputState.Pressed) {
+                            axisState[map.parent] = InputState.Pressed;
+                            handleInputPressed(map.parent, g.index);
+                        }
+                        // Handle left/right/up/down released axis scenarios.
+                        if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x > -settings.axisPressedThreshold
+                            && axisState[map.parent] === InputState.Pressed) {
+                            axisState[map.parent] = InputState.Released;
+                            handleInputReleased(map.parent, g.index);
+                        }
+                        if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x < settings.axisPressedThreshold
+                            && axisState[map.parent] === InputState.Pressed) {
+                            axisState[map.parent] = InputState.Released;
+                            handleInputReleased(map.parent, g.index);
+                        }
+                        if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y > -settings.axisPressedThreshold
+                            && axisState[map.parent] === InputState.Pressed) {
+                            axisState[map.parent] = InputState.Released;
+                            handleInputReleased(map.parent, g.index);
+                        }
+                        if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y < settings.axisPressedThreshold
+                            && axisState[map.parent] === InputState.Pressed) {
+                            axisState[map.parent] = InputState.Released;
+                            handleInputReleased(map.parent, g.index);
+                        }
+                    });
+                }
+                //if (getAxisState(axis))
+            });
+            getMappedButtons().forEach(function (inputRel) {
+                if (getButtonState(inputRel.inputName)[g.index].pressed && buttonsState[inputRel.inputName] !== InputState.Pressed) {
+                    buttonsState[inputRel.inputName] = InputState.Pressed;
+                    handleInputPressed(inputRel.inputName, g.index);
+                }
+                else if (!getButtonState(inputRel.inputName)[g.index].pressed && buttonsState[inputRel.inputName] === InputState.Pressed) {
+                    buttonsState[inputRel.inputName] = InputState.Released;
+                    handleInputReleased(inputRel.inputName, g.index);
+                }
+            });
         }
         gamepadsTimestamps[g.index] = g.timestamp;
     });
@@ -92,8 +160,8 @@ export function getAxisState(inputName) {
     var states = [];
     getGamepads().forEach(function (g) {
         if (axisMap[inputName] !== undefined) {
-            var axisState = { controller: g.index, x: g.axes[axisMap[inputName][0]], y: g.axes[axisMap[inputName][1]] };
-            states.push(axisState);
+            var axisState_1 = { controller: g.index, x: g.axes[axisMap[inputName][0]], y: g.axes[axisMap[inputName][1]] };
+            states.push(axisState_1);
         }
     });
     return states.sort(function (a, b) { return a.controller - b.controller; });

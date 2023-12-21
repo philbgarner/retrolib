@@ -33,7 +33,7 @@
                 }
 
                 // Get the current left joystick position on gamepad 1.
-                const gamepad0LeftAxis = retrolib.input.getAxisState('leftAxis')[0]
+                const gamepad0LeftAxis = retrolib.input.getAxisState('leftJoystick')[0]
                 if (gamepad0LeftAxis !== undefined) {
                     retrolib.font.drawText(25, 25, 'Left Joystick', '#f1f1f1ff')
                     const width = retrolib.font.textWidth('Left Joystick')
@@ -43,7 +43,7 @@
                 }
 
                 // Get the current right joystick position on gamepad 1.
-                const gamepad0RightAxis = retrolib.input.getAxisState('rightAxis')[0]
+                const gamepad0RightAxis = retrolib.input.getAxisState('rightJoystick')[0]
                 if (gamepad0RightAxis !== undefined) {
                     const width = retrolib.font.textWidth('Right Joystick')
                     const left = 320 - width - 25

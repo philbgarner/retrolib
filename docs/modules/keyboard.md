@@ -42,7 +42,7 @@
 
 #### Defined in
 
-modules/input-keyboard.ts:38
+[modules/input-keyboard.ts:38](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L38)
 
 ## Functions
 
@@ -62,7 +62,7 @@ modules/input-keyboard.ts:38
 
 #### Defined in
 
-modules/input-keyboard.ts:73
+[modules/input-keyboard.ts:73](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L73)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-modules/input-keyboard.ts:69
+[modules/input-keyboard.ts:69](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L69)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-modules/input-keyboard.ts:23
+[modules/input-keyboard.ts:23](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L23)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-modules/input-keyboard.ts:60
+[modules/input-keyboard.ts:60](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L60)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-modules/input-keyboard.ts:86
+[modules/input-keyboard.ts:86](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L86)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-modules/input-keyboard.ts:95
+[modules/input-keyboard.ts:95](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L95)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-modules/input-keyboard.ts:78
+[modules/input-keyboard.ts:78](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L78)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-modules/input-keyboard.ts:82
+[modules/input-keyboard.ts:82](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L82)
 
 ___
 
@@ -212,7 +212,7 @@ Keyboard Input Functions
 
 #### Defined in
 
-modules/input-keyboard.ts:49
+[modules/input-keyboard.ts:49](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L49)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-modules/input-keyboard.ts:15
+[modules/input-keyboard.ts:15](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L15)
 
 ___
 
@@ -247,4 +247,4 @@ ___
 
 #### Defined in
 
-modules/input-keyboard.ts:19
+[modules/input-keyboard.ts:19](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input-keyboard.ts#L19)
