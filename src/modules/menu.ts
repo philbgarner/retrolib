@@ -2,6 +2,8 @@ import Rect from "./rect"
 import Scene, { AnimationFrameFunction } from "./scene"
 import * as font from './font'
 import { LayoutDirection } from "./menus"
+import { canvasHeight, canvasWidth } from "../retrolib"
+import { getContext } from "./images"
 
 /**
  * Menu item.
@@ -47,6 +49,7 @@ class Menu extends Scene {
     ctx: CanvasRenderingContext2D
     color: font.ColorRGBA
     selectedColor: font.ColorRGBA
+    clearFrame: boolean
     
     selectSpeed: number
     incrementSelectionInput: string
@@ -71,6 +74,10 @@ class Menu extends Scene {
         }
         super(id, animationFrame, active, undefined, undefined, (event) => console.log('event', event))
 
+        this.ctx = getContext()
+
+        this.clearFrame = true
+
         this.offsetX = 0
         this.offsetY = 0
 
@@ -90,17 +97,25 @@ class Menu extends Scene {
         this.cancelInput = 'cancel'
 
         this.handleInput = (input: string, amt: number, released: boolean) => {
-            console.log('menu scene handleInput', input, amt, 'released', released)
+            // console.log('menu scene handleInput', input, amt, 'released', released)
             if (input === 'up' && released) {
                 this.DecrementSelection()
+                // TODO: use the increment primary/secondary, etc.
             } else if (input === 'down' && released) {
                 this.IncrementSelection()
-            }
+                // TODO: use the increment primary/secondary, etc.
+            } else if (input === 'action' && released) {
+                this.Selected().onInput(this, this.Selected(), MenuInputType.Selection)
+            } if (input === 'cancel' && released) {
+                this.Selected().onInput(this, this.Selected(), MenuInputType.Cancel)
+            } 
         }
 
         this.onActivate = () => {}
         this.onDeactivate = () => {}
     }
+
+    NextMenu
 
     /**
      * Returns the currently selected menu option.
@@ -139,6 +154,7 @@ class Menu extends Scene {
      */
     // eslint-disable-next-line
     Draw(delta: number) {
+        this.ctx.clearRect(0, 0, canvasWidth, canvasHeight)
         this.options.forEach((option, index) => {
             const colr = Math.floor(this.selectedOption) === index ? this.selectedColor : this.color
             font.drawText(option.rect.x, option.rect.y, option.text, colr)

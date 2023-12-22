@@ -42,6 +42,7 @@ declare class Menu extends Scene {
     ctx: CanvasRenderingContext2D;
     color: font.ColorRGBA;
     selectedColor: font.ColorRGBA;
+    clearFrame: boolean;
     selectSpeed: number;
     incrementSelectionInput: string;
     decrementSelectionInput: string;
@@ -57,6 +58,7 @@ declare class Menu extends Scene {
      * @param options Menu options (items).
      */
     constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[]);
+    NextMenu: any;
     /**
      * Returns the currently selected menu option.
      */

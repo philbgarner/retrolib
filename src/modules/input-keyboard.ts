@@ -1,4 +1,4 @@
-import { inputPressed, inputReleased } from "./input"
+import { handleInputPressed, handleInputReleased, inputPressed, inputReleased } from "./input"
 
 /**
  * 
@@ -85,15 +85,20 @@ export function onKeyboardRelease(fn: KeyboardReleaseFunction) {
 
 export function keyboardDown(e: KeyboardEvent): void {
     keysState[e.key] = true
-    if (keysMap[e.key]) {
-        console.log('keyboard down', e.key, keysMap[e.key], keysMap)
-        inputPressed(keysMap[e.key])
+    const inputs = []
+    Object.keys(keysMap).filter(input => keysMap[input] === e.key).forEach(input => inputs.push(input))
+    if (inputs.length > 0) {
+        handleInputPressed(inputs[0])
     }
     keyboardDownHandler(e)
 }
 
 export function keyboardRelease(e: KeyboardEvent): void {
     keysState[e.key] = false
-    inputReleased(e.key)
+    const inputs = []
+    Object.keys(keysMap).filter(input => keysMap[input] === e.key).forEach(input => inputs.push(input))
+    if (inputs.length > 0) {
+        handleInputReleased(inputs[0])
+    }
     keyboardReleaseHandler(e)
 }

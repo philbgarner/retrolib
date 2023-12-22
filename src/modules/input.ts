@@ -21,7 +21,6 @@ export let onInputPressed: InputPressedFunction = () => {}
  */
 export function handleInputReleased(inputName: string, controller?: number) {
     // Call the pressed input callback function.
-    console.log('handleInputReleased', inputName)
     onInputReleased(inputName, controller)
 }
 
@@ -33,7 +32,6 @@ export function handleInputReleased(inputName: string, controller?: number) {
  */
 export function handleInputPressed(inputName: string, controller?: number) {
     // Call the pressed input callback function.
-    console.log('handleInputPressed', inputName)
     onInputPressed(inputName, controller)
 }
 
