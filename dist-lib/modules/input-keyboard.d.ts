@@ -1,3 +1,4 @@
+import { InputState } from "./input";
 export declare function resetKeysState(): void;
 export declare function setMappedKey(inputName: string, key: string): void;
 export declare function getMappedKey(inputName: string): string;
@@ -18,8 +19,8 @@ export type KeyboardInputRelationship = {
  */
 export declare function resetKeyboardMappings(): void;
 export declare function getMappedKeys(): KeyboardInputRelationship[];
-export declare function getKeyState(stateKey: string): boolean;
-export declare function getInputKeyState(inputName: string): boolean;
+export declare function getKeyState(stateKey: string): InputState;
+export declare function getInputKeyState(inputName: string): InputState;
 export declare function onKeyboardDown(fn: KeyboardDownFunction): void;
 export declare function onKeyboardRelease(fn: KeyboardReleaseFunction): void;
 export declare function keyboardDown(e: KeyboardEvent): void;

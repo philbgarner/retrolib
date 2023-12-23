@@ -39,7 +39,6 @@ function handleInput(input: string, amt: number, released: boolean) {
 }
 
 function handleAnimationFrame(timeStamp: number) {
-    input.updateInputState()
     window.requestAnimationFrame(handleAnimationFrame)
     if (start === null) {
         start = timeStamp - 16 // If we don't do this, the first frame timestamp is too long so we fake 60fps by subtracting 16.

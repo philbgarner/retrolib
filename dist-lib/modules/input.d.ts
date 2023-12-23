@@ -82,5 +82,5 @@ export declare function inputPressed(inputName: string, gamepadNumber?: number):
  */
 export declare function inputReleased(inputName: string, gamepadNumber?: number): boolean;
 export declare function buttonPressed(inputName: string, gamepadNumber?: number): boolean;
+export declare function buttonReleased(inputName: string, gamepadNumber?: number): boolean;
 export declare function axisPressed(inputName: string, axisPlane: number, direction: number, gamepadNumber?: number): boolean;
-export declare function updateInputState(): void;

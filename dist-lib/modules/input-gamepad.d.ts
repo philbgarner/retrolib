@@ -72,4 +72,5 @@ export declare function getMappedButtonIndex(inputName: string): number;
 export declare function getMappedButtons(): GamepadInputRelationship[];
 export declare function setMappedButton(inputName: string, buttonIndex: number): void;
 export declare function getButtonState(inputName: string): GamepadButtonState[];
-export declare function getAxisState(inputName: string): GamepadAxisState[];
+export declare function getAxisInputState(inputName: string): InputState;
+export declare function getAxisData(inputName: string): GamepadAxisState[];
