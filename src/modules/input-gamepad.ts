@@ -111,31 +111,32 @@ export function gamepadsDidUpdate() {
                     }
                 })
                 if (maps.length > 0) {
-                    //maps.forEach(map => {
                     for (const map of maps) {
                         let state = getAxisData(map.mapKey)[g.index]
-                        // Handle left/right/up/down released axis scenarios.
+                        // Handle left/right/up/down released axis scenarios, if true break the for-loop
+                        // so the changed input value we just set doesn't trigger a condition below and
+                        // undo that setting we just made.
                         if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x > -settings.axisPressedThreshold
                         && axisState[map.parent] === InputState.Pressed) {
                             axisState[map.parent] = InputState.Released
                             handleInputReleased(map.parent, g.index)
-                            console.log('break on', map.mapKey, map.axisCheckDirection, map.axisPlane, state.x); break
+                            break
                         } else if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x < settings.axisPressedThreshold
                         && axisState[map.parent] === InputState.Pressed) {
                             axisState[map.parent] = InputState.Released
                             handleInputReleased(map.parent, g.index)
-                            console.log('break on', map.mapKey, map.axisCheckDirection, map.axisPlane, state.x); break
+                            break
                         }
                         if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y > -settings.axisPressedThreshold
                         && axisState[map.parent] === InputState.Pressed) {
                             axisState[map.parent] = InputState.Released
                             handleInputReleased(map.parent, g.index)
-                            console.log('break on', map.mapKey, map.axisCheckDirection, map.axisPlane, state.x); break
+                            break
                         } else if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y < settings.axisPressedThreshold
                         && axisState[map.parent] === InputState.Pressed) {
                             axisState[map.parent] = InputState.Released
                             handleInputReleased(map.parent, g.index)
-                            console.log('break on', map.mapKey, map.axisCheckDirection, map.axisPlane, state.x); break
+                            break
                         }
 
                         // Handle left/right/up/down pressed axis scenarios.
@@ -143,23 +144,23 @@ export function gamepadsDidUpdate() {
                         && axisState[map.parent] !== InputState.Pressed) {
                             axisState[map.parent] = InputState.Pressed
                             handleInputPressed(map.parent, g.index)
-                            console.log('break on', map.mapKey, map.axisCheckDirection, map.axisPlane, state.x); break
+                            break
                         } else if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x > settings.axisPressedThreshold
                         && axisState[map.parent] !== InputState.Pressed) {
                             axisState[map.parent] = InputState.Pressed
                             handleInputPressed(map.parent, g.index)
-                            console.log('break on', map.mapKey, map.axisCheckDirection, map.axisPlane, state.x); break
+                            break
                         }
                         if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y < -settings.axisPressedThreshold
                         && axisState[map.parent] !== InputState.Pressed) {
                             axisState[map.parent] = InputState.Pressed
                             handleInputPressed(map.parent, g.index)
-                            console.log('break on', map.mapKey, map.axisCheckDirection, map.axisPlane, state.x); break
+                            break
                         } else if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y > settings.axisPressedThreshold
                         && axisState[map.parent] !== InputState.Pressed) {
                             axisState[map.parent] = InputState.Pressed
                             handleInputPressed(map.parent, g.index)
-                            console.log('break on', map.mapKey, map.axisCheckDirection, map.axisPlane, state.x); break
+                            break
                         }
 
                     }

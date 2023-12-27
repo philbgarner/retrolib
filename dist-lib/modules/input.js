@@ -17,7 +17,6 @@ export var onInputPressed = function () { };
  */
 export function handleInputReleased(inputName, controller) {
     // Call the pressed input callback function.
-    console.log('handleInputReleased', inputName);
     onInputReleased(inputName, controller);
 }
 /**
@@ -28,7 +27,6 @@ export function handleInputReleased(inputName, controller) {
  */
 export function handleInputPressed(inputName, controller) {
     // Call the pressed input callback function.
-    console.log('handleInputPressed', inputName);
     onInputPressed(inputName, controller);
 }
 export var inputMaps;
@@ -90,11 +88,13 @@ export function resetInputMaps() {
     inputMaps = {
         'left': [
             { parent: 'left', type: InputType.Keyboard, mapKey: 'ArrowLeft', axisPlane: '', axisCheckDirection: 0 },
-            { parent: 'left', type: InputType.GamepadAxis, mapKey: 'leftJoystick', axisPlane: 'x', axisCheckDirection: -1 }
+            { parent: 'left', type: InputType.GamepadAxis, mapKey: 'leftJoystick', axisPlane: 'x', axisCheckDirection: -1 },
+            { parent: 'left', type: InputType.GamepadAxis, mapKey: 'dPad', axisPlane: 'x', axisCheckDirection: -1 }
         ],
         'right': [
             { parent: 'right', type: InputType.Keyboard, mapKey: 'ArrowRight', axisPlane: '', axisCheckDirection: 0 },
-            { parent: 'right', type: InputType.GamepadAxis, mapKey: 'leftJoystick', axisPlane: 'x', axisCheckDirection: 1 }
+            { parent: 'right', type: InputType.GamepadAxis, mapKey: 'leftJoystick', axisPlane: 'x', axisCheckDirection: 1 },
+            { parent: 'right', type: InputType.GamepadAxis, mapKey: 'dPad', axisPlane: 'x', axisCheckDirection: 1 }
         ],
         'up': [
             { parent: 'up', type: InputType.Keyboard, mapKey: 'ArrowUp', axisPlane: '', axisCheckDirection: 0 },
@@ -122,25 +122,7 @@ export function resetInputMaps() {
  */
 export function inputPressed(inputName, gamepadNumber) {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber;
-    var inputs = [];
-    Object.keys(inputMaps).filter(function (f) { return f === inputName; }).forEach(function (key) { return inputs.push.apply(inputs, inputMaps[key]); });
-    var ret = false;
-    // inputs.forEach(input => {
-    //     if (input.type === InputType.Keyboard && keyboard.getInputKeyState(inputName) && inputState[inputName] !== InputState.Pressed) {
-    //         ret = true
-    //         inputState[inputName] = InputState.Pressed
-    //     } else if (input.type === InputType.GamepadAxis && axisPressed(input.mapKey, input.axisPlane, input.axisCheckDirection, gamepadNumber) && inputState[inputName] !== InputState.Pressed) {
-    //         ret = true
-    //         inputState[inputName] = InputState.Pressed
-    //     } else if (input.type === InputType.GamepadButton && buttonPressed(input.mapKey, gamepadNumber) && inputState[inputName] !== InputState.Pressed) {
-    //         ret = true
-    //         inputState[inputName] = InputState.Pressed
-    //     }
-    // })
-    // if (ret) {
-    //     onInputPressed(inputName, gamepadNumber)
-    // }
-    return ret;
+    return buttonPressed(inputName, gamepadNumber) || keyboard.getInputKeyState(inputName) === InputState.Pressed || gamepad.getAxisInputState(inputName) === InputState.Pressed;
 }
 /**
  * Whether or not the specified button or key that maps to inputName is released. Not used for axes or triggers.
@@ -150,29 +132,7 @@ export function inputPressed(inputName, gamepadNumber) {
  */
 export function inputReleased(inputName, gamepadNumber) {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber;
-    var inputs = [];
-    Object.keys(inputMaps).filter(function (f) { return f === inputName; }).forEach(function (key) { return inputs.push.apply(inputs, inputMaps[key]); });
-    var ret = false;
-    // inputs.forEach(input => {
-    //     /**
-    //      * TODO: This isn't working. let the gamepad/keyboard input modules implement their own events and just route them
-    //      * here.
-    //      */
-    //     // if (input.type === InputType.Keyboard && !keyboard.getInputKeyState(inputName) && inputState[inputName] === InputState.Pressed) {
-    //     //     ret = true
-    //     // }
-    //     // if (input.type === InputType.GamepadAxis && !axisPressed(input.mapKey, input.axisPlane, input.axisCheckDirection, gamepadNumber) && inputState[inputName] === InputState.Pressed) {
-    //     //     ret = true
-    //     // }
-    //     if (input.type === InputType.GamepadButton && !buttonPressed(input.mapKey, gamepadNumber) && inputState[inputName] === InputState.Pressed) {
-    //         ret = true
-    //         inputState[inputName] = InputState.Released
-    //     }
-    // })
-    // if (ret) {
-    //     onInputReleased(inputName, gamepadNumber)
-    // }
-    return ret;
+    return buttonReleased(inputName, gamepadNumber) || keyboard.getInputKeyState(inputName) === InputState.Released || gamepad.getAxisInputState(inputName) === InputState.Released;
 }
 export function buttonPressed(inputName, gamepadNumber) {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber;
@@ -182,9 +142,17 @@ export function buttonPressed(inputName, gamepadNumber) {
     }
     return false;
 }
+export function buttonReleased(inputName, gamepadNumber) {
+    gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber;
+    var button = gamepad.getButtonState(inputName)[gamepadNumber];
+    if (button && button.pressed) {
+        return false;
+    }
+    return true;
+}
 export function axisPressed(inputName, axisPlane, direction, gamepadNumber) {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber;
-    var state = gamepad.getAxisState(inputName)[gamepadNumber];
+    var state = gamepad.getAxisData(inputName)[gamepadNumber];
     if (state) {
         if (direction < 0 && state[axisPlane] < 0 && state[axisPlane] <= -settings.axisPressedThreshold) {
             return true;
@@ -194,13 +162,5 @@ export function axisPressed(inputName, axisPlane, direction, gamepadNumber) {
         }
     }
     return false;
-}
-export function updateInputState() {
-    gamepad.getGamepads().forEach(function (g, index) {
-        Object.keys(inputMaps).forEach(function (key) {
-            inputPressed(key, index);
-            inputReleased(key, index);
-        });
-    });
 }
 //# sourceMappingURL=input.js.map

@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modules/music.ts:7](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/music.ts#L7)
+[modules/music.ts:7](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/music.ts#L7)

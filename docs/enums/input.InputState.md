@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[modules/input.ts:60](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L60)
+[modules/input.ts:58](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L58)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:59](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L59)
+[modules/input.ts:57](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L57)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[modules/input.ts:61](https://github.com/philbgarner/retrolib/blob/7d31d65/src/modules/input.ts#L61)
+[modules/input.ts:59](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L59)

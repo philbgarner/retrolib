@@ -1,4 +1,4 @@
-import { inputPressed, inputReleased } from "./input";
+import { InputState, handleInputPressed, handleInputReleased } from "./input";
 /**
  *
  * Globals
@@ -56,16 +56,21 @@ export function onKeyboardRelease(fn) {
     keyboardReleaseHandler = fn;
 }
 export function keyboardDown(e) {
-    keysState[e.key] = true;
-    if (keysMap[e.key]) {
-        console.log('keyboard down', e.key, keysMap[e.key], keysMap);
-        inputPressed(keysMap[e.key]);
+    keysState[e.key] = InputState.Pressed;
+    var inputs = [];
+    Object.keys(keysMap).filter(function (input) { return keysMap[input] === e.key; }).forEach(function (input) { return inputs.push(input); });
+    if (inputs.length > 0) {
+        handleInputPressed(inputs[0]);
     }
     keyboardDownHandler(e);
 }
 export function keyboardRelease(e) {
-    keysState[e.key] = false;
-    inputReleased(e.key);
+    keysState[e.key] = InputState.Released;
+    var inputs = [];
+    Object.keys(keysMap).filter(function (input) { return keysMap[input] === e.key; }).forEach(function (input) { return inputs.push(input); });
+    if (inputs.length > 0) {
+        handleInputReleased(inputs[0]);
+    }
     keyboardReleaseHandler(e);
 }
 //# sourceMappingURL=input-keyboard.js.map

@@ -16,6 +16,8 @@ var __extends = (this && this.__extends) || (function () {
 import Scene from "./scene";
 import * as font from './font';
 import { LayoutDirection } from "./menus";
+import { canvasHeight, canvasWidth } from "../retrolib";
+import { getContext } from "./images";
 export var MenuInputType;
 (function (MenuInputType) {
     MenuInputType[MenuInputType["Selection"] = 0] = "Selection";
@@ -43,6 +45,8 @@ var Menu = /** @class */ (function (_super) {
             _this.Draw(delta);
         };
         _this = _super.call(this, id, animationFrame, active, undefined, undefined, function (event) { return console.log('event', event); }) || this;
+        _this.ctx = getContext();
+        _this.clearFrame = true;
         _this.offsetX = 0;
         _this.offsetY = 0;
         _this.selectedOption = 0;
@@ -57,12 +61,20 @@ var Menu = /** @class */ (function (_super) {
         _this.actionInput = 'action';
         _this.cancelInput = 'cancel';
         _this.handleInput = function (input, amt, released) {
-            console.log('menu scene handleInput', input, amt, 'released', released);
+            // console.log('menu scene handleInput', input, amt, 'released', released)
             if (input === 'up' && released) {
                 _this.DecrementSelection();
+                // TODO: use the increment primary/secondary, etc.
             }
             else if (input === 'down' && released) {
                 _this.IncrementSelection();
+                // TODO: use the increment primary/secondary, etc.
+            }
+            else if (input === 'action' && released) {
+                _this.Selected().onInput(_this, _this.Selected(), MenuInputType.Selection);
+            }
+            if (input === 'cancel' && released) {
+                _this.Selected().onInput(_this, _this.Selected(), MenuInputType.Cancel);
             }
         };
         _this.onActivate = function () { };
@@ -104,6 +116,7 @@ var Menu = /** @class */ (function (_super) {
     // eslint-disable-next-line
     Menu.prototype.Draw = function (delta) {
         var _this = this;
+        this.ctx.clearRect(0, 0, canvasWidth, canvasHeight);
         this.options.forEach(function (option, index) {
             var colr = Math.floor(_this.selectedOption) === index ? _this.selectedColor : _this.color;
             font.drawText(option.rect.x, option.rect.y, option.text, colr);

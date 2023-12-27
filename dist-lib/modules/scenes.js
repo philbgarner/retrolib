@@ -1,4 +1,3 @@
-import * as input from './input';
 import { gamepadsDidUpdate } from "./input-gamepad";
 var start = null;
 var scenes = [];
@@ -31,7 +30,6 @@ function handleInput(input, amt, released) {
     });
 }
 function handleAnimationFrame(timeStamp) {
-    input.updateInputState();
     window.requestAnimationFrame(handleAnimationFrame);
     if (start === null) {
         start = timeStamp - 16; // If we don't do this, the first frame timestamp is too long so we fake 60fps by subtracting 16.
