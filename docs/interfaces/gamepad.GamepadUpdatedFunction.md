@@ -4,6 +4,8 @@
 
 [gamepad](../modules/gamepad.md).GamepadUpdatedFunction
 
+Callback function for updates.
+
 ## Callable
 
 ### GamepadUpdatedFunction
@@ -22,4 +24,4 @@
 
 #### Defined in
 
-[modules/input-gamepad.ts:43](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input-gamepad.ts#L43)
+[modules/input-gamepad.ts:63](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input-gamepad.ts#L63)

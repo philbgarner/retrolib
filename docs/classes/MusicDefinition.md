@@ -38,7 +38,7 @@ Helper class to store music tracks and deserialize them from JSON.
 
 #### Defined in
 
-[modules/MusicDefinition.ts:7](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/MusicDefinition.ts#L7)
+[modules/MusicDefinition.ts:7](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/MusicDefinition.ts#L7)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[modules/MusicDefinition.ts:5](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/MusicDefinition.ts#L5)
+[modules/MusicDefinition.ts:5](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/MusicDefinition.ts#L5)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[modules/MusicDefinition.ts:6](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/MusicDefinition.ts#L6)
+[modules/MusicDefinition.ts:6](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/MusicDefinition.ts#L6)
 
 ## Methods
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[modules/MusicDefinition.ts:9](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/MusicDefinition.ts#L9)
+[modules/MusicDefinition.ts:9](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/MusicDefinition.ts#L9)

@@ -59,9 +59,9 @@ export function initialize() {
     inputMaps = {};
     resetInputMaps();
     gamepad.resetGamepadTimestamps();
-    gamepad.setGamepadConnected(function () { });
-    gamepad.setGamepadDisconnected(function () { });
-    gamepad.setGamepadUpdated(function () { });
+    gamepad.onGamepadConnected(function () { });
+    gamepad.onGamepadDisconnected(function () { });
+    gamepad.onGamepadUpdated(function () { });
     window.removeEventListener('keydown', keyboard.keyboardDown);
     window.addEventListener('keydown', keyboard.keyboardDown);
     window.removeEventListener('keyup', keyboard.keyboardRelease);

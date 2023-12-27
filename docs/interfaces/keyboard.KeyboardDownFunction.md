@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modules/input-keyboard.ts:31](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input-keyboard.ts#L31)
+[modules/input-keyboard.ts:31](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input-keyboard.ts#L31)

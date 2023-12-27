@@ -93,9 +93,9 @@ export function initialize(): void {
     inputMaps = {}
     resetInputMaps()
     gamepad.resetGamepadTimestamps()
-    gamepad.setGamepadConnected(() => {})
-    gamepad.setGamepadDisconnected(() => {})
-    gamepad.setGamepadUpdated(() => {})
+    gamepad.onGamepadConnected(() => {})
+    gamepad.onGamepadDisconnected(() => {})
+    gamepad.onGamepadUpdated(() => {})
    
     window.removeEventListener('keydown', keyboard.keyboardDown)
     window.addEventListener('keydown', keyboard.keyboardDown)

@@ -4,6 +4,8 @@
 
 [gamepad](../modules/gamepad.md).GamepadDisonnectedFunction
 
+Callback function for disconnection event.
+
 ## Callable
 
 ### GamepadDisonnectedFunction
@@ -22,4 +24,4 @@
 
 #### Defined in
 
-[modules/input-gamepad.ts:51](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input-gamepad.ts#L51)
+[modules/input-gamepad.ts:77](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input-gamepad.ts#L77)

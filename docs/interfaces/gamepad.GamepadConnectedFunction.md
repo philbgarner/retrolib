@@ -4,6 +4,8 @@
 
 [gamepad](../modules/gamepad.md).GamepadConnectedFunction
 
+Callback function for connection event.
+
 ## Callable
 
 ### GamepadConnectedFunction
@@ -22,4 +24,4 @@
 
 #### Defined in
 
-[modules/input-gamepad.ts:47](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input-gamepad.ts#L47)
+[modules/input-gamepad.ts:70](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input-gamepad.ts#L70)

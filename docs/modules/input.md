@@ -59,7 +59,7 @@ Types
 
 #### Defined in
 
-[modules/input.ts:68](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L68)
+[modules/input.ts:68](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L68)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:76](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L76)
+[modules/input.ts:76](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L76)
 
 ## Variables
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:38](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L38)
+[modules/input.ts:38](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L38)
 
 ___
 
@@ -105,7 +105,7 @@ Globals
 
 #### Defined in
 
-[modules/input.ts:11](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L11)
+[modules/input.ts:11](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L11)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:40](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L40)
+[modules/input.ts:40](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L40)
 
 ## Functions
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:191](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L191)
+[modules/input.ts:191](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L191)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:173](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L173)
+[modules/input.ts:173](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L173)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:182](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L182)
+[modules/input.ts:182](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L182)
 
 ___
 
@@ -204,7 +204,7 @@ when a state changes.
 
 #### Defined in
 
-[modules/input.ts:33](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L33)
+[modules/input.ts:33](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L33)
 
 ___
 
@@ -228,7 +228,7 @@ when a state changes.
 
 #### Defined in
 
-[modules/input.ts:22](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L22)
+[modules/input.ts:22](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L22)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:87](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L87)
+[modules/input.ts:87](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L87)
 
 ___
 
@@ -265,7 +265,7 @@ Whether or not the specified button or key that maps to inputName is pressed. No
 
 #### Defined in
 
-[modules/input.ts:157](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L157)
+[modules/input.ts:157](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L157)
 
 ___
 
@@ -288,7 +288,7 @@ Whether or not the specified button or key that maps to inputName is released. N
 
 #### Defined in
 
-[modules/input.ts:168](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L168)
+[modules/input.ts:168](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L168)
 
 ___
 
@@ -309,7 +309,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:84](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L84)
+[modules/input.ts:84](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L84)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:81](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L81)
+[modules/input.ts:81](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L81)
 
 ___
 
@@ -346,4 +346,4 @@ Reset button mappings to defaults.
 
 #### Defined in
 
-[modules/input.ts:126](https://github.com/philbgarner/retrolib/blob/567c4cd/src/modules/input.ts#L126)
+[modules/input.ts:126](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L126)

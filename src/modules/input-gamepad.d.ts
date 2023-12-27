@@ -21,10 +21,6 @@ export declare let gamepadDisconnected: GamepadDisonnectedFunction;
 export declare let gamepadUpdated: GamepadUpdatedFunction;
 export declare function resetButtonsState(): void;
 export declare function resetGamepadTimestamps(): void;
-export declare function setGamepadTimestamps(gamepadNumber: number, timestamp: number): void;
-export declare function setGamepadUpdated(fn: GamepadUpdatedFunction): void;
-export declare function setGamepadConnected(fn: GamepadConnectedFunction): void;
-export declare function setGamepadDisconnected(fn: GamepadDisonnectedFunction): void;
 export interface GamepadUpdatedFunction {
     (gamepad: Gamepad): void;
 }
