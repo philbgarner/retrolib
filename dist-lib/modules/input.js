@@ -2,12 +2,16 @@ import * as scenes from './scenes';
 import * as gamepad from './input-gamepad';
 import * as keyboard from './input-keyboard';
 /**
- *
- * Globals
- *
+ * Input state stored by input name.
  */
 export var inputState = {};
+/**
+ * Input released callback function.
+ */
 export var onInputReleased = function () { };
+/**
+ * Input pressed callback function.
+ */
 export var onInputPressed = function () { };
 /**
  * Input Released Event Handler. This gets called by keyboard/gamepad event handlers
@@ -29,14 +33,18 @@ export function handleInputPressed(inputName, controller) {
     // Call the pressed input callback function.
     onInputPressed(inputName, controller);
 }
+/**
+ * Keyboard and Gamepad input name to key/button/axis relationships. Can map multiple inputs to the same input name.
+ */
 export var inputMaps;
+/**
+ * Input settings global object.
+ */
 export var settings = {
-    axisPressedThreshold: 0.3
+    axisPressedThreshold: 0.3 // Sensitivity level to determine when a joystick (axis) change is considered 'pressed' or 'released'.
 };
 /**
- *
- * Enums
- *
+ * Input types.
  */
 export var InputType;
 (function (InputType) {
@@ -44,12 +52,17 @@ export var InputType;
     InputType[InputType["GamepadButton"] = 1] = "GamepadButton";
     InputType[InputType["GamepadAxis"] = 2] = "GamepadAxis";
 })(InputType || (InputType = {}));
+/**
+ * Pressed/released status for inputs.
+ */
 export var InputState;
 (function (InputState) {
     InputState[InputState["Released"] = 0] = "Released";
     InputState[InputState["Pressed"] = 1] = "Pressed";
-    InputState[InputState["Releasing"] = 2] = "Releasing";
 })(InputState || (InputState = {}));
+/**
+ * Set the default states and mappings, set the event listeners and route input changes to the scenes' handleInput functions.
+ */
 export function initialize() {
     keyboard.resetKeysState();
     keyboard.resetKeyboardMappings();
@@ -134,6 +147,12 @@ export function inputReleased(inputName, gamepadNumber) {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber;
     return buttonReleased(inputName, gamepadNumber) || keyboard.getInputKeyState(inputName) === InputState.Released || gamepad.getAxisInputState(inputName) === InputState.Released;
 }
+/**
+ * Whether or not a gamepad button mapped to the input name is pressed.
+ * @param inputName Input name mapped to a button.
+ * @param gamepadNumber Connected gamepad to check the pressed state on. If not specified it defaults to the first connected gamepad.
+ * @returns
+ */
 export function buttonPressed(inputName, gamepadNumber) {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber;
     var button = gamepad.getButtonState(inputName)[gamepadNumber];
@@ -142,6 +161,12 @@ export function buttonPressed(inputName, gamepadNumber) {
     }
     return false;
 }
+/**
+ * Whether or not a gamepad button mapped to the input name is pressed.
+ * @param inputName Input name mapped to a button.
+ * @param gamepadNumber Connected gamepad to check the pressed state on. If not specified it defaults to the first connected gamepad.
+ * @returns
+ */
 export function buttonReleased(inputName, gamepadNumber) {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber;
     var button = gamepad.getButtonState(inputName)[gamepadNumber];
@@ -150,6 +175,12 @@ export function buttonReleased(inputName, gamepadNumber) {
     }
     return true;
 }
+/**
+ * Whether or not a gamepad axis mapped to the input name is pressed.
+ * @param inputName Input name mapped to a button.
+ * @param gamepadNumber Connected gamepad to check the pressed state on. If not specified it defaults to the first connected gamepad.
+ * @returns
+ */
 export function axisPressed(inputName, axisPlane, direction, gamepadNumber) {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber;
     var state = gamepad.getAxisData(inputName)[gamepadNumber];

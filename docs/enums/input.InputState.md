@@ -4,13 +4,14 @@
 
 [input](../modules/input.md).InputState
 
+Pressed/released status for inputs.
+
 ## Table of contents
 
 ### Enumeration Members
 
 - [Pressed](input.InputState.md#pressed)
 - [Released](input.InputState.md#released)
-- [Releasing](input.InputState.md#releasing)
 
 ## Enumeration Members
 
@@ -20,7 +21,7 @@
 
 #### Defined in
 
-[modules/input.ts:58](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L58)
+[modules/input.ts:66](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L66)
 
 ___
 
@@ -30,14 +31,4 @@ ___
 
 #### Defined in
 
-[modules/input.ts:57](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L57)
-
-___
-
-### Releasing
-
-• **Releasing** = ``2``
-
-#### Defined in
-
-[modules/input.ts:59](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L59)
+[modules/input.ts:65](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L65)

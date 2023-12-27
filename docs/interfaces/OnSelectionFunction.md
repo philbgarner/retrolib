@@ -23,4 +23,4 @@ Function that fires when the user presses either the 'action' or 'cancel' mapped
 
 #### Defined in
 
-[modules/menu.ts:31](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/menu.ts#L31)
+[modules/menu.ts:31](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/menu.ts#L31)

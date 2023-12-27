@@ -3,14 +3,16 @@ import * as gamepad from './input-gamepad'
 import * as keyboard from './input-keyboard'
 
 /**
- * 
- * Globals
- * 
+ * Input state stored by input name.
  */
-
 export let inputState: { [key: string]: InputState } = {}
-
+/**
+ * Input released callback function.
+ */
 export let onInputReleased: InputReleasedFunction = () => {}
+/**
+ * Input pressed callback function.
+ */
 export let onInputPressed: InputPressedFunction = () => {}
 
 /**
@@ -35,36 +37,38 @@ export function handleInputPressed(inputName: string, controller?: number) {
     onInputPressed(inputName, controller)
 }
 
+/**
+ * Keyboard and Gamepad input name to key/button/axis relationships. Can map multiple inputs to the same input name.
+ */
 export let inputMaps: { [key: string]: InputMap[] }
 
+/**
+ * Input settings global object.
+ */
 export const settings: InputSettings = {
-    axisPressedThreshold: 0.3
+    axisPressedThreshold: 0.3 // Sensitivity level to determine when a joystick (axis) change is considered 'pressed' or 'released'.
 }
 
 /**
- * 
- * Enums
- * 
+ * Input types.
  */
-
 export enum InputType {
     Keyboard = 0,
     GamepadButton,
     GamepadAxis
 }
 
+/**
+ * Pressed/released status for inputs.
+ */
 export enum InputState {
     Released=0,
-    Pressed,
-    Releasing
+    Pressed
 }
 
 /**
- * 
- * Types
- * 
+ * Relationship of input names (mapKey) to axis states.
  */
-
 export type InputMap = {
     type: InputType,
     mapKey: string,
@@ -73,17 +77,30 @@ export type InputMap = {
     axisCheckDirection: number
 }
 
+/**
+ * Input settings.
+ */
 export type InputSettings = {
     axisPressedThreshold: number
 }
 
+/**
+ * Callback function for when an input that was pressed is released.
+ */
 export interface InputReleasedFunction {
     (inputName: string, controller?: number): void
 }
+/**
+ * Callback function for when an iput that was released is now pressed.
+ */
 export interface InputPressedFunction {
     (inputName: string, controller?: number): void
 }
 
+
+/**
+ * Set the default states and mappings, set the event listeners and route input changes to the scenes' handleInput functions.
+ */
 export function initialize(): void {
     keyboard.resetKeysState()
     keyboard.resetKeyboardMappings()
@@ -170,6 +187,12 @@ export function inputReleased(inputName: string, gamepadNumber?: number): boolea
     return buttonReleased(inputName, gamepadNumber) || keyboard.getInputKeyState(inputName) === InputState.Released || gamepad.getAxisInputState(inputName) === InputState.Released
 }
 
+/**
+ * Whether or not a gamepad button mapped to the input name is pressed.
+ * @param inputName Input name mapped to a button.
+ * @param gamepadNumber Connected gamepad to check the pressed state on. If not specified it defaults to the first connected gamepad.
+ * @returns 
+ */
 export function buttonPressed(inputName: string, gamepadNumber?: number): boolean {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber
     const button = gamepad.getButtonState(inputName)[gamepadNumber]
@@ -179,6 +202,12 @@ export function buttonPressed(inputName: string, gamepadNumber?: number): boolea
     return false
 }
 
+/**
+ * Whether or not a gamepad button mapped to the input name is pressed.
+ * @param inputName Input name mapped to a button.
+ * @param gamepadNumber Connected gamepad to check the pressed state on. If not specified it defaults to the first connected gamepad.
+ * @returns 
+ */
 export function buttonReleased(inputName: string, gamepadNumber?: number): boolean {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber
     const button = gamepad.getButtonState(inputName)[gamepadNumber]
@@ -188,6 +217,12 @@ export function buttonReleased(inputName: string, gamepadNumber?: number): boole
     return true
 }
 
+/**
+ * Whether or not a gamepad axis mapped to the input name is pressed.
+ * @param inputName Input name mapped to a button.
+ * @param gamepadNumber Connected gamepad to check the pressed state on. If not specified it defaults to the first connected gamepad.
+ * @returns 
+ */
 export function axisPressed(inputName: string, axisPlane: number, direction: number, gamepadNumber?: number): boolean {
     gamepadNumber = gamepadNumber === undefined ? 0 : gamepadNumber
     const state = gamepad.getAxisData(inputName)[gamepadNumber]

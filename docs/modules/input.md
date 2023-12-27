@@ -45,7 +45,7 @@
 
 Ƭ **InputMap**: `Object`
 
-Types
+Relationship of input names (mapKey) to axis states.
 
 #### Type declaration
 
@@ -59,13 +59,15 @@ Types
 
 #### Defined in
 
-[modules/input.ts:68](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L68)
+[modules/input.ts:72](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L72)
 
 ___
 
 ### InputSettings
 
 Ƭ **InputSettings**: `Object`
+
+Input settings.
 
 #### Type declaration
 
@@ -75,7 +77,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:76](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L76)
+[modules/input.ts:83](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L83)
 
 ## Variables
 
@@ -83,13 +85,15 @@ ___
 
 • **inputMaps**: `Object`
 
+Keyboard and Gamepad input name to key/button/axis relationships. Can map multiple inputs to the same input name.
+
 #### Index signature
 
 ▪ [key: `string`]: [`InputMap`](input.md#inputmap)[]
 
 #### Defined in
 
-[modules/input.ts:38](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L38)
+[modules/input.ts:43](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L43)
 
 ___
 
@@ -97,7 +101,7 @@ ___
 
 • **inputState**: `Object` = `{}`
 
-Globals
+Input state stored by input name.
 
 #### Index signature
 
@@ -105,7 +109,7 @@ Globals
 
 #### Defined in
 
-[modules/input.ts:11](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L11)
+[modules/input.ts:8](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L8)
 
 ___
 
@@ -113,9 +117,11 @@ ___
 
 • `Const` **settings**: [`InputSettings`](input.md#inputsettings)
 
+Input settings global object.
+
 #### Defined in
 
-[modules/input.ts:40](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L40)
+[modules/input.ts:48](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L48)
 
 ## Functions
 
@@ -123,14 +129,16 @@ ___
 
 ▸ **axisPressed**(`inputName`, `axisPlane`, `direction`, `gamepadNumber?`): `boolean`
 
+Whether or not a gamepad axis mapped to the input name is pressed.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `inputName` | `string` |
-| `axisPlane` | `number` |
-| `direction` | `number` |
-| `gamepadNumber?` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `inputName` | `string` | Input name mapped to a button. |
+| `axisPlane` | `number` | - |
+| `direction` | `number` | - |
+| `gamepadNumber?` | `number` | Connected gamepad to check the pressed state on. If not specified it defaults to the first connected gamepad. |
 
 #### Returns
 
@@ -138,7 +146,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:191](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L191)
+[modules/input.ts:226](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L226)
 
 ___
 
@@ -146,12 +154,14 @@ ___
 
 ▸ **buttonPressed**(`inputName`, `gamepadNumber?`): `boolean`
 
+Whether or not a gamepad button mapped to the input name is pressed.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `inputName` | `string` |
-| `gamepadNumber?` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `inputName` | `string` | Input name mapped to a button. |
+| `gamepadNumber?` | `number` | Connected gamepad to check the pressed state on. If not specified it defaults to the first connected gamepad. |
 
 #### Returns
 
@@ -159,7 +169,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:173](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L173)
+[modules/input.ts:196](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L196)
 
 ___
 
@@ -167,12 +177,14 @@ ___
 
 ▸ **buttonReleased**(`inputName`, `gamepadNumber?`): `boolean`
 
+Whether or not a gamepad button mapped to the input name is pressed.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `inputName` | `string` |
-| `gamepadNumber?` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `inputName` | `string` | Input name mapped to a button. |
+| `gamepadNumber?` | `number` | Connected gamepad to check the pressed state on. If not specified it defaults to the first connected gamepad. |
 
 #### Returns
 
@@ -180,7 +192,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:182](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L182)
+[modules/input.ts:211](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L211)
 
 ___
 
@@ -204,7 +216,7 @@ when a state changes.
 
 #### Defined in
 
-[modules/input.ts:33](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L33)
+[modules/input.ts:35](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L35)
 
 ___
 
@@ -228,7 +240,7 @@ when a state changes.
 
 #### Defined in
 
-[modules/input.ts:22](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L22)
+[modules/input.ts:24](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L24)
 
 ___
 
@@ -236,13 +248,15 @@ ___
 
 ▸ **initialize**(): `void`
 
+Set the default states and mappings, set the event listeners and route input changes to the scenes' handleInput functions.
+
 #### Returns
 
 `void`
 
 #### Defined in
 
-[modules/input.ts:87](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L87)
+[modules/input.ts:104](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L104)
 
 ___
 
@@ -265,7 +279,7 @@ Whether or not the specified button or key that maps to inputName is pressed. No
 
 #### Defined in
 
-[modules/input.ts:157](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L157)
+[modules/input.ts:174](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L174)
 
 ___
 
@@ -288,7 +302,7 @@ Whether or not the specified button or key that maps to inputName is released. N
 
 #### Defined in
 
-[modules/input.ts:168](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L168)
+[modules/input.ts:185](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L185)
 
 ___
 
@@ -296,6 +310,8 @@ ___
 
 ▸ **onInputPressed**(`inputName`, `controller?`): `void`
 
+Input pressed callback function.
+
 #### Parameters
 
 | Name | Type |
@@ -309,7 +325,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:84](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L84)
+[modules/input.ts:97](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L97)
 
 ___
 
@@ -317,6 +333,8 @@ ___
 
 ▸ **onInputReleased**(`inputName`, `controller?`): `void`
 
+Input released callback function.
+
 #### Parameters
 
 | Name | Type |
@@ -330,7 +348,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:81](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L81)
+[modules/input.ts:91](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L91)
 
 ___
 
@@ -346,4 +364,4 @@ Reset button mappings to defaults.
 
 #### Defined in
 
-[modules/input.ts:126](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L126)
+[modules/input.ts:143](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L143)

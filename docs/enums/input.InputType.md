@@ -4,7 +4,7 @@
 
 [input](../modules/input.md).InputType
 
-Enums
+Input types.
 
 ## Table of contents
 
@@ -22,7 +22,7 @@ Enums
 
 #### Defined in
 
-[modules/input.ts:53](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L53)
+[modules/input.ts:58](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L58)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:52](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L52)
+[modules/input.ts:57](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L57)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[modules/input.ts:51](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L51)
+[modules/input.ts:56](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L56)

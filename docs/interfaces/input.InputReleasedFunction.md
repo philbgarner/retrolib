@@ -4,6 +4,8 @@
 
 [input](../modules/input.md).InputReleasedFunction
 
+Callback function for when an input that was pressed is released.
+
 ## Callable
 
 ### InputReleasedFunction
@@ -23,4 +25,4 @@
 
 #### Defined in
 
-[modules/input.ts:81](https://github.com/philbgarner/retrolib/blob/9aaca2e/src/modules/input.ts#L81)
+[modules/input.ts:91](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/input.ts#L91)
