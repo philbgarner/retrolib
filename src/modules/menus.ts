@@ -3,11 +3,17 @@ import * as fonts from "./font"
 import * as scenes from './scenes'
 import Menu, { MenuOption, OnInputFunction, MenuInputType } from "./menu"
 
+/**
+ * Top to bottom layout or left to right.
+ */
 export enum LayoutDirection {
     TopDown = 0,
     LeftToRight,
 }
 
+/**
+ * Optional argument with extra parameters for the layout function.
+ */
 export type LayoutExtras = {
     onInput: OnInputFunction
 }
@@ -48,14 +54,16 @@ export function LayoutMenu(id: string, options: string[], direction: LayoutDirec
                 }
             }
         }
-        if (extras) {
-            // If defined in extras, go with a user-defined onInput event handler.
-            if (extras.onInput) {
-                fnInput = extras.onInput
-            }
-        }
-        menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h), onInput: fnInput})
+        
+        menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h) })
     })
     
-    return new Menu(id, true, direction, menuOptions)
+    let menu = new Menu(id, true, direction, menuOptions)
+    if (extras) {
+        // If defined in extras, go with a user-defined onInput event handler.
+        if (extras.onInput) {
+            menu.itemInputHandler = extras.onInput
+        }
+    }
+    return menu
 }

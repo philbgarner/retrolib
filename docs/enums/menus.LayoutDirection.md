@@ -4,6 +4,8 @@
 
 [menus](../modules/menus.md).LayoutDirection
 
+Top to bottom layout or left to right.
+
 ## Table of contents
 
 ### Enumeration Members
@@ -19,7 +21,7 @@
 
 #### Defined in
 
-[modules/menus.ts:8](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menus.ts#L8)
+[modules/menus.ts:11](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menus.ts#L11)
 
 ___
 
@@ -29,4 +31,4 @@ ___
 
 #### Defined in
 
-[modules/menus.ts:7](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menus.ts#L7)
+[modules/menus.ts:10](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menus.ts#L10)

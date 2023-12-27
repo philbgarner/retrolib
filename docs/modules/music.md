@@ -37,7 +37,7 @@ Get the named audio element.
 
 #### Defined in
 
-[modules/music.ts:37](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/music.ts#L37)
+[modules/music.ts:37](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/music.ts#L37)
 
 ___
 
@@ -59,7 +59,7 @@ Whether or not the named track is currently playing.
 
 #### Defined in
 
-[modules/music.ts:24](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/music.ts#L24)
+[modules/music.ts:24](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/music.ts#L24)
 
 ___
 
@@ -75,7 +75,7 @@ Load all tracks that have been loaded into the manifest.
 
 #### Defined in
 
-[modules/music.ts:96](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/music.ts#L96)
+[modules/music.ts:96](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/music.ts#L96)
 
 ___
 
@@ -97,7 +97,7 @@ Load track from location.
 
 #### Defined in
 
-[modules/music.ts:79](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/music.ts#L79)
+[modules/music.ts:79](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/music.ts#L79)
 
 ___
 
@@ -120,7 +120,7 @@ objects matching format { "name": "track id ref", "filename": "./file_path/filen
 
 #### Defined in
 
-[modules/music.ts:14](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/music.ts#L14)
+[modules/music.ts:14](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/music.ts#L14)
 
 ___
 
@@ -143,4 +143,4 @@ Play specified track.
 
 #### Defined in
 
-[modules/music.ts:48](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/music.ts#L48)
+[modules/music.ts:48](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/music.ts#L48)

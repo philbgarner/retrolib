@@ -1,8 +1,14 @@
 import Menu, { OnInputFunction } from "./menu";
+/**
+ * Top to bottom layout or left to right.
+ */
 export declare enum LayoutDirection {
     TopDown = 0,
     LeftToRight = 1
 }
+/**
+ * Optional argument with extra parameters for the layout function.
+ */
 export type LayoutExtras = {
     onInput: OnInputFunction;
 };

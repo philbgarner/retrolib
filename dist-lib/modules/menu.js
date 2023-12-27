@@ -38,6 +38,7 @@ var Menu = /** @class */ (function (_super) {
      * @param active Whether or not the scene starts activated.
      * @param direction Layout direction.
      * @param options Menu options (items).
+     * @param handleItemInput (Optional) Callback that executes when an input event occurs.
      */
     function Menu(id, active, direction, options, handleItemInput) {
         var _this = this;
@@ -72,11 +73,9 @@ var Menu = /** @class */ (function (_super) {
                 _this.itemInputHandler(_this, _this.Selected(), MenuInputType.IncrementPrimary);
             }
             else if (input === _this.actionInput && released) {
-                _this.Selected().onInput(_this, _this.Selected(), MenuInputType.Selection);
                 _this.itemInputHandler(_this, _this.Selected(), MenuInputType.Selection);
             }
             else if (input === _this.cancelInput && released) {
-                _this.Selected().onInput(_this, _this.Selected(), MenuInputType.Cancel);
                 _this.itemInputHandler(_this, _this.Selected(), MenuInputType.Cancel);
             }
         };

@@ -22,7 +22,7 @@ Input types.
 
 #### Defined in
 
-[modules/input.ts:58](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/input.ts#L58)
+[modules/input.ts:58](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input.ts#L58)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[modules/input.ts:57](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/input.ts#L57)
+[modules/input.ts:57](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input.ts#L57)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[modules/input.ts:56](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/input.ts#L56)
+[modules/input.ts:56](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input.ts#L56)

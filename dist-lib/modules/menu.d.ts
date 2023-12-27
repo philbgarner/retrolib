@@ -9,7 +9,6 @@ export type MenuOption = {
     id: string;
     text: string;
     rect: Rect;
-    onInput: OnInputFunction;
 };
 export declare enum MenuInputType {
     Selection = 0,
@@ -57,6 +56,7 @@ declare class Menu extends Scene {
      * @param active Whether or not the scene starts activated.
      * @param direction Layout direction.
      * @param options Menu options (items).
+     * @param handleItemInput (Optional) Callback that executes when an input event occurs.
      */
     constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], handleItemInput?: OnInputFunction);
     /**

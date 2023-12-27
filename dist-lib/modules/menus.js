@@ -2,6 +2,9 @@ import Rect from "./rect";
 import * as fonts from "./font";
 import * as scenes from './scenes';
 import Menu, { MenuInputType } from "./menu";
+/**
+ * Top to bottom layout or left to right.
+ */
 export var LayoutDirection;
 (function (LayoutDirection) {
     LayoutDirection[LayoutDirection["TopDown"] = 0] = "TopDown";
@@ -45,14 +48,15 @@ export function LayoutMenu(id, options, direction, margin, startX, startY, nextS
                 }
             }
         };
-        if (extras) {
-            // If defined in extras, go with a user-defined onInput event handler.
-            if (extras.onInput) {
-                fnInput = extras.onInput;
-            }
-        }
-        menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h), onInput: fnInput });
+        menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h) });
     });
-    return new Menu(id, true, direction, menuOptions);
+    var menu = new Menu(id, true, direction, menuOptions);
+    if (extras) {
+        // If defined in extras, go with a user-defined onInput event handler.
+        if (extras.onInput) {
+            menu.itemInputHandler = extras.onInput;
+        }
+    }
+    return menu;
 }
 //# sourceMappingURL=menus.js.map

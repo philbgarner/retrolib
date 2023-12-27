@@ -63,7 +63,7 @@ Menu Flavour of Scenes.
 | `active` | `boolean` | Whether or not the scene starts activated. |
 | `direction` | [`LayoutDirection`](../enums/menus.LayoutDirection.md) | Layout direction. |
 | `options` | [`MenuOption`](../modules.md#menuoption)[] | Menu options (items). |
-| `handleItemInput?` | `OnInputFunction` | - |
+| `handleItemInput?` | `OnInputFunction` | (Optional) Callback that executes when an input event occurs. |
 
 #### Returns
 
@@ -75,7 +75,7 @@ Menu Flavour of Scenes.
 
 #### Defined in
 
-[modules/menu.ts:74](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L74)
+[modules/menu.ts:74](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L74)
 
 ## Properties
 
@@ -85,7 +85,7 @@ Menu Flavour of Scenes.
 
 #### Defined in
 
-[modules/menu.ts:59](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L59)
+[modules/menu.ts:58](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L58)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:25](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/scene.ts#L25)
+[modules/scene.ts:25](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scene.ts#L25)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:24](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/scene.ts#L24)
+[modules/scene.ts:24](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scene.ts#L24)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:60](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L60)
+[modules/menu.ts:59](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L59)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:53](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L53)
+[modules/menu.ts:52](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L52)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:51](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L51)
+[modules/menu.ts:50](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L50)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:50](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L50)
+[modules/menu.ts:49](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L49)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:63](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L63)
+[modules/menu.ts:62](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L62)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:57](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L57)
+[modules/menu.ts:56](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L56)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:32](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/scene.ts#L32)
+[modules/scene.ts:32](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scene.ts#L32)
 
 ___
 
@@ -203,7 +203,7 @@ Callback function for input directed at the scene.
 
 #### Defined in
 
-[modules/scene.ts:31](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/scene.ts#L31)
+[modules/scene.ts:31](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scene.ts#L31)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/scene.ts#L23)
+[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scene.ts#L23)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:62](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L62)
+[modules/menu.ts:61](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L61)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:56](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L56)
+[modules/menu.ts:55](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L55)
 
 ___
 
@@ -247,7 +247,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:65](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L65)
+[modules/menu.ts:64](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L64)
 
 ___
 
@@ -257,7 +257,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:46](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L46)
+[modules/menu.ts:45](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L45)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:47](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L47)
+[modules/menu.ts:46](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L46)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:26](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/scene.ts#L26)
+[modules/scene.ts:26](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scene.ts#L26)
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:27](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/scene.ts#L27)
+[modules/scene.ts:27](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scene.ts#L27)
 
 ___
 
@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:48](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L48)
+[modules/menu.ts:47](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L47)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:55](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L55)
+[modules/menu.ts:54](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L54)
 
 ___
 
@@ -325,7 +325,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:52](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L52)
+[modules/menu.ts:51](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L51)
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:49](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L49)
+[modules/menu.ts:48](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L48)
 
 ## Methods
 
@@ -357,7 +357,7 @@ Decrement the selection (move up or left depending on orientation).
 
 #### Defined in
 
-[modules/menu.ts:137](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L137)
+[modules/menu.ts:135](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L135)
 
 ___
 
@@ -379,7 +379,7 @@ Draw the menu.
 
 #### Defined in
 
-[modules/menu.ts:162](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L162)
+[modules/menu.ts:160](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L160)
 
 ___
 
@@ -401,7 +401,7 @@ Increment the selection (move down or right depending on orientation).
 
 #### Defined in
 
-[modules/menu.ts:149](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L149)
+[modules/menu.ts:147](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L147)
 
 ___
 
@@ -417,4 +417,4 @@ Returns the currently selected menu option.
 
 #### Defined in
 
-[modules/menu.ts:129](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L129)
+[modules/menu.ts:127](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L127)

@@ -22,6 +22,8 @@
 
 Ƭ **LayoutExtras**: `Object`
 
+Optional argument with extra parameters for the layout function.
+
 #### Type declaration
 
 | Name | Type |
@@ -30,7 +32,7 @@
 
 #### Defined in
 
-[modules/menus.ts:11](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menus.ts#L11)
+[modules/menus.ts:17](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menus.ts#L17)
 
 ## Functions
 
@@ -60,4 +62,4 @@ Take a list of strings and create a menu with the options automatically laid out
 
 #### Defined in
 
-[modules/menus.ts:25](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menus.ts#L25)
+[modules/menus.ts:31](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menus.ts#L31)

@@ -12,8 +12,7 @@ import { getContext } from "./images"
 export type MenuOption = { 
     id: string,
     text: string,
-    rect: Rect,
-    onInput: OnInputFunction
+    rect: Rect
 }
 
 export enum MenuInputType {
@@ -70,6 +69,7 @@ class Menu extends Scene {
      * @param active Whether or not the scene starts activated.
      * @param direction Layout direction.
      * @param options Menu options (items).
+     * @param handleItemInput (Optional) Callback that executes when an input event occurs.
      */
     constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], handleItemInput?: OnInputFunction) {
         handleItemInput = handleItemInput ? handleItemInput : () => {}
@@ -110,10 +110,8 @@ class Menu extends Scene {
                 this.IncrementSelection()
                 this.itemInputHandler(this, this.Selected(), MenuInputType.IncrementPrimary)
             } else if (input === this.actionInput && released) {
-                this.Selected().onInput(this, this.Selected(), MenuInputType.Selection)
                 this.itemInputHandler(this, this.Selected(), MenuInputType.Selection)
             } else if (input === this.cancelInput && released) {
-                this.Selected().onInput(this, this.Selected(), MenuInputType.Cancel)
                 this.itemInputHandler(this, this.Selected(), MenuInputType.Cancel)
             }
 
