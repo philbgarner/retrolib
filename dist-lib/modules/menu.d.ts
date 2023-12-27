@@ -50,6 +50,7 @@ declare class Menu extends Scene {
     cancelInput: string;
     incrementSecondaryInput: string;
     decrementSecondaryInput: string;
+    itemInputHandler: OnInputFunction;
     /**
      *
      * @param id Scene id.
@@ -57,8 +58,7 @@ declare class Menu extends Scene {
      * @param direction Layout direction.
      * @param options Menu options (items).
      */
-    constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[]);
-    NextMenu: any;
+    constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], handleItemInput?: OnInputFunction);
     /**
      * Returns the currently selected menu option.
      */

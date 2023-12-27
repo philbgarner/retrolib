@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[modules/menus.ts:11](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/menus.ts#L11)
+[modules/menus.ts:11](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menus.ts#L11)
 
 ## Functions
 
@@ -60,4 +60,4 @@ Take a list of strings and create a menu with the options automatically laid out
 
 #### Defined in
 
-[modules/menus.ts:25](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/menus.ts#L25)
+[modules/menus.ts:25](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menus.ts#L25)

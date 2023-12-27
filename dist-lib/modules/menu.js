@@ -39,12 +39,14 @@ var Menu = /** @class */ (function (_super) {
      * @param direction Layout direction.
      * @param options Menu options (items).
      */
-    function Menu(id, active, direction, options) {
+    function Menu(id, active, direction, options, handleItemInput) {
         var _this = this;
+        handleItemInput = handleItemInput ? handleItemInput : function () { };
         var animationFrame = function (delta) {
             _this.Draw(delta);
         };
         _this = _super.call(this, id, animationFrame, active, undefined, undefined, function (event) { return console.log('event', event); }) || this;
+        _this.itemInputHandler = handleItemInput;
         _this.ctx = getContext();
         _this.clearFrame = true;
         _this.offsetX = 0;
@@ -61,20 +63,21 @@ var Menu = /** @class */ (function (_super) {
         _this.actionInput = 'action';
         _this.cancelInput = 'cancel';
         _this.handleInput = function (input, amt, released) {
-            // console.log('menu scene handleInput', input, amt, 'released', released)
-            if (input === 'up' && released) {
+            if (input === _this.decrementSelectionInput && released) {
                 _this.DecrementSelection();
-                // TODO: use the increment primary/secondary, etc.
+                _this.itemInputHandler(_this, _this.Selected(), MenuInputType.DecrementPrimary);
             }
-            else if (input === 'down' && released) {
+            else if (input === _this.incrementSelectionInput && released) {
                 _this.IncrementSelection();
-                // TODO: use the increment primary/secondary, etc.
+                _this.itemInputHandler(_this, _this.Selected(), MenuInputType.IncrementPrimary);
             }
-            else if (input === 'action' && released) {
+            else if (input === _this.actionInput && released) {
                 _this.Selected().onInput(_this, _this.Selected(), MenuInputType.Selection);
+                _this.itemInputHandler(_this, _this.Selected(), MenuInputType.Selection);
             }
-            if (input === 'cancel' && released) {
+            else if (input === _this.cancelInput && released) {
                 _this.Selected().onInput(_this, _this.Selected(), MenuInputType.Cancel);
+                _this.itemInputHandler(_this, _this.Selected(), MenuInputType.Cancel);
             }
         };
         _this.onActivate = function () { };

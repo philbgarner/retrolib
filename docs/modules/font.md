@@ -41,7 +41,7 @@ RGBA colour representation.
 
 #### Defined in
 
-[modules/font.ts:14](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L14)
+[modules/font.ts:14](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L14)
 
 ## Functions
 
@@ -66,7 +66,7 @@ Get base64 image data and build a precompiled font JSON object.
 
 #### Defined in
 
-[modules/font.ts:119](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L119)
+[modules/font.ts:119](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L119)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:75](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L75)
+[modules/font.ts:75](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L75)
 
 ___
 
@@ -116,7 +116,7 @@ Rect object with the x, y, width, height of the text drawn.
 
 #### Defined in
 
-[modules/font.ts:231](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L231)
+[modules/font.ts:231](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L231)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:40](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L40)
+[modules/font.ts:40](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L40)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:47](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L47)
+[modules/font.ts:47](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L47)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:84](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L84)
+[modules/font.ts:84](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L84)
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:22](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L22)
+[modules/font.ts:22](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L22)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:29](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L29)
+[modules/font.ts:29](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L29)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:62](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L62)
+[modules/font.ts:62](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L62)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[modules/font.ts:161](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L161)
+[modules/font.ts:161](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L161)
 
 ___
 
@@ -267,4 +267,4 @@ ___
 
 #### Defined in
 
-[modules/font.ts:176](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/font.ts#L176)
+[modules/font.ts:176](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/font.ts#L176)

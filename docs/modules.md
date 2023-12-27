@@ -69,7 +69,7 @@ Menu item.
 
 #### Defined in
 
-[modules/menu.ts:11](https://github.com/philbgarner/retrolib/blob/4392da6/src/modules/menu.ts#L11)
+[modules/menu.ts:12](https://github.com/philbgarner/retrolib/blob/dcec759/src/modules/menu.ts#L12)
 
 ## Variables
 
@@ -81,7 +81,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:40](https://github.com/philbgarner/retrolib/blob/4392da6/src/retrolib.ts#L40)
+[retrolib.ts:40](https://github.com/philbgarner/retrolib/blob/dcec759/src/retrolib.ts#L40)
 
 ___
 
@@ -93,7 +93,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:36](https://github.com/philbgarner/retrolib/blob/4392da6/src/retrolib.ts#L36)
+[retrolib.ts:36](https://github.com/philbgarner/retrolib/blob/dcec759/src/retrolib.ts#L36)
 
 ___
 
@@ -105,7 +105,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:32](https://github.com/philbgarner/retrolib/blob/4392da6/src/retrolib.ts#L32)
+[retrolib.ts:32](https://github.com/philbgarner/retrolib/blob/dcec759/src/retrolib.ts#L32)
 
 ## Functions
 
@@ -131,7 +131,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:98](https://github.com/philbgarner/retrolib/blob/4392da6/src/retrolib.ts#L98)
+[retrolib.ts:98](https://github.com/philbgarner/retrolib/blob/dcec759/src/retrolib.ts#L98)
 
 ___
 
@@ -153,4 +153,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:83](https://github.com/philbgarner/retrolib/blob/4392da6/src/retrolib.ts#L83)
+[retrolib.ts:83](https://github.com/philbgarner/retrolib/blob/dcec759/src/retrolib.ts#L83)

@@ -1,3 +1,4 @@
+
 import Rect from "./rect"
 import Scene, { AnimationFrameFunction } from "./scene"
 import * as font from './font'
@@ -61,6 +62,8 @@ class Menu extends Scene {
     incrementSecondaryInput: string
     decrementSecondaryInput: string
 
+    itemInputHandler: OnInputFunction
+
     /**
      * 
      * @param id Scene id.
@@ -68,11 +71,14 @@ class Menu extends Scene {
      * @param direction Layout direction.
      * @param options Menu options (items).
      */
-    constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[]) {
+    constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], handleItemInput?: OnInputFunction) {
+        handleItemInput = handleItemInput ? handleItemInput : () => {}
         const animationFrame: AnimationFrameFunction = (delta: number) => {
             this.Draw(delta)
         }
         super(id, animationFrame, active, undefined, undefined, (event) => console.log('event', event))
+
+        this.itemInputHandler = handleItemInput
 
         this.ctx = getContext()
 
@@ -97,25 +103,25 @@ class Menu extends Scene {
         this.cancelInput = 'cancel'
 
         this.handleInput = (input: string, amt: number, released: boolean) => {
-            // console.log('menu scene handleInput', input, amt, 'released', released)
-            if (input === 'up' && released) {
+            if (input === this.decrementSelectionInput && released) {
                 this.DecrementSelection()
-                // TODO: use the increment primary/secondary, etc.
-            } else if (input === 'down' && released) {
+                this.itemInputHandler(this, this.Selected(), MenuInputType.DecrementPrimary)
+            } else if (input === this.incrementSelectionInput && released) {
                 this.IncrementSelection()
-                // TODO: use the increment primary/secondary, etc.
-            } else if (input === 'action' && released) {
+                this.itemInputHandler(this, this.Selected(), MenuInputType.IncrementPrimary)
+            } else if (input === this.actionInput && released) {
                 this.Selected().onInput(this, this.Selected(), MenuInputType.Selection)
-            } if (input === 'cancel' && released) {
+                this.itemInputHandler(this, this.Selected(), MenuInputType.Selection)
+            } else if (input === this.cancelInput && released) {
                 this.Selected().onInput(this, this.Selected(), MenuInputType.Cancel)
-            } 
+                this.itemInputHandler(this, this.Selected(), MenuInputType.Cancel)
+            }
+
         }
 
         this.onActivate = () => {}
         this.onDeactivate = () => {}
     }
-
-    NextMenu
 
     /**
      * Returns the currently selected menu option.
