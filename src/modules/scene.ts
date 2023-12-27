@@ -1,3 +1,5 @@
+import { getContext } from "./images"
+
 /**
  * Callback function for input directed at the scene.
  */
@@ -21,8 +23,10 @@ export interface OnDeactivateFunction { (): void }
  */
 class Scene {
     id: string
+    ctx: CanvasRenderingContext2D
     animationFrame: AnimationFrameFunction
     active: boolean
+    pauseInput: boolean
     onActivate: OnActivateFunction
     onDeactivate: OnDeactivateFunction
     /**
@@ -30,6 +34,7 @@ class Scene {
      */
     handleInput: InputHandlerFunction
     elapsed: number
+    opacity: number
 
     /**
      * Create a new scene object.
@@ -41,6 +46,7 @@ class Scene {
      * @param handleInput This function gets called when the scene receives input.
      */
     constructor(id: string, animationFrame: AnimationFrameFunction, active: boolean, onActivate: OnActivateFunction, onDeactivate: OnDeactivateFunction, handleInput: InputHandlerFunction) {
+        this.ctx = getContext()
         this.id = id
         this.animationFrame = animationFrame
         this.active = active
@@ -48,6 +54,7 @@ class Scene {
         this.onDeactivate = onDeactivate
         this.handleInput = handleInput
         this.elapsed = 0
+        this.opacity = 1
     }
 }
 

@@ -7,6 +7,7 @@ export * as input from './modules/input';
 export * as gamepad from './modules/input-gamepad';
 export * as keyboard from './modules/input-keyboard';
 export * as menus from './modules/menus';
+export * as menu from './modules/menu';
 export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scene';
 export { MenuOption } from './modules/menu';
 import Rect from './modules/rect';

@@ -1,7 +1,7 @@
 import Rect from "./rect"
 import * as fonts from "./font"
 import * as scenes from './scenes'
-import Menu, { MenuOption, OnInputFunction, MenuInputType } from "./menu"
+import Menu, { MenuOption, OnInputFunction, MenuInputType, TransitionEffect } from "./menu"
 
 /**
  * Top to bottom layout or left to right.
@@ -40,29 +40,31 @@ export function LayoutMenu(id: string, options: string[], direction: LayoutDirec
         } else if (direction === LayoutDirection.LeftToRight) {
             dx += w + margin
         }
-        // Default behaviour.
-        let fnInput: OnInputFunction = (menu, option, event) => {
-            if (event === MenuInputType.Selection) {
-                if (scenes.hasScene(nextSceneId)) {
-                    scenes.deActivateScene(id)
-                    scenes.activateScene(nextSceneId)
-                }
-            } else if (event === MenuInputType.Cancel) {
-                if (scenes.hasScene(prevSceneId)) {
-                    scenes.deActivateScene(id)
-                    scenes.activateScene(prevSceneId)
-                }
-            }
-        }
         
         menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h) })
     })
     
     let menu = new Menu(id, true, direction, menuOptions)
-    if (extras) {
+    menu.itemInputHandler = (menu, option, event) => {
         // If defined in extras, go with a user-defined onInput event handler.
-        if (extras.onInput) {
-            menu.itemInputHandler = extras.onInput
+        if (extras && extras.onInput) {
+            extras.onInput(menu, option, event)
+        } else {
+            console.log('default menu handling')
+            if (event === MenuInputType.Selection && nextSceneId.length > 0) {
+                console.log('selection')
+                const nextScene: Menu = scenes.getScene(nextSceneId) as Menu
+                if (nextScene && nextScene.TransitionTo) {
+                    menu.TransitionTo(nextScene.id, TransitionEffect.Fade, 300, 100)
+                }
+            }
+            if (event === MenuInputType.Cancel && prevSceneId.length > 0) {
+                console.log('cancel')
+                const prevScene: Menu = scenes.getScene(prevSceneId) as Menu
+                if (prevScene && prevScene.TransitionTo) {
+                    menu.TransitionTo(prevScene.id, TransitionEffect.Fade, 300, 100)
+                }
+            }
         }
     }
     return menu

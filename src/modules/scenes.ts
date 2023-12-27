@@ -1,13 +1,20 @@
 import Scene from "./scene"
 import * as input from './input'
 import { gamepadsDidUpdate } from "./input-gamepad"
+import { getContext } from "./images"
 
 let start: number = null
 const scenes: Scene[] = []
+let ctx = null
 
 function addScene(scene: Scene): Scene {
     scenes.push(scene)
     return scene
+}
+
+export function getScene(sceneId: string): Scene {
+    const scene = scenes.filter(scene => scene.id === sceneId)
+    return scene.length > 0 ? scene[0] : null
 }
 
 function hasScene(id: string): boolean {
@@ -18,6 +25,7 @@ function activateScene(id: string): void {
     const index: number = scenes.findIndex((s: Scene) => s.id === id)
     if (index > -1) {
         scenes[index].active = true
+        scenes[index].pauseInput = false
         scenes[index].onActivate()
     }
 }
@@ -31,7 +39,7 @@ function deActivateScene(id: string) {
 }
 
 function handleInput(input: string, amt: number, released: boolean) {
-    scenes.filter(f => f.active).forEach(scene => {
+    scenes.filter(f => f.active && !f.pauseInput).forEach(scene => {
         if (scene.handleInput) {
             scene.handleInput(input, amt, released)
         }
@@ -50,11 +58,17 @@ function handleAnimationFrame(timeStamp: number) {
     // Check for gamepad updates, fire off 
     gamepadsDidUpdate()
 
+    if (!ctx) {
+        ctx = getContext()
+    }
+    let opacity = ctx.globalAlpha
     // Run animationFrame for each active scene.
     scenes.filter((f: Scene) => f.active).forEach((scene: Scene) => {
         scene.elapsed += delta
+        ctx.globalAlpha = scene.opacity
         scene.animationFrame(delta)
     })
+    ctx.globalAlpha = opacity
 }
 
 export { handleAnimationFrame, handleInput, addScene, activateScene, deActivateScene, hasScene }

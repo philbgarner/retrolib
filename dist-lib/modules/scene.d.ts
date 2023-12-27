@@ -28,8 +28,10 @@ export interface OnDeactivateFunction {
  */
 declare class Scene {
     id: string;
+    ctx: CanvasRenderingContext2D;
     animationFrame: AnimationFrameFunction;
     active: boolean;
+    pauseInput: boolean;
     onActivate: OnActivateFunction;
     onDeactivate: OnDeactivateFunction;
     /**
@@ -37,6 +39,7 @@ declare class Scene {
      */
     handleInput: InputHandlerFunction;
     elapsed: number;
+    opacity: number;
     /**
      * Create a new scene object.
      * @param id Scene name, unique identifier to fetch with.

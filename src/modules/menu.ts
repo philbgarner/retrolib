@@ -1,9 +1,8 @@
-
 import Rect from "./rect"
 import Scene, { AnimationFrameFunction } from "./scene"
 import * as font from './font'
 import { LayoutDirection } from "./menus"
-import { canvasHeight, canvasWidth } from "../retrolib"
+import { canvasHeight, canvasWidth, scenes } from "../retrolib"
 import { getContext } from "./images"
 
 /**
@@ -15,8 +14,16 @@ export type MenuOption = {
     rect: Rect
 }
 
+export enum TransitionEffect {
+    Fade = 0,
+    Instant,
+}
+
+/**
+ * Menu input type.
+ */
 export enum MenuInputType {
-    Selection=0,
+    Selection = 0,
     Cancel,
     IncrementPrimary,
     DecrementPrimary,
@@ -46,7 +53,6 @@ class Menu extends Scene {
     offsetY: number
     options: MenuOption[]
     selectedOption: number
-    ctx: CanvasRenderingContext2D
     color: font.ColorRGBA
     selectedColor: font.ColorRGBA
     clearFrame: boolean
@@ -119,6 +125,64 @@ class Menu extends Scene {
 
         this.onActivate = () => {}
         this.onDeactivate = () => {}
+    }
+
+    /**
+     * 
+     * @param sceneId Menu or Scene Id to transition to.
+     * @param effect Which transition effect to take.
+     * @param duration Time to take applying the effect while deactivating and activating scenes.
+     * @param steps Amount of steps to divide the duration by and update the effect amount.
+     */
+    TransitionTo(sceneId: string, effect: TransitionEffect, duration: number, steps: number) {
+        return new Promise<void>((resolve, reject) => {
+            const sceneTo = scenes.getScene(sceneId)
+            const sceneFrom = scenes.getScene(this.id)
+            if (sceneTo) {
+                sceneTo.opacity = 0
+                sceneFrom.pauseInput = true
+                switch(effect) {
+                    case TransitionEffect.Instant:
+                        scenes.deActivateScene(this.id)
+                        scenes.activateScene(sceneTo.id)
+                        resolve()
+                        break
+                    case TransitionEffect.Fade:
+                        let opacity = 1
+                        let stepAmt = opacity / steps
+
+                        // Run Fade In Loop
+                        const fadeIn = () => {
+                            if (opacity < 1) {
+                                opacity += stepAmt
+                            } else {
+                                opacity = 1
+                                resolve()
+                                return
+                            }
+                            sceneTo.opacity = opacity
+                            setTimeout(fadeIn, (duration / 2) / steps)
+                        }
+                        
+                        // Run Fade Out Loop
+                        const fadeOut = () => {
+                            if (opacity > 0) {
+                                opacity -= stepAmt
+                            } else {
+                                opacity = 0
+                                scenes.deActivateScene(sceneFrom.id)
+                                scenes.activateScene(sceneTo.id)
+                                fadeIn()
+                                return
+                            }
+                            sceneFrom.opacity = opacity
+                            setTimeout(fadeOut, (duration / 2) / steps)
+                        }
+                        fadeOut()
+                        break
+                }
+            }
+        })
     }
 
     /**
