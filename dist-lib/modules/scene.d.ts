@@ -22,6 +22,10 @@ export interface OnActivateFunction {
 export interface OnDeactivateFunction {
     (): void;
 }
+export declare enum TransitionEffect {
+    Fade = 0,
+    Instant = 1
+}
 /**
  * Scene classes know how to draw themselves with animationFrame and a handleInput callback
  * for keyboard/gamepad controls.
@@ -50,5 +54,13 @@ declare class Scene {
      * @param handleInput This function gets called when the scene receives input.
      */
     constructor(id: string, animationFrame: AnimationFrameFunction, active: boolean, onActivate: OnActivateFunction, onDeactivate: OnDeactivateFunction, handleInput: InputHandlerFunction);
+    /**
+ * Transition from one scene to another using a predefined effect.
+ * @param sceneId Menu or Scene Id to transition to.
+ * @param effect Which transition effect to take.
+ * @param duration Time to take applying the effect while deactivating and activating scenes.
+ * @param steps Amount of steps to divide the duration by and update the effect amount.
+ */
+    TransitionTo(sceneId: string, effect: TransitionEffect, duration: number, steps: number): Promise<void>;
 }
 export default Scene;

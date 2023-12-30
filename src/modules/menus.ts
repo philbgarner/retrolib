@@ -1,7 +1,8 @@
 import Rect from "./rect"
 import * as fonts from "./font"
 import * as scenes from './scenes'
-import Menu, { MenuOption, OnInputFunction, MenuInputType, TransitionEffect } from "./menu"
+import { TransitionEffect } from './scene'
+import Menu, { MenuOption, OnInputFunction, MenuInputType } from "./menu"
 
 /**
  * Top to bottom layout or left to right.

@@ -10,10 +10,6 @@ export type MenuOption = {
     text: string;
     rect: Rect;
 };
-export declare enum TransitionEffect {
-    Fade = 0,
-    Instant = 1
-}
 /**
  * Menu input type.
  */
@@ -65,14 +61,6 @@ declare class Menu extends Scene {
      * @param handleItemInput (Optional) Callback that executes when an input event occurs.
      */
     constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], handleItemInput?: OnInputFunction);
-    /**
-     * Transition from one scene to another using a predefined effect.
-     * @param sceneId Menu or Scene Id to transition to.
-     * @param effect Which transition effect to take.
-     * @param duration Time to take applying the effect while deactivating and activating scenes.
-     * @param steps Amount of steps to divide the duration by and update the effect amount.
-     */
-    TransitionTo(sceneId: string, effect: TransitionEffect, duration: number, steps: number): Promise<void>;
     /**
      * Returns the currently selected menu option.
      */
