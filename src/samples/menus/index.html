@@ -11,7 +11,6 @@
             // Layout helper function to create a menu object ready for rendering.
             const menu = retrolib.menus.LayoutMenu('menu1', ['New Game', 'Load Game', 'Settings', 'About', 'Exit'], 0, 2, 15, 15, '', '', { onInput: (menu, option, event) => {
                 let eventType = retrolib.menu.MenuInputType[event]
-                console.log('menu input', eventType, option.text)
                 switch(eventType) {
                     case 'Selection':
                         if (option.text === 'New Game') {

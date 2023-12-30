@@ -80,7 +80,7 @@ export function keyboardDown(e: KeyboardEvent): void {
     //Object.keys(keysMap).filter(input => keysMap[input] === e.key).forEach(input => inputs.push(input))
     Object.keys(inputMaps).forEach(inputName => inputs.push(...inputMaps[inputName].filter(f => f.type === InputType.Keyboard && f.mapKey === e.key)))
     if (inputs.length > 0) {
-        handleInputPressed(inputs[0])
+        handleInputPressed(inputs[0].parent)
     }
     keyboardDownHandler(e)
 }
@@ -91,7 +91,7 @@ export function keyboardRelease(e: KeyboardEvent): void {
     //Object.keys(keysMap).filter(input => keysMap[input] === e.key).forEach(input => inputs.push(input))
     Object.keys(inputMaps).forEach(inputName => inputs.push(...inputMaps[inputName].filter(f => f.type === InputType.Keyboard && f.mapKey === e.key)))
     if (inputs.length > 0) {
-        handleInputReleased(inputs[0])
+        handleInputReleased(inputs[0].parent)
     }
     keyboardReleaseHandler(e)
 }

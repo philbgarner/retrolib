@@ -140,6 +140,7 @@ class Menu extends Scene {
             const sceneFrom = scenes.getScene(this.id)
             if (sceneTo) {
                 sceneTo.opacity = 0
+                sceneFrom.opacity = 1
                 sceneFrom.pauseInput = true
                 switch(effect) {
                     case TransitionEffect.Instant:
@@ -155,6 +156,7 @@ class Menu extends Scene {
                         const fadeIn = () => {
                             if (opacity < 1) {
                                 opacity += stepAmt
+                                opacity = opacity > 1 ? 1 : opacity
                             } else {
                                 opacity = 1
                                 resolve()
@@ -168,8 +170,11 @@ class Menu extends Scene {
                         const fadeOut = () => {
                             if (opacity > 0) {
                                 opacity -= stepAmt
+                                opacity = opacity < 0 ? 0 : opacity
                             } else {
                                 opacity = 0
+                                sceneFrom.opacity = 1
+                                sceneTo.opacity = 0
                                 scenes.deActivateScene(sceneFrom.id)
                                 scenes.activateScene(sceneTo.id)
                                 fadeIn()
