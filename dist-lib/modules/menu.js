@@ -18,6 +18,9 @@ import * as font from './font';
 import { LayoutDirection } from "./menus";
 import { canvasHeight, canvasWidth } from "../retrolib";
 import { getContext } from "./images";
+/**
+ * Menu input type.
+ */
 export var MenuInputType;
 (function (MenuInputType) {
     MenuInputType[MenuInputType["Selection"] = 0] = "Selection";

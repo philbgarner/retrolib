@@ -8,6 +8,15 @@ var images = [];
 function imageManifestFromJSON(json) {
     json.forEach((function (def) { return images.push(ImageDefinition.fromJSON(def)); }));
 }
+/**
+ *
+ * @param imageName Image name/id to use for this asset.
+ * @param filename Filename/path to image asset.
+ */
+export function addImageToManifest(imageName, filename) {
+    var image = { filename: filename, name: imageName, image: null };
+    images.push(image);
+}
 // Canvas 2d context.
 var ctx = null;
 // Set the canvas 2d context.
@@ -92,16 +101,9 @@ function loadImage(filename) {
         };
         img.onerror = function (e) {
             console.error("Failed to load file ".concat(filename, ":"), e);
-            reject(null);
+            reject(new Error("Failed to load file ".concat(filename, ": ") + e.type));
         };
-        var image = images.filter(function (f) { return f.filename === filename; });
-        if (image.length > 0) {
-            img.src = filename;
-        }
-        else {
-            console.error("Image definition matching filename ".concat(filename, " not found."));
-            reject(null);
-        }
+        img.src = filename;
     });
 }
 /**

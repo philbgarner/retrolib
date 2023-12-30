@@ -36,6 +36,7 @@
 - [getGamepads](gamepad.md#getgamepads)
 - [getMappedButtonIndex](gamepad.md#getmappedbuttonindex)
 - [getMappedButtons](gamepad.md#getmappedbuttons)
+- [isAxisPressed](gamepad.md#isaxispressed)
 - [onGamepadConnected](gamepad.md#ongamepadconnected)
 - [onGamepadDisconnected](gamepad.md#ongamepaddisconnected)
 - [onGamepadUpdated](gamepad.md#ongamepadupdated)
@@ -64,7 +65,7 @@ Gamepad axes x and y states.
 
 #### Defined in
 
-[modules/input-gamepad.ts:102](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L102)
+[modules/input-gamepad.ts:102](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L102)
 
 ___
 
@@ -86,7 +87,7 @@ Button state stored by input name.
 
 #### Defined in
 
-[modules/input-gamepad.ts:91](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L91)
+[modules/input-gamepad.ts:91](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L91)
 
 ___
 
@@ -105,7 +106,7 @@ Button and input name relationships.
 
 #### Defined in
 
-[modules/input-gamepad.ts:83](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L83)
+[modules/input-gamepad.ts:83](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L83)
 
 ## Variables
 
@@ -121,7 +122,7 @@ List of input names (IE: left/right/up/down) and the axis index number they map 
 
 #### Defined in
 
-[modules/input-gamepad.ts:18](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L18)
+[modules/input-gamepad.ts:18](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L18)
 
 ___
 
@@ -137,7 +138,7 @@ Current axes states as of the last updated frame by input name.
 
 #### Defined in
 
-[modules/input-gamepad.ts:6](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L6)
+[modules/input-gamepad.ts:6](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L6)
 
 ___
 
@@ -153,7 +154,7 @@ List of input names (IE: action, cancel, etc.) and the button index number they 
 
 #### Defined in
 
-[modules/input-gamepad.ts:14](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L14)
+[modules/input-gamepad.ts:14](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L14)
 
 ___
 
@@ -169,7 +170,7 @@ Current buttons state as of the last upated frame by input name.
 
 #### Defined in
 
-[modules/input-gamepad.ts:10](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L10)
+[modules/input-gamepad.ts:10](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L10)
 
 ___
 
@@ -185,7 +186,7 @@ Gamepad timestamp value as of last frame update.
 
 #### Defined in
 
-[modules/input-gamepad.ts:22](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L22)
+[modules/input-gamepad.ts:22](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L22)
 
 ## Functions
 
@@ -207,7 +208,7 @@ Event handler function for when a new gamepad is connected.
 
 #### Defined in
 
-[modules/input-gamepad.ts:70](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L70)
+[modules/input-gamepad.ts:70](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L70)
 
 ___
 
@@ -229,7 +230,7 @@ Event handler function for when a gamepad is disconnected.
 
 #### Defined in
 
-[modules/input-gamepad.ts:77](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L77)
+[modules/input-gamepad.ts:77](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L77)
 
 ___
 
@@ -251,7 +252,7 @@ Event handler function for when a gamepad has updated its state.
 
 #### Defined in
 
-[modules/input-gamepad.ts:63](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L63)
+[modules/input-gamepad.ts:63](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L63)
 
 ___
 
@@ -267,7 +268,7 @@ Run once per frame to update internal state objects and trigger event callbacks.
 
 #### Defined in
 
-[modules/input-gamepad.ts:149](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L149)
+[modules/input-gamepad.ts:149](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L149)
 
 ___
 
@@ -290,7 +291,7 @@ transformed object showing only controller indices and x/y states.
 
 #### Defined in
 
-[modules/input-gamepad.ts:302](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L302)
+[modules/input-gamepad.ts:295](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L295)
 
 ___
 
@@ -314,7 +315,7 @@ Gamepad object's axis input state.
 
 #### Defined in
 
-[modules/input-gamepad.ts:292](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L292)
+[modules/input-gamepad.ts:285](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L285)
 
 ___
 
@@ -338,7 +339,7 @@ Current gamepad button state.
 
 #### Defined in
 
-[modules/input-gamepad.ts:274](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L274)
+[modules/input-gamepad.ts:267](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L267)
 
 ___
 
@@ -357,7 +358,7 @@ Array of gamepad objects in order by Gamepad.index property.
 
 #### Defined in
 
-[modules/input-gamepad.ts:235](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L235)
+[modules/input-gamepad.ts:228](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L228)
 
 ___
 
@@ -379,7 +380,7 @@ Get the gamepad button index mapped to inputName.
 
 #### Defined in
 
-[modules/input-gamepad.ts:244](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L244)
+[modules/input-gamepad.ts:237](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L237)
 
 ___
 
@@ -395,7 +396,28 @@ List all input relationships mapped to the gamepad buttons.
 
 #### Defined in
 
-[modules/input-gamepad.ts:251](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L251)
+[modules/input-gamepad.ts:244](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L244)
+
+___
+
+### isAxisPressed
+
+▸ **isAxisPressed**(`inputName`, `controller?`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `inputName` | `string` |
+| `controller?` | `number` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[modules/input-gamepad.ts:190](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L190)
 
 ___
 
@@ -418,7 +440,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Window/gamepadconnected_event
 
 #### Defined in
 
-[modules/input-gamepad.ts:127](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L127)
+[modules/input-gamepad.ts:127](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L127)
 
 ___
 
@@ -441,7 +463,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Window/gamepaddisconnected_even
 
 #### Defined in
 
-[modules/input-gamepad.ts:134](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L134)
+[modules/input-gamepad.ts:134](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L134)
 
 ___
 
@@ -463,7 +485,7 @@ Set the callback for when a gamepad input or axis state has changed.
 
 #### Defined in
 
-[modules/input-gamepad.ts:142](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L142)
+[modules/input-gamepad.ts:142](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L142)
 
 ___
 
@@ -479,7 +501,7 @@ Reset buttons state object to empty.
 
 #### Defined in
 
-[modules/input-gamepad.ts:39](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L39)
+[modules/input-gamepad.ts:39](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L39)
 
 ___
 
@@ -495,7 +517,7 @@ Reset axis mappings to defaults.
 
 #### Defined in
 
-[modules/input-gamepad.ts:118](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L118)
+[modules/input-gamepad.ts:118](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L118)
 
 ___
 
@@ -511,7 +533,7 @@ Reset button mappings to defaults.
 
 #### Defined in
 
-[modules/input-gamepad.ts:111](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L111)
+[modules/input-gamepad.ts:111](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L111)
 
 ___
 
@@ -527,7 +549,7 @@ Reset gamepad timestamps to empty.
 
 #### Defined in
 
-[modules/input-gamepad.ts:46](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L46)
+[modules/input-gamepad.ts:46](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L46)
 
 ___
 
@@ -550,7 +572,7 @@ Set gamepad timestamp value by index.
 
 #### Defined in
 
-[modules/input-gamepad.ts:55](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L55)
+[modules/input-gamepad.ts:55](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L55)
 
 ___
 
@@ -573,4 +595,4 @@ Set a button mapping by input name.
 
 #### Defined in
 
-[modules/input-gamepad.ts:265](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-gamepad.ts#L265)
+[modules/input-gamepad.ts:258](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-gamepad.ts#L258)

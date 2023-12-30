@@ -28,17 +28,17 @@ Optional argument with extra parameters for the layout function.
 
 | Name | Type |
 | :------ | :------ |
-| `onInput` | `OnInputFunction` |
+| `onInput` | [`OnInputFunction`](../interfaces/menu.OnInputFunction.md) |
 
 #### Defined in
 
-[modules/menus.ts:17](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menus.ts#L17)
+[modules/menus.ts:18](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/menus.ts#L18)
 
 ## Functions
 
 ### LayoutMenu
 
-▸ **LayoutMenu**(`id`, `options`, `direction`, `margin`, `startX`, `startY`, `nextSceneId`, `prevSceneId`, `extras?`): [`Menu`](../classes/Menu.md)
+▸ **LayoutMenu**(`id`, `options`, `direction`, `margin`, `startX`, `startY`, `nextSceneId`, `prevSceneId`, `extras?`): [`default`](../classes/menu.default.md)
 
 Take a list of strings and create a menu with the options automatically laid out.
 
@@ -58,8 +58,8 @@ Take a list of strings and create a menu with the options automatically laid out
 
 #### Returns
 
-[`Menu`](../classes/Menu.md)
+[`default`](../classes/menu.default.md)
 
 #### Defined in
 
-[modules/menus.ts:31](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menus.ts#L31)
+[modules/menus.ts:32](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/menus.ts#L32)

@@ -1,6 +1,7 @@
 import Rect from "./rect";
 import * as fonts from "./font";
 import * as scenes from './scenes';
+import { TransitionEffect } from './scene';
 import Menu, { MenuInputType } from "./menu";
 /**
  * Top to bottom layout or left to right.
@@ -33,30 +34,32 @@ export function LayoutMenu(id, options, direction, margin, startX, startY, nextS
         else if (direction === LayoutDirection.LeftToRight) {
             dx += w + margin;
         }
-        // Default behaviour.
-        var fnInput = function (menu, option, event) {
-            if (event === MenuInputType.Selection) {
-                if (scenes.hasScene(nextSceneId)) {
-                    scenes.deActivateScene(id);
-                    scenes.activateScene(nextSceneId);
-                }
-            }
-            else if (event === MenuInputType.Cancel) {
-                if (scenes.hasScene(prevSceneId)) {
-                    scenes.deActivateScene(id);
-                    scenes.activateScene(prevSceneId);
-                }
-            }
-        };
         menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h) });
     });
     var menu = new Menu(id, true, direction, menuOptions);
-    if (extras) {
+    menu.itemInputHandler = function (menu, option, event) {
         // If defined in extras, go with a user-defined onInput event handler.
-        if (extras.onInput) {
-            menu.itemInputHandler = extras.onInput;
+        if (extras && extras.onInput) {
+            extras.onInput(menu, option, event);
         }
-    }
+        else {
+            console.log('default menu handling');
+            if (event === MenuInputType.Selection && nextSceneId.length > 0) {
+                console.log('selection');
+                var nextScene = scenes.getScene(nextSceneId);
+                if (nextScene && nextScene.TransitionTo) {
+                    menu.TransitionTo(nextScene.id, TransitionEffect.Fade, 300, 100);
+                }
+            }
+            if (event === MenuInputType.Cancel && prevSceneId.length > 0) {
+                console.log('cancel');
+                var prevScene = scenes.getScene(prevSceneId);
+                if (prevScene && prevScene.TransitionTo) {
+                    menu.TransitionTo(prevScene.id, TransitionEffect.Fade, 300, 100);
+                }
+            }
+        }
+    };
     return menu;
 }
 //# sourceMappingURL=menus.js.map

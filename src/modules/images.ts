@@ -11,6 +11,17 @@ const images: ImageDefinition[] = []
 function imageManifestFromJSON(json: object[]): void {
     json.forEach(((def: object) => images.push(ImageDefinition.fromJSON(def))))
 }
+
+/**
+ * 
+ * @param imageName Image name/id to use for this asset.
+ * @param filename Filename/path to image asset.
+ */
+export function addImageToManifest(imageName: string, filename: string) {
+    const image: ImageDefinition = { filename: filename, name: imageName, image: null }
+    images.push(image)
+}
+
 // Canvas 2d context.
 let ctx: CanvasRenderingContext2D = null
 
@@ -98,15 +109,9 @@ function loadImage(filename: string): Promise<HTMLImageElement> {
         }
         img.onerror = (e: Event) => {
             console.error(`Failed to load file ${filename}:`, e)
-            reject(null)
+            reject(new Error(`Failed to load file ${filename}: ` + e.type))
         }
-        const image: ImageDefinition[] = images.filter(f => f.filename === filename)
-        if (image.length > 0) {
-            img.src = filename
-        } else {
-            console.error(`Image definition matching filename ${filename} not found.`)
-            reject(null)
-        }
+        img.src = filename
     })
 }
 

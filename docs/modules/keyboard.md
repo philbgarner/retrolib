@@ -23,9 +23,7 @@
 - [keyboardRelease](keyboard.md#keyboardrelease)
 - [onKeyboardDown](keyboard.md#onkeyboarddown)
 - [onKeyboardRelease](keyboard.md#onkeyboardrelease)
-- [resetKeyboardMappings](keyboard.md#resetkeyboardmappings)
 - [resetKeysState](keyboard.md#resetkeysstate)
-- [setMappedKey](keyboard.md#setmappedkey)
 
 ## Type Aliases
 
@@ -42,7 +40,7 @@
 
 #### Defined in
 
-[modules/input-keyboard.ts:38](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L38)
+[modules/input-keyboard.ts:38](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L38)
 
 ## Functions
 
@@ -62,7 +60,7 @@
 
 #### Defined in
 
-[modules/input-keyboard.ts:73](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L73)
+[modules/input-keyboard.ts:58](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L58)
 
 ___
 
@@ -82,7 +80,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:69](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L69)
+[modules/input-keyboard.ts:54](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L54)
 
 ___
 
@@ -102,7 +100,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:23](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L23)
+[modules/input-keyboard.ts:22](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L22)
 
 ___
 
@@ -116,7 +114,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:60](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L60)
+[modules/input-keyboard.ts:43](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L43)
 
 ___
 
@@ -136,7 +134,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:86](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L86)
+[modules/input-keyboard.ts:77](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L77)
 
 ___
 
@@ -156,7 +154,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:96](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L96)
+[modules/input-keyboard.ts:88](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L88)
 
 ___
 
@@ -176,7 +174,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:78](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L78)
+[modules/input-keyboard.ts:69](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L69)
 
 ___
 
@@ -196,23 +194,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:82](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L82)
-
-___
-
-### resetKeyboardMappings
-
-▸ **resetKeyboardMappings**(): `void`
-
-Keyboard Input Functions
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[modules/input-keyboard.ts:49](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L49)
+[modules/input-keyboard.ts:73](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L73)
 
 ___
 
@@ -226,25 +208,4 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:15](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L15)
-
-___
-
-### setMappedKey
-
-▸ **setMappedKey**(`inputName`, `key`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `inputName` | `string` |
-| `key` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[modules/input-keyboard.ts:19](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/input-keyboard.ts#L19)
+[modules/input-keyboard.ts:14](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L14)

@@ -21,7 +21,7 @@ Top to bottom layout or left to right.
 
 #### Defined in
 
-[modules/menus.ts:11](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menus.ts#L11)
+[modules/menus.ts:12](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/menus.ts#L12)
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 #### Defined in
 
-[modules/menus.ts:10](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menus.ts#L10)
+[modules/menus.ts:11](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/menus.ts#L11)

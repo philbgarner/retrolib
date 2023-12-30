@@ -101,55 +101,12 @@ export function gamepadsDidUpdate() {
                 if (maps.length > 0) {
                     for (var _i = 0, maps_1 = maps; _i < maps_1.length; _i++) {
                         var map = maps_1[_i];
-                        var state = getAxisData(map.mapKey)[g.index];
-                        // Handle left/right/up/down released axis scenarios, if true break the for-loop
-                        // so the changed input value we just set doesn't trigger a condition below and
-                        // undo that setting we just made.
-                        if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x > -settings.axisPressedThreshold
-                            && axisState[map.parent] === InputState.Pressed) {
+                        if (!isAxisPressed(map.parent) && axisState[map.parent] === InputState.Pressed) {
                             axisState[map.parent] = InputState.Released;
                             handleInputReleased(map.parent, g.index);
                             break;
                         }
-                        else if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x < settings.axisPressedThreshold
-                            && axisState[map.parent] === InputState.Pressed) {
-                            axisState[map.parent] = InputState.Released;
-                            handleInputReleased(map.parent, g.index);
-                            break;
-                        }
-                        if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y > -settings.axisPressedThreshold
-                            && axisState[map.parent] === InputState.Pressed) {
-                            axisState[map.parent] = InputState.Released;
-                            handleInputReleased(map.parent, g.index);
-                            break;
-                        }
-                        else if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y < settings.axisPressedThreshold
-                            && axisState[map.parent] === InputState.Pressed) {
-                            axisState[map.parent] = InputState.Released;
-                            handleInputReleased(map.parent, g.index);
-                            break;
-                        }
-                        // Handle left/right/up/down pressed axis scenarios.
-                        if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x < -settings.axisPressedThreshold
-                            && axisState[map.parent] !== InputState.Pressed) {
-                            axisState[map.parent] = InputState.Pressed;
-                            handleInputPressed(map.parent, g.index);
-                            break;
-                        }
-                        else if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x > settings.axisPressedThreshold
-                            && axisState[map.parent] !== InputState.Pressed) {
-                            axisState[map.parent] = InputState.Pressed;
-                            handleInputPressed(map.parent, g.index);
-                            break;
-                        }
-                        if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y < -settings.axisPressedThreshold
-                            && axisState[map.parent] !== InputState.Pressed) {
-                            axisState[map.parent] = InputState.Pressed;
-                            handleInputPressed(map.parent, g.index);
-                            break;
-                        }
-                        else if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y > settings.axisPressedThreshold
-                            && axisState[map.parent] !== InputState.Pressed) {
+                        if (isAxisPressed(map.parent) && axisState[map.parent] !== InputState.Pressed) {
                             axisState[map.parent] = InputState.Pressed;
                             handleInputPressed(map.parent, g.index);
                             break;
@@ -170,6 +127,46 @@ export function gamepadsDidUpdate() {
         }
         gamepadsTimestamps[g.index] = g.timestamp;
     });
+}
+export function isAxisPressed(inputName, controller) {
+    controller = controller === undefined ? 0 : controller;
+    var axes = Object.keys(axisMap);
+    var _loop_1 = function (axis) {
+        var maps = [];
+        Object.keys(inputMaps).forEach(function (input) {
+            if (inputMaps[input].filter(function (f) { return f.mapKey === axis && f.parent === inputName; }).length > 0) {
+                maps.push.apply(maps, inputMaps[input].filter(function (f) { return f.mapKey === axis; }));
+            }
+        });
+        if (maps.length > 0) {
+            for (var _a = 0, maps_2 = maps; _a < maps_2.length; _a++) {
+                var map = maps_2[_a];
+                var state = getAxisData(map.mapKey)[controller];
+                if (state) {
+                    if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x < -settings.axisPressedThreshold) {
+                        return { value: true };
+                    }
+                    else if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x > settings.axisPressedThreshold) {
+                        return { value: true };
+                    }
+                    if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y < -settings.axisPressedThreshold) {
+                        return { value: true };
+                    }
+                    else if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y > settings.axisPressedThreshold) {
+                        return { value: true };
+                    }
+                }
+            }
+        }
+    };
+    //.forEach(axis => {
+    for (var _i = 0, axes_1 = axes; _i < axes_1.length; _i++) {
+        var axis = axes_1[_i];
+        var state_1 = _loop_1(axis);
+        if (typeof state_1 === "object")
+            return state_1.value;
+    }
+    return false;
 }
 /**
  * Get the list of currently connected Gamepad typed objects.

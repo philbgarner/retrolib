@@ -6,6 +6,12 @@ import Rect from "./rect";
  * @param json JSON representation of image definitions.
  */
 declare function imageManifestFromJSON(json: object[]): void;
+/**
+ *
+ * @param imageName Image name/id to use for this asset.
+ * @param filename Filename/path to image asset.
+ */
+export declare function addImageToManifest(imageName: string, filename: string): void;
 declare function setContext(context: CanvasRenderingContext2D): void;
 declare function getContext(): CanvasRenderingContext2D;
 declare function getImage(name: string): HTMLImageElement;

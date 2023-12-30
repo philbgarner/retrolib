@@ -9,6 +9,7 @@
 - [activateScene](scenes.md#activatescene)
 - [addScene](scenes.md#addscene)
 - [deActivateScene](scenes.md#deactivatescene)
+- [getScene](scenes.md#getscene)
 - [handleAnimationFrame](scenes.md#handleanimationframe)
 - [handleInput](scenes.md#handleinput)
 - [hasScene](scenes.md#hasscene)
@@ -31,7 +32,7 @@
 
 #### Defined in
 
-[modules/scenes.ts:17](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scenes.ts#L17)
+[modules/scenes.ts:24](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/scenes.ts#L24)
 
 ___
 
@@ -51,7 +52,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:8](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scenes.ts#L8)
+[modules/scenes.ts:10](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/scenes.ts#L10)
 
 ___
 
@@ -71,7 +72,27 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:25](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scenes.ts#L25)
+[modules/scenes.ts:33](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/scenes.ts#L33)
+
+___
+
+### getScene
+
+▸ **getScene**(`sceneId`): [`Scene`](../classes/Scene.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `sceneId` | `string` |
+
+#### Returns
+
+[`Scene`](../classes/Scene.md)
+
+#### Defined in
+
+[modules/scenes.ts:15](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/scenes.ts#L15)
 
 ___
 
@@ -91,7 +112,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:41](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scenes.ts#L41)
+[modules/scenes.ts:49](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/scenes.ts#L49)
 
 ___
 
@@ -113,7 +134,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:33](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scenes.ts#L33)
+[modules/scenes.ts:41](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/scenes.ts#L41)
 
 ___
 
@@ -133,4 +154,4 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:13](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/scenes.ts#L13)
+[modules/scenes.ts:20](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/scenes.ts#L20)

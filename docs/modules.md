@@ -4,6 +4,12 @@
 
 ## Table of contents
 
+### References
+
+- [Menu](modules.md#menu)
+- [MenuOption](modules.md#menuoption)
+- [OnSelectionFunction](modules.md#onselectionfunction)
+
 ### Namespaces
 
 - [font](modules/font.md)
@@ -11,6 +17,7 @@
 - [images](modules/images.md)
 - [input](modules/input.md)
 - [keyboard](modules/keyboard.md)
+- [menu](modules/menu.md)
 - [menus](modules/menus.md)
 - [music](modules/music.md)
 - [scenes](modules/scenes.md)
@@ -21,7 +28,6 @@
 - [FontData](classes/FontData.md)
 - [Glyph](classes/Glyph.md)
 - [ImageDefinition](classes/ImageDefinition.md)
-- [Menu](classes/Menu.md)
 - [MusicDefinition](classes/MusicDefinition.md)
 - [Rect](classes/Rect.md)
 - [Scene](classes/Scene.md)
@@ -33,11 +39,6 @@
 - [InputHandlerFunction](interfaces/InputHandlerFunction.md)
 - [OnActivateFunction](interfaces/OnActivateFunction.md)
 - [OnDeactivateFunction](interfaces/OnDeactivateFunction.md)
-- [OnSelectionFunction](interfaces/OnSelectionFunction.md)
-
-### Type Aliases
-
-- [MenuOption](modules.md#menuoption)
 
 ### Variables
 
@@ -50,25 +51,23 @@
 - [initialize](modules.md#initialize)
 - [setCanvasBackground](modules.md#setcanvasbackground)
 
-## Type Aliases
+## References
+
+### Menu
+
+Renames and re-exports [default](classes/menu.default.md)
+
+___
 
 ### MenuOption
 
-Ƭ **MenuOption**: `Object`
+Re-exports [MenuOption](modules/menu.md#menuoption)
 
-Menu item.
+___
 
-#### Type declaration
+### OnSelectionFunction
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-| `rect` | [`Rect`](classes/Rect.md) |
-| `text` | `string` |
-
-#### Defined in
-
-[modules/menu.ts:12](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/modules/menu.ts#L12)
+Re-exports [OnSelectionFunction](interfaces/menu.OnSelectionFunction.md)
 
 ## Variables
 
@@ -80,7 +79,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:40](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/retrolib.ts#L40)
+[retrolib.ts:41](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L41)
 
 ___
 
@@ -92,7 +91,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:36](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/retrolib.ts#L36)
+[retrolib.ts:37](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L37)
 
 ___
 
@@ -104,7 +103,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:32](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/retrolib.ts#L32)
+[retrolib.ts:33](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L33)
 
 ## Functions
 
@@ -130,7 +129,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:98](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/retrolib.ts#L98)
+[retrolib.ts:99](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L99)
 
 ___
 
@@ -152,4 +151,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:83](https://github.com/philbgarner/retrolib/blob/01ba5a2/src/retrolib.ts#L83)
+[retrolib.ts:84](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L84)

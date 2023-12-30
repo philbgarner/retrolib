@@ -17,6 +17,8 @@ import * as keyboard_1 from './modules/input-keyboard';
 export { keyboard_1 as keyboard };
 import * as menus_1 from './modules/menus';
 export { menus_1 as menus };
+import * as menu_1 from './modules/menu';
+export { menu_1 as menu };
 import Rect from './modules/rect';
 import * as input from './modules/input';
 import * as scenes from './modules/scenes';
