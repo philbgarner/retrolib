@@ -159,57 +159,17 @@ export function gamepadsDidUpdate() {
                 })
                 if (maps.length > 0) {
                     for (const map of maps) {
-                        let state = getAxisData(map.mapKey)[g.index]
-                        // Handle left/right/up/down released axis scenarios, if true break the for-loop
-                        // so the changed input value we just set doesn't trigger a condition below and
-                        // undo that setting we just made.
-                        if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x > -settings.axisPressedThreshold
-                        && axisState[map.parent] === InputState.Pressed) {
-                            axisState[map.parent] = InputState.Released
-                            handleInputReleased(map.parent, g.index)
-                            break
-                        } else if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x < settings.axisPressedThreshold
-                        && axisState[map.parent] === InputState.Pressed) {
-                            axisState[map.parent] = InputState.Released
-                            handleInputReleased(map.parent, g.index)
-                            break
-                        }
-                        if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y > -settings.axisPressedThreshold
-                        && axisState[map.parent] === InputState.Pressed) {
-                            axisState[map.parent] = InputState.Released
-                            handleInputReleased(map.parent, g.index)
-                            break
-                        } else if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y < settings.axisPressedThreshold
-                        && axisState[map.parent] === InputState.Pressed) {
+                        if (!isAxisPressed(map.parent) && axisState[map.parent] === InputState.Pressed) {
                             axisState[map.parent] = InputState.Released
                             handleInputReleased(map.parent, g.index)
                             break
                         }
 
-                        // Handle left/right/up/down pressed axis scenarios.
-                        if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x < -settings.axisPressedThreshold
-                        && axisState[map.parent] !== InputState.Pressed) {
-                            axisState[map.parent] = InputState.Pressed
-                            handleInputPressed(map.parent, g.index)
-                            break
-                        } else if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x > settings.axisPressedThreshold
-                        && axisState[map.parent] !== InputState.Pressed) {
+                        if (isAxisPressed(map.parent) && axisState[map.parent] !== InputState.Pressed) {
                             axisState[map.parent] = InputState.Pressed
                             handleInputPressed(map.parent, g.index)
                             break
                         }
-                        if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y < -settings.axisPressedThreshold
-                        && axisState[map.parent] !== InputState.Pressed) {
-                            axisState[map.parent] = InputState.Pressed
-                            handleInputPressed(map.parent, g.index)
-                            break
-                        } else if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y > settings.axisPressedThreshold
-                        && axisState[map.parent] !== InputState.Pressed) {
-                            axisState[map.parent] = InputState.Pressed
-                            handleInputPressed(map.parent, g.index)
-                            break
-                        }
-
                     }
                 }
             })
@@ -225,6 +185,39 @@ export function gamepadsDidUpdate() {
         }
         gamepadsTimestamps[g.index] = g.timestamp
     })
+}
+
+export function isAxisPressed(inputName: string, controller?: number): boolean {
+    controller = controller === undefined ? 0 : controller
+    const axes = Object.keys(axisMap)
+    //.forEach(axis => {
+    for (const axis of axes) {
+        let maps: InputMap[] = []
+        Object.keys(inputMaps).forEach(input => {
+            if (inputMaps[input].filter(f => f.mapKey === axis && f.parent === inputName).length > 0) {
+                maps.push(...inputMaps[input].filter(f => f.mapKey === axis))
+            }
+        })
+        if (maps.length > 0) {
+            for (const map of maps) {
+                let state = getAxisData(map.mapKey)[controller]
+                if (state) {
+                    if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x < -settings.axisPressedThreshold) {
+                        return true
+                    } else if (map.axisCheckDirection > 0 && map.axisPlane === 'x' && state.x > settings.axisPressedThreshold) {
+                        return true
+                    }
+                    if (map.axisCheckDirection < 0 && map.axisPlane === 'y' && state.y < -settings.axisPressedThreshold) {
+                        return true
+                    } else if (map.axisCheckDirection > 0 && map.axisPlane === 'y' && state.y > settings.axisPressedThreshold) {
+                        return true
+                    }
+                }
+            }
+        }
+    }
+
+    return false
 }
 
 /**

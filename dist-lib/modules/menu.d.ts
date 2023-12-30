@@ -66,7 +66,7 @@ declare class Menu extends Scene {
      */
     constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], handleItemInput?: OnInputFunction);
     /**
-     *
+     * Transition from one scene to another using a predefined effect.
      * @param sceneId Menu or Scene Id to transition to.
      * @param effect Which transition effect to take.
      * @param duration Time to take applying the effect while deactivating and activating scenes.

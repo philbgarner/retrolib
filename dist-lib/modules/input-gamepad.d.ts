@@ -125,6 +125,7 @@ export declare function onGamepadUpdated(fn: GamepadUpdatedFunction): void;
  * Run once per frame to update internal state objects and trigger event callbacks.
  */
 export declare function gamepadsDidUpdate(): void;
+export declare function isAxisPressed(inputName: string, controller?: number): boolean;
 /**
  * Get the list of currently connected Gamepad typed objects.
  * https://developer.mozilla.org/en-US/docs/Web/API/Gamepad

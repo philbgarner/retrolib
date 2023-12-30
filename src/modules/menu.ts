@@ -128,7 +128,7 @@ class Menu extends Scene {
     }
 
     /**
-     * 
+     * Transition from one scene to another using a predefined effect.
      * @param sceneId Menu or Scene Id to transition to.
      * @param effect Which transition effect to take.
      * @param duration Time to take applying the effect while deactivating and activating scenes.

@@ -1,4 +1,4 @@
-import { InputState, handleInputPressed, handleInputReleased, inputPressed, inputReleased } from "./input"
+import { inputMaps, InputState, handleInputPressed, handleInputReleased, inputPressed, inputReleased, InputType } from "./input"
 
 /**
  * 
@@ -7,7 +7,6 @@ import { InputState, handleInputPressed, handleInputReleased, inputPressed, inpu
  */
 
 let keysState: { [key: string]: InputState } = {}
-let keysMap: { [key: string]: string } = {}
 
 let keyboardDownHandler: KeyboardDownFunction = () => {}
 let keyboardReleaseHandler: KeyboardReleaseFunction = () => {}
@@ -16,13 +15,14 @@ export function resetKeysState() {
     keysState = {}
 }
 
-export function setMappedKey(inputName: string, key: string): void {
-    keysMap[inputName] = key
-}
+// export function setMappedKey(inputName: string, key: string): void {
+//     keysMap[inputName] = key
+// }
 
 export function getMappedKey(inputName: string): string {
-    if (keysMap[inputName]) {
-        return keysMap[inputName]
+    let map = getMappedKeys().filter(f => f.inputName === inputName)
+    if (map.length > 0) {
+        return map[0].key
     }
     return null
 }
@@ -40,30 +40,15 @@ export type KeyboardInputRelationship = {
     key: string
 }
 
-/**
- * 
- *  Keyboard Input Functions
- * 
- */
-
-export function resetKeyboardMappings() {
-    keysMap = {
-        'left': 'ArrowLeft',
-        'right': 'ArrowRight',
-        'up': 'ArrowUp',
-        'down': 'ArrowDown',
-        'action': ' ',
-        'cancel': 'Escape'
-    }
-}
-
 export function getMappedKeys(): KeyboardInputRelationship[] {
-    let inputMap: KeyboardInputRelationship[]
-    Object.keys(keysMap).forEach((key: string) => {
-        const rel: KeyboardInputRelationship = { inputName: key, key: keysMap[key] }
-        inputMap.push(rel)
+    let relationships: KeyboardInputRelationship[] = []
+    Object.keys(inputMaps).forEach((inputName: string) => {
+        inputMaps[inputName].filter(f => f.type === InputType.Keyboard).forEach((inputMap) => {
+            const rel: KeyboardInputRelationship = { inputName: inputName, key: inputMap.mapKey }
+            relationships.push(rel)
+        })
     })
-    return inputMap
+    return relationships
 }
 
 export function getKeyState(stateKey: string): InputState {
@@ -71,7 +56,13 @@ export function getKeyState(stateKey: string): InputState {
 }
 
 export function getInputKeyState(inputName: string): InputState {
-    return getKeyState(getMappedKey(inputName))
+    let ret = false
+    getMappedKeys().filter(f => f.inputName === inputName).forEach(map => {
+        if (getKeyState(map.key) === InputState.Pressed) {
+            ret = true
+        }
+    })
+    return ret ? InputState.Pressed : InputState.Released
 }
 
 
@@ -86,7 +77,8 @@ export function onKeyboardRelease(fn: KeyboardReleaseFunction) {
 export function keyboardDown(e: KeyboardEvent): void {
     keysState[e.key] = InputState.Pressed
     const inputs = []
-    Object.keys(keysMap).filter(input => keysMap[input] === e.key).forEach(input => inputs.push(input))
+    //Object.keys(keysMap).filter(input => keysMap[input] === e.key).forEach(input => inputs.push(input))
+    Object.keys(inputMaps).forEach(inputName => inputs.push(...inputMaps[inputName].filter(f => f.type === InputType.Keyboard && f.mapKey === e.key)))
     if (inputs.length > 0) {
         handleInputPressed(inputs[0])
     }
@@ -96,7 +88,8 @@ export function keyboardDown(e: KeyboardEvent): void {
 export function keyboardRelease(e: KeyboardEvent): void {
     keysState[e.key] = InputState.Released
     const inputs = []
-    Object.keys(keysMap).filter(input => keysMap[input] === e.key).forEach(input => inputs.push(input))
+    //Object.keys(keysMap).filter(input => keysMap[input] === e.key).forEach(input => inputs.push(input))
+    Object.keys(inputMaps).forEach(inputName => inputs.push(...inputMaps[inputName].filter(f => f.type === InputType.Keyboard && f.mapKey === e.key)))
     if (inputs.length > 0) {
         handleInputReleased(inputs[0])
     }

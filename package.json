@@ -4,7 +4,8 @@
   "description": "Render low-res scenes to the canvas in a retro 8-bit era style. Aseprite exported animation wrapper, scene management, sound and image management, particle support.",
   "main": "dist-lib/retrolib.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack",
+    "build-prod": "webpack --mode production",
     "build-lib": "tsc -m es6 --outDir dist-lib",
     "clean": "rm dist* -r -f",
     "typedocs": "typedoc --plugin typedoc-plugin-markdown --out docs src/retrolib.ts",
