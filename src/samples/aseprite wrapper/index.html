@@ -14,10 +14,11 @@
 
             let scene = retrolib.scenes.addScene(new retrolib.Scene('beam', (delta) => {
                 ctx.clearRect(0, 0, 320, 200)
-                //retrolib.images.drawImage('beam', Math.floor(160 - 32), 100 - 43)
                 if (sprite) {
                     sprite.Draw(100, 0)
                     sprite.Update(delta)
+                    retrolib.font.drawText(80, 130, 'Frame Tag:' + sprite.FrameMetaTag(sprite.frameNumber).name)
+                    retrolib.font.drawText(80, 150, 'Frame #:' + sprite.frameNumber)
                 }
             }, true))
 
