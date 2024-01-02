@@ -8,6 +8,7 @@ export * as gamepad from './modules/input-gamepad';
 export * as keyboard from './modules/input-keyboard';
 export * as menus from './modules/menus';
 export * as menu from './modules/menu';
+export * as aseprite from './modules/aseprite';
 export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scene';
 export { MenuOption } from './modules/menu';
 import Rect from './modules/rect';
@@ -15,10 +16,18 @@ import Scene from './modules/scene';
 import Menu from './modules/menu';
 import FontData from './modules/FontData';
 import Glyph from './modules/Glyph';
+import Sprite from './modules/aseprite';
 import ImageDefinition from './modules/ImageDefinition';
 import { OnSelectionFunction } from './modules/menu';
 import MusicDefinition from './modules/MusicDefinition';
 import SfxDefinition from './modules/SfxDefinition';
+/**
+ * X and Y coordinates.
+ */
+export type Coordinates = {
+    x: number;
+    y: number;
+};
 /**
  * Canvas element to draw on.
  */
@@ -45,4 +54,4 @@ declare function setCanvasBackground(color: string): void;
  * @param autoResize Whether or not to autoresize the canvas to the window.
  */
 declare function initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void;
-export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight, Scene, Menu, Rect, FontData, Glyph, ImageDefinition, OnSelectionFunction, MusicDefinition, SfxDefinition };
+export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight, Scene, Menu, Rect, FontData, Glyph, ImageDefinition, OnSelectionFunction, MusicDefinition, SfxDefinition, Sprite };
