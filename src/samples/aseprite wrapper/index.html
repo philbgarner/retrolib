@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Working with Aseprite Exported Animations Sample</title></head>
+    <body>
+        <!--Include the retrolib web bundle.-->
+        <script src="../../../dist/retrolib.js"></script>
+        <!--Load the exported JSON from Aseprite-->
+        <script src="./beamjson.js"></script>
+        <script>
+            retrolib.setCanvasBackground('black')
+            retrolib.initialize('gamecanvas', 320, 200, true, true)
+            let ctx = retrolib.gameCanvas.getContext('2d')
+            let sprite = null
+
+            let scene = retrolib.scenes.addScene(new retrolib.Scene('beam', (delta) => {
+                ctx.clearRect(0, 0, 320, 200)
+                //retrolib.images.drawImage('beam', Math.floor(160 - 32), 100 - 43)
+                if (sprite) {
+                    sprite.Draw(100, 0)
+                    sprite.Update(delta)
+                }
+            }, true))
+
+            // Load the spritesheet exported from Aseprite.
+            retrolib.images.addImageToManifest('ressurect-beam.png', './ressurect-beam.png')
+            
+            retrolib.images.loadAllImages().then(() => {
+                sprite = new retrolib.Aseprite('beam', beamjson)
+            })
+
+        </script>
+    </body>
+</html>

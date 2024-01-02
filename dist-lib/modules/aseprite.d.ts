@@ -67,7 +67,7 @@ export interface Layer {
     blendMode: string;
 }
 export interface SpriteEvent {
-    (sprite: Sprite): void;
+    (sprite: Aseprite): void;
 }
 export interface Listener {
     name: string;
@@ -77,7 +77,7 @@ export interface Listener {
 /**
  * Sprite controller, a wrapper for Aseprite JSON export format.
  */
-declare class Sprite {
+declare class Aseprite {
     name: string;
     animation: Animation;
     frames: {
@@ -107,4 +107,4 @@ declare class Sprite {
     Update(delta: number): void;
     Draw(x: number, y: number): void;
 }
-export default Sprite;
+export default Aseprite;

@@ -22,7 +22,7 @@ import Scene from './modules/scene'
 import Menu from './modules/menu'
 import FontData from './modules/FontData'
 import Glyph from './modules/Glyph'
-import Sprite from './modules/aseprite'
+import Aseprite from './modules/aseprite'
 import ImageDefinition from './modules/ImageDefinition'
 import { OnSelectionFunction } from './modules/menu'
 import MusicDefinition from './modules/MusicDefinition'
@@ -131,5 +131,5 @@ function initialize(canvasId: string, width: number, height: number, buildCanvas
 export {
     initialize, setCanvasBackground,
     gameCanvas, canvasWidth, canvasHeight,
-    Scene, Menu, Rect, FontData, Glyph, ImageDefinition, OnSelectionFunction, MusicDefinition, SfxDefinition, Sprite
+    Scene, Menu, Rect, FontData, Glyph, ImageDefinition, OnSelectionFunction, MusicDefinition, SfxDefinition, Aseprite
 }

@@ -1,0 +1,134 @@
+const beamjson = { "frames": {
+   "ressurect-beam 0.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 1.aseprite": {
+    "frame": { "x": 105, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 2.aseprite": {
+    "frame": { "x": 210, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 3.aseprite": {
+    "frame": { "x": 315, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 4.aseprite": {
+    "frame": { "x": 420, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 5.aseprite": {
+    "frame": { "x": 525, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 6.aseprite": {
+    "frame": { "x": 630, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 7.aseprite": {
+    "frame": { "x": 735, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 8.aseprite": {
+    "frame": { "x": 840, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 9.aseprite": {
+    "frame": { "x": 945, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 10.aseprite": {
+    "frame": { "x": 1050, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 11.aseprite": {
+    "frame": { "x": 1155, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 12.aseprite": {
+    "frame": { "x": 1260, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   },
+   "ressurect-beam 13.aseprite": {
+    "frame": { "x": 1365, "y": 0, "w": 105, "h": 133 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 105, "h": 133 },
+    "sourceSize": { "w": 105, "h": 133 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.3.2-x64",
+  "image": "ressurect-beam.png",
+  "format": "RGBA8888",
+  "size": { "w": 1470, "h": 133 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "Begin", "from": 0, "to": 10, "direction": "forward", "color": "#000000ff" },
+   { "name": "Idle", "from": 11, "to": 13, "direction": "pingpong", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Beam Copy", "opacity": 128, "blendMode": "normal" },
+   { "name": "Beam Copy Copy", "opacity": 128, "blendMode": "normal" },
+   { "name": "Beam", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

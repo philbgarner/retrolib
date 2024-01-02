@@ -74,7 +74,7 @@ export interface Layer {
 }
 
 export interface SpriteEvent {
-    (sprite: Sprite): void
+    (sprite: Aseprite): void
 }
 
 export interface Listener {
@@ -87,7 +87,7 @@ export interface Listener {
 /**
  * Sprite controller, a wrapper for Aseprite JSON export format.
  */
-class Sprite {
+class Aseprite {
     name: string
     animation: Animation
     frames: {
@@ -125,7 +125,7 @@ class Sprite {
     }
 
     GetListener(name: string, frameNumber: number) {
-        if (!this.HasListener(name, frameNumber)) {
+        if (this.HasListener(name, frameNumber)) {
             const listener =  this.listeners.filter(f => f.name === name && frameNumber === frameNumber)
             return listener.length === 0 ? null : listener[0]
         }
@@ -243,4 +243,4 @@ class Sprite {
     }
 }
 
-export default Sprite
+export default Aseprite

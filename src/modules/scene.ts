@@ -24,7 +24,7 @@ export enum TransitionEffect {
 }
 
 /**
- * Scene classes know how to draw themselves with animationFrame and a handleInput callback
+ * Scene fasses know how to draw themselves with animationFrame and a handleInput callback
  * for keyboard/gamepad controls.
  */
 class Scene {
