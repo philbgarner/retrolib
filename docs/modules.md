@@ -6,12 +6,14 @@
 
 ### References
 
+- [Aseprite](modules.md#aseprite)
 - [Menu](modules.md#menu)
 - [MenuOption](modules.md#menuoption)
 - [OnSelectionFunction](modules.md#onselectionfunction)
 
 ### Namespaces
 
+- [aseprite](modules/aseprite.md)
 - [font](modules/font.md)
 - [gamepad](modules/gamepad.md)
 - [images](modules/images.md)
@@ -40,6 +42,10 @@
 - [OnActivateFunction](interfaces/OnActivateFunction.md)
 - [OnDeactivateFunction](interfaces/OnDeactivateFunction.md)
 
+### Type Aliases
+
+- [Coordinates](modules.md#coordinates)
+
 ### Variables
 
 - [canvasHeight](modules.md#canvasheight)
@@ -52,6 +58,12 @@
 - [setCanvasBackground](modules.md#setcanvasbackground)
 
 ## References
+
+### Aseprite
+
+Renames and re-exports [default](classes/aseprite.default.md)
+
+___
 
 ### Menu
 
@@ -69,6 +81,25 @@ ___
 
 Re-exports [OnSelectionFunction](interfaces/menu.OnSelectionFunction.md)
 
+## Type Aliases
+
+### Coordinates
+
+Ƭ **Coordinates**: `Object`
+
+X and Y coordinates.
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+
+#### Defined in
+
+[retrolib.ts:35](https://github.com/philbgarner/retrolib/blob/5caf158/src/retrolib.ts#L35)
+
 ## Variables
 
 ### canvasHeight
@@ -79,7 +110,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:41](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L41)
+[retrolib.ts:51](https://github.com/philbgarner/retrolib/blob/5caf158/src/retrolib.ts#L51)
 
 ___
 
@@ -91,7 +122,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:37](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L37)
+[retrolib.ts:47](https://github.com/philbgarner/retrolib/blob/5caf158/src/retrolib.ts#L47)
 
 ___
 
@@ -103,7 +134,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:33](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L33)
+[retrolib.ts:43](https://github.com/philbgarner/retrolib/blob/5caf158/src/retrolib.ts#L43)
 
 ## Functions
 
@@ -129,7 +160,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:99](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L99)
+[retrolib.ts:109](https://github.com/philbgarner/retrolib/blob/5caf158/src/retrolib.ts#L109)
 
 ___
 
@@ -151,4 +182,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:84](https://github.com/philbgarner/retrolib/blob/0d99a16/src/retrolib.ts#L84)
+[retrolib.ts:94](https://github.com/philbgarner/retrolib/blob/5caf158/src/retrolib.ts#L94)

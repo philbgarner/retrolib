@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[modules/sfx.ts:27](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/sfx.ts#L27)
+[modules/sfx.ts:27](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/sfx.ts#L27)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:19](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/sfx.ts#L19)
+[modules/sfx.ts:19](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/sfx.ts#L19)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:72](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/sfx.ts#L72)
+[modules/sfx.ts:72](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/sfx.ts#L72)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:59](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/sfx.ts#L59)
+[modules/sfx.ts:59](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/sfx.ts#L59)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:33](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/sfx.ts#L33)
+[modules/sfx.ts:33](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/sfx.ts#L33)
 
 ___
 
@@ -133,4 +133,4 @@ objects matching format { "name": "sfx id ref", "filename": "./file_path/filenam
 
 #### Defined in
 
-[modules/sfx.ts:14](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/sfx.ts#L14)
+[modules/sfx.ts:14](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/sfx.ts#L14)

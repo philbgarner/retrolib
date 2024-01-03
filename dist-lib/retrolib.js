@@ -19,6 +19,8 @@ import * as menus_1 from './modules/menus';
 export { menus_1 as menus };
 import * as menu_1 from './modules/menu';
 export { menu_1 as menu };
+import * as aseprite_1 from './modules/aseprite';
+export { aseprite_1 as aseprite };
 import Rect from './modules/rect';
 import * as input from './modules/input';
 import * as scenes from './modules/scenes';
@@ -26,6 +28,7 @@ import Scene from './modules/scene';
 import Menu from './modules/menu';
 import FontData from './modules/FontData';
 import Glyph from './modules/Glyph';
+import Aseprite from './modules/aseprite';
 import ImageDefinition from './modules/ImageDefinition';
 import MusicDefinition from './modules/MusicDefinition';
 import SfxDefinition from './modules/SfxDefinition';
@@ -109,5 +112,5 @@ function initialize(canvasId, width, height, buildCanvas, autoResize) {
     window.requestAnimationFrame(scenes.handleAnimationFrame);
     input.initialize();
 }
-export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight, Scene, Menu, Rect, FontData, Glyph, ImageDefinition, MusicDefinition, SfxDefinition };
+export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight, Scene, Menu, Rect, FontData, Glyph, ImageDefinition, MusicDefinition, SfxDefinition, Aseprite };
 //# sourceMappingURL=retrolib.js.map

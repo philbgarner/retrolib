@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[modules/input-keyboard.ts:38](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L38)
+[modules/input-keyboard.ts:38](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L38)
 
 ## Functions
 
@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[modules/input-keyboard.ts:58](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L58)
+[modules/input-keyboard.ts:58](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L58)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:54](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L54)
+[modules/input-keyboard.ts:54](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L54)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:22](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L22)
+[modules/input-keyboard.ts:22](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L22)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:43](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L43)
+[modules/input-keyboard.ts:43](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L43)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:77](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L77)
+[modules/input-keyboard.ts:77](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L77)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:88](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L88)
+[modules/input-keyboard.ts:88](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L88)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:69](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L69)
+[modules/input-keyboard.ts:69](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L69)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:73](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L73)
+[modules/input-keyboard.ts:73](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L73)
 
 ___
 
@@ -208,4 +208,4 @@ ___
 
 #### Defined in
 
-[modules/input-keyboard.ts:14](https://github.com/philbgarner/retrolib/blob/0d99a16/src/modules/input-keyboard.ts#L14)
+[modules/input-keyboard.ts:14](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/input-keyboard.ts#L14)

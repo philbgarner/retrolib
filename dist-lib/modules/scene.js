@@ -6,7 +6,7 @@ export var TransitionEffect;
     TransitionEffect[TransitionEffect["Instant"] = 1] = "Instant";
 })(TransitionEffect || (TransitionEffect = {}));
 /**
- * Scene classes know how to draw themselves with animationFrame and a handleInput callback
+ * Scene fasses know how to draw themselves with animationFrame and a handleInput callback
  * for keyboard/gamepad controls.
  */
 var Scene = /** @class */ (function () {
