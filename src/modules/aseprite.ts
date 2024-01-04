@@ -4,7 +4,6 @@ import { drawImage } from './images'
  * Animation header section.
  */
 export interface Animation {
-    name:   string;
     frames: { [key: string]: FrameValue };
     meta:   Meta;
 }
@@ -87,7 +86,7 @@ export interface Listener {
 /**
  * Sprite controller, a wrapper for Aseprite JSON export format.
  */
-class Aseprite {
+export class Aseprite {
     name: string
     animation: Animation
     frames: {
@@ -242,5 +241,3 @@ class Aseprite {
         drawImage(this.meta.image, x, y, { x: frame.frame.x, y: frame.frame.y, w: frame.frame.w, h: frame.frame.h }, false)
     }
 }
-
-export default Aseprite

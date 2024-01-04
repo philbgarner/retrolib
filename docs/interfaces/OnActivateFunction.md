@@ -16,4 +16,4 @@ Callback function for the activation event.
 
 #### Defined in
 
-[modules/scene.ts:15](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/scene.ts#L15)
+[modules/scene.ts:15](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/scene.ts#L15)

@@ -2,7 +2,6 @@
  * Animation header section.
  */
 export interface Animation {
-    name: string;
     frames: {
         [key: string]: FrameValue;
     };
@@ -77,7 +76,7 @@ export interface Listener {
 /**
  * Sprite controller, a wrapper for Aseprite JSON export format.
  */
-declare class Aseprite {
+export declare class Aseprite {
     name: string;
     animation: Animation;
     frames: {
@@ -107,4 +106,3 @@ declare class Aseprite {
     Update(delta: number): void;
     Draw(x: number, y: number): void;
 }
-export default Aseprite;

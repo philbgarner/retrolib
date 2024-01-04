@@ -54,7 +54,7 @@ function getImages(): ImageDefinition[] {
  * @param {object} srcRect 
  * @param {boolean} flipped 
  */
-function drawImage(name: string, x: number, y: number, srcRect: Rect, flipped: boolean): void {
+function drawImage(name: string, x: number, y: number, srcRect?: Rect, flipped?: boolean): void {
     drawImageCtx(getContext(), name, x, y, srcRect, flipped)
 }
 
@@ -67,7 +67,7 @@ function drawImage(name: string, x: number, y: number, srcRect: Rect, flipped: b
  * @param {object} srcRect 
  * @param {boolean} flipped 
  */
-function drawImageCtx(context: CanvasRenderingContext2D, name: string, x: number, y: number, srcRect: Rect, flipped: boolean): void {
+function drawImageCtx(context: CanvasRenderingContext2D, name: string, x: number, y: number, srcRect?: Rect, flipped?: boolean): void {
     const img: ImageDefinition[] = images.filter(f => f.name === name)
     if (img.length > 0) {
         try {

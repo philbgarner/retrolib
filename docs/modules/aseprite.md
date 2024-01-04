@@ -6,7 +6,7 @@
 
 ### Classes
 
-- [default](../classes/aseprite.default.md)
+- [Aseprite](../classes/aseprite.Aseprite.md)
 
 ### Interfaces
 

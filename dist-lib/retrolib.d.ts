@@ -16,7 +16,7 @@ import Scene from './modules/scene';
 import Menu from './modules/menu';
 import FontData from './modules/FontData';
 import Glyph from './modules/Glyph';
-import Aseprite from './modules/aseprite';
+import { Aseprite } from './modules/aseprite';
 import ImageDefinition from './modules/ImageDefinition';
 import { OnSelectionFunction } from './modules/menu';
 import MusicDefinition from './modules/MusicDefinition';

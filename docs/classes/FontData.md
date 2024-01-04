@@ -36,7 +36,7 @@ Helper class to store font data.
 
 #### Defined in
 
-[modules/FontData.ts:8](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/FontData.ts#L8)
+[modules/FontData.ts:8](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/FontData.ts#L8)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[modules/FontData.ts:10](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/FontData.ts#L10)
+[modules/FontData.ts:10](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/FontData.ts#L10)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[modules/FontData.ts:7](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/FontData.ts#L7)
+[modules/FontData.ts:7](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/FontData.ts#L7)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[modules/FontData.ts:11](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/FontData.ts#L11)
+[modules/FontData.ts:11](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/FontData.ts#L11)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[modules/FontData.ts:9](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/FontData.ts#L9)
+[modules/FontData.ts:9](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/FontData.ts#L9)

@@ -14,7 +14,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `sprite` | [`default`](../classes/aseprite.default.md) |
+| `sprite` | [`Aseprite`](../classes/aseprite.Aseprite.md) |
 
 #### Returns
 
@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modules/aseprite.ts:77](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/aseprite.ts#L77)
+[modules/aseprite.ts:76](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/aseprite.ts#L76)

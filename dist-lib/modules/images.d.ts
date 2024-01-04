@@ -24,7 +24,7 @@ declare function getImages(): ImageDefinition[];
  * @param {object} srcRect
  * @param {boolean} flipped
  */
-declare function drawImage(name: string, x: number, y: number, srcRect: Rect, flipped: boolean): void;
+declare function drawImage(name: string, x: number, y: number, srcRect?: Rect, flipped?: boolean): void;
 /**
  * Raw image drawing function (use drawImage unless you want to draw to another 2d context).
  * @param {object} context Canvas 2d context.
@@ -34,7 +34,7 @@ declare function drawImage(name: string, x: number, y: number, srcRect: Rect, fl
  * @param {object} srcRect
  * @param {boolean} flipped
  */
-declare function drawImageCtx(context: CanvasRenderingContext2D, name: string, x: number, y: number, srcRect: Rect, flipped: boolean): void;
+declare function drawImageCtx(context: CanvasRenderingContext2D, name: string, x: number, y: number, srcRect?: Rect, flipped?: boolean): void;
 /**
  * Load Image
  * @param {string} filename

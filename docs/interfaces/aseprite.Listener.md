@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[modules/aseprite.ts:83](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/aseprite.ts#L83)
+[modules/aseprite.ts:82](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/aseprite.ts#L82)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:82](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/aseprite.ts#L82)
+[modules/aseprite.ts:81](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/aseprite.ts#L81)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:81](https://github.com/philbgarner/retrolib/blob/5caf158/src/modules/aseprite.ts#L81)
+[modules/aseprite.ts:80](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/aseprite.ts#L80)

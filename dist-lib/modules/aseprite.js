@@ -125,5 +125,5 @@ var Aseprite = /** @class */ (function () {
     };
     return Aseprite;
 }());
-export default Aseprite;
+export { Aseprite };
 //# sourceMappingURL=aseprite.js.map
