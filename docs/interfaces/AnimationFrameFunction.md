@@ -22,4 +22,4 @@ Callback function for the animation frame event.
 
 #### Defined in
 
-[modules/scene.ts:11](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/scene.ts#L11)
+[modules/scene.ts:11](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scene.ts#L11)

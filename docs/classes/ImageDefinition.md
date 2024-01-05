@@ -38,7 +38,7 @@ Helper class to store images aand deserialize them from JSON.
 
 #### Defined in
 
-[modules/ImageDefinition.ts:9](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/ImageDefinition.ts#L9)
+[modules/ImageDefinition.ts:9](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/ImageDefinition.ts#L9)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[modules/ImageDefinition.ts:8](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/ImageDefinition.ts#L8)
+[modules/ImageDefinition.ts:8](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/ImageDefinition.ts#L8)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[modules/ImageDefinition.ts:7](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/ImageDefinition.ts#L7)
+[modules/ImageDefinition.ts:7](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/ImageDefinition.ts#L7)
 
 ## Methods
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[modules/ImageDefinition.ts:11](https://github.com/philbgarner/retrolib/blob/ffca896/src/modules/ImageDefinition.ts#L11)
+[modules/ImageDefinition.ts:11](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/ImageDefinition.ts#L11)

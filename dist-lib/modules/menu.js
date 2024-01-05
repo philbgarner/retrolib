@@ -121,7 +121,9 @@ var Menu = /** @class */ (function (_super) {
     // eslint-disable-next-line
     Menu.prototype.Draw = function (delta) {
         var _this = this;
-        this.ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        if (this.clearFrame) {
+            this.ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        }
         this.options.forEach(function (option, index) {
             var colr = Math.floor(_this.selectedOption) === index ? _this.selectedColor : _this.color;
             font.drawText(option.rect.x, option.rect.y, option.text, colr);

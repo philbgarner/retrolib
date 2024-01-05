@@ -60,6 +60,9 @@ var Aseprite = /** @class */ (function () {
     Aseprite.prototype.Frame = function (frameNumber) {
         return this.frames[this.FrameId(frameNumber)];
     };
+    Aseprite.prototype.FrameCount = function () {
+        return Object.keys(this.frames).length;
+    };
     Aseprite.prototype.CurrentFrameId = function () {
         return this.FrameId(this.frameNumber);
     };
@@ -108,6 +111,9 @@ var Aseprite = /** @class */ (function () {
                 && frameTag.from < this.frameNumber) {
                 this.frameNumber += this.direction;
                 this.frameElapsed = 0;
+            }
+            if (this.frameNumber > frameTag.to && frameTag.direction === 'forward') {
+                this.frameNumber = frameTag.from;
             }
             if (this.HasListener('frame', this.frameNumber)) {
                 this.CallListener('frame', this.frameNumber);

@@ -99,6 +99,7 @@ export declare class Aseprite {
     Pause(): void;
     FrameId(frameNumber: number): string;
     Frame(frameNumber: number): FrameValue;
+    FrameCount(): number;
     CurrentFrameId(): string;
     CurrentFrame(): FrameValue;
     FrameMetaTag(frameNumber: number): FrameTag;

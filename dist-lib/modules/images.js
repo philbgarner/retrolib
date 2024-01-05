@@ -60,7 +60,7 @@ function drawImageCtx(context, name, x, y, srcRect, flipped) {
     var img = images.filter(function (f) { return f.name === name; });
     if (img.length > 0) {
         try {
-            if (srcRect) {
+            if (srcRect !== undefined) {
                 if (flipped) {
                     context.save();
                     context.scale(-1, 1);

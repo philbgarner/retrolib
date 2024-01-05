@@ -159,7 +159,10 @@ class Menu extends Scene {
      */
     // eslint-disable-next-line
     Draw(delta: number) {
-        this.ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+        if (this.clearFrame) {
+            this.ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+        }
+        
         this.options.forEach((option, index) => {
             const colr = Math.floor(this.selectedOption) === index ? this.selectedColor : this.color
             font.drawText(option.rect.x, option.rect.y, option.text, colr)

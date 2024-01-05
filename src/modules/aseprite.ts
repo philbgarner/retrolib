@@ -171,6 +171,10 @@ export class Aseprite {
         return this.frames[this.FrameId(frameNumber)]
     }
 
+    FrameCount() {
+        return Object.keys(this.frames).length
+    }
+
     CurrentFrameId() {
         return this.FrameId(this.frameNumber)
     }
@@ -224,6 +228,9 @@ export class Aseprite {
             && frameTag.from < this.frameNumber) {
                 this.frameNumber += this.direction
                 this.frameElapsed = 0
+            }
+            if (this.frameNumber > frameTag.to && frameTag.direction === 'forward') {
+                this.frameNumber = frameTag.from
             }
 
             if (this.HasListener('frame', this.frameNumber)) {

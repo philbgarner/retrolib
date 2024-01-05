@@ -71,7 +71,7 @@ function drawImageCtx(context: CanvasRenderingContext2D, name: string, x: number
     const img: ImageDefinition[] = images.filter(f => f.name === name)
     if (img.length > 0) {
         try {
-            if (srcRect) {
+            if (srcRect !== undefined) {
                 if (flipped) {
                     context.save()
                     context.scale(-1, 1)
