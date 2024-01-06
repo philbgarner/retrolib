@@ -3,6 +3,7 @@ import { loadDefaultFonts } from './modules/font'
 export * as images from './modules/images'
 export * as font from './modules/font'
 export * as scenes from './modules/scenes'
+export * as cutscenes from './modules/cutscene'
 export * as sfx from './modules/sfx'
 export * as music from './modules/music'
 export * as input from './modules/input'
@@ -12,6 +13,7 @@ export * as menus from './modules/menus'
 export * as menu from './modules/menu'
 export * as aseprite from './modules/aseprite'
 
+
 export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scenes'
 export { MenuOption } from './modules/menu'
 
@@ -19,6 +21,7 @@ import Rect from './modules/rect'
 import * as input from './modules/input'
 import * as scenes from './modules/scenes'
 import Scene from './modules/scene'
+import Cutscene from './modules/cutscene'
 import Menu from './modules/menu'
 import FontData from './modules/FontData'
 import Glyph from './modules/Glyph'
@@ -131,5 +134,6 @@ function initialize(canvasId: string, width: number, height: number, buildCanvas
 export {
     initialize, setCanvasBackground,
     gameCanvas, canvasWidth, canvasHeight,
-    Scene, Menu, Rect, FontData, Glyph, ImageDefinition, OnSelectionFunction, MusicDefinition, SfxDefinition, Aseprite
+    Scene, Menu, Rect, FontData, Glyph, ImageDefinition, OnSelectionFunction, MusicDefinition, SfxDefinition, Aseprite,
+    Cutscene
 }

@@ -5,6 +5,8 @@ import * as font_1 from './modules/font';
 export { font_1 as font };
 import * as scenes_1 from './modules/scenes';
 export { scenes_1 as scenes };
+import * as cutscenes_1 from './modules/cutscene';
+export { cutscenes_1 as cutscenes };
 import * as sfx_1 from './modules/sfx';
 export { sfx_1 as sfx };
 import * as music_1 from './modules/music';
@@ -25,6 +27,7 @@ import Rect from './modules/rect';
 import * as input from './modules/input';
 import * as scenes from './modules/scenes';
 import Scene from './modules/scene';
+import Cutscene from './modules/cutscene';
 import Menu from './modules/menu';
 import FontData from './modules/FontData';
 import Glyph from './modules/Glyph';
@@ -112,5 +115,5 @@ function initialize(canvasId, width, height, buildCanvas, autoResize) {
     window.requestAnimationFrame(scenes.handleAnimationFrame);
     input.initialize();
 }
-export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight, Scene, Menu, Rect, FontData, Glyph, ImageDefinition, MusicDefinition, SfxDefinition, Aseprite };
+export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight, Scene, Menu, Rect, FontData, Glyph, ImageDefinition, MusicDefinition, SfxDefinition, Aseprite, Cutscene };
 //# sourceMappingURL=retrolib.js.map

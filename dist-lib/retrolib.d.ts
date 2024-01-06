@@ -1,6 +1,7 @@
 export * as images from './modules/images';
 export * as font from './modules/font';
 export * as scenes from './modules/scenes';
+export * as cutscenes from './modules/cutscene';
 export * as sfx from './modules/sfx';
 export * as music from './modules/music';
 export * as input from './modules/input';
@@ -13,6 +14,7 @@ export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnA
 export { MenuOption } from './modules/menu';
 import Rect from './modules/rect';
 import Scene from './modules/scene';
+import Cutscene from './modules/cutscene';
 import Menu from './modules/menu';
 import FontData from './modules/FontData';
 import Glyph from './modules/Glyph';
@@ -54,4 +56,4 @@ declare function setCanvasBackground(color: string): void;
  * @param autoResize Whether or not to autoresize the canvas to the window.
  */
 declare function initialize(canvasId: string, width: number, height: number, buildCanvas: boolean, autoResize: boolean): void;
-export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight, Scene, Menu, Rect, FontData, Glyph, ImageDefinition, OnSelectionFunction, MusicDefinition, SfxDefinition, Aseprite };
+export { initialize, setCanvasBackground, gameCanvas, canvasWidth, canvasHeight, Scene, Menu, Rect, FontData, Glyph, ImageDefinition, OnSelectionFunction, MusicDefinition, SfxDefinition, Aseprite, Cutscene };
