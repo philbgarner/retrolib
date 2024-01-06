@@ -1,5 +1,15 @@
 import SfxDefinition from "./SfxDefinition";
 var sfxVolume = 0.45;
+export function setVolume(name, volume) {
+    var sfx = sfxs.filter(function (f) { return f.name === name; });
+    if (sfx.length > 0) {
+        sfx[0].sfx.volume = volume;
+    }
+}
+export function setGlobalVolume(volume) {
+    sfxVolume = volume;
+    sfxs.forEach(function (sfx) { return sfx.sfx.volume = volume; });
+}
 var sfxs = [];
 /**
  * Populate sfx manifest with JSON list of definitions. Manifest is an arry of
@@ -8,6 +18,10 @@ var sfxs = [];
  */
 function sfxManifestFromJSON(json) {
     json.forEach((function (def) { return sfxs.push(SfxDefinition.fromJSON(def)); }));
+}
+export function addSfxToManifest(sfxName, filename) {
+    var sfx = { filename: filename, sfx: null, name: sfxName };
+    sfxs.push(sfx);
 }
 function isPlaying(name) {
     var sf = getSfx(name);
@@ -21,6 +35,7 @@ function getSfx(name) {
     return sf.length > 0 ? sf[0].sfx : null;
 }
 function playSfx(name, onEnded) {
+    onEnded = onEnded === undefined ? function () { } : onEnded;
     return new Promise(function (resolve) {
         try {
             var sf_1 = sfxs.filter(function (f) { return f.name === name; });

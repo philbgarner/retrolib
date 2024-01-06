@@ -3,6 +3,28 @@ import * as input from './input'
 import { gamepadsDidUpdate } from "./input-gamepad"
 import { getContext } from "./images"
 
+/**
+ * Callback function for input directed at the scene.
+ */
+export interface InputHandlerFunction { (input: string, amt: number, released: boolean): void }
+/**
+ * Callback function for the animation frame event.
+ */
+export interface AnimationFrameFunction { (delta: number): void }
+/**
+ * Callback function for the activation event.
+ */
+export interface OnActivateFunction { (): void }
+/**
+ * Callback function for the deactivate event.
+ */
+export interface OnDeactivateFunction { (): void }
+
+export enum TransitionEffect {
+    Fade = 0,
+    Instant,
+}
+
 let start: number = null
 const scenes: Scene[] = []
 let ctx = null

@@ -1,10 +1,6 @@
 import { getContext } from "./images";
 import * as scenes from './scenes';
-export var TransitionEffect;
-(function (TransitionEffect) {
-    TransitionEffect[TransitionEffect["Fade"] = 0] = "Fade";
-    TransitionEffect[TransitionEffect["Instant"] = 1] = "Instant";
-})(TransitionEffect || (TransitionEffect = {}));
+import { TransitionEffect } from "./scenes";
 /**
  * Scene fasses know how to draw themselves with animationFrame and a handleInput callback
  * for keyboard/gamepad controls.

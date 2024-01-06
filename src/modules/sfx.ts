@@ -1,6 +1,18 @@
 import SfxDefinition from "./SfxDefinition"
 
-const sfxVolume: number = 0.45
+var sfxVolume: number = 0.45
+
+export function setVolume(name: string, volume: number) {
+    const sfx = sfxs.filter(f => f.name === name)
+    if (sfx.length > 0) {
+        sfx[0].sfx.volume = volume
+    }
+}
+
+export function setGlobalVolume(volume: number) {
+    sfxVolume = volume
+    sfxs.forEach(sfx => sfx.sfx.volume = volume)
+}
 
 const sfxs: SfxDefinition[] = []
 
@@ -15,6 +27,10 @@ function sfxManifestFromJSON(json: object[]): void {
     json.forEach(((def: object) => sfxs.push(SfxDefinition.fromJSON(def))))
 }
 
+export function addSfxToManifest(sfxName: string, filename: string) {
+    const sfx: SfxDefinition = { filename: filename, sfx: null, name: sfxName }
+    sfxs.push(sfx)
+}
 
 function isPlaying(name: string): boolean {
     const sf = getSfx(name)
@@ -30,7 +46,8 @@ function getSfx(name: string): HTMLAudioElement {
 }
 
 
-function playSfx(name: string, onEnded: OnEndedFunction): Promise<void> {
+function playSfx(name: string, onEnded?: OnEndedFunction): Promise<void> {
+    onEnded = onEnded === undefined ? () => {} : onEnded
     return new Promise(resolve => {
         try {
             const sf = sfxs.filter(f => f.name === name)

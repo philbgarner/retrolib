@@ -10,14 +10,38 @@
 
 ### Functions
 
+- [addSfxToManifest](sfx.md#addsfxtomanifest)
 - [getSfx](sfx.md#getsfx)
 - [isPlaying](sfx.md#isplaying)
 - [loadAllSfx](sfx.md#loadallsfx)
 - [loadSfx](sfx.md#loadsfx)
 - [playSfx](sfx.md#playsfx)
+- [setGlobalVolume](sfx.md#setglobalvolume)
+- [setVolume](sfx.md#setvolume)
 - [sfxManifestFromJSON](sfx.md#sfxmanifestfromjson)
 
 ## Functions
+
+### addSfxToManifest
+
+▸ **addSfxToManifest**(`sfxName`, `filename`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `sfxName` | `string` |
+| `filename` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/sfx.ts:30](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/sfx.ts#L30)
+
+___
 
 ### getSfx
 
@@ -35,7 +59,7 @@
 
 #### Defined in
 
-[modules/sfx.ts:27](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/sfx.ts#L27)
+[modules/sfx.ts:43](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/sfx.ts#L43)
 
 ___
 
@@ -55,7 +79,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:19](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/sfx.ts#L19)
+[modules/sfx.ts:35](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/sfx.ts#L35)
 
 ___
 
@@ -69,7 +93,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:72](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/sfx.ts#L72)
+[modules/sfx.ts:89](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/sfx.ts#L89)
 
 ___
 
@@ -89,20 +113,20 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:59](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/sfx.ts#L59)
+[modules/sfx.ts:76](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/sfx.ts#L76)
 
 ___
 
 ### playSfx
 
-▸ **playSfx**(`name`, `onEnded`): `Promise`\<`void`\>
+▸ **playSfx**(`name`, `onEnded?`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `name` | `string` |
-| `onEnded` | [`OnEndedFunction`](../interfaces/sfx.OnEndedFunction.md) |
+| `onEnded?` | [`OnEndedFunction`](../interfaces/sfx.OnEndedFunction.md) |
 
 #### Returns
 
@@ -110,7 +134,48 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:33](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/sfx.ts#L33)
+[modules/sfx.ts:49](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/sfx.ts#L49)
+
+___
+
+### setGlobalVolume
+
+▸ **setGlobalVolume**(`volume`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `volume` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/sfx.ts:12](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/sfx.ts#L12)
+
+___
+
+### setVolume
+
+▸ **setVolume**(`name`, `volume`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+| `volume` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/sfx.ts:5](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/sfx.ts#L5)
 
 ___
 
@@ -133,4 +198,4 @@ objects matching format { "name": "sfx id ref", "filename": "./file_path/filenam
 
 #### Defined in
 
-[modules/sfx.ts:14](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/sfx.ts#L14)
+[modules/sfx.ts:26](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/sfx.ts#L26)

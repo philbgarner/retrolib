@@ -1,6 +1,8 @@
-[retrolib](../README.md) / [Exports](../modules.md) / AnimationFrameFunction
+[retrolib](../README.md) / [Exports](../modules.md) / [scenes](../modules/scenes.md) / AnimationFrameFunction
 
 # Interface: AnimationFrameFunction
+
+[scenes](../modules/scenes.md).AnimationFrameFunction
 
 Callback function for the animation frame event.
 
@@ -22,4 +24,4 @@ Callback function for the animation frame event.
 
 #### Defined in
 
-[modules/scene.ts:11](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scene.ts#L11)
+[modules/scenes.ts:13](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L13)

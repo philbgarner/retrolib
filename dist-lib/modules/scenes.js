@@ -1,5 +1,10 @@
 import { gamepadsDidUpdate } from "./input-gamepad";
 import { getContext } from "./images";
+export var TransitionEffect;
+(function (TransitionEffect) {
+    TransitionEffect[TransitionEffect["Fade"] = 0] = "Fade";
+    TransitionEffect[TransitionEffect["Instant"] = 1] = "Instant";
+})(TransitionEffect || (TransitionEffect = {}));
 var start = null;
 var scenes = [];
 var ctx = null;

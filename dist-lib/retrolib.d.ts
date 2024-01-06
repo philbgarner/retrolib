@@ -9,7 +9,7 @@ export * as keyboard from './modules/input-keyboard';
 export * as menus from './modules/menus';
 export * as menu from './modules/menu';
 export * as aseprite from './modules/aseprite';
-export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scene';
+export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scenes';
 export { MenuOption } from './modules/menu';
 import Rect from './modules/rect';
 import Scene from './modules/scene';

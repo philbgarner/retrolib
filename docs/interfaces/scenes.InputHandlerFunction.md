@@ -1,6 +1,8 @@
-[retrolib](../README.md) / [Exports](../modules.md) / InputHandlerFunction
+[retrolib](../README.md) / [Exports](../modules.md) / [scenes](../modules/scenes.md) / InputHandlerFunction
 
 # Interface: InputHandlerFunction
+
+[scenes](../modules/scenes.md).InputHandlerFunction
 
 Callback function for input directed at the scene.
 
@@ -24,4 +26,4 @@ Callback function for input directed at the scene.
 
 #### Defined in
 
-[modules/scene.ts:7](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scene.ts#L7)
+[modules/scenes.ts:9](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L9)

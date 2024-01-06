@@ -6,9 +6,13 @@
 
 ### References
 
+- [AnimationFrameFunction](modules.md#animationframefunction)
 - [Aseprite](modules.md#aseprite)
+- [InputHandlerFunction](modules.md#inputhandlerfunction)
 - [Menu](modules.md#menu)
 - [MenuOption](modules.md#menuoption)
+- [OnActivateFunction](modules.md#onactivatefunction)
+- [OnDeactivateFunction](modules.md#ondeactivatefunction)
 - [OnSelectionFunction](modules.md#onselectionfunction)
 
 ### Namespaces
@@ -35,13 +39,6 @@
 - [Scene](classes/Scene.md)
 - [SfxDefinition](classes/SfxDefinition.md)
 
-### Interfaces
-
-- [AnimationFrameFunction](interfaces/AnimationFrameFunction.md)
-- [InputHandlerFunction](interfaces/InputHandlerFunction.md)
-- [OnActivateFunction](interfaces/OnActivateFunction.md)
-- [OnDeactivateFunction](interfaces/OnDeactivateFunction.md)
-
 ### Type Aliases
 
 - [Coordinates](modules.md#coordinates)
@@ -59,9 +56,21 @@
 
 ## References
 
+### AnimationFrameFunction
+
+Re-exports [AnimationFrameFunction](interfaces/scenes.AnimationFrameFunction.md)
+
+___
+
 ### Aseprite
 
 Re-exports [Aseprite](classes/aseprite.Aseprite.md)
+
+___
+
+### InputHandlerFunction
+
+Re-exports [InputHandlerFunction](interfaces/scenes.InputHandlerFunction.md)
 
 ___
 
@@ -74,6 +83,18 @@ ___
 ### MenuOption
 
 Re-exports [MenuOption](modules/menu.md#menuoption)
+
+___
+
+### OnActivateFunction
+
+Re-exports [OnActivateFunction](interfaces/scenes.OnActivateFunction.md)
+
+___
+
+### OnDeactivateFunction
+
+Re-exports [OnDeactivateFunction](interfaces/scenes.OnDeactivateFunction.md)
 
 ___
 
@@ -98,7 +119,7 @@ X and Y coordinates.
 
 #### Defined in
 
-[retrolib.ts:35](https://github.com/philbgarner/retrolib/blob/42a7774/src/retrolib.ts#L35)
+[retrolib.ts:35](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L35)
 
 ## Variables
 
@@ -110,7 +131,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:51](https://github.com/philbgarner/retrolib/blob/42a7774/src/retrolib.ts#L51)
+[retrolib.ts:51](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L51)
 
 ___
 
@@ -122,7 +143,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:47](https://github.com/philbgarner/retrolib/blob/42a7774/src/retrolib.ts#L47)
+[retrolib.ts:47](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L47)
 
 ___
 
@@ -134,7 +155,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:43](https://github.com/philbgarner/retrolib/blob/42a7774/src/retrolib.ts#L43)
+[retrolib.ts:43](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L43)
 
 ## Functions
 
@@ -160,7 +181,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:109](https://github.com/philbgarner/retrolib/blob/42a7774/src/retrolib.ts#L109)
+[retrolib.ts:109](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L109)
 
 ___
 
@@ -182,4 +203,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:94](https://github.com/philbgarner/retrolib/blob/42a7774/src/retrolib.ts#L94)
+[retrolib.ts:94](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L94)

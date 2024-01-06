@@ -1,7 +1,7 @@
 import Rect from "./rect";
 import * as fonts from "./font";
 import * as scenes from './scenes';
-import { TransitionEffect } from './scene';
+import { TransitionEffect } from './scenes';
 import Menu, { MenuInputType } from "./menu";
 /**
  * Top to bottom layout or left to right.

@@ -1,27 +1,6 @@
 import { getContext } from "./images"
 import * as scenes from './scenes'
-
-/**
- * Callback function for input directed at the scene.
- */
-export interface InputHandlerFunction { (input: string, amt: number, released: boolean): void }
-/**
- * Callback function for the animation frame event.
- */
-export interface AnimationFrameFunction { (delta: number): void }
-/**
- * Callback function for the activation event.
- */
-export interface OnActivateFunction { (): void }
-/**
- * Callback function for the deactivate event.
- */
-export interface OnDeactivateFunction { (): void }
-
-export enum TransitionEffect {
-    Fade = 0,
-    Instant,
-}
+import { AnimationFrameFunction, OnActivateFunction, InputHandlerFunction, OnDeactivateFunction, TransitionEffect } from "./scenes"
 
 /**
  * Scene fasses know how to draw themselves with animationFrame and a handleInput callback

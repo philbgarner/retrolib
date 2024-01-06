@@ -4,6 +4,17 @@
 
 ## Table of contents
 
+### Enumerations
+
+- [TransitionEffect](../enums/scenes.TransitionEffect.md)
+
+### Interfaces
+
+- [AnimationFrameFunction](../interfaces/scenes.AnimationFrameFunction.md)
+- [InputHandlerFunction](../interfaces/scenes.InputHandlerFunction.md)
+- [OnActivateFunction](../interfaces/scenes.OnActivateFunction.md)
+- [OnDeactivateFunction](../interfaces/scenes.OnDeactivateFunction.md)
+
 ### Functions
 
 - [activateScene](scenes.md#activatescene)
@@ -32,7 +43,7 @@
 
 #### Defined in
 
-[modules/scenes.ts:24](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scenes.ts#L24)
+[modules/scenes.ts:46](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L46)
 
 ___
 
@@ -52,7 +63,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:10](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scenes.ts#L10)
+[modules/scenes.ts:32](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L32)
 
 ___
 
@@ -72,7 +83,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:33](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scenes.ts#L33)
+[modules/scenes.ts:55](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L55)
 
 ___
 
@@ -92,7 +103,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:15](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scenes.ts#L15)
+[modules/scenes.ts:37](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L37)
 
 ___
 
@@ -112,7 +123,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:49](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scenes.ts#L49)
+[modules/scenes.ts:71](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L71)
 
 ___
 
@@ -134,7 +145,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:41](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scenes.ts#L41)
+[modules/scenes.ts:63](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L63)
 
 ___
 
@@ -154,4 +165,4 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:20](https://github.com/philbgarner/retrolib/blob/42a7774/src/modules/scenes.ts#L20)
+[modules/scenes.ts:42](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L42)
