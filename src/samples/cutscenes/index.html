@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Cutscene Sample</title></head>
+    <body>
+        <!--Include the retrolib web bundle.-->
+        <script src="../../../dist/retrolib.js"></script>
+        <script>
+            retrolib.setCanvasBackground('black')
+            retrolib.initialize('gamecanvas', 320, 200, true, true)
+
+            const intro = new retrolib.Cutscene('intro', true, 'exteriorFrontDoor', [{
+                lines: [
+                    `It's evening, two young men turn off the highway onto a dirt road.`,
+                    `"This should be the road, another few minutes and we will see it."`,
+                    `The wet road twists and winds, surrounded by trees on both sides. Rain batters their windshield, headlights highlighting raindrops in the darkness.`
+                ],
+                skippable: false,
+                speaker: 'Character',
+                rect: { x: 25, y: 25, w: 225, h: 100 }
+            }])
+            intro.letterSpeed = 60
+
+            retrolib.scenes.addScene(intro)
+        </script>
+    </body>
+</html>

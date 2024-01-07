@@ -17,6 +17,7 @@ declare class Scene {
     handleInput: InputHandlerFunction;
     elapsed: number;
     opacity: number;
+    clearFrame: boolean;
     /**
      * Create a new scene object.
      * @param id Scene name, unique identifier to fetch with.

@@ -2,6 +2,7 @@ import Scene from "./scene"
 import * as input from './input'
 import { gamepadsDidUpdate } from "./input-gamepad"
 import { getContext } from "./images"
+import { canvasHeight, canvasWidth } from "../retrolib"
 
 /**
  * Callback function for input directed at the scene.
@@ -86,6 +87,9 @@ function handleAnimationFrame(timeStamp: number) {
     let opacity = ctx.globalAlpha
     // Run animationFrame for each active scene.
     scenes.filter((f: Scene) => f.active).forEach((scene: Scene) => {
+        if (scene.clearFrame) {
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+        }
         scene.elapsed += delta
         ctx.globalAlpha = scene.opacity
         scene.animationFrame(delta)

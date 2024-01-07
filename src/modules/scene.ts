@@ -20,6 +20,7 @@ class Scene {
     handleInput: InputHandlerFunction
     elapsed: number
     opacity: number
+    clearFrame: boolean = true
 
     /**
      * Create a new scene object.

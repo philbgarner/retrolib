@@ -43,7 +43,6 @@ declare class Menu extends Scene {
     selectedOption: number;
     color: font.ColorRGBA;
     selectedColor: font.ColorRGBA;
-    clearFrame: boolean;
     selectSpeed: number;
     incrementSelectionInput: string;
     decrementSelectionInput: string;

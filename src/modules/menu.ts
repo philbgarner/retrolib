@@ -51,7 +51,6 @@ class Menu extends Scene {
     selectedOption: number
     color: font.ColorRGBA
     selectedColor: font.ColorRGBA
-    clearFrame: boolean
     
     selectSpeed: number
     incrementSelectionInput: string
@@ -159,11 +158,7 @@ class Menu extends Scene {
      * @param delta 
      */
     // eslint-disable-next-line
-    Draw(delta: number) {
-        if (this.clearFrame) {
-            this.ctx.clearRect(0, 0, canvasWidth, canvasHeight)
-        }
-        
+    Draw(delta: number) {       
         this.options.forEach((option, index) => {
             const colr = Math.floor(this.selectedOption) === index ? this.selectedColor : this.color
             font.drawText(option.rect.x, option.rect.y, option.text, colr)
