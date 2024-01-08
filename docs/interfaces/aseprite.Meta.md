@@ -28,7 +28,7 @@ Sprite metadata.
 
 #### Defined in
 
-[modules/aseprite.ts:45](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/aseprite.ts#L45)
+[modules/aseprite.ts:45](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/aseprite.ts#L45)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:48](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/aseprite.ts#L48)
+[modules/aseprite.ts:48](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/aseprite.ts#L48)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:51](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/aseprite.ts#L51)
+[modules/aseprite.ts:51](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/aseprite.ts#L51)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:47](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/aseprite.ts#L47)
+[modules/aseprite.ts:47](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/aseprite.ts#L47)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:52](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/aseprite.ts#L52)
+[modules/aseprite.ts:52](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/aseprite.ts#L52)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:50](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/aseprite.ts#L50)
+[modules/aseprite.ts:50](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/aseprite.ts#L50)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:49](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/aseprite.ts#L49)
+[modules/aseprite.ts:49](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/aseprite.ts#L49)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:53](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/aseprite.ts#L53)
+[modules/aseprite.ts:53](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/aseprite.ts#L53)
 
 ___
 
@@ -108,4 +108,4 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:46](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/aseprite.ts#L46)
+[modules/aseprite.ts:46](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/aseprite.ts#L46)

@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[modules/scenes.ts:46](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L46)
+[modules/scenes.ts:47](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L47)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:32](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L32)
+[modules/scenes.ts:33](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L33)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:55](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L55)
+[modules/scenes.ts:56](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L56)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:37](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L37)
+[modules/scenes.ts:38](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L38)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:71](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L71)
+[modules/scenes.ts:72](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L72)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:63](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L63)
+[modules/scenes.ts:64](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L64)
 
 ___
 
@@ -165,4 +165,4 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:42](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L42)
+[modules/scenes.ts:43](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L43)

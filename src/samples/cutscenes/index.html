@@ -8,19 +8,41 @@
             retrolib.setCanvasBackground('black')
             retrolib.initialize('gamecanvas', 320, 200, true, true)
 
-            const intro = new retrolib.Cutscene('intro', true, 'exteriorFrontDoor', [{
-                lines: [
-                    `It's evening, two young men turn off the highway onto a dirt road.`,
-                    `"This should be the road, another few minutes and we will see it."`,
-                    `The wet road twists and winds, surrounded by trees on both sides. Rain batters their windshield, headlights highlighting raindrops in the darkness.`
-                ],
-                skippable: false,
-                speaker: 'Character',
-                rect: { x: 25, y: 25, w: 225, h: 100 }
-            }])
+            const narratorColor = { r: 185, g: 185, b: 185, a: 255 }
+            const characterColor = retrolib.font.hexToRgba('#a0b4b8ff')
+
+            const intro = new retrolib.Cutscene('intro', true, 'exteriorFrontDoor', [
+            {
+                    lines: [
+                        { text: `This is narration. I'm a narrator.`, color: narratorColor, speaker: '' },
+                        { text: `"This is dialog spoken by a character."`, color: characterColor, speaker: 'Bob' },
+                    ],
+                    skippable: false,
+                    rect: { x: 25, y: 25, w: 225, h: 100 }
+                },
+                {
+                    lines: [
+                        { text: `More narration from the narrator.`, color: narratorColor, speaker: '' },
+                        { text: `"More dialog from me, a character."`, color: characterColor, speaker: 'Bob' },
+                    ],
+                    skippable: false,
+                    rect: { x: 75, y: 90, w: 225, h: 100 }
+                }
+            ])
             intro.letterSpeed = 60
+            const door = new retrolib.Cutscene('exteriorFrontDoor', false, '', [
+            {
+                    lines: [
+                        { text: `You approach the front door.`, color: narratorColor, speaker: '' },
+                    ],
+                    skippable: false,
+                    rect: { x: 25, y: 25, w: 225, h: 100 }
+                }
+            ])
+            door.letterSpeed = 60
 
             retrolib.scenes.addScene(intro)
+            retrolib.scenes.addScene(door)
         </script>
     </body>
 </html>

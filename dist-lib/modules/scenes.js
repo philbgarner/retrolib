@@ -1,5 +1,6 @@
 import { gamepadsDidUpdate } from "./input-gamepad";
 import { getContext } from "./images";
+import { canvasHeight, canvasWidth } from "../retrolib";
 export var TransitionEffect;
 (function (TransitionEffect) {
     TransitionEffect[TransitionEffect["Fade"] = 0] = "Fade";
@@ -57,6 +58,9 @@ function handleAnimationFrame(timeStamp) {
     var opacity = ctx.globalAlpha;
     // Run animationFrame for each active scene.
     scenes.filter(function (f) { return f.active; }).forEach(function (scene) {
+        if (scene.clearFrame) {
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        }
         scene.elapsed += delta;
         ctx.globalAlpha = scene.opacity;
         scene.animationFrame(delta);

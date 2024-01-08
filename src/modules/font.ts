@@ -44,7 +44,7 @@ function fonts(): FontData[] {
     return Object.keys(fontList).map(m => fontList[m])
 }
 
-function hextToRgba(hex: string): ColorRGBA {
+function hexToRgba(hex: string): ColorRGBA {
     if (hex.length === 7) {
         hex += 'ff'
     } else if (hex.length === 8) {
@@ -231,7 +231,7 @@ function textWidth(text: string, font?: FontData) {
 function drawText(x: number, y: number, text: string, color: ColorRGBA, font?: FontData/*, effects: object*/): Rect {
     
     if (typeof color === 'string') {
-        color = hextToRgba(color)
+        color = hexToRgba(color)
     }
 
     if (text.length === 0) {
@@ -246,7 +246,7 @@ function drawText(x: number, y: number, text: string, color: ColorRGBA, font?: F
         throw new Error('Font parameter empty and default fonts are not loaded.')
     }
     if (!color) {
-        color = hextToRgba('#ffffffff')
+        color = hexToRgba('#ffffffff')
     }
     
     if (!font || !font.codepage || !font.imagedata || !font.image || !font.cwidth || !font.cheight) {
@@ -369,7 +369,7 @@ function getPixelAtRgba(pixels: Uint8ClampedArray, x: number, y: number, pixelsw
 }
 
 export { loadFromJSON, loadDefaultFonts, fonts,
-            colorLerp, rgbaToHex, hextToRgba,
+            colorLerp, rgbaToHex, hexToRgba,
             imageToBase64, codepageAndBitmaptoJSON,
             textHeight, textWidth,
             drawText

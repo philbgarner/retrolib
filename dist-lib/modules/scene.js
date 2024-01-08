@@ -16,6 +16,7 @@ var Scene = /** @class */ (function () {
      * @param handleInput This function gets called when the scene receives input.
      */
     function Scene(id, animationFrame, active, onActivate, onDeactivate, handleInput) {
+        this.clearFrame = true;
         this.ctx = getContext();
         this.id = id;
         this.animationFrame = animationFrame;

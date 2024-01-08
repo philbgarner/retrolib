@@ -1,10 +1,17 @@
 import { Rect } from "../retrolib";
 import { ColorRGBA } from "./font";
 import Scene from "./scene";
-import { InputHandlerFunction } from "./scenes";
-export type CutsceneDialog = {
+export interface onEndedFunction {
+    (line: DialogLine): void;
+}
+export type DialogLine = {
     speaker: string;
-    lines: string[];
+    color: ColorRGBA;
+    text: string;
+    onEnded?: onEndedFunction;
+};
+export type CutsceneDialog = {
+    lines: DialogLine[];
     rect: Rect;
     skippable: boolean;
 };
@@ -21,7 +28,6 @@ declare class Cutscene extends Scene {
     pauseLetterIncrement: boolean;
     linePauseTime: number;
     dialogPauseTime: number;
-    handleItemInput: InputHandlerFunction;
     constructor(id: string, active: boolean, nextSceneId: string, dialogs: CutsceneDialog[]);
 }
 export default Cutscene;

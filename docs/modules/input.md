@@ -59,7 +59,7 @@ Relationship of input names (mapKey) to axis states.
 
 #### Defined in
 
-[modules/input.ts:72](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L72)
+[modules/input.ts:72](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L72)
 
 ___
 
@@ -77,7 +77,7 @@ Input settings.
 
 #### Defined in
 
-[modules/input.ts:83](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L83)
+[modules/input.ts:83](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L83)
 
 ## Variables
 
@@ -93,7 +93,7 @@ Keyboard and Gamepad input name to key/button/axis relationships. Can map multip
 
 #### Defined in
 
-[modules/input.ts:43](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L43)
+[modules/input.ts:43](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L43)
 
 ___
 
@@ -109,7 +109,7 @@ Input state stored by input name.
 
 #### Defined in
 
-[modules/input.ts:8](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L8)
+[modules/input.ts:8](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L8)
 
 ___
 
@@ -121,7 +121,7 @@ Input settings global object.
 
 #### Defined in
 
-[modules/input.ts:48](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L48)
+[modules/input.ts:48](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L48)
 
 ## Functions
 
@@ -146,7 +146,7 @@ Whether or not a gamepad axis mapped to the input name is pressed.
 
 #### Defined in
 
-[modules/input.ts:232](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L232)
+[modules/input.ts:232](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L232)
 
 ___
 
@@ -169,7 +169,7 @@ Whether or not a gamepad button mapped to the input name is pressed.
 
 #### Defined in
 
-[modules/input.ts:202](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L202)
+[modules/input.ts:202](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L202)
 
 ___
 
@@ -192,7 +192,7 @@ Whether or not a gamepad button mapped to the input name is pressed.
 
 #### Defined in
 
-[modules/input.ts:217](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L217)
+[modules/input.ts:217](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L217)
 
 ___
 
@@ -216,7 +216,7 @@ when a state changes.
 
 #### Defined in
 
-[modules/input.ts:35](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L35)
+[modules/input.ts:35](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L35)
 
 ___
 
@@ -240,7 +240,7 @@ when a state changes.
 
 #### Defined in
 
-[modules/input.ts:24](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L24)
+[modules/input.ts:24](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L24)
 
 ___
 
@@ -256,7 +256,7 @@ Set the default states and mappings, set the event listeners and route input cha
 
 #### Defined in
 
-[modules/input.ts:104](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L104)
+[modules/input.ts:104](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L104)
 
 ___
 
@@ -279,7 +279,7 @@ Whether or not the specified button or key that maps to inputName is pressed. No
 
 #### Defined in
 
-[modules/input.ts:180](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L180)
+[modules/input.ts:180](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L180)
 
 ___
 
@@ -302,7 +302,7 @@ Whether or not the specified button or key that maps to inputName is released. N
 
 #### Defined in
 
-[modules/input.ts:191](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L191)
+[modules/input.ts:191](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L191)
 
 ___
 
@@ -325,7 +325,7 @@ Input pressed callback function.
 
 #### Defined in
 
-[modules/input.ts:97](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L97)
+[modules/input.ts:97](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L97)
 
 ___
 
@@ -348,7 +348,7 @@ Input released callback function.
 
 #### Defined in
 
-[modules/input.ts:91](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L91)
+[modules/input.ts:91](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L91)
 
 ___
 
@@ -364,4 +364,4 @@ Reset button mappings to defaults.
 
 #### Defined in
 
-[modules/input.ts:142](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input.ts#L142)
+[modules/input.ts:142](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input.ts#L142)

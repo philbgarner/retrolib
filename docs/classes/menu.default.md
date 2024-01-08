@@ -80,7 +80,7 @@ Menu Flavour of Scenes.
 
 #### Defined in
 
-[modules/menu.ts:76](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L76)
+[modules/menu.ts:75](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L75)
 
 ## Properties
 
@@ -90,7 +90,7 @@ Menu Flavour of Scenes.
 
 #### Defined in
 
-[modules/menu.ts:60](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L60)
+[modules/menu.ts:59](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L59)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:13](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L13)
+[modules/scene.ts:13](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L13)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:12](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L12)
+[modules/scene.ts:12](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L12)
 
 ___
 
@@ -128,17 +128,21 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:61](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L61)
+[modules/menu.ts:60](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L60)
 
 ___
 
 ### clearFrame
 
-• **clearFrame**: `boolean`
+• **clearFrame**: `boolean` = `true`
+
+#### Inherited from
+
+[Scene](Scene.md).[clearFrame](Scene.md#clearframe)
 
 #### Defined in
 
-[modules/menu.ts:54](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L54)
+[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L23)
 
 ___
 
@@ -148,7 +152,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:52](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L52)
+[modules/menu.ts:52](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L52)
 
 ___
 
@@ -162,7 +166,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:11](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L11)
+[modules/scene.ts:11](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L11)
 
 ___
 
@@ -172,7 +176,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:64](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L64)
+[modules/menu.ts:63](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L63)
 
 ___
 
@@ -182,7 +186,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:58](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L58)
+[modules/menu.ts:57](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L57)
 
 ___
 
@@ -196,7 +200,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:21](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L21)
+[modules/scene.ts:21](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L21)
 
 ___
 
@@ -212,7 +216,7 @@ Callback function for input directed at the scene.
 
 #### Defined in
 
-[modules/scene.ts:20](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L20)
+[modules/scene.ts:20](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L20)
 
 ___
 
@@ -226,7 +230,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:10](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L10)
+[modules/scene.ts:10](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L10)
 
 ___
 
@@ -236,7 +240,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:63](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L63)
+[modules/menu.ts:62](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L62)
 
 ___
 
@@ -246,7 +250,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:57](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L57)
+[modules/menu.ts:56](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L56)
 
 ___
 
@@ -256,7 +260,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:66](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L66)
+[modules/menu.ts:65](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L65)
 
 ___
 
@@ -266,7 +270,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:48](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L48)
+[modules/menu.ts:48](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L48)
 
 ___
 
@@ -276,7 +280,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:49](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L49)
+[modules/menu.ts:49](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L49)
 
 ___
 
@@ -290,7 +294,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:15](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L15)
+[modules/scene.ts:15](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L15)
 
 ___
 
@@ -304,7 +308,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:16](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L16)
+[modules/scene.ts:16](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L16)
 
 ___
 
@@ -318,7 +322,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:22](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L22)
+[modules/scene.ts:22](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L22)
 
 ___
 
@@ -328,7 +332,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:50](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L50)
+[modules/menu.ts:50](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L50)
 
 ___
 
@@ -342,7 +346,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:14](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L14)
+[modules/scene.ts:14](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L14)
 
 ___
 
@@ -352,7 +356,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:56](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L56)
+[modules/menu.ts:55](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L55)
 
 ___
 
@@ -362,7 +366,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:53](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L53)
+[modules/menu.ts:53](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L53)
 
 ___
 
@@ -372,7 +376,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:51](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L51)
+[modules/menu.ts:51](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L51)
 
 ## Methods
 
@@ -394,7 +398,7 @@ Decrement the selection (move up or left depending on orientation).
 
 #### Defined in
 
-[modules/menu.ts:137](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L137)
+[modules/menu.ts:136](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L136)
 
 ___
 
@@ -416,7 +420,7 @@ Draw the menu.
 
 #### Defined in
 
-[modules/menu.ts:162](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L162)
+[modules/menu.ts:161](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L161)
 
 ___
 
@@ -438,7 +442,7 @@ Increment the selection (move down or right depending on orientation).
 
 #### Defined in
 
-[modules/menu.ts:149](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L149)
+[modules/menu.ts:148](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L148)
 
 ___
 
@@ -454,7 +458,7 @@ Returns the currently selected menu option.
 
 #### Defined in
 
-[modules/menu.ts:129](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/menu.ts#L129)
+[modules/menu.ts:128](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/menu.ts#L128)
 
 ___
 
@@ -483,4 +487,4 @@ Transition from one scene to another using a predefined effect.
 
 #### Defined in
 
-[modules/scene.ts:52](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scene.ts#L52)
+[modules/scene.ts:53](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scene.ts#L53)

@@ -12,7 +12,7 @@ export type ColorRGBA = {
 declare function loadDefaultFonts(): void;
 declare function loadFromJSON(fontJson: object): FontData;
 declare function fonts(): FontData[];
-declare function hextToRgba(hex: string): ColorRGBA;
+declare function hexToRgba(hex: string): ColorRGBA;
 declare function rgbaToHex(rgb: ColorRGBA): string;
 declare function colorLerp(color1: ColorRGBA, color2: ColorRGBA, t: number): ColorRGBA;
 declare function imageToBase64(img: HTMLImageElement, outputFormat?: string): string;
@@ -49,4 +49,4 @@ declare function textWidth(text: string, font?: FontData): number;
  * @returns Rect object with the x, y, width, height of the text drawn.
  */
 declare function drawText(x: number, y: number, text: string, color: ColorRGBA, font?: FontData): Rect;
-export { loadFromJSON, loadDefaultFonts, fonts, colorLerp, rgbaToHex, hextToRgba, imageToBase64, codepageAndBitmaptoJSON, textHeight, textWidth, drawText };
+export { loadFromJSON, loadDefaultFonts, fonts, colorLerp, rgbaToHex, hexToRgba, imageToBase64, codepageAndBitmaptoJSON, textHeight, textWidth, drawText };

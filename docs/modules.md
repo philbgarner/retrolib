@@ -8,6 +8,7 @@
 
 - [AnimationFrameFunction](modules.md#animationframefunction)
 - [Aseprite](modules.md#aseprite)
+- [Cutscene](modules.md#cutscene)
 - [InputHandlerFunction](modules.md#inputhandlerfunction)
 - [Menu](modules.md#menu)
 - [MenuOption](modules.md#menuoption)
@@ -18,6 +19,7 @@
 ### Namespaces
 
 - [aseprite](modules/aseprite.md)
+- [cutscenes](modules/cutscenes.md)
 - [font](modules/font.md)
 - [gamepad](modules/gamepad.md)
 - [images](modules/images.md)
@@ -65,6 +67,12 @@ ___
 ### Aseprite
 
 Re-exports [Aseprite](classes/aseprite.Aseprite.md)
+
+___
+
+### Cutscene
+
+Renames and re-exports [default](classes/cutscenes.default.md)
 
 ___
 
@@ -119,7 +127,7 @@ X and Y coordinates.
 
 #### Defined in
 
-[retrolib.ts:35](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L35)
+[retrolib.ts:38](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L38)
 
 ## Variables
 
@@ -131,7 +139,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:51](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L51)
+[retrolib.ts:54](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L54)
 
 ___
 
@@ -143,7 +151,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:47](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L47)
+[retrolib.ts:50](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L50)
 
 ___
 
@@ -155,7 +163,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:43](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L43)
+[retrolib.ts:46](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L46)
 
 ## Functions
 
@@ -181,7 +189,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:109](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L109)
+[retrolib.ts:112](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L112)
 
 ___
 
@@ -203,4 +211,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:94](https://github.com/philbgarner/retrolib/blob/63effeb/src/retrolib.ts#L94)
+[retrolib.ts:97](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L97)

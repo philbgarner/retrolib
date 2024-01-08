@@ -21,51 +21,46 @@ var Cutscene = /** @class */ (function (_super) {
     function Cutscene(id, active, nextSceneId, dialogs) {
         var _this = this;
         var animationFrame = function (delta) {
-            if (_this.dialogs !== undefined) {
-                if (!_this.pauseLetterIncrement) {
+            if (_this.dialogs !== undefined && _this.dialogs[_this.dialogNumber] !== undefined) {
+                var line_1 = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber];
+                if (!_this.pauseLetterIncrement && _this.dialogNumber < _this.dialogs.length && line_1 !== undefined) {
                     if (_this.elapsed >= _this.lastLetterTimestamp + _this.letterSpeed) {
                         _this.characterNumber++;
-                        if (_this.dialogs[_this.dialogNumber].lines[_this.lineNumber].slice(_this.characterNumber, _this.characterNumber + 1) === ' ') {
+                        if (_this.lineNumber < _this.dialogs[_this.dialogNumber].lines.length
+                            && line_1.text.slice(_this.characterNumber, _this.characterNumber + 1) === ' '
+                            && font.textWidth(line_1.text.slice(0, _this.characterNumber)) < _this.dialogs[_this.dialogNumber].rect.w) {
                             _this.lastSpaceNumber = _this.characterNumber;
                         }
                         _this.lastLetterTimestamp = _this.elapsed;
                     }
-                    if (_this.characterNumber >= _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].length) {
+                    if (_this.characterNumber >= line_1.text.length) {
                         _this.pauseLetterIncrement = true;
-                        _this.characterNumber = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].length;
+                        _this.characterNumber = line_1.text.length;
                         setTimeout(function () {
+                            if (line_1.onEnded) {
+                                line_1.onEnded(line_1);
+                            }
                             _this.lineNumber++;
                             _this.characterNumber = 0;
                             _this.lastSpaceNumber = 0;
                             _this.pauseLetterIncrement = false;
+                            if (_this.lineNumber >= _this.dialogs[_this.dialogNumber].lines.length) {
+                                _this.lineNumber = 0;
+                                _this.dialogNumber++;
+                                if (_this.dialogNumber >= _this.dialogs.length) {
+                                    setTimeout(function () { return _this.TransitionTo(_this.nextSceneId, TransitionEffect.Fade, 200, 16); }, _this.dialogPauseTime);
+                                }
+                            }
                         }, _this.linePauseTime);
                     }
-                    if (_this.lineNumber >= _this.dialogs[_this.dialogNumber].lines.length) {
-                        _this.pauseLetterIncrement = true;
-                        _this.lineNumber = _this.dialogs[_this.dialogNumber].lines.length - 1;
-                        _this.lastSpaceNumber = 0;
-                        _this.dialogNumber++;
-                        if (_this.dialogNumber >= _this.dialogs.length) {
-                            setTimeout(function () { return _this.TransitionTo(_this.nextSceneId, TransitionEffect.Fade, 200, 16); }, _this.dialogPauseTime);
-                        }
-                        else {
-                            _this.lineNumber = 0;
-                            _this.characterNumber = 0;
-                            _this.lastSpaceNumber = 0;
-                        }
-                    }
                 }
-                if (_this.dialogNumber < _this.dialogs.length && _this.lineNumber < _this.dialogs[_this.dialogNumber].lines.length) {
+                if (_this.dialogNumber < _this.dialogs.length && _this.lineNumber <= _this.dialogs[_this.dialogNumber].lines.length - 1) {
                     // If the current line would overflow the width, wrap from the last space character.
-                    // TODO: Make this split on newlines and then get the max height.
-                    var linesUpTo = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].slice(0, _this.characterNumber).split('\n');
-                    console.log('lines up to', linesUpTo);
-                    linesUpTo.forEach(function (lines) {
-                        if (font.textWidth(lines) >= _this.dialogs[_this.dialogNumber].rect.w) {
-                            _this.dialogs[_this.dialogNumber].lines[_this.lineNumber] = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].slice(0, _this.lastSpaceNumber) + '\n' + _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].slice(_this.lastSpaceNumber + 1);
-                        }
-                    });
-                    font.drawText(_this.dialogs[_this.dialogNumber].rect.x, _this.dialogs[_this.dialogNumber].rect.y, _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].slice(0, _this.characterNumber), _this.color);
+                    var linesUpTo = line_1.text.slice(0, _this.characterNumber);
+                    if (font.textWidth(linesUpTo) >= _this.dialogs[_this.dialogNumber].rect.w) {
+                        line_1.text = line_1.text.slice(0, _this.lastSpaceNumber) + '\n' + line_1.text.slice(_this.lastSpaceNumber + 1);
+                    }
+                    font.drawText(_this.dialogs[_this.dialogNumber].rect.x, _this.dialogs[_this.dialogNumber].rect.y, line_1.text.slice(0, _this.characterNumber), line_1.color);
                 }
             }
         };
@@ -79,10 +74,12 @@ var Cutscene = /** @class */ (function (_super) {
         _this.pauseLetterIncrement = false;
         _this.linePauseTime = 1500;
         _this.dialogPauseTime = 3000;
-        _this.handleItemInput = function (input, amt, released) {
+        _this.handleInput = function (input, amt, released) {
             if (['action', 'cancel'].includes(input) && !_this.pauseLetterIncrement) {
                 _this.pauseLetterIncrement = true;
-                _this.characterNumber = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].length - 1;
+                _this.characterNumber = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].text.length - 1;
+                // TODO: Iterate remaining characters up to the length instead of just jumping there calculating newlines to get
+                // the correct text wrapping.
                 setTimeout(function () {
                     _this.lineNumber++;
                     _this.lastSpaceNumber = 0;

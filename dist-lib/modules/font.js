@@ -28,7 +28,7 @@ function fonts() {
     }
     return Object.keys(fontList).map(function (m) { return fontList[m]; });
 }
-function hextToRgba(hex) {
+function hexToRgba(hex) {
     if (hex.length === 7) {
         hex += 'ff';
     }
@@ -218,7 +218,7 @@ function textWidth(text, font) {
  */
 function drawText(x, y, text, color, font /*, effects: object*/) {
     if (typeof color === 'string') {
-        color = hextToRgba(color);
+        color = hexToRgba(color);
     }
     if (text.length === 0) {
         return { x: x, y: y, w: 0, h: 0 };
@@ -231,7 +231,7 @@ function drawText(x, y, text, color, font /*, effects: object*/) {
         throw new Error('Font parameter empty and default fonts are not loaded.');
     }
     if (!color) {
-        color = hextToRgba('#ffffffff');
+        color = hexToRgba('#ffffffff');
     }
     if (!font || !font.codepage || !font.imagedata || !font.image || !font.cwidth || !font.cheight) {
         throw new Error('Invalid font or font not loaded.');
@@ -348,5 +348,5 @@ function getPixelAtRgba(pixels, x, y, pixelswidth) {
     }
     return { r: pixels[offset], g: pixels[offset + 1], b: pixels[offset + 2], a: pixels[offset + 3] };
 }
-export { loadFromJSON, loadDefaultFonts, fonts, colorLerp, rgbaToHex, hextToRgba, imageToBase64, codepageAndBitmaptoJSON, textHeight, textWidth, drawText };
+export { loadFromJSON, loadDefaultFonts, fonts, colorLerp, rgbaToHex, hexToRgba, imageToBase64, codepageAndBitmaptoJSON, textHeight, textWidth, drawText };
 //# sourceMappingURL=font.js.map

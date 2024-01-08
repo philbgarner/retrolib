@@ -16,7 +16,6 @@ var __extends = (this && this.__extends) || (function () {
 import Scene from "./scene";
 import * as font from './font';
 import { LayoutDirection } from "./menus";
-import { canvasHeight, canvasWidth } from "../retrolib";
 import { getContext } from "./images";
 /**
  * Menu input type.
@@ -121,9 +120,6 @@ var Menu = /** @class */ (function (_super) {
     // eslint-disable-next-line
     Menu.prototype.Draw = function (delta) {
         var _this = this;
-        if (this.clearFrame) {
-            this.ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-        }
         this.options.forEach(function (option, index) {
             var colr = Math.floor(_this.selectedOption) === index ? _this.selectedColor : _this.color;
             font.drawText(option.rect.x, option.rect.y, option.text, colr);

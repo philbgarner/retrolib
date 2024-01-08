@@ -24,4 +24,4 @@ Callback function for connection event.
 
 #### Defined in
 
-[modules/input-gamepad.ts:70](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/input-gamepad.ts#L70)
+[modules/input-gamepad.ts:70](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/input-gamepad.ts#L70)

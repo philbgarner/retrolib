@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[modules/scenes.ts:24](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L24)
+[modules/scenes.ts:25](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L25)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:25](https://github.com/philbgarner/retrolib/blob/63effeb/src/modules/scenes.ts#L25)
+[modules/scenes.ts:26](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L26)
