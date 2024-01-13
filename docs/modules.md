@@ -8,7 +8,7 @@
 
 - [AnimationFrameFunction](modules.md#animationframefunction)
 - [Aseprite](modules.md#aseprite)
-- [Cutscene](modules.md#cutscene)
+- [DialogScene](modules.md#cutscene)
 - [InputHandlerFunction](modules.md#inputhandlerfunction)
 - [Menu](modules.md#menu)
 - [MenuOption](modules.md#menuoption)
@@ -70,7 +70,7 @@ Re-exports [Aseprite](classes/aseprite.Aseprite.md)
 
 ___
 
-### Cutscene
+### DialogScene
 
 Renames and re-exports [default](classes/cutscenes.default.md)
 

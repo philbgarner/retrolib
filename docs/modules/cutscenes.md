@@ -14,14 +14,14 @@
 
 ### Type Aliases
 
-- [CutsceneDialog](cutscenes.md#cutscenedialog)
+- [DialogSceneLines](cutscenes.md#cutscenedialog)
 - [DialogLine](cutscenes.md#dialogline)
 
 ## Type Aliases
 
-### CutsceneDialog
+### DialogSceneLines
 
-Ƭ **CutsceneDialog**: `Object`
+Ƭ **DialogSceneLines**: `Object`
 
 #### Type declaration
 

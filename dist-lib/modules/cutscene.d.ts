@@ -9,14 +9,15 @@ export type DialogLine = {
     color: ColorRGBA;
     text: string;
     onEnded?: onEndedFunction;
+    delayAfter?: number;
 };
-export type CutsceneDialog = {
+export type DialogSceneLines = {
     lines: DialogLine[];
     rect: Rect;
     skippable: boolean;
 };
-declare class Cutscene extends Scene {
-    dialogs: CutsceneDialog[];
+declare class DialogScene extends Scene {
+    dialogs: DialogSceneLines[];
     dialogNumber: number;
     lineNumber: number;
     characterNumber: number;
@@ -28,6 +29,6 @@ declare class Cutscene extends Scene {
     pauseLetterIncrement: boolean;
     linePauseTime: number;
     dialogPauseTime: number;
-    constructor(id: string, active: boolean, nextSceneId: string, dialogs: CutsceneDialog[]);
+    constructor(id: string, active: boolean, nextSceneId: string, dialogs: DialogSceneLines[]);
 }
-export default Cutscene;
+export default DialogScene;

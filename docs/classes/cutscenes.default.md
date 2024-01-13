@@ -62,7 +62,7 @@ for keyboard/gamepad controls.
 | `id` | `string` |
 | `active` | `boolean` |
 | `nextSceneId` | `string` |
-| `dialogs` | [`CutsceneDialog`](../modules/cutscenes.md#cutscenedialog)[] |
+| `dialogs` | [`DialogSceneLines`](../modules/cutscenes.md#cutscenedialog)[] |
 
 #### Returns
 
@@ -176,7 +176,7 @@ ___
 
 ### dialogs
 
-• **dialogs**: [`CutsceneDialog`](../modules/cutscenes.md#cutscenedialog)[]
+• **dialogs**: [`DialogSceneLines`](../modules/cutscenes.md#cutscenedialog)[]
 
 #### Defined in
 

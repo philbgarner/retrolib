@@ -38,7 +38,7 @@ export interface OnSelectionFunction {
  * Function that fires when an input event occurs on a selected menu item.
  */
 export interface OnInputFunction {
-    (menu: Menu, option: MenuOption, event: MenuInputType): void
+    (menu: Menu, option: MenuOption, event: MenuInputType): boolean
 }
 
 /**
@@ -73,7 +73,7 @@ class Menu extends Scene {
      * @param handleItemInput (Optional) Callback that executes when an input event occurs.
      */
     constructor(id: string, active: boolean, direction: LayoutDirection, options: MenuOption[], handleItemInput?: OnInputFunction) {
-        handleItemInput = handleItemInput ? handleItemInput : () => {}
+        handleItemInput = handleItemInput ? handleItemInput : () => { return false }
         const animationFrame: AnimationFrameFunction = (delta: number) => {
             this.Draw(delta)
         }
@@ -114,6 +114,10 @@ class Menu extends Scene {
                 this.itemInputHandler(this, this.Selected(), MenuInputType.Selection)
             } else if (input === this.cancelInput && released) {
                 this.itemInputHandler(this, this.Selected(), MenuInputType.Cancel)
+            } else if (input === this.decrementSecondaryInput && released) {
+                this.itemInputHandler(this, this.Selected(), MenuInputType.DecrementSecondary)
+            } else if (input === this.incrementSecondaryInput && released) {
+                this.itemInputHandler(this, this.Selected(), MenuInputType.IncrementSecondary)
             }
 
         }

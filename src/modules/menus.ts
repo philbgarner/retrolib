@@ -48,10 +48,11 @@ export function LayoutMenu(id: string, options: string[], direction: LayoutDirec
     let menu = new Menu(id, true, direction, menuOptions)
     menu.itemInputHandler = (menu, option, event) => {
         // If defined in extras, go with a user-defined onInput event handler.
+        let handled = false
         if (extras && extras.onInput) {
-            extras.onInput(menu, option, event)
-        } else {
-            console.log('default menu handling')
+            handled = extras.onInput(menu, option, event)
+        } 
+        if (!handled) {           
             if (event === MenuInputType.Selection && nextSceneId.length > 0) {
                 console.log('selection')
                 const nextScene: Menu = scenes.getScene(nextSceneId) as Menu
@@ -67,6 +68,7 @@ export function LayoutMenu(id: string, options: string[], direction: LayoutDirec
                 }
             }
         }
+        return false
     }
     return menu
 }

@@ -43,12 +43,26 @@ var Cutscene = /** @class */ (function (_super) {
                             _this.lineNumber++;
                             _this.characterNumber = 0;
                             _this.lastSpaceNumber = 0;
-                            _this.pauseLetterIncrement = false;
-                            if (_this.lineNumber >= _this.dialogs[_this.dialogNumber].lines.length) {
-                                _this.lineNumber = 0;
-                                _this.dialogNumber++;
-                                if (_this.dialogNumber >= _this.dialogs.length) {
-                                    setTimeout(function () { return _this.TransitionTo(_this.nextSceneId, TransitionEffect.Fade, 200, 16); }, _this.dialogPauseTime);
+                            if (_this.dialogs[_this.dialogNumber].lines[_this.lineNumber].delayAfter) {
+                                setTimeout(function () {
+                                    _this.pauseLetterIncrement = false;
+                                    if (_this.lineNumber >= _this.dialogs[_this.dialogNumber].lines.length) {
+                                        _this.lineNumber = 0;
+                                        _this.dialogNumber++;
+                                        if (_this.dialogNumber >= _this.dialogs.length) {
+                                            setTimeout(function () { return _this.TransitionTo(_this.nextSceneId, TransitionEffect.Fade, 200, 16); }, _this.dialogPauseTime);
+                                        }
+                                    }
+                                }, _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].delayAfter);
+                            }
+                            else {
+                                _this.pauseLetterIncrement = false;
+                                if (_this.lineNumber >= _this.dialogs[_this.dialogNumber].lines.length) {
+                                    _this.lineNumber = 0;
+                                    _this.dialogNumber++;
+                                    if (_this.dialogNumber >= _this.dialogs.length) {
+                                        setTimeout(function () { return _this.TransitionTo(_this.nextSceneId, TransitionEffect.Fade, 200, 16); }, _this.dialogPauseTime);
+                                    }
                                 }
                             }
                         }, _this.linePauseTime);
@@ -60,7 +74,11 @@ var Cutscene = /** @class */ (function (_super) {
                     if (font.textWidth(linesUpTo) >= _this.dialogs[_this.dialogNumber].rect.w) {
                         line_1.text = line_1.text.slice(0, _this.lastSpaceNumber) + '\n' + line_1.text.slice(_this.lastSpaceNumber + 1);
                     }
-                    font.drawText(_this.dialogs[_this.dialogNumber].rect.x, _this.dialogs[_this.dialogNumber].rect.y, line_1.text.slice(0, _this.characterNumber), line_1.color);
+                    var offsety = line_1.speaker.length > 0 ? font.textHeight(line_1.speaker + ':') : 0;
+                    if (offsety > 0) {
+                        font.drawText(_this.dialogs[_this.dialogNumber].rect.x, _this.dialogs[_this.dialogNumber].rect.y, line_1.speaker + ':', line_1.color);
+                    }
+                    font.drawText(_this.dialogs[_this.dialogNumber].rect.x, _this.dialogs[_this.dialogNumber].rect.y + offsety, line_1.text.slice(0, _this.characterNumber), line_1.color);
                 }
             }
         };
@@ -78,12 +96,15 @@ var Cutscene = /** @class */ (function (_super) {
             if (['action', 'cancel'].includes(input) && !_this.pauseLetterIncrement) {
                 _this.pauseLetterIncrement = true;
                 _this.characterNumber = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].text.length - 1;
-                // TODO: Iterate remaining characters up to the length instead of just jumping there calculating newlines to get
-                // the correct text wrapping.
                 setTimeout(function () {
                     _this.lineNumber++;
                     _this.lastSpaceNumber = 0;
-                    _this.pauseLetterIncrement = false;
+                    if (_this.dialogs[_this.dialogNumber].lines[_this.lineNumber].delayAfter) {
+                        setTimeout(function () { return _this.pauseLetterIncrement = false; }, _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].delayAfter);
+                    }
+                    else {
+                        _this.pauseLetterIncrement = false;
+                    }
                 }, _this.linePauseTime);
             }
         };

@@ -3,7 +3,7 @@ import { loadDefaultFonts } from './modules/font'
 export * as images from './modules/images'
 export * as font from './modules/font'
 export * as scenes from './modules/scenes'
-export * as cutscenes from './modules/cutscene'
+export * as dialogscenes from './modules/dialogscene'
 export * as sfx from './modules/sfx'
 export * as music from './modules/music'
 export * as input from './modules/input'
@@ -17,11 +17,12 @@ export * as aseprite from './modules/aseprite'
 export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scenes'
 export { MenuOption } from './modules/menu'
 
+import { Timeline } from './modules/timeline'
 import Rect from './modules/rect'
 import * as input from './modules/input'
 import * as scenes from './modules/scenes'
 import Scene from './modules/scene'
-import Cutscene from './modules/cutscene'
+import DialogScene from './modules/dialogscene'
 import Menu from './modules/menu'
 import FontData from './modules/FontData'
 import Glyph from './modules/Glyph'
@@ -135,5 +136,5 @@ export {
     initialize, setCanvasBackground,
     gameCanvas, canvasWidth, canvasHeight,
     Scene, Menu, Rect, FontData, Glyph, ImageDefinition, OnSelectionFunction, MusicDefinition, SfxDefinition, Aseprite,
-    Cutscene
+    DialogScene, Timeline
 }

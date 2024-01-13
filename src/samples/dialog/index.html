@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head><title>Cutscene Sample</title></head>
+    <head><title>DialogScene Sample</title></head>
     <body>
         <!--Include the retrolib web bundle.-->
         <script src="../../../dist/retrolib.js"></script>
@@ -11,7 +11,7 @@
             const narratorColor = { r: 185, g: 185, b: 185, a: 255 }
             const characterColor = retrolib.font.hexToRgba('#a0b4b8ff')
 
-            const intro = new retrolib.Cutscene('intro', true, 'exteriorFrontDoor', [
+            const intro = new retrolib.DialogScene('intro', true, 'exteriorFrontDoor', [
             {
                     lines: [
                         { text: `This is narration. I'm a narrator.`, color: narratorColor, speaker: '' },
@@ -30,7 +30,7 @@
                 }
             ])
             intro.letterSpeed = 60
-            const door = new retrolib.Cutscene('exteriorFrontDoor', false, '', [
+            const door = new retrolib.DialogScene('exteriorFrontDoor', false, '', [
             {
                     lines: [
                         { text: `You approach the front door.`, color: narratorColor, speaker: '' },
