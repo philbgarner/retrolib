@@ -40,7 +40,8 @@ class DialogScene extends Scene {
         const animationFrame: AnimationFrameFunction = (delta: number) => {
             if (this.dialogs !== undefined && this.dialogs[this.dialogNumber] !== undefined) {
                 const line = this.dialogs[this.dialogNumber].lines[this.lineNumber]
-                if (!this.pauseLetterIncrement && this.dialogNumber < this.dialogs.length && line !== undefined) {
+                if (!this.pauseLetterIncrement && this.dialogNumber < this.dialogs.length && this.dialogs[this.dialogNumber]
+                && this.dialogs[this.dialogNumber].lines && this.dialogs[this.dialogNumber].lines.length > 0 && line !== undefined) {
                     if (this.elapsed >= this.lastLetterTimestamp + this.letterSpeed) {
                         this.characterNumber++
                         if (this.lineNumber < this.dialogs[this.dialogNumber].lines.length
@@ -60,7 +61,7 @@ class DialogScene extends Scene {
                             this.lineNumber++
                             this.characterNumber = 0
                             this.lastSpaceNumber = 0
-                            if (this.dialogs[this.dialogNumber].lines[this.lineNumber].delayAfter) {
+                            if (this.lineNumber < this.dialogs[this.dialogNumber].lines.length && this.dialogs[this.dialogNumber].lines[this.lineNumber].delayAfter) {
                                 setTimeout(() => {
                                     this.pauseLetterIncrement = false
                                     if (this.lineNumber >= this.dialogs[this.dialogNumber].lines.length) {

@@ -8,7 +8,7 @@
 
 - [AnimationFrameFunction](modules.md#animationframefunction)
 - [Aseprite](modules.md#aseprite)
-- [DialogScene](modules.md#cutscene)
+- [DialogScene](modules.md#dialogscene)
 - [InputHandlerFunction](modules.md#inputhandlerfunction)
 - [Menu](modules.md#menu)
 - [MenuOption](modules.md#menuoption)
@@ -19,7 +19,7 @@
 ### Namespaces
 
 - [aseprite](modules/aseprite.md)
-- [cutscenes](modules/cutscenes.md)
+- [dialogscenes](modules/dialogscenes.md)
 - [font](modules/font.md)
 - [gamepad](modules/gamepad.md)
 - [images](modules/images.md)
@@ -40,6 +40,7 @@
 - [Rect](classes/Rect.md)
 - [Scene](classes/Scene.md)
 - [SfxDefinition](classes/SfxDefinition.md)
+- [Timeline](classes/Timeline.md)
 
 ### Type Aliases
 
@@ -72,7 +73,7 @@ ___
 
 ### DialogScene
 
-Renames and re-exports [default](classes/cutscenes.default.md)
+Renames and re-exports [default](classes/dialogscenes.default.md)
 
 ___
 
@@ -127,7 +128,7 @@ X and Y coordinates.
 
 #### Defined in
 
-[retrolib.ts:38](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L38)
+[retrolib.ts:39](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/retrolib.ts#L39)
 
 ## Variables
 
@@ -139,7 +140,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:54](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L54)
+[retrolib.ts:55](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/retrolib.ts#L55)
 
 ___
 
@@ -151,7 +152,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:50](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L50)
+[retrolib.ts:51](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/retrolib.ts#L51)
 
 ___
 
@@ -163,7 +164,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:46](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L46)
+[retrolib.ts:47](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/retrolib.ts#L47)
 
 ## Functions
 
@@ -189,7 +190,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:112](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L112)
+[retrolib.ts:113](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/retrolib.ts#L113)
 
 ___
 
@@ -211,4 +212,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:97](https://github.com/philbgarner/retrolib/blob/d6d017d/src/retrolib.ts#L97)
+[retrolib.ts:98](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/retrolib.ts#L98)

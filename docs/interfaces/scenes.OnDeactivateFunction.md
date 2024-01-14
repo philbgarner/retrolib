@@ -18,4 +18,4 @@ Callback function for the deactivate event.
 
 #### Defined in
 
-[modules/scenes.ts:22](https://github.com/philbgarner/retrolib/blob/d6d017d/src/modules/scenes.ts#L22)
+[modules/scenes.ts:22](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/scenes.ts#L22)

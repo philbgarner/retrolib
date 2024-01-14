@@ -31,7 +31,7 @@ export interface OnSelectionFunction {
  * Function that fires when an input event occurs on a selected menu item.
  */
 export interface OnInputFunction {
-    (menu: Menu, option: MenuOption, event: MenuInputType): void;
+    (menu: Menu, option: MenuOption, event: MenuInputType): boolean;
 }
 /**
  * Menu Flavour of Scenes.

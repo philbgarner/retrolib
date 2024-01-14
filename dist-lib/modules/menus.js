@@ -39,11 +39,11 @@ export function LayoutMenu(id, options, direction, margin, startX, startY, nextS
     var menu = new Menu(id, true, direction, menuOptions);
     menu.itemInputHandler = function (menu, option, event) {
         // If defined in extras, go with a user-defined onInput event handler.
+        var handled = false;
         if (extras && extras.onInput) {
-            extras.onInput(menu, option, event);
+            handled = extras.onInput(menu, option, event);
         }
-        else {
-            console.log('default menu handling');
+        if (!handled) {
             if (event === MenuInputType.Selection && nextSceneId.length > 0) {
                 console.log('selection');
                 var nextScene = scenes.getScene(nextSceneId);
@@ -59,6 +59,7 @@ export function LayoutMenu(id, options, direction, margin, startX, startY, nextS
                 }
             }
         }
+        return false;
     };
     return menu;
 }

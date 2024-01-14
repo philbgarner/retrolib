@@ -16,14 +16,15 @@ var __extends = (this && this.__extends) || (function () {
 import { font } from "../retrolib";
 import Scene from "./scene";
 import { TransitionEffect } from "./scenes";
-var Cutscene = /** @class */ (function (_super) {
-    __extends(Cutscene, _super);
-    function Cutscene(id, active, nextSceneId, dialogs) {
+var DialogScene = /** @class */ (function (_super) {
+    __extends(DialogScene, _super);
+    function DialogScene(id, active, nextSceneId, dialogs) {
         var _this = this;
         var animationFrame = function (delta) {
             if (_this.dialogs !== undefined && _this.dialogs[_this.dialogNumber] !== undefined) {
                 var line_1 = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber];
-                if (!_this.pauseLetterIncrement && _this.dialogNumber < _this.dialogs.length && line_1 !== undefined) {
+                if (!_this.pauseLetterIncrement && _this.dialogNumber < _this.dialogs.length && _this.dialogs[_this.dialogNumber]
+                    && _this.dialogs[_this.dialogNumber].lines && _this.dialogs[_this.dialogNumber].lines.length > 0 && line_1 !== undefined) {
                     if (_this.elapsed >= _this.lastLetterTimestamp + _this.letterSpeed) {
                         _this.characterNumber++;
                         if (_this.lineNumber < _this.dialogs[_this.dialogNumber].lines.length
@@ -43,7 +44,7 @@ var Cutscene = /** @class */ (function (_super) {
                             _this.lineNumber++;
                             _this.characterNumber = 0;
                             _this.lastSpaceNumber = 0;
-                            if (_this.dialogs[_this.dialogNumber].lines[_this.lineNumber].delayAfter) {
+                            if (_this.lineNumber < _this.dialogs[_this.dialogNumber].lines.length && _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].delayAfter) {
                                 setTimeout(function () {
                                     _this.pauseLetterIncrement = false;
                                     if (_this.lineNumber >= _this.dialogs[_this.dialogNumber].lines.length) {
@@ -115,7 +116,7 @@ var Cutscene = /** @class */ (function (_super) {
         _this.nextSceneId = nextSceneId;
         return _this;
     }
-    return Cutscene;
+    return DialogScene;
 }(Scene));
-export default Cutscene;
-//# sourceMappingURL=cutscene.js.map
+export default DialogScene;
+//# sourceMappingURL=dialogscene.js.map

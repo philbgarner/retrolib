@@ -44,7 +44,7 @@ var Menu = /** @class */ (function (_super) {
      */
     function Menu(id, active, direction, options, handleItemInput) {
         var _this = this;
-        handleItemInput = handleItemInput ? handleItemInput : function () { };
+        handleItemInput = handleItemInput ? handleItemInput : function () { return false; };
         var animationFrame = function (delta) {
             _this.Draw(delta);
         };
@@ -79,6 +79,12 @@ var Menu = /** @class */ (function (_super) {
             }
             else if (input === _this.cancelInput && released) {
                 _this.itemInputHandler(_this, _this.Selected(), MenuInputType.Cancel);
+            }
+            else if (input === _this.decrementSecondaryInput && released) {
+                _this.itemInputHandler(_this, _this.Selected(), MenuInputType.DecrementSecondary);
+            }
+            else if (input === _this.incrementSecondaryInput && released) {
+                _this.itemInputHandler(_this, _this.Selected(), MenuInputType.IncrementSecondary);
             }
         };
         _this.onActivate = function () { };
