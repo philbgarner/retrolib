@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Timeline Sample</title></head>
+    <body>
+        <!--Include the retrolib web bundle.-->
+        <script src="../../../dist/retrolib.js"></script>
+        <script>
+            retrolib.setCanvasBackground('black')
+            retrolib.initialize('gamecanvas', 320, 200, true, true)
+            let ctx = retrolib.gameCanvas.getContext('2d')
+            
+            var changeMessage = false
+
+            // Timeline class, allows us to add callbacks to a timeline
+            // which are executed once the amount of elapsed time has
+            // reached the point specified.
+            const timeline = new retrolib.Timeline()
+            timeline.addEvent('change message', 4000, (e) => changeMessage = true) 
+
+            // Instead of registering our own animation frame function with the window, 
+            // we can use the scene management system.
+            retrolib.scenes.addScene(new retrolib.Scene('hello world', (delta) => {
+                let message = !changeMessage ? `${timeline.elapsedTime}ms` : 'Hello world!'
+                retrolib.font.drawText(Math.floor(160 - retrolib.font.textWidth(message) / 2), Math.floor(100 - retrolib.font.textHeight(message) / 2), message, '#f1f1f1ff')
+
+                timeline.Update(delta)
+            }, true))
+
+        </script>
+    </body>
+</html>
