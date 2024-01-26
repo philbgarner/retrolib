@@ -1,4 +1,4 @@
-import { inputMaps, InputState, handleInputPressed, handleInputReleased, inputPressed, inputReleased, InputType } from "./input"
+import { inputMaps, InputState, handleInputPressed, handleInputReleased, InputType } from "./input"
 
 /**
  * 
@@ -20,7 +20,7 @@ export function resetKeysState() {
 // }
 
 export function getMappedKey(inputName: string): string {
-    let map = getMappedKeys().filter(f => f.inputName === inputName)
+    const map = getMappedKeys().filter(f => f.inputName === inputName)
     if (map.length > 0) {
         return map[0].key
     }
@@ -41,7 +41,7 @@ export type KeyboardInputRelationship = {
 }
 
 export function getMappedKeys(): KeyboardInputRelationship[] {
-    let relationships: KeyboardInputRelationship[] = []
+    const relationships: KeyboardInputRelationship[] = []
     Object.keys(inputMaps).forEach((inputName: string) => {
         inputMaps[inputName].filter(f => f.type === InputType.Keyboard).forEach((inputMap) => {
             const rel: KeyboardInputRelationship = { inputName: inputName, key: inputMap.mapKey }

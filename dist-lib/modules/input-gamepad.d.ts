@@ -2,7 +2,7 @@ import { InputState } from "./input";
 /**
  * Current axes states as of the last updated frame by input name.
  */
-export declare let axisState: {
+export declare const axisState: {
     [key: string]: InputState;
 };
 /**

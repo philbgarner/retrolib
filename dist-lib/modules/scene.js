@@ -36,13 +36,47 @@ var Scene = /** @class */ (function () {
  */
     Scene.prototype.TransitionTo = function (sceneId, effect, duration, steps) {
         var _this = this;
-        return new Promise(function (resolve, reject) {
+        return new Promise(function (resolve) {
             var sceneTo = scenes.getScene(sceneId);
             var sceneFrom = scenes.getScene(_this.id);
             if (sceneTo) {
                 sceneTo.opacity = 0;
                 sceneFrom.opacity = 1;
                 sceneFrom.pauseInput = true;
+                var opacity_1 = 1;
+                var stepAmt_1 = opacity_1 / steps;
+                // Run Fade In Loop
+                var fadeIn_1 = function () {
+                    if (opacity_1 < 1) {
+                        opacity_1 += stepAmt_1;
+                        opacity_1 = opacity_1 > 1 ? 1 : opacity_1;
+                    }
+                    else {
+                        opacity_1 = 1;
+                        resolve();
+                        return;
+                    }
+                    sceneTo.opacity = opacity_1;
+                    setTimeout(fadeIn_1, (duration / 2) / steps);
+                };
+                // Run Fade Out Loop
+                var fadeOut_1 = function () {
+                    if (opacity_1 > 0) {
+                        opacity_1 -= stepAmt_1;
+                        opacity_1 = opacity_1 < 0 ? 0 : opacity_1;
+                    }
+                    else {
+                        opacity_1 = 0;
+                        sceneFrom.opacity = 1;
+                        sceneTo.opacity = 0;
+                        scenes.deActivateScene(sceneFrom.id);
+                        scenes.activateScene(sceneTo.id);
+                        fadeIn_1();
+                        return;
+                    }
+                    sceneFrom.opacity = opacity_1;
+                    setTimeout(fadeOut_1, (duration / 2) / steps);
+                };
                 switch (effect) {
                     case TransitionEffect.Instant:
                         scenes.deActivateScene(_this.id);
@@ -50,40 +84,6 @@ var Scene = /** @class */ (function () {
                         resolve();
                         break;
                     case TransitionEffect.Fade:
-                        var opacity_1 = 1;
-                        var stepAmt_1 = opacity_1 / steps;
-                        // Run Fade In Loop
-                        var fadeIn_1 = function () {
-                            if (opacity_1 < 1) {
-                                opacity_1 += stepAmt_1;
-                                opacity_1 = opacity_1 > 1 ? 1 : opacity_1;
-                            }
-                            else {
-                                opacity_1 = 1;
-                                resolve();
-                                return;
-                            }
-                            sceneTo.opacity = opacity_1;
-                            setTimeout(fadeIn_1, (duration / 2) / steps);
-                        };
-                        // Run Fade Out Loop
-                        var fadeOut_1 = function () {
-                            if (opacity_1 > 0) {
-                                opacity_1 -= stepAmt_1;
-                                opacity_1 = opacity_1 < 0 ? 0 : opacity_1;
-                            }
-                            else {
-                                opacity_1 = 0;
-                                sceneFrom.opacity = 1;
-                                sceneTo.opacity = 0;
-                                scenes.deActivateScene(sceneFrom.id);
-                                scenes.activateScene(sceneTo.id);
-                                fadeIn_1();
-                                return;
-                            }
-                            sceneFrom.opacity = opacity_1;
-                            setTimeout(fadeOut_1, (duration / 2) / steps);
-                        };
                         fadeOut_1();
                         break;
                 }

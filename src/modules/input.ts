@@ -5,7 +5,7 @@ import * as keyboard from './input-keyboard'
 /**
  * Input state stored by input name.
  */
-export let inputState: { [key: string]: InputState } = {}
+export const inputState: { [key: string]: InputState } = {}
 /**
  * Input released callback function.
  */

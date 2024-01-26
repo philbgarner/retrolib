@@ -3,7 +3,6 @@ import Scene from "./scene"
 import { AnimationFrameFunction } from "../retrolib"
 import * as font from './font'
 import { LayoutDirection } from "./menus"
-import { canvasHeight, canvasWidth, scenes } from "../retrolib"
 import { getContext } from "./images"
 
 /**

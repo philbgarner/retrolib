@@ -6,11 +6,11 @@ export interface TimelineEvent {
 }
 
 export interface TimelineCallback {
-    (event: TimelineEvent)
+    (event: TimelineEvent): void
 }
 
 export interface OnTimelineEnded {
-    (timeline: Timeline)
+    (timeline: Timeline): void
 }
 
 /**

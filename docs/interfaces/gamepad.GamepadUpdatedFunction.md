@@ -24,4 +24,4 @@ Callback function for updates.
 
 #### Defined in
 
-[modules/input-gamepad.ts:63](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/input-gamepad.ts#L63)
+[modules/input-gamepad.ts:63](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/input-gamepad.ts#L63)

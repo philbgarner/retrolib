@@ -5,10 +5,10 @@ export interface TimelineEvent {
     callback: TimelineCallback;
 }
 export interface TimelineCallback {
-    (event: TimelineEvent): any;
+    (event: TimelineEvent): void;
 }
 export interface OnTimelineEnded {
-    (timeline: Timeline): any;
+    (timeline: Timeline): void;
 }
 /**
  * Timeline class will be used by cutscenes to track

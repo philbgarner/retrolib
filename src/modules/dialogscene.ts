@@ -2,7 +2,7 @@ import { font } from "../retrolib"
 import { Rect } from "../retrolib"
 import { ColorRGBA } from "./font"
 import Scene from "./scene"
-import { InputHandlerFunction, AnimationFrameFunction, TransitionEffect } from "./scenes"
+import { AnimationFrameFunction, TransitionEffect } from "./scenes"
 
 export interface onEndedFunction {
     (line: DialogLine): void
@@ -37,7 +37,7 @@ class DialogScene extends Scene {
     dialogPauseTime: number = 3000
 
     constructor(id: string, active: boolean, nextSceneId: string, dialogs: DialogSceneLines[]) {
-        const animationFrame: AnimationFrameFunction = (delta: number) => {
+        const animationFrame: AnimationFrameFunction = () => {
             if (this.dialogs !== undefined && this.dialogs[this.dialogNumber] !== undefined) {
                 const line = this.dialogs[this.dialogNumber].lines[this.lineNumber]
                 if (!this.pauseLetterIncrement && this.dialogNumber < this.dialogs.length && this.dialogs[this.dialogNumber]
@@ -87,7 +87,7 @@ class DialogScene extends Scene {
                 }
                 if (this.dialogNumber < this.dialogs.length && this.lineNumber <= this.dialogs[this.dialogNumber].lines.length - 1) {
                     // If the current line would overflow the width, wrap from the last space character.
-                    let linesUpTo = line.text.slice(0, this.characterNumber)
+                    const linesUpTo = line.text.slice(0, this.characterNumber)
                     if (font.textWidth(linesUpTo) >= this.dialogs[this.dialogNumber].rect.w) {
                         line.text = line.text.slice(0, this.lastSpaceNumber) + '\n' + line.text.slice(this.lastSpaceNumber + 1)
                     }
@@ -101,7 +101,7 @@ class DialogScene extends Scene {
         }
         super(id, animationFrame, active, () => {}, () => {}, () => {})
 
-        this.handleInput = (input: string, amt: number, released: boolean) => {
+        this.handleInput = (input: string) => {
             if (['action', 'cancel'].includes(input) && !this.pauseLetterIncrement) {
                 this.pauseLetterIncrement = true
                 this.characterNumber = this.dialogs[this.dialogNumber].lines[this.lineNumber].text.length - 1

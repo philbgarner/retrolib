@@ -1,6 +1,6 @@
 import SfxDefinition from "./SfxDefinition"
 
-var sfxVolume: number = 0.45
+let sfxVolume: number = 0.45
 
 export function setVolume(name: string, volume: number) {
     const sfx = sfxs.filter(f => f.name === name)

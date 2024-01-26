@@ -3,7 +3,7 @@ import { settings, InputState, handleInputPressed, handleInputReleased, inputMap
 /**
  * Current axes states as of the last updated frame by input name.
  */
-export let axisState: { [key: string]: InputState } = {}
+export const axisState: { [key: string]: InputState } = {}
 /**
  * Current buttons state as of the last upated frame by input name.
  */
@@ -151,7 +151,7 @@ export function gamepadsDidUpdate() {
         if (gamepadsTimestamps[g.index] !== undefined && gamepadsTimestamps[g.index] < g.timestamp) {
             gamepadUpdated(g)
             Object.keys(axisMap).forEach(axis => {
-                let maps: InputMap[] = []
+                const maps: InputMap[] = []
                 Object.keys(inputMaps).forEach(input => {
                     if (inputMaps[input].filter(f => f.mapKey === axis).length > 0) {
                         maps.push(...inputMaps[input].filter(f => f.mapKey === axis))
@@ -192,7 +192,7 @@ export function isAxisPressed(inputName: string, controller?: number): boolean {
     const axes = Object.keys(axisMap)
     //.forEach(axis => {
     for (const axis of axes) {
-        let maps: InputMap[] = []
+        const maps: InputMap[] = []
         Object.keys(inputMaps).forEach(input => {
             if (inputMaps[input].filter(f => f.mapKey === axis && f.parent === inputName).length > 0) {
                 maps.push(...inputMaps[input].filter(f => f.mapKey === axis))
@@ -200,7 +200,7 @@ export function isAxisPressed(inputName: string, controller?: number): boolean {
         })
         if (maps.length > 0) {
             for (const map of maps) {
-                let state = getAxisData(map.mapKey)[controller]
+                const state = getAxisData(map.mapKey)[controller]
                 if (state) {
                     if (map.axisCheckDirection < 0 && map.axisPlane === 'x' && state.x < -settings.axisPressedThreshold) {
                         return true

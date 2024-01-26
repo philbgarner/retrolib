@@ -1,7 +1,7 @@
 /**
  * Input state stored by input name.
  */
-export declare let inputState: {
+export declare const inputState: {
     [key: string]: InputState;
 };
 /**

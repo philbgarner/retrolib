@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[modules/images.ts:20](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L20)
+[modules/images.ts:20](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L20)
 
 ___
 
@@ -62,7 +62,7 @@ Draws an image at x,y coordinates on the canas.
 
 #### Defined in
 
-[modules/images.ts:57](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L57)
+[modules/images.ts:57](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L57)
 
 ___
 
@@ -89,7 +89,7 @@ Raw image drawing function (use drawImage unless you want to draw to another 2d 
 
 #### Defined in
 
-[modules/images.ts:70](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L70)
+[modules/images.ts:70](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L70)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[modules/images.ts:34](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L34)
+[modules/images.ts:34](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L34)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[modules/images.ts:39](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L39)
+[modules/images.ts:39](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L39)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[modules/images.ts:45](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L45)
+[modules/images.ts:45](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L45)
 
 ___
 
@@ -160,7 +160,7 @@ like { "name": "image id ref", "filename": "file_path/filename.ext" }
 
 #### Defined in
 
-[modules/images.ts:11](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L11)
+[modules/images.ts:11](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L11)
 
 ___
 
@@ -176,7 +176,7 @@ Load all images in the images list.
 
 #### Defined in
 
-[modules/images.ts:122](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L122)
+[modules/images.ts:122](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L122)
 
 ___
 
@@ -198,7 +198,7 @@ Load Image
 
 #### Defined in
 
-[modules/images.ts:104](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L104)
+[modules/images.ts:104](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L104)
 
 ___
 
@@ -218,4 +218,4 @@ ___
 
 #### Defined in
 
-[modules/images.ts:29](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/images.ts#L29)
+[modules/images.ts:29](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/images.ts#L29)

@@ -50,7 +50,8 @@ export interface Meta {
     scale:     string;
     frameTags: FrameTag[];
     layers:    Layer[];
-    slices:    any[];
+    // TODO: actually define this type.
+    slices:    any[]; // eslint-disable-line
 }
 
 /**
@@ -163,7 +164,7 @@ export class Aseprite {
     }
 
     FrameId(frameNumber: number) {
-        let frameId = Object.keys(this.frames)[frameNumber]
+        const frameId = Object.keys(this.frames)[frameNumber]
         return frameId
     }
 
@@ -184,7 +185,7 @@ export class Aseprite {
     }
 
     FrameMetaTag(frameNumber: number) {
-        let tag = this.meta.frameTags.filter(f => frameNumber >= f.from && frameNumber <= f.to)
+        const tag = this.meta.frameTags.filter(f => frameNumber >= f.from && frameNumber <= f.to)
         return tag.length > 0 ? tag[0] : null
     }
 
@@ -195,8 +196,8 @@ export class Aseprite {
     Update(delta: number) {
         this.frameElapsed += delta * this.direction
         this.elapsed += delta * Math.abs(this.direction)
-        let frame = this.CurrentFrame()
-        let frameTag = this.FrameMetaTag(this.frameNumber)
+        const frame = this.CurrentFrame()
+        const frameTag = this.FrameMetaTag(this.frameNumber)
         try {
             if (this.direction > 0 && this.frameElapsed >= frame.duration && frameTag.direction === 'forward') {
                 this.frameNumber += this.direction
@@ -242,7 +243,7 @@ export class Aseprite {
     }
 
     Draw(x: number, y: number) {
-        let frame = this.CurrentFrame()
+        const frame = this.CurrentFrame()
         x = Math.floor(x) // Fractional numbers introduce anti-aliasing that breaks pixel feel on canvas contexts.
         y = Math.floor(y)
         drawImage(this.meta.image, x, y, { x: frame.frame.x, y: frame.frame.y, w: frame.frame.w, h: frame.frame.h }, false)

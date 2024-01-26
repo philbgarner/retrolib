@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[modules/dialogscene.ts:11](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/dialogscene.ts#L11)
+[modules/dialogscene.ts:11](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/dialogscene.ts#L11)
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:19](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/dialogscene.ts#L19)
+[modules/dialogscene.ts:19](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/dialogscene.ts#L19)

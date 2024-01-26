@@ -1,5 +1,3 @@
-import { loadImage } from "./images"
-
 /**
  * Helper class to store images aand deserialize them from JSON.
  */

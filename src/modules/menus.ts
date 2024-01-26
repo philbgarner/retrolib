@@ -45,7 +45,7 @@ export function LayoutMenu(id: string, options: string[], direction: LayoutDirec
         menuOptions.push({ id: index.toString(), text: value, rect: new Rect(dx, dy, w, h) })
     })
     
-    let menu = new Menu(id, true, direction, menuOptions)
+    const menu = new Menu(id, true, direction, menuOptions)
     menu.itemInputHandler = (menu, option, event) => {
         // If defined in extras, go with a user-defined onInput event handler.
         let handled = false

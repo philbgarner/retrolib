@@ -20,7 +20,7 @@ var DialogScene = /** @class */ (function (_super) {
     __extends(DialogScene, _super);
     function DialogScene(id, active, nextSceneId, dialogs) {
         var _this = this;
-        var animationFrame = function (delta) {
+        var animationFrame = function () {
             if (_this.dialogs !== undefined && _this.dialogs[_this.dialogNumber] !== undefined) {
                 var line_1 = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber];
                 if (!_this.pauseLetterIncrement && _this.dialogNumber < _this.dialogs.length && _this.dialogs[_this.dialogNumber]
@@ -93,7 +93,7 @@ var DialogScene = /** @class */ (function (_super) {
         _this.pauseLetterIncrement = false;
         _this.linePauseTime = 1500;
         _this.dialogPauseTime = 3000;
-        _this.handleInput = function (input, amt, released) {
+        _this.handleInput = function (input) {
             if (['action', 'cancel'].includes(input) && !_this.pauseLetterIncrement) {
                 _this.pauseLetterIncrement = true;
                 _this.characterNumber = _this.dialogs[_this.dialogNumber].lines[_this.lineNumber].text.length - 1;

@@ -23,7 +23,7 @@ Animation source rect.
 
 #### Defined in
 
-[modules/aseprite.ts:30](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/aseprite.ts#L30)
+[modules/aseprite.ts:30](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/aseprite.ts#L30)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:29](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/aseprite.ts#L29)
+[modules/aseprite.ts:29](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/aseprite.ts#L29)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:27](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/aseprite.ts#L27)
+[modules/aseprite.ts:27](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/aseprite.ts#L27)
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:28](https://github.com/philbgarner/retrolib/blob/5d46b3a/src/modules/aseprite.ts#L28)
+[modules/aseprite.ts:28](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/aseprite.ts#L28)
