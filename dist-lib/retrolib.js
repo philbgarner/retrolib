@@ -23,6 +23,12 @@ import * as menu_1 from './modules/menu';
 export { menu_1 as menu };
 import * as aseprite_1 from './modules/aseprite';
 export { aseprite_1 as aseprite };
+import * as terminal_1 from './modules/terminal';
+export { terminal_1 as terminal };
+import * as random_1 from './modules/random';
+export { random_1 as random };
+import * as map_1 from './modules/map';
+export { map_1 as map };
 import { Timeline } from './modules/timeline';
 import Rect from './modules/rect';
 import * as input from './modules/input';
@@ -65,10 +71,10 @@ function resize() {
     gameCanvas.style.background = canvasBackground;
     gameCanvas.style.imageRendering = 'pixelated';
 }
-function prependCanvas(canvasId, width, height, autoResize) {
+export function appendCanvas(canvasId, width, height, autoResize) {
     var canvas = document.createElement('canvas');
     canvas.id = canvasId;
-    document.body.prepend(canvas);
+    document.body.append(canvas);
     gameCanvas = canvas;
     canvas.width = width;
     canvas.height = height;
@@ -103,7 +109,7 @@ function initialize(canvasId, width, height, buildCanvas, autoResize) {
     height = height ? height : 256;
     canvasId = canvasId ? canvasId : 'gamecanvas';
     if (gameCanvas === null && buildCanvas) {
-        gameCanvas = prependCanvas(canvasId, width, height, autoResize);
+        gameCanvas = appendCanvas(canvasId, width, height, autoResize);
     }
     else if (gameCanvas === null) {
         gameCanvas = document.getElementById(canvasId);

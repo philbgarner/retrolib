@@ -25,11 +25,14 @@
 - [images](modules/images.md)
 - [input](modules/input.md)
 - [keyboard](modules/keyboard.md)
+- [map](modules/map.md)
 - [menu](modules/menu.md)
 - [menus](modules/menus.md)
 - [music](modules/music.md)
+- [random](modules/random.md)
 - [scenes](modules/scenes.md)
 - [sfx](modules/sfx.md)
+- [terminal](modules/terminal.md)
 
 ### Classes
 
@@ -54,6 +57,7 @@
 
 ### Functions
 
+- [appendCanvas](modules.md#appendcanvas)
 - [initialize](modules.md#initialize)
 - [setCanvasBackground](modules.md#setcanvasbackground)
 
@@ -128,7 +132,7 @@ X and Y coordinates.
 
 #### Defined in
 
-[retrolib.ts:39](https://github.com/philbgarner/retrolib/blob/40e2981/src/retrolib.ts#L39)
+[retrolib.ts:41](https://github.com/philbgarner/retrolib/blob/9942244/src/retrolib.ts#L41)
 
 ## Variables
 
@@ -140,7 +144,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:55](https://github.com/philbgarner/retrolib/blob/40e2981/src/retrolib.ts#L55)
+[retrolib.ts:57](https://github.com/philbgarner/retrolib/blob/9942244/src/retrolib.ts#L57)
 
 ___
 
@@ -152,7 +156,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:51](https://github.com/philbgarner/retrolib/blob/40e2981/src/retrolib.ts#L51)
+[retrolib.ts:53](https://github.com/philbgarner/retrolib/blob/9942244/src/retrolib.ts#L53)
 
 ___
 
@@ -164,9 +168,32 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:47](https://github.com/philbgarner/retrolib/blob/40e2981/src/retrolib.ts#L47)
+[retrolib.ts:49](https://github.com/philbgarner/retrolib/blob/9942244/src/retrolib.ts#L49)
 
 ## Functions
+
+### appendCanvas
+
+▸ **appendCanvas**(`canvasId`, `width`, `height`, `autoResize`): `HTMLCanvasElement`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `canvasId` | `string` |
+| `width` | `number` |
+| `height` | `number` |
+| `autoResize` | `boolean` |
+
+#### Returns
+
+`HTMLCanvasElement`
+
+#### Defined in
+
+[retrolib.ts:76](https://github.com/philbgarner/retrolib/blob/9942244/src/retrolib.ts#L76)
+
+___
 
 ### initialize
 
@@ -190,7 +217,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:113](https://github.com/philbgarner/retrolib/blob/40e2981/src/retrolib.ts#L113)
+[retrolib.ts:115](https://github.com/philbgarner/retrolib/blob/9942244/src/retrolib.ts#L115)
 
 ___
 
@@ -212,4 +239,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:98](https://github.com/philbgarner/retrolib/blob/40e2981/src/retrolib.ts#L98)
+[retrolib.ts:100](https://github.com/philbgarner/retrolib/blob/9942244/src/retrolib.ts#L100)

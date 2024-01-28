@@ -26,4 +26,4 @@ Callback function for input directed at the scene.
 
 #### Defined in
 
-[modules/scenes.ts:9](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/scenes.ts#L9)
+[modules/scenes.ts:9](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/scenes.ts#L9)

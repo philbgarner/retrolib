@@ -44,8 +44,10 @@ export function Draw() {
             // Draw glyph centred in cell rect (handle variable-width fonts).
             const charWidth = font.textWidth(data.character, fnt)
             const diff = Math.floor((fnt.cwidth - charWidth) / 2)
-            //ctx.fillStyle = font.rgbaToHex(data.bgColor)
-            //ctx.fillRect(dx, dy, fnt.cwidth, fnt.cheight)
+            if (data.bgColor) {
+                ctx.fillStyle = font.rgbaToHex(data.bgColor)
+                ctx.fillRect(dx, dy, fnt.cwidth, fnt.cheight)
+            }
             font.drawTextCtx(ctx, dx + diff, dy, data.character, data.color, fnt)
             dx += fnt.cwidth
         })
@@ -96,7 +98,7 @@ export function Initialize() {
     for (let y = 0; y < rowsCount(); y++) {
         const cols: TerminalCell[] = []
         for (let x = 0; x < columnsCount(); x++) {
-            cols.push({ x: x, y: y, color: { r: 255, g: 255, b: 255, a: 255 }, bgColor: { r: 0, g: 0, b: 0, a: 0 }, character: ' ' })
+            cols.push({ x: x, y: y, color: { r: 255, g: 255, b: 255, a: 255 }, bgColor: null, character: ' ' })
         }
         data.push(cols)
     }

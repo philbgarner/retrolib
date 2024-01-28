@@ -207,6 +207,13 @@ function textWidth(text, font) {
  * @param {object} effects Any effects and parameters to apply when rendering this text.
  * @returns {Rect}
  */
+export function drawTextCtx(context, x, y, text, color, font) {
+    var oldCtx = ctx;
+    ctx = context;
+    var retVal = drawText(x, y, text, color, font);
+    ctx = oldCtx;
+    return retVal;
+}
 /**
  * Draws the specified text on the canvas.
  * @param x Left location for text.
@@ -347,6 +354,12 @@ function getPixelAtRgba(pixels, x, y, pixelswidth) {
         return null;
     }
     return { r: pixels[offset], g: pixels[offset + 1], b: pixels[offset + 2], a: pixels[offset + 3] };
+}
+export function getCtx() {
+    return ctx;
+}
+export function setCtx(context) {
+    ctx = context;
 }
 export { loadFromJSON, loadDefaultFonts, fonts, colorLerp, rgbaToHex, hexToRgba, imageToBase64, codepageAndBitmaptoJSON, textHeight, textWidth, drawText };
 //# sourceMappingURL=font.js.map

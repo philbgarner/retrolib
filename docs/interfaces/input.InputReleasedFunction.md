@@ -25,4 +25,4 @@ Callback function for when an input that was pressed is released.
 
 #### Defined in
 
-[modules/input.ts:91](https://github.com/philbgarner/retrolib/blob/40e2981/src/modules/input.ts#L91)
+[modules/input.ts:91](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/input.ts#L91)
