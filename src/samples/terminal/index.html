@@ -13,7 +13,13 @@
             retrolib.terminal.Initialize()
 
             retrolib.map.Initialize(60, 19)
-            let cells = retrolib.map.GetCells((f => true)) // Return all cells in the map.
+            const block = { name: 'block', group: 'block', colors: [{ r: 255, g: 255, b: 255, a: 255}], bgColor: null, characters: ['▓'], blockVision: true, blockMovement: true }
+            retrolib.map.setCell(8, 8, block)
+            retrolib.map.setCell(9, 8, block)
+
+            //let cells = retrolib.map.getCells((f => true)) // Return all cells in the map.
+            let cells = retrolib.map.fov(7, 8, 8)
+            console.log('cells', cells)
             cells.forEach((mapCell) => {
                 retrolib.terminal.setCell(mapCell.x, mapCell.y,
                     mapCell.cellType.characters[retrolib.random.randInt(0, mapCell.cellType.characters.length)],
@@ -21,7 +27,7 @@
                     mapCell.cellType.bgColor)
             })
 
-            retrolib.terminal.setCell(5, 5, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 255, a: 255 })
+            retrolib.terminal.setCell(7, 7, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 255, a: 255 })
             
             retrolib.scenes.addScene(new retrolib.Scene('hello world', (delta) => {
                 retrolib.terminal.Draw()

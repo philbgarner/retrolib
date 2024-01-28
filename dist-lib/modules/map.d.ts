@@ -1,4 +1,6 @@
 import { ColorRGBA } from "./font";
+export declare let width: number;
+export declare let height: number;
 export type CellType = {
     name: string;
     group: string;
@@ -24,8 +26,11 @@ export interface SelectCellTypesFunction {
 export declare let selectCellTypes: SelectCellTypesFunction;
 export declare function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypesFunction): CellType[];
 export declare let mapCells: CellType[][];
-export declare function Initialize(width: number, height: number): void;
+export declare function Initialize(mapWidth: number, mapHeight: number): void;
 export interface GetCellsFilterFunction {
     (cell: CellType): boolean;
 }
-export declare function GetCells(filterFn: GetCellsFilterFunction): MapCell[];
+export declare function getCells(filterFn: GetCellsFilterFunction): MapCell[];
+export declare function getCell(x: number, y: number): MapCell;
+export declare function setCell(x: number, y: number, cellType: CellType): void;
+export declare function fov(viewRadius: number, x: number, y: number): MapCell[];

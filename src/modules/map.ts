@@ -1,6 +1,9 @@
 import { randInt } from "./random"
 import { ColorRGBA } from "./font"
 
+export let width: number
+export let height: number
+
 export type CellType = {
     name: string,
     group: string,
@@ -47,8 +50,11 @@ export function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypes
 
 export let mapCells: CellType[][] = []
 
-export function Initialize(width: number, height: number) {
+export function Initialize(mapWidth: number, mapHeight: number) {
     mapCells = []
+
+    width = mapWidth
+    height = mapHeight
 
     for (let y = 0; y < height; y++) {
         let cols: CellType[] = []
@@ -63,7 +69,7 @@ export interface GetCellsFilterFunction {
     (cell: CellType): boolean
 }
 
-export function GetCells(filterFn: GetCellsFilterFunction): MapCell[] {
+export function getCells(filterFn: GetCellsFilterFunction): MapCell[] {
     const cells: MapCell[] = []
     mapCells.forEach((row, rowIndex) => {
         row.forEach((cell, colIndex) => {
@@ -74,3 +80,76 @@ export function GetCells(filterFn: GetCellsFilterFunction): MapCell[] {
     })
     return cells
 }
+
+export function getCell(x: number, y: number): MapCell {
+    try {
+        if (mapCells[y][x] === undefined) {
+            return null
+        }
+        return {
+            cellType: mapCells[y][x],
+            x: x, y: y
+        }
+    } catch {}
+    return null
+}
+
+export function setCell(x: number, y: number, cellType: CellType) {
+    try {
+        mapCells[y][x] = cellType
+    } catch {}
+}
+
+export function fov(viewRadius: number, x: number, y: number): MapCell[] {
+    function doFov(x: number, y: number, playerX: number, playerY: number): boolean {
+        let vx = x - playerX
+        let vy = y - playerY
+        let ox = x + 0.5
+        let oy = y + 0.5
+        let l = Math.sqrt((x * x) + (y * y))
+        vx = vx / l
+        vy = vy / l
+
+        for (let i =0; i < l; i++) {
+            const cell = getCell(Math.floor(ox), Math.floor(oy))
+            if (cell && cell.cellType.blockVision) {
+                return false
+            }
+            ox += vx
+            oy += vy
+        }
+        return true
+    }
+
+    const litCells: MapCell[] = []
+    const halfRadius = viewRadius / 2
+    for (let i = y - halfRadius; i < y + halfRadius; i++) {
+        for (let j = x - halfRadius; j < x + halfRadius; j++) {
+            const cell = getCell(Math.floor(j), Math.floor(i))
+            if (cell !== null) {
+                if (doFov(Math.floor(j), Math.floor(i), x, y)) {
+                    litCells.push(cell)
+                }
+            }
+        }
+    }
+    return litCells
+}
+
+/*
+void FOV()
+{
+  int i,j;
+  float x,y,l;
+  for(i=0;i<80;i++)for(j=0;j<25;j++)
+  {
+    MAP[i][j]= NOT_VISIBLE;//Pseudo code
+    x=i-PLAYERX;
+    y=j-PLAYERY;
+    l=sqrt((x*x)+(y*y));
+    if(l<VIEW_RADIUS)
+      if(DoFov(i,j)==true)
+        MAP[i][j] = VISIBLE;//Pseudo code, you understand.
+  };
+};
+*/
