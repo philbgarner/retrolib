@@ -11,6 +11,8 @@ export * as menus from './modules/menus';
 export * as menu from './modules/menu';
 export * as aseprite from './modules/aseprite';
 export * as terminal from './modules/terminal';
+export * as random from './modules/random';
+export * as map from './modules/map';
 export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scenes';
 export { MenuOption } from './modules/menu';
 import { Timeline } from './modules/timeline';

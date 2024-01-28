@@ -1,4 +1,4 @@
-import { ColorRGBA } from "./modules/font";
+import { ColorRGBA } from "./font";
 export type CellType = {
     name: string;
     group: string;
@@ -7,6 +7,11 @@ export type CellType = {
     characters: string[];
     blockVision: boolean;
     blockMovement: boolean;
+};
+export type MapCell = {
+    cellType: CellType;
+    x: number;
+    y: number;
 };
 export interface GenerateCellFunction {
     (cellTypes: CellType[], x: number, y: number): CellType;
@@ -23,4 +28,4 @@ export declare function Initialize(width: number, height: number): void;
 export interface GetCellsFilterFunction {
     (cell: CellType): boolean;
 }
-export declare function GetCells(filterFn: GetCellsFilterFunction): any[];
+export declare function GetCells(filterFn: GetCellsFilterFunction): MapCell[];

@@ -1,4 +1,4 @@
-import { ColorRGBA } from "./modules/font";
+import { ColorRGBA } from "./font";
 export type CellType = {
     name: string;
     group: string;

@@ -6,6 +6,9 @@ let terminalW: number
 let terminalH: number
 let terminalBackground: ColorRGBA = null
 
+let changeTimestamp: number = 0
+let drawTimestamp: number = 0
+
 export type TerminalCell = {
     x: number,
     y: number,
@@ -14,16 +17,17 @@ export type TerminalCell = {
     character: string
 }
 
-let cellData: TerminalCell[][] = []
+export let cellData: TerminalCell[][] = []
+export let emptyCellData: TerminalCell[][] = [] // Cache an empty version of terminal so clearing is quick.
 
 let terminalCanvas: HTMLCanvasElement = null
 let ctx: CanvasRenderingContext2D = null
 
 export function Draw() {
-    if (!terminalCanvas) {
-        Initialize()
+    if (drawTimestamp === changeTimestamp) {
+        return
     }
-    
+
     if (terminalBackground !== null) {
         ctx.fillStyle = font.rgbaToHex(terminalBackground)
         ctx.fillRect(0, 0, terminalW, terminalH)
@@ -48,15 +52,16 @@ export function Draw() {
         dy += fnt.cheight
         dx = 0
     })
+
+    drawTimestamp = new Date().getMilliseconds()
+    changeTimestamp = drawTimestamp
 }
 
 export function setCell(x: number, y: number, character: string, color: ColorRGBA, bgColor: ColorRGBA) {
     try {
         cellData[y][x] = { character: character, x: x, y: y, color: color, bgColor: bgColor }
-        Draw()
-    } catch (err) {
-        console.log('Error:', err)
-    }
+        changeTimestamp = new Date().getMilliseconds()
+    } catch {}
 }
 
 export function setCells(startX: number, startY: number, text: string, color: ColorRGBA | ColorRGBA[], bgColor: ColorRGBA) {
@@ -74,9 +79,7 @@ export function setCells(startX: number, startY: number, text: string, color: Co
 export function getCell(x: number, y: number): TerminalCell {
     try {
         return cellData[y][x]
-    } catch (err) {
-        console.log('Error:', err)
-    }
+    } catch {}
 }
 
 export function Initialize() {
@@ -87,16 +90,19 @@ export function Initialize() {
     terminalW = canvasWidth
     terminalH = canvasHeight
     terminalCanvas.style.zIndex = '2'
+    changeTimestamp = 0
 
     const data: TerminalCell[][] = []
     for (let y = 0; y < rowsCount(); y++) {
         const cols: TerminalCell[] = []
         for (let x = 0; x < columnsCount(); x++) {
-            cols.push({ x: x, y: y, color: { r: 255, g: 255, b: 255, a: 255 }, bgColor: { r: 255, g: 255, b: 255, a: 255 }, character: ' ' })
+            cols.push({ x: x, y: y, color: { r: 255, g: 255, b: 255, a: 255 }, bgColor: { r: 0, g: 0, b: 0, a: 0 }, character: ' ' })
         }
         data.push(cols)
     }
     cellData = data
+    emptyCellData = []
+    Object.assign(emptyCellData, data)
 }
 
 export function Dispose() {

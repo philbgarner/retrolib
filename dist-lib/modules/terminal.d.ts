@@ -7,6 +7,8 @@ export type TerminalCell = {
     bgColor: ColorRGBA;
     character: string;
 };
+export declare let cellData: TerminalCell[][];
+export declare let emptyCellData: TerminalCell[][];
 export declare function Draw(): void;
 export declare function setCell(x: number, y: number, character: string, color: ColorRGBA, bgColor: ColorRGBA): void;
 export declare function setCells(startX: number, startY: number, text: string, color: ColorRGBA | ColorRGBA[], bgColor: ColorRGBA): void;
