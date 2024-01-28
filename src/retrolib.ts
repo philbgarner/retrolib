@@ -12,7 +12,7 @@ export * as keyboard from './modules/input-keyboard'
 export * as menus from './modules/menus'
 export * as menu from './modules/menu'
 export * as aseprite from './modules/aseprite'
-
+export * as terminal from './modules/terminal'
 
 export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scenes'
 export { MenuOption } from './modules/menu'
@@ -71,11 +71,11 @@ function resize(): void {
     gameCanvas.style.imageRendering = 'pixelated'
 }
 
-function prependCanvas(canvasId: string, width: number, height: number, autoResize: boolean): HTMLCanvasElement {
+export function appendCanvas(canvasId: string, width: number, height: number, autoResize: boolean): HTMLCanvasElement {
     const canvas: HTMLCanvasElement = document.createElement('canvas') as HTMLCanvasElement
 
     canvas.id = canvasId
-    document.body.prepend(canvas)
+    document.body.append(canvas)
     gameCanvas = canvas
     canvas.width = width
     canvas.height = height
@@ -116,7 +116,7 @@ function initialize(canvasId: string, width: number, height: number, buildCanvas
     canvasId = canvasId ? canvasId : 'gamecanvas'
     
     if (gameCanvas === null && buildCanvas) {
-        gameCanvas = prependCanvas(canvasId, width, height, autoResize)
+        gameCanvas = appendCanvas(canvasId, width, height, autoResize)
     } else if (gameCanvas === null) {
         gameCanvas = document.getElementById(canvasId) as HTMLCanvasElement
     }

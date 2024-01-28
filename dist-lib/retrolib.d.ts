@@ -10,6 +10,7 @@ export * as keyboard from './modules/input-keyboard';
 export * as menus from './modules/menus';
 export * as menu from './modules/menu';
 export * as aseprite from './modules/aseprite';
+export * as terminal from './modules/terminal';
 export { AnimationFrameFunction, InputHandlerFunction, OnDeactivateFunction, OnActivateFunction } from './modules/scenes';
 export { MenuOption } from './modules/menu';
 import { Timeline } from './modules/timeline';
@@ -43,6 +44,7 @@ declare let canvasWidth: number;
  * Canvas height (resolution y).
  */
 declare let canvasHeight: number;
+export declare function appendCanvas(canvasId: string, width: number, height: number, autoResize: boolean): HTMLCanvasElement;
 /**
  * Set the canvas element's background value.
  * @param color CSS background for canvas element.

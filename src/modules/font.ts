@@ -219,6 +219,14 @@ function textWidth(text: string, font?: FontData) {
  * @returns {Rect}
  */
 
+export function drawTextCtx(context: CanvasRenderingContext2D, x: number, y: number, text: string, color: ColorRGBA, font?: FontData): Rect {
+    const oldCtx = ctx
+    ctx = context
+    const retVal = drawText(x, y, text, color, font)
+    ctx = oldCtx
+    return retVal
+}
+
 /**
  * Draws the specified text on the canvas.
  * @param x Left location for text.
@@ -229,7 +237,6 @@ function textWidth(text: string, font?: FontData) {
  * @returns Rect object with the x, y, width, height of the text drawn.
  */
 function drawText(x: number, y: number, text: string, color: ColorRGBA, font?: FontData/*, effects: object*/): Rect {
-    
     if (typeof color === 'string') {
         color = hexToRgba(color)
     }
@@ -366,6 +373,14 @@ function getPixelAtRgba(pixels: Uint8ClampedArray, x: number, y: number, pixelsw
         return null
     }
     return { r: pixels[offset], g: pixels[offset + 1], b: pixels[offset + 2], a: pixels[offset + 3] }
+}
+
+export function getCtx(): CanvasRenderingContext2D {
+    return ctx
+}
+
+export function setCtx(context: CanvasRenderingContext2D) {
+    ctx = context
 }
 
 export { loadFromJSON, loadDefaultFonts, fonts,
