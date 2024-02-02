@@ -14,6 +14,7 @@ export declare function setCell(x: number, y: number, character: string, color: 
 export declare function setCells(startX: number, startY: number, text: string, color: ColorRGBA | ColorRGBA[], bgColor: ColorRGBA): void;
 export declare function getCell(x: number, y: number): TerminalCell;
 export declare function Initialize(): void;
+export declare function clear(): void;
 export declare function Dispose(): void;
 export declare function setFont(fontData: FontData): void;
 export declare function getFont(): FontData;

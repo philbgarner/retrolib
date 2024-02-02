@@ -4,6 +4,10 @@ import { ColorRGBA } from "./font"
 export let width: number
 export let height: number
 
+function degreesToRads (deg) {
+    return (deg * Math.PI) / 180.0
+}
+
 export type CellType = {
     name: string,
     group: string,
@@ -16,6 +20,8 @@ export type CellType = {
 
 export type MapCell = {
     cellType: CellType,
+    visible: number,
+    explored: boolean,
     x: number
     y: number
 }
@@ -38,7 +44,11 @@ export interface SelectCellTypesFunction {
 }
 
 export let selectCellTypes: SelectCellTypesFunction = (x: number, y: number): CellType[] => {
-    return [{ name: `Empty (${x},${y})`, group: '', colors: [{ r: 128, g: 128, b: 128, a: 128 }], bgColor: null, characters: ['.', ','], blockMovement: false, blockVision: false }]
+    return [{ name: `Empty (${x},${y})`, group: '', colors: [{ r: 128, g: 128, b: 128, a: 128 }], bgColor: null, characters: [','], blockMovement: false, blockVision: false }]
+}
+
+export function clearMap() {
+
 }
 
 export function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypesFunction): CellType[] {
@@ -48,7 +58,7 @@ export function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypes
     return selectCellTypes(x, y)
 }
 
-export let mapCells: CellType[][] = []
+export let mapCells: MapCell[][] = []
 
 export function Initialize(mapWidth: number, mapHeight: number) {
     mapCells = []
@@ -57,9 +67,13 @@ export function Initialize(mapWidth: number, mapHeight: number) {
     height = mapHeight
 
     for (let y = 0; y < height; y++) {
-        let cols: CellType[] = []
+        let cols: MapCell[] = []
         for (let x = 0; x < width; x++) {
-            cols.push(GenerateCell(SelectCellTypes(x, y), x, y))
+            cols.push({
+                cellType: GenerateCell(SelectCellTypes(x, y), x, y),
+                x: x, y: y,
+                visible: 0, explored: false
+            })
         }
         mapCells.push(cols)
     }
@@ -73,8 +87,8 @@ export function getCells(filterFn: GetCellsFilterFunction): MapCell[] {
     const cells: MapCell[] = []
     mapCells.forEach((row, rowIndex) => {
         row.forEach((cell, colIndex) => {
-            if (filterFn(cell)) {
-                cells.push({ cellType: cell, x: colIndex, y: rowIndex })
+            if (filterFn(cell.cellType)) {
+                cells.push(cell)
             }
         })
     })
@@ -85,71 +99,76 @@ export function getCell(x: number, y: number): MapCell {
     try {
         if (mapCells[y][x] === undefined) {
             return null
+        } else {
+            return mapCells[y][x]
         }
-        return {
-            cellType: mapCells[y][x],
-            x: x, y: y
-        }
-    } catch {}
+    } catch { }
     return null
 }
 
-export function setCell(x: number, y: number, cellType: CellType) {
+export function setCell(mapCell: MapCell) {
     try {
-        mapCells[y][x] = cellType
-    } catch {}
+        mapCells[mapCell.y][mapCell.x] = mapCell
+    } catch { }
 }
 
 export function fov(viewRadius: number, x: number, y: number): MapCell[] {
-    function doFov(x: number, y: number, playerX: number, playerY: number): boolean {
-        let vx = x - playerX
-        let vy = y - playerY
+    x = x + (viewRadius % 2 === 1 ? 1 : 0)
+    y = y + (viewRadius % 2 === 1 ? 1 : 0)
+
+    type FovSearchResult = {
+        visible: boolean,
+        block: boolean,
+        cells: MapCell[]
+    }
+
+    function doFov(x: number, y: number, playerX: number, playerY: number): FovSearchResult {
+        let checkedCells: MapCell[] = []
+        let vx = playerX - x
+        let vy = playerY - y
         let ox = x + 0.5
         let oy = y + 0.5
         let l = Math.sqrt((x * x) + (y * y))
         vx = vx / l
         vy = vy / l
 
-        for (let i =0; i < l; i++) {
+        for (let i = 0; i < l; i++) {
             const cell = getCell(Math.floor(ox), Math.floor(oy))
             if (cell && cell.cellType.blockVision) {
-                return false
+                cell.visible++
+                return { visible: true, block: true, cells: checkedCells }
+            } else if (cell && !cell.cellType.blockVision) {
+                cell.visible++
+                checkedCells.push(cell)
             }
             ox += vx
             oy += vy
         }
-        return true
+        return { visible: true, block: false, cells: checkedCells }
     }
 
-    const litCells: MapCell[] = []
-    const halfRadius = viewRadius / 2
-    for (let i = y - halfRadius; i < y + halfRadius; i++) {
-        for (let j = x - halfRadius; j < x + halfRadius; j++) {
+    const cells = []
+
+    for (let i = y - viewRadius; i < y + viewRadius; i++) {
+        for (let j = x - viewRadius; j < x + viewRadius; j++) {
             const cell = getCell(Math.floor(j), Math.floor(i))
             if (cell !== null) {
-                if (doFov(Math.floor(j), Math.floor(i), x, y)) {
-                    litCells.push(cell)
+                cell.visible = 0
+                const fovResult = doFov(Math.floor(j), Math.floor(i), x, y)
+                if (fovResult.visible) {
+                    cell.visible++
+                }
+                if (fovResult.block) {
+                    cell.visible = 0
+                }
+                
+                if (cell.visible > 0) {
+                    cells.push(cell)
                 }
             }
+            setCell(cell)
         }
     }
-    return litCells
-}
 
-/*
-void FOV()
-{
-  int i,j;
-  float x,y,l;
-  for(i=0;i<80;i++)for(j=0;j<25;j++)
-  {
-    MAP[i][j]= NOT_VISIBLE;//Pseudo code
-    x=i-PLAYERX;
-    y=j-PLAYERY;
-    l=sqrt((x*x)+(y*y));
-    if(l<VIEW_RADIUS)
-      if(DoFov(i,j)==true)
-        MAP[i][j] = VISIBLE;//Pseudo code, you understand.
-  };
-};
-*/
+    return cells
+}

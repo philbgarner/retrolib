@@ -12,6 +12,8 @@ export type CellType = {
 };
 export type MapCell = {
     cellType: CellType;
+    visible: number;
+    explored: boolean;
     x: number;
     y: number;
 };
@@ -24,13 +26,14 @@ export interface SelectCellTypesFunction {
     (x: number, y: number): CellType[];
 }
 export declare let selectCellTypes: SelectCellTypesFunction;
+export declare function clearMap(): void;
 export declare function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypesFunction): CellType[];
-export declare let mapCells: CellType[][];
+export declare let mapCells: MapCell[][];
 export declare function Initialize(mapWidth: number, mapHeight: number): void;
 export interface GetCellsFilterFunction {
     (cell: CellType): boolean;
 }
 export declare function getCells(filterFn: GetCellsFilterFunction): MapCell[];
 export declare function getCell(x: number, y: number): MapCell;
-export declare function setCell(x: number, y: number, cellType: CellType): void;
+export declare function setCell(mapCell: MapCell): void;
 export declare function fov(viewRadius: number, x: number, y: number): MapCell[];
