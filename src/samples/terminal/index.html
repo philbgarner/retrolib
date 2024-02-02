@@ -17,10 +17,10 @@
             retrolib.map.Initialize(60, 19)
             
             const block = { name: 'block', group: 'block', colors: [{ r: 255, g: 255, b: 255, a: 255}], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true }
-            retrolib.map.setCell({ x: 2, y: 3, cellType: block })
-            retrolib.map.setCell({ x: 3, y: 3, cellType: block })
-            retrolib.map.setCell({ x: 4, y: 3, cellType: block })
-            retrolib.map.setCell({ x: 4, y: 4, cellType: block })
+            retrolib.map.setCell({ x: 5, y: 4, cellType: block, light: 0 })
+            retrolib.map.setCell({ x: 3, y: 3, cellType: block, light: 0 })
+            retrolib.map.setCell({ x: 4, y: 3, cellType: block, light: 0 })
+            retrolib.map.setCell({ x: 4, y: 4, cellType: block, light: 0 })
 
             function drawPlayer() {            
                 retrolib.terminal.clear()

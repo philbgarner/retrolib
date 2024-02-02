@@ -12,7 +12,7 @@ export type CellType = {
 };
 export type MapCell = {
     cellType: CellType;
-    visible: number;
+    light: number;
     explored: boolean;
     x: number;
     y: number;

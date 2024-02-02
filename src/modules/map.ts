@@ -3,10 +3,8 @@ import { ColorRGBA } from "./font"
 
 export let width: number
 export let height: number
-
-function degreesToRads (deg) {
-    return (deg * Math.PI) / 180.0
-}
+export let mapCells: MapCell[][] = []
+export let exploredCells: MapCell[][] = []
 
 export type CellType = {
     name: string,
@@ -20,7 +18,7 @@ export type CellType = {
 
 export type MapCell = {
     cellType: CellType,
-    visible: number,
+    light: number,
     explored: boolean,
     x: number
     y: number
@@ -48,7 +46,8 @@ export let selectCellTypes: SelectCellTypesFunction = (x: number, y: number): Ce
 }
 
 export function clearMap() {
-
+    mapCells = []
+    exploredCells = []
 }
 
 export function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypesFunction): CellType[] {
@@ -57,8 +56,6 @@ export function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypes
     }
     return selectCellTypes(x, y)
 }
-
-export let mapCells: MapCell[][] = []
 
 export function Initialize(mapWidth: number, mapHeight: number) {
     mapCells = []
@@ -72,7 +69,7 @@ export function Initialize(mapWidth: number, mapHeight: number) {
             cols.push({
                 cellType: GenerateCell(SelectCellTypes(x, y), x, y),
                 x: x, y: y,
-                visible: 0, explored: false
+                light: 0, explored: false
             })
         }
         mapCells.push(cols)
@@ -135,10 +132,11 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
         for (let i = 0; i < l; i++) {
             const cell = getCell(Math.floor(ox), Math.floor(oy))
             if (cell && cell.cellType.blockVision) {
-                cell.visible++
+                checkedCells.forEach(each => each.light = 0)
+                cell.light++
                 return { visible: true, block: true, cells: checkedCells }
             } else if (cell && !cell.cellType.blockVision) {
-                cell.visible++
+                cell.light++
                 checkedCells.push(cell)
             }
             ox += vx
@@ -153,16 +151,9 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
         for (let j = x - viewRadius; j < x + viewRadius; j++) {
             const cell = getCell(Math.floor(j), Math.floor(i))
             if (cell !== null) {
-                cell.visible = 0
                 const fovResult = doFov(Math.floor(j), Math.floor(i), x, y)
-                if (fovResult.visible) {
-                    cell.visible++
-                }
-                if (fovResult.block) {
-                    cell.visible = 0
-                }
-                
-                if (cell.visible > 0) {
+
+                if (cell.light > 0 && fovResult.visible) {
                     cells.push(cell)
                 }
             }
@@ -170,5 +161,8 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
         }
     }
 
+    cells.forEach(cell => {
+        cell.explored = true
+    })
     return cells
 }
