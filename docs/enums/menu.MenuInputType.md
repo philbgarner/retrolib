@@ -25,7 +25,7 @@ Menu input type.
 
 #### Defined in
 
-[modules/menu.ts:22](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/menu.ts#L22)
+[modules/menu.ts:22](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/menu.ts#L22)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:24](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/menu.ts#L24)
+[modules/menu.ts:24](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/menu.ts#L24)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:26](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/menu.ts#L26)
+[modules/menu.ts:26](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/menu.ts#L26)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:23](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/menu.ts#L23)
+[modules/menu.ts:23](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/menu.ts#L23)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:25](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/menu.ts#L25)
+[modules/menu.ts:25](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/menu.ts#L25)
 
 ___
 
@@ -75,4 +75,4 @@ ___
 
 #### Defined in
 
-[modules/menu.ts:21](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/menu.ts#L21)
+[modules/menu.ts:21](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/menu.ts#L21)

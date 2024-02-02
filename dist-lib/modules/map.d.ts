@@ -1,6 +1,8 @@
 import { ColorRGBA } from "./font";
 export declare let width: number;
 export declare let height: number;
+export declare let mapCells: MapCell[][];
+export declare let exploredCells: boolean[][];
 export type CellType = {
     name: string;
     group: string;
@@ -13,7 +15,6 @@ export type CellType = {
 export type MapCell = {
     cellType: CellType;
     light: number;
-    explored: boolean;
     x: number;
     y: number;
 };
@@ -28,7 +29,6 @@ export interface SelectCellTypesFunction {
 export declare let selectCellTypes: SelectCellTypesFunction;
 export declare function clearMap(): void;
 export declare function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypesFunction): CellType[];
-export declare let mapCells: MapCell[][];
 export declare function Initialize(mapWidth: number, mapHeight: number): void;
 export interface GetCellsFilterFunction {
     (cell: CellType): boolean;
@@ -36,4 +36,6 @@ export interface GetCellsFilterFunction {
 export declare function getCells(filterFn: GetCellsFilterFunction): MapCell[];
 export declare function getCell(x: number, y: number): MapCell;
 export declare function setCell(mapCell: MapCell): void;
+export declare function setExplored(x: number, y: number): void;
+export declare function isExplored(x: number, y: number): boolean;
 export declare function fov(viewRadius: number, x: number, y: number): MapCell[];

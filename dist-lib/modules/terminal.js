@@ -84,13 +84,16 @@ export function Initialize() {
         data.push(cols);
     }
     cellData = data;
-    emptyCellData = [];
-    Object.assign(emptyCellData, data);
+    emptyCellData = JSON.parse(JSON.stringify(data));
+}
+export function clear() {
+    cellData = JSON.parse(JSON.stringify(emptyCellData));
 }
 export function Dispose() {
     document.removeChild(terminalCanvas);
     terminalCanvas = null;
     cellData = [];
+    emptyCellData = [];
 }
 export function setFont(fontData) {
     fnt = fontData;

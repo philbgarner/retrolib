@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modules/map.ts:63](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L63)
+[modules/map.ts:83](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L83)

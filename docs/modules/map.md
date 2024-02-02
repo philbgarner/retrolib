@@ -17,16 +17,25 @@
 
 ### Variables
 
+- [exploredCells](map.md#exploredcells)
+- [height](map.md#height)
 - [mapCells](map.md#mapcells)
+- [width](map.md#width)
 
 ### Functions
 
 - [GenerateCell](map.md#generatecell)
-- [GetCells](map.md#getcells)
 - [Initialize](map.md#initialize)
 - [SelectCellTypes](map.md#selectcelltypes)
+- [clearMap](map.md#clearmap)
+- [fov](map.md#fov)
 - [generateCellFunction](map.md#generatecellfunction)
+- [getCell](map.md#getcell)
+- [getCells](map.md#getcells)
+- [isExplored](map.md#isexplored)
 - [selectCellTypes](map.md#selectcelltypes-1)
+- [setCell](map.md#setcell)
+- [setExplored](map.md#setexplored)
 
 ## Type Aliases
 
@@ -48,7 +57,7 @@
 
 #### Defined in
 
-[modules/map.ts:4](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L4)
+[modules/map.ts:9](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L9)
 
 ___
 
@@ -61,22 +70,53 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `cellType` | [`CellType`](map.md#celltype) |
+| `light` | `number` |
 | `x` | `number` |
 | `y` | `number` |
 
 #### Defined in
 
-[modules/map.ts:14](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L14)
+[modules/map.ts:19](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L19)
 
 ## Variables
 
-### mapCells
+### exploredCells
 
-• **mapCells**: [`CellType`](map.md#celltype)[][] = `[]`
+• **exploredCells**: `boolean`[][] = `[]`
 
 #### Defined in
 
-[modules/map.ts:48](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L48)
+[modules/map.ts:7](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L7)
+
+___
+
+### height
+
+• **height**: `number`
+
+#### Defined in
+
+[modules/map.ts:5](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L5)
+
+___
+
+### mapCells
+
+• **mapCells**: [`MapCell`](map.md#mapcell)[][] = `[]`
+
+#### Defined in
+
+[modules/map.ts:6](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L6)
+
+___
+
+### width
+
+• **width**: `number`
+
+#### Defined in
+
+[modules/map.ts:4](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L4)
 
 ## Functions
 
@@ -98,40 +138,20 @@ ___
 
 #### Defined in
 
-[modules/map.ts:29](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L29)
-
-___
-
-### GetCells
-
-▸ **GetCells**(`filterFn`): [`MapCell`](map.md#mapcell)[]
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `filterFn` | [`GetCellsFilterFunction`](../interfaces/map.GetCellsFilterFunction.md) |
-
-#### Returns
-
-[`MapCell`](map.md#mapcell)[]
-
-#### Defined in
-
-[modules/map.ts:66](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L66)
+[modules/map.ts:35](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L35)
 
 ___
 
 ### Initialize
 
-▸ **Initialize**(`width`, `height`): `void`
+▸ **Initialize**(`mapWidth`, `mapHeight`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `width` | `number` |
-| `height` | `number` |
+| `mapWidth` | `number` |
+| `mapHeight` | `number` |
 
 #### Returns
 
@@ -139,7 +159,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:50](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L50)
+[modules/map.ts:59](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L59)
 
 ___
 
@@ -161,7 +181,43 @@ ___
 
 #### Defined in
 
-[modules/map.ts:41](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L41)
+[modules/map.ts:52](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L52)
+
+___
+
+### clearMap
+
+▸ **clearMap**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/map.ts:47](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L47)
+
+___
+
+### fov
+
+▸ **fov**(`viewRadius`, `x`, `y`): [`MapCell`](map.md#mapcell)[]
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `viewRadius` | `number` |
+| `x` | `number` |
+| `y` | `number` |
+
+#### Returns
+
+[`MapCell`](map.md#mapcell)[]
+
+#### Defined in
+
+[modules/map.ts:127](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L127)
 
 ___
 
@@ -183,7 +239,69 @@ ___
 
 #### Defined in
 
-[modules/map.ts:21](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L21)
+[modules/map.ts:27](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L27)
+
+___
+
+### getCell
+
+▸ **getCell**(`x`, `y`): [`MapCell`](map.md#mapcell)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+
+#### Returns
+
+[`MapCell`](map.md#mapcell)
+
+#### Defined in
+
+[modules/map.ts:98](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L98)
+
+___
+
+### getCells
+
+▸ **getCells**(`filterFn`): [`MapCell`](map.md#mapcell)[]
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `filterFn` | [`GetCellsFilterFunction`](../interfaces/map.GetCellsFilterFunction.md) |
+
+#### Returns
+
+[`MapCell`](map.md#mapcell)[]
+
+#### Defined in
+
+[modules/map.ts:86](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L86)
+
+___
+
+### isExplored
+
+▸ **isExplored**(`x`, `y`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[modules/map.ts:121](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L121)
 
 ___
 
@@ -204,4 +322,45 @@ ___
 
 #### Defined in
 
-[modules/map.ts:34](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/map.ts#L34)
+[modules/map.ts:40](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L40)
+
+___
+
+### setCell
+
+▸ **setCell**(`mapCell`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `mapCell` | [`MapCell`](map.md#mapcell) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/map.ts:109](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L109)
+
+___
+
+### setExplored
+
+▸ **setExplored**(`x`, `y`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/map.ts:115](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L115)

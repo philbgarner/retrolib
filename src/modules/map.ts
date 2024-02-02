@@ -4,7 +4,7 @@ import { ColorRGBA } from "./font"
 export let width: number
 export let height: number
 export let mapCells: MapCell[][] = []
-export let exploredCells: MapCell[][] = []
+export let exploredCells: boolean[][] = []
 
 export type CellType = {
     name: string,
@@ -19,7 +19,6 @@ export type CellType = {
 export type MapCell = {
     cellType: CellType,
     light: number,
-    explored: boolean,
     x: number
     y: number
 }
@@ -59,20 +58,24 @@ export function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypes
 
 export function Initialize(mapWidth: number, mapHeight: number) {
     mapCells = []
+    exploredCells = []
 
     width = mapWidth
     height = mapHeight
 
     for (let y = 0; y < height; y++) {
         let cols: MapCell[] = []
+        let expl: boolean[] = []
         for (let x = 0; x < width; x++) {
             cols.push({
                 cellType: GenerateCell(SelectCellTypes(x, y), x, y),
                 x: x, y: y,
-                light: 0, explored: false
+                light: 0
             })
+            expl.push(false)
         }
         mapCells.push(cols)
+        exploredCells.push(expl)
     }
 }
 
@@ -106,6 +109,18 @@ export function getCell(x: number, y: number): MapCell {
 export function setCell(mapCell: MapCell) {
     try {
         mapCells[mapCell.y][mapCell.x] = mapCell
+    } catch { }
+}
+
+export function setExplored(x: number, y: number) {
+    try {
+        exploredCells[y][x] = true
+    } catch { }
+}
+
+export function isExplored(x: number, y: number): boolean {
+    try {
+        return exploredCells[y][x]
     } catch { }
 }
 
@@ -145,7 +160,7 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
         return { visible: true, block: false, cells: checkedCells }
     }
 
-    const cells = []
+    const cells: MapCell[] = []
 
     for (let i = y - viewRadius; i < y + viewRadius; i++) {
         for (let j = x - viewRadius; j < x + viewRadius; j++) {
@@ -162,7 +177,7 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
     }
 
     cells.forEach(cell => {
-        cell.explored = true
+        setExplored(cell.x, cell.y)
     })
     return cells
 }

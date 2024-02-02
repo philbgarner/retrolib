@@ -44,7 +44,7 @@ timeline and call Update() every frame.
 
 #### Defined in
 
-[modules/timeline.ts:26](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/timeline.ts#L26)
+[modules/timeline.ts:26](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/timeline.ts#L26)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[modules/timeline.ts:24](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/timeline.ts#L24)
+[modules/timeline.ts:24](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/timeline.ts#L24)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[modules/timeline.ts:23](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/timeline.ts#L23)
+[modules/timeline.ts:23](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/timeline.ts#L23)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[modules/timeline.ts:22](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/timeline.ts#L22)
+[modules/timeline.ts:22](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/timeline.ts#L22)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[modules/timeline.ts:27](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/timeline.ts#L27)
+[modules/timeline.ts:27](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/timeline.ts#L27)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[modules/timeline.ts:25](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/timeline.ts#L25)
+[modules/timeline.ts:25](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/timeline.ts#L25)
 
 ## Methods
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[modules/timeline.ts:36](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/timeline.ts#L36)
+[modules/timeline.ts:36](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/timeline.ts#L36)
 
 ___
 
@@ -136,4 +136,4 @@ ___
 
 #### Defined in
 
-[modules/timeline.ts:29](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/timeline.ts#L29)
+[modules/timeline.ts:29](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/timeline.ts#L29)

@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modules/dialogscene.ts:8](https://github.com/philbgarner/retrolib/blob/9942244/src/modules/dialogscene.ts#L8)
+[modules/dialogscene.ts:8](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/dialogscene.ts#L8)
