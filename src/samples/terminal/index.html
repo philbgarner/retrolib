@@ -18,13 +18,16 @@
             
             const block = { name: 'block', group: 'block', colors: [{ r: 255, g: 255, b: 255, a: 255}], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true }
             retrolib.map.setCell({ x: 5, y: 4, cellType: block, light: 0 })
+            retrolib.map.setCell({ x: 6, y: 4, cellType: block, light: 0 })
             retrolib.map.setCell({ x: 3, y: 3, cellType: block, light: 0 })
             retrolib.map.setCell({ x: 4, y: 3, cellType: block, light: 0 })
             retrolib.map.setCell({ x: 4, y: 4, cellType: block, light: 0 })
+            retrolib.map.setCell({ x: 5, y: 2, cellType: block, light: 0 })
+            retrolib.map.setCell({ x: 6, y: 2, cellType: block, light: 0 })
 
             function drawPlayer() {            
                 retrolib.terminal.clear()
-                let cells = retrolib.map.fov(4, playerX, playerY, [])
+                let cells = retrolib.map.fov(4.5, playerX, playerY, [])
                 cells.forEach((mapCell) => {
                     retrolib.terminal.setCell(mapCell.x, mapCell.y,
                         mapCell.cellType.characters[retrolib.random.randInt(0, mapCell.cellType.characters.length)],

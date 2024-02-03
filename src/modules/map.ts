@@ -28,7 +28,7 @@ export interface GenerateCellFunction {
 }
 
 export let generateCellFunction: GenerateCellFunction = (cellTypes: CellType[], x: number, y: number): CellType => {
-    const cellType: CellType = cellTypes[randInt(0, cellTypes.length - 1)]
+    const cellType: CellType = cellTypes[randInt(0, cellTypes.length)]
     return { name: cellType.name, group: cellType.group, colors: cellType.colors, bgColor: cellType.bgColor, characters: cellType.characters, blockMovement: cellType.blockMovement, blockVision: cellType.blockVision }
 }
 
@@ -41,7 +41,10 @@ export interface SelectCellTypesFunction {
 }
 
 export let selectCellTypes: SelectCellTypesFunction = (x: number, y: number): CellType[] => {
-    return [{ name: `Empty (${x},${y})`, group: '', colors: [{ r: 128, g: 128, b: 128, a: 128 }], bgColor: null, characters: [','], blockMovement: false, blockVision: false }]
+    return [
+            { name: 'Block Wall', group: 'walls', colors: [{ r: 255, g: 255, b: 255, a: 255}], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true },
+            { name: `Stones.`, group: 'floors', colors: [{ r: 128, g: 128, b: 128, a: 128 }], bgColor: null, characters: [',', '.'], blockMovement: false, blockVision: false }
+        ]
 }
 
 export function clearMap() {
@@ -125,8 +128,8 @@ export function isExplored(x: number, y: number): boolean {
 }
 
 export function fov(viewRadius: number, x: number, y: number): MapCell[] {
-    x = x + (viewRadius % 2 === 1 ? 1 : 0)
-    y = y + (viewRadius % 2 === 1 ? 1 : 0)
+    x = x + (viewRadius % 2 === 1 ? 0 : 1)
+    y = y + (viewRadius % 2 === 1 ? 0 : 1)
 
     type FovSearchResult = {
         visible: boolean,
@@ -138,24 +141,32 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
         let checkedCells: MapCell[] = []
         let vx = playerX - x
         let vy = playerY - y
-        let ox = x + 0.5
-        let oy = y + 0.5
+        let ox = x
+        let oy = y
         let l = Math.sqrt((x * x) + (y * y))
         vx = vx / l
         vy = vy / l
+
+        let lightAmt = 1
 
         for (let i = 0; i < l; i++) {
             const cell = getCell(Math.floor(ox), Math.floor(oy))
             if (cell && cell.cellType.blockVision) {
                 checkedCells.forEach(each => each.light = 0)
-                cell.light++
-                return { visible: true, block: true, cells: checkedCells }
-            } else if (cell && !cell.cellType.blockVision) {
-                cell.light++
+                lightAmt = 0
+                checkedCells.push(cell)
+            } else if (cell) {
+                cell.light += lightAmt
                 checkedCells.push(cell)
             }
             ox += vx
             oy += vy
+        }
+        
+        const nearestWall = [...checkedCells].reverse().find(f => f.cellType.blockVision)
+        if (nearestWall) {
+            nearestWall.light = 1
+            setCell(nearestWall)
         }
         return { visible: true, block: false, cells: checkedCells }
     }
@@ -175,6 +186,23 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
             setCell(cell)
         }
     }
+
+    function checkCardinal(x: number, y: number) {
+        const cell = getCell(x, y - 1)
+        if (cell?.cellType.blockVision) {
+            cell.light = 1
+            cells.push(cell)
+        }
+    }
+
+    checkCardinal(x, y + 1)
+    checkCardinal(x + 1, y)
+    checkCardinal(x - 1, y)
+    checkCardinal(x, y - 1)
+    checkCardinal(x + 1, y + 1)
+    checkCardinal(x + 1, y - 1)
+    checkCardinal(x - 1, y + 1)
+    checkCardinal(x - 1, y - 1)
 
     cells.forEach(cell => {
         setExplored(cell.x, cell.y)
