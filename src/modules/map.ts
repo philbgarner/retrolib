@@ -42,8 +42,9 @@ export interface SelectCellTypesFunction {
 
 export let selectCellTypes: SelectCellTypesFunction = (x: number, y: number): CellType[] => {
     return [
-            { name: 'Block Wall', group: 'walls', colors: [{ r: 255, g: 255, b: 255, a: 255}], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true },
-            { name: `Stones.`, group: 'floors', colors: [{ r: 128, g: 128, b: 128, a: 128 }], bgColor: null, characters: [',', '.'], blockMovement: false, blockVision: false }
+            { name: 'Block Wall', group: 'walls', colors: [{ r: 255, g: 255, b: 255, a: 255 }, { r: 200, g: 200, b: 200, a: 255 }], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true },
+            { name: `Stones`, group: 'floors', colors: [{ r: 128, g: 128, b: 128, a: 255 }, { r: 200, g: 200, b: 200, a: 255 }], bgColor: null, characters: [',', '.'], blockMovement: false, blockVision: false },
+            { name: `Grass`, group: 'floors', colors: [{ r: 64, g: 128, b: 64, a: 255 }, { r: 32, g: 72, b: 32, a: 255 }], bgColor: null, characters: [',', '.'], blockMovement: false, blockVision: false }
         ]
 }
 
@@ -70,11 +71,18 @@ export function Initialize(mapWidth: number, mapHeight: number) {
         let cols: MapCell[] = []
         let expl: boolean[] = []
         for (let x = 0; x < width; x++) {
-            cols.push({
+            const cell = {
                 cellType: GenerateCell(SelectCellTypes(x, y), x, y),
                 x: x, y: y,
                 light: 0
-            })
+            }
+            if (cell.cellType.characters.length > 1) {
+                cell.cellType.characters = cell.cellType.characters.slice(randInt(0, cell.cellType.characters.length))
+            }
+            if (cell.cellType.colors.length > 1) {
+                cell.cellType.colors = cell.cellType.colors.slice(randInt(0, cell.cellType.colors.length))
+            }
+            cols.push(cell)
             expl.push(false)
         }
         mapCells.push(cols)

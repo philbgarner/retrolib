@@ -30,8 +30,8 @@
                 let cells = retrolib.map.fov(4.5, playerX, playerY, [])
                 cells.forEach((mapCell) => {
                     retrolib.terminal.setCell(mapCell.x, mapCell.y,
-                        mapCell.cellType.characters[retrolib.random.randInt(0, mapCell.cellType.characters.length)],
-                        mapCell.cellType.colors[retrolib.random.randInt(0, mapCell.cellType.colors.length)],
+                        mapCell.cellType.characters[0],
+                        mapCell.cellType.colors[0],
                         mapCell.cellType.bgColor)
                 })
     
