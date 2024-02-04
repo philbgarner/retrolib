@@ -21,7 +21,7 @@ Pressed/released status for inputs.
 
 #### Defined in
 
-[modules/input.ts:66](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/input.ts#L66)
+[modules/input.ts:66](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/input.ts#L66)
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 #### Defined in
 
-[modules/input.ts:65](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/input.ts#L65)
+[modules/input.ts:65](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/input.ts#L65)

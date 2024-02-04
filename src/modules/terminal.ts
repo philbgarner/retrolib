@@ -78,6 +78,12 @@ export function setCells(startX: number, startY: number, text: string, color: Co
     })
 }
 
+export function setRect(x1: number, x2: number, w: number, h: number, color: ColorRGBA) {
+    for (let r = 0; r < h; r++) {
+        setCells(x1, x2 + r, ' '.repeat(w), color, color)
+    }
+}
+
 export function getCell(x: number, y: number): TerminalCell {
     try {
         return cellData[y][x]

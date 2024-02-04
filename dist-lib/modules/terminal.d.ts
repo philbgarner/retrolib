@@ -12,6 +12,7 @@ export declare let emptyCellData: TerminalCell[][];
 export declare function Draw(): void;
 export declare function setCell(x: number, y: number, character: string, color: ColorRGBA, bgColor: ColorRGBA): void;
 export declare function setCells(startX: number, startY: number, text: string, color: ColorRGBA | ColorRGBA[], bgColor: ColorRGBA): void;
+export declare function setRect(x1: number, x2: number, w: number, h: number, color: ColorRGBA): void;
 export declare function getCell(x: number, y: number): TerminalCell;
 export declare function Initialize(): void;
 export declare function clear(): void;

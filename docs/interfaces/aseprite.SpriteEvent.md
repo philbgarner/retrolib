@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[modules/aseprite.ts:77](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/aseprite.ts#L77)
+[modules/aseprite.ts:77](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/aseprite.ts#L77)

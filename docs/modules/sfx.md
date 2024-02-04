@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[modules/sfx.ts:30](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/sfx.ts#L30)
+[modules/sfx.ts:30](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/sfx.ts#L30)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:43](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/sfx.ts#L43)
+[modules/sfx.ts:43](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/sfx.ts#L43)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:35](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/sfx.ts#L35)
+[modules/sfx.ts:35](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/sfx.ts#L35)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:89](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/sfx.ts#L89)
+[modules/sfx.ts:89](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/sfx.ts#L89)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:76](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/sfx.ts#L76)
+[modules/sfx.ts:76](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/sfx.ts#L76)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:49](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/sfx.ts#L49)
+[modules/sfx.ts:49](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/sfx.ts#L49)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:12](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/sfx.ts#L12)
+[modules/sfx.ts:12](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/sfx.ts#L12)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[modules/sfx.ts:5](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/sfx.ts#L5)
+[modules/sfx.ts:5](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/sfx.ts#L5)
 
 ___
 
@@ -198,4 +198,4 @@ objects matching format { "name": "sfx id ref", "filename": "./file_path/filenam
 
 #### Defined in
 
-[modules/sfx.ts:26](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/sfx.ts#L26)
+[modules/sfx.ts:26](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/sfx.ts#L26)

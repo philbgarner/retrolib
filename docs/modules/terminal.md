@@ -26,6 +26,7 @@
 - [setCell](terminal.md#setcell)
 - [setCells](terminal.md#setcells)
 - [setFont](terminal.md#setfont)
+- [setRect](terminal.md#setrect)
 - [terminalHeight](terminal.md#terminalheight)
 - [terminalWidth](terminal.md#terminalwidth)
 
@@ -47,7 +48,7 @@
 
 #### Defined in
 
-[modules/terminal.ts:12](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L12)
+[modules/terminal.ts:12](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L12)
 
 ## Variables
 
@@ -57,7 +58,7 @@
 
 #### Defined in
 
-[modules/terminal.ts:20](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L20)
+[modules/terminal.ts:20](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L20)
 
 ___
 
@@ -67,7 +68,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:21](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L21)
+[modules/terminal.ts:21](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L21)
 
 ## Functions
 
@@ -81,7 +82,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:113](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L113)
+[modules/terminal.ts:119](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L119)
 
 ___
 
@@ -95,7 +96,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:26](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L26)
+[modules/terminal.ts:26](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L26)
 
 ___
 
@@ -109,7 +110,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:87](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L87)
+[modules/terminal.ts:93](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L93)
 
 ___
 
@@ -123,7 +124,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:109](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L109)
+[modules/terminal.ts:115](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L115)
 
 ___
 
@@ -137,7 +138,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:128](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L128)
+[modules/terminal.ts:134](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L134)
 
 ___
 
@@ -158,7 +159,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:81](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L81)
+[modules/terminal.ts:87](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L87)
 
 ___
 
@@ -172,7 +173,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:124](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L124)
+[modules/terminal.ts:130](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L130)
 
 ___
 
@@ -186,7 +187,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:135](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L135)
+[modules/terminal.ts:141](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L141)
 
 ___
 
@@ -210,7 +211,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:62](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L62)
+[modules/terminal.ts:62](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L62)
 
 ___
 
@@ -234,7 +235,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:69](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L69)
+[modules/terminal.ts:69](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L69)
 
 ___
 
@@ -254,7 +255,31 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:120](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L120)
+[modules/terminal.ts:126](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L126)
+
+___
+
+### setRect
+
+▸ **setRect**(`x1`, `x2`, `w`, `h`, `color`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x1` | `number` |
+| `x2` | `number` |
+| `w` | `number` |
+| `h` | `number` |
+| `color` | [`ColorRGBA`](font.md#colorrgba) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[modules/terminal.ts:81](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L81)
 
 ___
 
@@ -274,7 +299,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:150](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L150)
+[modules/terminal.ts:156](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L156)
 
 ___
 
@@ -294,4 +319,4 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:142](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/terminal.ts#L142)
+[modules/terminal.ts:148](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/terminal.ts#L148)

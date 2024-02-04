@@ -17,6 +17,7 @@
 
 ### Variables
 
+- [exploredCellCache](map.md#exploredcellcache)
 - [exploredCells](map.md#exploredcells)
 - [height](map.md#height)
 - [mapCells](map.md#mapcells)
@@ -32,6 +33,7 @@
 - [generateCellFunction](map.md#generatecellfunction)
 - [getCell](map.md#getcell)
 - [getCells](map.md#getcells)
+- [getExploredCells](map.md#getexploredcells)
 - [isExplored](map.md#isexplored)
 - [selectCellTypes](map.md#selectcelltypes-1)
 - [setCell](map.md#setcell)
@@ -57,7 +59,7 @@
 
 #### Defined in
 
-[modules/map.ts:9](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L9)
+[modules/map.ts:10](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L10)
 
 ___
 
@@ -76,9 +78,19 @@ ___
 
 #### Defined in
 
-[modules/map.ts:19](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L19)
+[modules/map.ts:20](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L20)
 
 ## Variables
+
+### exploredCellCache
+
+• **exploredCellCache**: [`MapCell`](map.md#mapcell)[]
+
+#### Defined in
+
+[modules/map.ts:8](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L8)
+
+___
 
 ### exploredCells
 
@@ -86,7 +98,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:7](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L7)
+[modules/map.ts:7](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L7)
 
 ___
 
@@ -96,7 +108,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:5](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L5)
+[modules/map.ts:5](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L5)
 
 ___
 
@@ -106,7 +118,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:6](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L6)
+[modules/map.ts:6](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L6)
 
 ___
 
@@ -116,7 +128,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:4](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L4)
+[modules/map.ts:4](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L4)
 
 ## Functions
 
@@ -138,13 +150,13 @@ ___
 
 #### Defined in
 
-[modules/map.ts:35](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L35)
+[modules/map.ts:36](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L36)
 
 ___
 
 ### Initialize
 
-▸ **Initialize**(`mapWidth`, `mapHeight`): `void`
+▸ **Initialize**(`mapWidth`, `mapHeight`, `selectCellTypesFunction?`): `void`
 
 #### Parameters
 
@@ -152,6 +164,7 @@ ___
 | :------ | :------ |
 | `mapWidth` | `number` |
 | `mapHeight` | `number` |
+| `selectCellTypesFunction?` | [`SelectCellTypesFunction`](../interfaces/map.SelectCellTypesFunction.md) |
 
 #### Returns
 
@@ -159,7 +172,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:59](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L59)
+[modules/map.ts:64](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L64)
 
 ___
 
@@ -181,7 +194,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:52](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L52)
+[modules/map.ts:57](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L57)
 
 ___
 
@@ -195,7 +208,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:47](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L47)
+[modules/map.ts:52](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L52)
 
 ___
 
@@ -217,7 +230,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:127](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L127)
+[modules/map.ts:151](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L151)
 
 ___
 
@@ -239,7 +252,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:27](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L27)
+[modules/map.ts:28](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L28)
 
 ___
 
@@ -260,7 +273,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:98](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L98)
+[modules/map.ts:110](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L110)
 
 ___
 
@@ -280,7 +293,21 @@ ___
 
 #### Defined in
 
-[modules/map.ts:86](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L86)
+[modules/map.ts:98](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L98)
+
+___
+
+### getExploredCells
+
+▸ **getExploredCells**(): [`MapCell`](map.md#mapcell)[]
+
+#### Returns
+
+[`MapCell`](map.md#mapcell)[]
+
+#### Defined in
+
+[modules/map.ts:139](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L139)
 
 ___
 
@@ -301,7 +328,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:121](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L121)
+[modules/map.ts:133](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L133)
 
 ___
 
@@ -322,7 +349,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:40](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L40)
+[modules/map.ts:41](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L41)
 
 ___
 
@@ -342,7 +369,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:109](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L109)
+[modules/map.ts:121](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L121)
 
 ___
 
@@ -363,4 +390,4 @@ ___
 
 #### Defined in
 
-[modules/map.ts:115](https://github.com/philbgarner/retrolib/blob/97cd8c0/src/modules/map.ts#L115)
+[modules/map.ts:127](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/map.ts#L127)

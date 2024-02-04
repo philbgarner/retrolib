@@ -60,6 +60,11 @@ export function setCells(startX, startY, text, color, bgColor) {
         setCell(startX + index, startY, character, colr, bgColor);
     });
 }
+export function setRect(x1, x2, w, h, color) {
+    for (var r = 0; r < h; r++) {
+        setCells(x1, x2 + r, ' '.repeat(w), color, color);
+    }
+}
 export function getCell(x, y) {
     try {
         return cellData[y][x];

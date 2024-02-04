@@ -10,11 +10,11 @@
             let ctx = retrolib.gameCanvas.getContext('2d')
             
             var playerX = 5
-            var playerY = 5
+            var playerY = 15
 
             retrolib.terminal.Initialize()
 
-            retrolib.map.Initialize(60, 19, (x, y) => {
+            retrolib.map.Initialize(80, 25, (x, y) => {
                 return [
                     { name: `Grass`, group: 'floors', colors: [{ r: 64, g: 128, b: 64, a: 255 }, { r: 32, g: 72, b: 32, a: 255 }], bgColor: null, characters: [',', '.'], blockMovement: false, blockVision: false },
                     { name: `Sedge`, group: 'floors', colors: [{ r: 74, g: 128, b: 64, a: 255 }, { r: 82, g: 72, b: 32, a: 255 }], bgColor: null, characters: ['"', ";"], blockMovement: false, blockVision: false },
@@ -42,7 +42,7 @@
                 })
 
     
-                retrolib.terminal.setCell(playerX, playerY, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 255, a: 255 })
+                retrolib.terminal.setCell(playerX, playerY, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 })
             }
            
             drawPlayer()
@@ -62,7 +62,7 @@
                 }
                 if (inputName === 'right') {
                     playerX++
-                    if (playerX > retrolib.map.width) {
+                    if (playerX >= retrolib.map.width) {
                         playerX = retrolib.map.width - 1
                     }
                     drawPlayer()
@@ -76,7 +76,7 @@
                 }
                 if (inputName === 'down') {
                     playerY++
-                    if (playerY > retrolib.map.height) {
+                    if (playerY >= retrolib.map.height) {
                         playerY = retrolib.map.height - 1
                     }
                     drawPlayer()
@@ -95,7 +95,7 @@
                 if (inputName === 'up-right') {
                     playerX++
                     playerY--
-                    if (playerX > retrolib.map.width) {
+                    if (playerX >= retrolib.map.width) {
                         playerX = retrolib.map.width - 1
                     }
                     if (playerY < 0) {
@@ -109,7 +109,7 @@
                     if (playerX < 0) {
                         playerX = 0
                     }
-                    if (playerY > retrolib.map.height) {
+                    if (playerY >= retrolib.map.height) {
                         playerY = retrolib.map.height - 1
                     }
                     drawPlayer()
@@ -117,10 +117,10 @@
                 if (inputName === 'down-right') {
                     playerY++
                     playerX++
-                    if (playerX > retrolib.map.width) {
+                    if (playerX >= retrolib.map.width) {
                         playerX = retrolib.map.width - 1
                     }
-                    if (playerY > retrolib.map.height) {
+                    if (playerY >= retrolib.map.height) {
                         playerY = retrolib.map.height - 1
                     }
                     drawPlayer()

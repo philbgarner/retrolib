@@ -100,27 +100,43 @@ export function resetInputMaps() {
     inputMaps = {
         'left': [
             { parent: 'left', type: InputType.Keyboard, mapKey: 'ArrowLeft', axisPlane: '', axisCheckDirection: 0 },
+            { parent: 'left', type: InputType.Keyboard, mapKey: '4', axisPlane: '', axisCheckDirection: 0 },
             { parent: 'left', type: InputType.Keyboard, mapKey: 'a', axisPlane: '', axisCheckDirection: 0 },
             { parent: 'left', type: InputType.GamepadAxis, mapKey: 'dPad', axisPlane: 'x', axisCheckDirection: -1 },
             { parent: 'left', type: InputType.GamepadAxis, mapKey: 'leftJoystick', axisPlane: 'x', axisCheckDirection: -1 }
         ],
         'right': [
             { parent: 'right', type: InputType.Keyboard, mapKey: 'ArrowRight', axisPlane: '', axisCheckDirection: 0 },
+            { parent: 'right', type: InputType.Keyboard, mapKey: '6', axisPlane: '', axisCheckDirection: 0 },
             { parent: 'right', type: InputType.Keyboard, mapKey: 'd', axisPlane: '', axisCheckDirection: 0 },
             { parent: 'right', type: InputType.GamepadAxis, mapKey: 'leftJoystick', axisPlane: 'x', axisCheckDirection: 1 },
             { parent: 'right', type: InputType.GamepadAxis, mapKey: 'dPad', axisPlane: 'x', axisCheckDirection: 1 }
         ],
         'up': [
             { parent: 'up', type: InputType.Keyboard, mapKey: 'ArrowUp', axisPlane: '', axisCheckDirection: 0 },
+            { parent: 'up', type: InputType.Keyboard, mapKey: '8', axisPlane: '', axisCheckDirection: 0 },
             { parent: 'up', type: InputType.Keyboard, mapKey: 'w', axisPlane: '', axisCheckDirection: 0 },
             { parent: 'up', type: InputType.GamepadAxis, mapKey: 'leftJoystick', axisPlane: 'y', axisCheckDirection: -1 },
             { parent: 'up', type: InputType.GamepadAxis, mapKey: 'dPad', axisPlane: 'y', axisCheckDirection: -1 }
         ],
         'down': [
             { parent: 'down', type: InputType.Keyboard, mapKey: 'ArrowDown', axisPlane: '', axisCheckDirection: 0 },
+            { parent: 'down', type: InputType.Keyboard, mapKey: '2', axisPlane: '', axisCheckDirection: 0 },
             { parent: 'down', type: InputType.Keyboard, mapKey: 's', axisPlane: '', axisCheckDirection: 0 },
             { parent: 'down', type: InputType.GamepadAxis, mapKey: 'dPad', axisPlane: 'y', axisCheckDirection: 1 },
             { parent: 'down', type: InputType.GamepadAxis, mapKey: 'leftJoystick', axisPlane: 'y', axisCheckDirection: 1 }
+        ],
+        'up-left': [
+            { parent: 'up-left', type: InputType.Keyboard, mapKey: '7', axisPlane: '', axisCheckDirection: 0 }
+        ],
+        'up-right': [
+            { parent: 'up-right', type: InputType.Keyboard, mapKey: '9', axisPlane: '', axisCheckDirection: 0 }
+        ],
+        'down-left': [
+            { parent: 'down-left', type: InputType.Keyboard, mapKey: '1', axisPlane: '', axisCheckDirection: 0 }
+        ],
+        'down-right': [
+            { parent: 'down-right', type: InputType.Keyboard, mapKey: '3', axisPlane: '', axisCheckDirection: 0 }
         ],
         'action': [
             { parent: 'action', type: InputType.Keyboard, mapKey: ' ', axisPlane: '', axisCheckDirection: 0 },
