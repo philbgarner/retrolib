@@ -3,6 +3,7 @@
 Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite exported animation wrapper, scene management, sound and image management, particle support.
 
 ![Terminal emulator, map generation framework and field of view (FOV) algorithm.](terminal-map-fov.png)
+> Terminal emulator, map generation framework and field of view (FOV) algorithm.
 
 # Resource Management Modules
 
