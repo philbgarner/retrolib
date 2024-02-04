@@ -14,19 +14,25 @@
 
             retrolib.terminal.Initialize()
 
-            retrolib.map.Initialize(60, 19)
+            retrolib.map.Initialize(60, 19, (x, y) => {
+                return [
+                    { name: `Grass`, group: 'floors', colors: [{ r: 64, g: 128, b: 64, a: 255 }, { r: 32, g: 72, b: 32, a: 255 }], bgColor: null, characters: [',', '.'], blockMovement: false, blockVision: false },
+                    { name: `Sedge`, group: 'floors', colors: [{ r: 74, g: 128, b: 64, a: 255 }, { r: 82, g: 72, b: 32, a: 255 }], bgColor: null, characters: ['"', ";"], blockMovement: false, blockVision: false },
+                    { name: `Tree`, group: 'floors', colors: [{ r: 64, g: 128, b: 64, a: 255 }, { r: 32, g: 72, b: 32, a: 255 }], bgColor: null, characters: ['♣', '♠'], blockMovement: false, blockVision: true },
+                ]
+            })
             
-            const block = { name: 'block', group: 'block', colors: [{ r: 255, g: 255, b: 255, a: 255}], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true }
-            retrolib.map.setCell({ x: 5, y: 4, cellType: block, light: 0 })
-            retrolib.map.setCell({ x: 6, y: 4, cellType: block, light: 0 })
-            retrolib.map.setCell({ x: 3, y: 3, cellType: block, light: 0 })
-            retrolib.map.setCell({ x: 4, y: 3, cellType: block, light: 0 })
-            retrolib.map.setCell({ x: 4, y: 4, cellType: block, light: 0 })
-            retrolib.map.setCell({ x: 5, y: 2, cellType: block, light: 0 })
-            retrolib.map.setCell({ x: 6, y: 2, cellType: block, light: 0 })
-
             function drawPlayer() {            
                 retrolib.terminal.clear()
+                
+                let explored = retrolib.map.getExploredCells()
+                explored.forEach((mapCell) => {
+                    retrolib.terminal.setCell(mapCell.x, mapCell.y,
+                        mapCell.cellType.characters[0],
+                        { r: 64, g: 56, b: 74, a: 150 },
+                        null)
+                })
+                
                 let cells = retrolib.map.fov(4.5, playerX, playerY, [])
                 cells.forEach((mapCell) => {
                     retrolib.terminal.setCell(mapCell.x, mapCell.y,
@@ -34,6 +40,7 @@
                         mapCell.cellType.colors[0],
                         mapCell.cellType.bgColor)
                 })
+
     
                 retrolib.terminal.setCell(playerX, playerY, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 255, a: 255 })
             }
@@ -69,6 +76,50 @@
                 }
                 if (inputName === 'down') {
                     playerY++
+                    if (playerY > retrolib.map.height) {
+                        playerY = retrolib.map.height - 1
+                    }
+                    drawPlayer()
+                }
+                if (inputName === 'up-left') {
+                    playerX--
+                    playerY--
+                    if (playerX < 0) {
+                        playerX = 0
+                    }
+                    if (playerY < 0) {
+                        playerY = 0
+                    }
+                    drawPlayer()
+                }
+                if (inputName === 'up-right') {
+                    playerX++
+                    playerY--
+                    if (playerX > retrolib.map.width) {
+                        playerX = retrolib.map.width - 1
+                    }
+                    if (playerY < 0) {
+                        playerY = 0
+                    }
+                    drawPlayer()
+                }
+                if (inputName === 'down-left') {
+                    playerY++
+                    playerX--
+                    if (playerX < 0) {
+                        playerX = 0
+                    }
+                    if (playerY > retrolib.map.height) {
+                        playerY = retrolib.map.height - 1
+                    }
+                    drawPlayer()
+                }
+                if (inputName === 'down-right') {
+                    playerY++
+                    playerX++
+                    if (playerX > retrolib.map.width) {
+                        playerX = retrolib.map.width - 1
+                    }
                     if (playerY > retrolib.map.height) {
                         playerY = retrolib.map.height - 1
                     }

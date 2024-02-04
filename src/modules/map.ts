@@ -5,6 +5,7 @@ export let width: number
 export let height: number
 export let mapCells: MapCell[][] = []
 export let exploredCells: boolean[][] = []
+export let exploredCellCache: MapCell[]
 
 export type CellType = {
     name: string,
@@ -60,7 +61,7 @@ export function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypes
     return selectCellTypes(x, y)
 }
 
-export function Initialize(mapWidth: number, mapHeight: number) {
+export function Initialize(mapWidth: number, mapHeight: number, selectCellTypesFunction?: SelectCellTypesFunction) {
     mapCells = []
     exploredCells = []
 
@@ -72,7 +73,7 @@ export function Initialize(mapWidth: number, mapHeight: number) {
         let expl: boolean[] = []
         for (let x = 0; x < width; x++) {
             const cell = {
-                cellType: GenerateCell(SelectCellTypes(x, y), x, y),
+                cellType: GenerateCell(SelectCellTypes(x, y, selectCellTypesFunction), x, y),
                 x: x, y: y,
                 light: 0
             }
@@ -133,6 +134,18 @@ export function isExplored(x: number, y: number): boolean {
     try {
         return exploredCells[y][x]
     } catch { }
+}
+
+export function getExploredCells(): MapCell[] {
+    exploredCellCache = []
+    exploredCells.forEach((row, index) => {
+        row.forEach((cell, column) => {
+            if (isExplored(column, index)) {
+                exploredCellCache.push(getCell(column, index))
+            }
+        })
+    })
+    return exploredCellCache
 }
 
 export function fov(viewRadius: number, x: number, y: number): MapCell[] {
