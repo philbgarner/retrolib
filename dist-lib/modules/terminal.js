@@ -9,6 +9,9 @@ export var cellData = [];
 export var emptyCellData = []; // Cache an empty version of terminal so clearing is quick.
 var terminalCanvas = null;
 var ctx = null;
+export function setTerminalBackground(color) {
+    terminalBackground = color;
+}
 export function Draw() {
     if (drawTimestamp === changeTimestamp) {
         return;
@@ -46,7 +49,9 @@ export function setCell(x, y, character, color, bgColor) {
         cellData[y][x] = { character: character, x: x, y: y, color: color, bgColor: bgColor };
         changeTimestamp = new Date().getMilliseconds();
     }
-    catch (_a) { }
+    catch (_a) {
+        // Ignore no-empty lint rule.
+    }
 }
 export function setCells(startX, startY, text, color, bgColor) {
     text.split('').forEach(function (character, index) {
@@ -69,7 +74,27 @@ export function getCell(x, y) {
     try {
         return cellData[y][x];
     }
-    catch (_a) { }
+    catch (_a) {
+        // Ignore no-empty lint rule.
+    }
+}
+export var BoxBorder;
+(function (BoxBorder) {
+    BoxBorder[BoxBorder["None"] = 0] = "None";
+    BoxBorder[BoxBorder["Single"] = 1] = "Single";
+    BoxBorder[BoxBorder["Double"] = 2] = "Double";
+})(BoxBorder || (BoxBorder = {}));
+export function drawBox(x, y, w, h, color, bgColor, borderStyle) {
+    borderStyle = borderStyle === undefined ? BoxBorder.None : borderStyle;
+    if (bgColor) {
+        setRect(x, y, w, h, bgColor);
+    }
+    if (borderStyle === BoxBorder.Single && h >= 2) {
+        for (var row = y + 1; row < h - 1; row++) {
+            setCell(x, row, '│', color, bgColor);
+            setCell(x + w, row, '│', color, bgColor);
+        }
+    }
 }
 export function Initialize() {
     if (!terminalCanvas) {

@@ -13,13 +13,18 @@ export var height;
 export var mapCells = [];
 export var exploredCells = [];
 export var exploredCellCache;
+// eslint-disable-next-line
 export var generateCellFunction = function (cellTypes, x, y) {
     var cellType = cellTypes[randInt(0, cellTypes.length)];
     return { name: cellType.name, group: cellType.group, colors: cellType.colors, bgColor: cellType.bgColor, characters: cellType.characters, blockMovement: cellType.blockMovement, blockVision: cellType.blockVision };
 };
+export function setGenerateCellFunction(generateFn) {
+    generateCellFunction = generateFn;
+}
 export function GenerateCell(cellTypes, x, y) {
     return generateCellFunction(cellTypes, x, y);
 }
+// eslint-disable-next-line
 export var selectCellTypes = function (x, y) {
     return [
         { name: 'Block Wall', group: 'walls', colors: [{ r: 255, g: 255, b: 255, a: 255 }, { r: 200, g: 200, b: 200, a: 255 }], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true },
@@ -66,8 +71,8 @@ export function Initialize(mapWidth, mapHeight, selectCellTypesFunction) {
 }
 export function getCells(filterFn) {
     var cells = [];
-    mapCells.forEach(function (row, rowIndex) {
-        row.forEach(function (cell, colIndex) {
+    mapCells.forEach(function (row) {
+        row.forEach(function (cell) {
             if (filterFn(cell.cellType)) {
                 cells.push(cell);
             }
@@ -84,26 +89,34 @@ export function getCell(x, y) {
             return mapCells[y][x];
         }
     }
-    catch (_a) { }
+    catch (_a) {
+        // Ignore no-empty lint rule.
+    }
     return null;
 }
 export function setCell(mapCell) {
     try {
         mapCells[mapCell.y][mapCell.x] = mapCell;
     }
-    catch (_a) { }
+    catch (_a) {
+        // Ignore no-empty lint rule.
+    }
 }
 export function setExplored(x, y) {
     try {
         exploredCells[y][x] = true;
     }
-    catch (_a) { }
+    catch (_a) {
+        // Ignore no-empty lint rule.
+    }
 }
 export function isExplored(x, y) {
     try {
         return exploredCells[y][x];
     }
-    catch (_a) { }
+    catch (_a) {
+        // Ignore no-empty lint rule.
+    }
 }
 export function getExploredCells() {
     exploredCellCache = [];

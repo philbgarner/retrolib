@@ -23,6 +23,7 @@ export interface GenerateCellFunction {
     (cellTypes: CellType[], x: number, y: number): CellType;
 }
 export declare let generateCellFunction: GenerateCellFunction;
+export declare function setGenerateCellFunction(generateFn: GenerateCellFunction): void;
 export declare function GenerateCell(cellTypes: CellType[], x: number, y: number): CellType;
 export interface SelectCellTypesFunction {
     (x: number, y: number): CellType[];

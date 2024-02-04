@@ -84,9 +84,9 @@ export function setCells(startX: number, startY: number, text: string, color: Co
     })
 }
 
-export function setRect(x1: number, x2: number, w: number, h: number, color: ColorRGBA) {
+export function setRect(x: number, y: number, w: number, h: number, color: ColorRGBA) {
     for (let r = 0; r < h; r++) {
-        setCells(x1, x2 + r, ' '.repeat(w), color, color)
+        setCells(x, y + r, ' '.repeat(w), color, color)
     }
 }
 
@@ -95,6 +95,49 @@ export function getCell(x: number, y: number): TerminalCell {
         return cellData[y][x]
     } catch {
         // Ignore no-empty lint rule.
+    }
+}
+
+export enum BoxBorder {
+    None=0,
+    Single,
+    Double
+}
+
+export function drawBox(x: number, y: number, w: number, h: number, color: ColorRGBA, bgColor: ColorRGBA, borderStyle?: BoxBorder) {
+    borderStyle = borderStyle === undefined ? BoxBorder.None : borderStyle
+    if (bgColor) {
+        setRect(x, y, w, h, bgColor)
+    }
+    if (borderStyle === BoxBorder.Single && h >= 2) {
+        setCells(x, y, '─'.repeat(w), color, bgColor)
+        setCell(x, y, '┌', color, bgColor)
+        setCell(x + w - 1, y, '┐', color, bgColor)
+        for (let row = 1; row < h - 1; row++) {
+            setCell(x, y + row, '│', color, bgColor)
+            setCell(x + w - 1, y + row, '│', color, bgColor)
+        }
+        setCells(x, y + h - 1, '─'.repeat(w), color, bgColor)
+        setCell(x, y + h - 1, '└', color, bgColor)
+        setCell(x + w - 1, y + h - 1, '┘', color, bgColor)
+    } else if (borderStyle === BoxBorder.Double && h >= 2) {
+        setCells(x, y, '═'.repeat(w), color, bgColor)
+        setCell(x, y, '╔', color, bgColor)
+        setCell(x + w - 1, y, '╗', color, bgColor)
+        for (let row = 1; row < h - 1; row++) {
+            setCell(x, y + row, '║', color, bgColor)
+            setCell(x + w - 1, y + row, '║', color, bgColor)
+        }
+        setCells(x, y + h - 1, '═'.repeat(w), color, bgColor)
+        setCell(x, y + h - 1, '╚', color, bgColor)
+        setCell(x + w - 1, y + h - 1, '╝', color, bgColor)
+    }
+}
+
+export function drawTitleBox(title: string, x: number, y: number, w: number, h: number, color: ColorRGBA, bgColor: ColorRGBA, borderStyle?: BoxBorder) {
+    drawBox(x, y, w, h, color, bgColor, borderStyle)
+    if (w > 5) {
+        setCells(x + 1, y, '[ ' + title + ' ]', color, bgColor)
     }
 }
 
