@@ -5,6 +5,9 @@ Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite export
 ![Terminal emulator, map generation framework and field of view (FOV) algorithm.](terminal-map-fov.png)
 > Terminal emulator, map generation framework and field of view (FOV) algorithm.
 
+![Sprite controller with image management.  Aseprite JSON Export animation support.](aseprite-animation-image-management.png)
+> Sprite controller with image management.  Aseprite JSON Export animation support.
+
 # Resource Management Modules
 
 ## Images Module
