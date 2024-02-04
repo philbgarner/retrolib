@@ -28,9 +28,14 @@ export interface GenerateCellFunction {
     (cellTypes: CellType[], x: number, y: number): CellType
 }
 
+// eslint-disable-next-line
 export let generateCellFunction: GenerateCellFunction = (cellTypes: CellType[], x: number, y: number): CellType => {
     const cellType: CellType = cellTypes[randInt(0, cellTypes.length)]
     return { name: cellType.name, group: cellType.group, colors: cellType.colors, bgColor: cellType.bgColor, characters: cellType.characters, blockMovement: cellType.blockMovement, blockVision: cellType.blockVision }
+}
+
+export function setGenerateCellFunction(generateFn: GenerateCellFunction) {
+    generateCellFunction = generateFn
 }
 
 export function GenerateCell(cellTypes: CellType[], x: number, y: number): CellType {
@@ -41,6 +46,7 @@ export interface SelectCellTypesFunction {
     (x: number, y: number): CellType[]
 }
 
+// eslint-disable-next-line
 export let selectCellTypes: SelectCellTypesFunction = (x: number, y: number): CellType[] => {
     return [
             { name: 'Block Wall', group: 'walls', colors: [{ r: 255, g: 255, b: 255, a: 255 }, { r: 200, g: 200, b: 200, a: 255 }], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true },
@@ -69,8 +75,8 @@ export function Initialize(mapWidth: number, mapHeight: number, selectCellTypesF
     height = mapHeight
 
     for (let y = 0; y < height; y++) {
-        let cols: MapCell[] = []
-        let expl: boolean[] = []
+        const cols: MapCell[] = []
+        const expl: boolean[] = []
         for (let x = 0; x < width; x++) {
             const cell = {
                 cellType: GenerateCell(SelectCellTypes(x, y, selectCellTypesFunction), x, y),
@@ -97,8 +103,8 @@ export interface GetCellsFilterFunction {
 
 export function getCells(filterFn: GetCellsFilterFunction): MapCell[] {
     const cells: MapCell[] = []
-    mapCells.forEach((row, rowIndex) => {
-        row.forEach((cell, colIndex) => {
+    mapCells.forEach((row) => {
+        row.forEach((cell) => {
             if (filterFn(cell.cellType)) {
                 cells.push(cell)
             }
@@ -114,26 +120,34 @@ export function getCell(x: number, y: number): MapCell {
         } else {
             return mapCells[y][x]
         }
-    } catch { }
+    } catch {
+        // Ignore no-empty lint rule.
+    }
     return null
 }
 
 export function setCell(mapCell: MapCell) {
     try {
         mapCells[mapCell.y][mapCell.x] = mapCell
-    } catch { }
+    } catch {
+        // Ignore no-empty lint rule.
+    }
 }
 
 export function setExplored(x: number, y: number) {
     try {
         exploredCells[y][x] = true
-    } catch { }
+    } catch {
+        // Ignore no-empty lint rule.
+    }
 }
 
 export function isExplored(x: number, y: number): boolean {
     try {
         return exploredCells[y][x]
-    } catch { }
+    } catch {
+        // Ignore no-empty lint rule.
+    }
 }
 
 export function getExploredCells(): MapCell[] {
@@ -159,12 +173,12 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
     }
 
     function doFov(x: number, y: number, playerX: number, playerY: number): FovSearchResult {
-        let checkedCells: MapCell[] = []
+        const checkedCells: MapCell[] = []
         let vx = playerX - x
         let vy = playerY - y
         let ox = x
         let oy = y
-        let l = Math.sqrt((x * x) + (y * y))
+        const l = Math.sqrt((x * x) + (y * y))
         vx = vx / l
         vy = vy / l
 

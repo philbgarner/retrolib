@@ -23,6 +23,10 @@ export let emptyCellData: TerminalCell[][] = [] // Cache an empty version of ter
 let terminalCanvas: HTMLCanvasElement = null
 let ctx: CanvasRenderingContext2D = null
 
+export function setTerminalBackground(color: ColorRGBA) {
+    terminalBackground = color
+}
+
 export function Draw() {
     if (drawTimestamp === changeTimestamp) {
         return
@@ -63,7 +67,9 @@ export function setCell(x: number, y: number, character: string, color: ColorRGB
     try {
         cellData[y][x] = { character: character, x: x, y: y, color: color, bgColor: bgColor }
         changeTimestamp = new Date().getMilliseconds()
-    } catch {}
+    } catch {
+        // Ignore no-empty lint rule.
+    }
 }
 
 export function setCells(startX: number, startY: number, text: string, color: ColorRGBA | ColorRGBA[], bgColor: ColorRGBA) {
@@ -87,7 +93,9 @@ export function setRect(x1: number, x2: number, w: number, h: number, color: Col
 export function getCell(x: number, y: number): TerminalCell {
     try {
         return cellData[y][x]
-    } catch {}
+    } catch {
+        // Ignore no-empty lint rule.
+    }
 }
 
 export function Initialize() {
