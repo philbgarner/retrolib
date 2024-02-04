@@ -76,7 +76,7 @@ retrolib.initialize('gamecanvas', 320, 200, true, true) // Creates a <Canvas/> e
 
 # Documentation
 
-Generated markdown documentation available in the [docs folder](./docs/modules.md).
+Generated markdown documentation available in the [docs folder](https://github.com/philbgarner/retrolib/blob/master/docs/modules.md).
 
 ## Sample Projects
 
