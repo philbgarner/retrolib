@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head><title>Voronoi Sample</title></head>
+    <head><title>Terminal Sample</title></head>
     <body>
         <!--Include the retrolib web bundle.-->
         <script src="../../../dist/retrolib.js"></script>
@@ -12,18 +12,30 @@
             var playerX = 5
             var playerY = 15
 
+            const cellTypes = [
+                    { name: `Grass`, group: 'ground', colors: [{ r: 64, g: 128, b: 64, a: 255 }, { r: 32, g: 72, b: 32, a: 255 }], bgColor: null, characters: [',', '.'], blockMovement: false, blockVision: false },
+                    { name: `Sedge`, group: 'ground', colors: [{ r: 74, g: 128, b: 64, a: 255 }, { r: 82, g: 72, b: 32, a: 255 }], bgColor: null, characters: ['"', ";"], blockMovement: false, blockVision: false },
+                    { name: `Tree`, group: 'ground', colors: [{ r: 64, g: 128, b: 64, a: 255 }, { r: 32, g: 72, b: 32, a: 255 }], bgColor: null, characters: ['♣', '♠'], blockMovement: false, blockVision: true },
+                    { name: `Water`, group: 'water', colors: [{ r: 64, g: 72, b: 200, a: 255 }, { r: 180, g: 180, b: 240, a: 255 }], bgColor: null, characters: ['-', '~'], blockMovement: false, blockVision: false },
+                ]
+
             retrolib.terminal.Initialize()
 
-
-
-            retrolib.map.Initialize(60, 25, (x, y) => {
-                return [
-                    { name: `Grass`, group: 'floors', colors: [{ r: 64, g: 128, b: 64, a: 255 }, { r: 32, g: 72, b: 32, a: 255 }], bgColor: null, characters: [',', '.'], blockMovement: false, blockVision: false },
-                    { name: `Sedge`, group: 'floors', colors: [{ r: 74, g: 128, b: 64, a: 255 }, { r: 82, g: 72, b: 32, a: 255 }], bgColor: null, characters: ['"', ";"], blockMovement: false, blockVision: false },
-                    { name: `Tree`, group: 'floors', colors: [{ r: 64, g: 128, b: 64, a: 255 }, { r: 32, g: 72, b: 32, a: 255 }], bgColor: null, characters: ['♣', '♠'], blockMovement: false, blockVision: true },
-                ]
+            retrolib.map.Initialize(80, 25, (x, y) => {
+                return cellTypes
             })
 
+
+            retrolib.map.GenerateCellsVoronoi([
+                { x: 15, y: 5, id: 0 },
+                { x: 45, y: 5, id: 1 },
+                { x: 30, y: 20, id: 2 },
+            ], [
+                'ground',
+                'ground',
+                'water',
+            ], cellTypes)
+            
             function drawPlayer() {            
                 retrolib.terminal.clear()
                 

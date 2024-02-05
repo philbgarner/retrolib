@@ -11,7 +11,7 @@ export function useRandomFloatFn(randomFn: RandomFloatFunction) {
 }
 
 export function randInt(min: number, max: number): number {
-    return Math.floor(randomFloatFunction(min, max))
+    return Math.round(randomFloatFunction(min, max))
 }
 
 export function rand(min: number, max: number): number {
