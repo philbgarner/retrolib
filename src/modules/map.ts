@@ -182,10 +182,10 @@ export function GenerateCellsVoronoi(voronoiPointCoords: VoronoiCoordinate[], vo
     })
 
     // Iterate regions and populate cells from cell types array.
-    voronoiRegions.forEach((region, index) => {
+    voronoiRegions.forEach((region, regionIndex) => {
         region.middles.forEach(cell => {
             const mapCell = getCell(cell.x, cell.y)
-            const cellTypes = voronoiCellTypes.filter(f => f.group.includes(voronoiPointGroups[index]))
+            const cellTypes = voronoiCellTypes.filter(f => f.group.includes(voronoiPointGroups[regionIndex]))
             if (cellTypes.length > 0) {
                 Object.assign(mapCell.cellType, cellTypes[randInt(0, cellTypes.length - 1)])
                 if (mapCell.cellType.characters.length > 1) {
@@ -195,12 +195,26 @@ export function GenerateCellsVoronoi(voronoiPointCoords: VoronoiCoordinate[], vo
                     mapCell.cellType.colors = mapCell.cellType.colors.slice(randInt(0, mapCell.cellType.colors.length - 1))
                 }
                 setCell(mapCell)
-                console.log('ctype', mapCell.cellType.characters)
+            }
+        })
+
+        region.edges.forEach(cell => {
+            const mapCell = getCell(cell.x, cell.y)
+
+            const cellTypes = voronoiCellTypes.filter(f => f.group.includes(voronoiPointGroups[regionIndex]))
+// TODO: Calculate the neighbour Ids for the given cell and then push cell types from neighbouring regions.
+            if (cellTypes.length > 0) {
+                Object.assign(mapCell.cellType, cellTypes[randInt(0, cellTypes.length - 1)])
+                if (mapCell.cellType.characters.length > 1) {
+                    mapCell.cellType.characters = mapCell.cellType.characters.slice(randInt(0, mapCell.cellType.characters.length - 1))
+                }
+                if (mapCell.cellType.colors.length > 1) {
+                    mapCell.cellType.colors = mapCell.cellType.colors.slice(randInt(0, mapCell.cellType.colors.length - 1))
+                }
+                setCell(mapCell)
             }
         })
     })
-
-    console.log(voronoiRegions)
 }
 
 export function clearMap() {
