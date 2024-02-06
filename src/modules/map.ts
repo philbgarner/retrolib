@@ -185,7 +185,7 @@ export function GenerateCellsVoronoi(voronoiPointCoords: VoronoiCoordinate[], vo
     voronoiRegions.forEach((region, regionIndex) => {
         region.middles.forEach(cell => {
             const mapCell = getCell(cell.x, cell.y)
-            const cellTypes = voronoiCellTypes.filter(f => f.group.includes(voronoiPointGroups[regionIndex]))
+            const cellTypes = voronoiCellTypes.filter(f => voronoiPointGroups[regionIndex].includes(f.group))
             if (cellTypes.length > 0) {
                 Object.assign(mapCell.cellType, cellTypes[randInt(0, cellTypes.length - 1)])
                 if (mapCell.cellType.characters.length > 1) {
@@ -325,8 +325,8 @@ export function getExploredCells(): MapCell[] {
 }
 
 export function fov(viewRadius: number, x: number, y: number): MapCell[] {
-    x = x + (viewRadius % 2 === 1 ? 0 : 1)
-    y = y + (viewRadius % 2 === 1 ? 0 : 1)
+    // x = x + (viewRadius % 2 === 1 ? 0 : 1)
+    // y = y + (viewRadius % 2 === 1 ? 0 : 1)
 
     type FovSearchResult = {
         visible: boolean,
@@ -370,8 +370,8 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
 
     const cells: MapCell[] = []
 
-    for (let i = y - viewRadius; i < y + viewRadius; i++) {
-        for (let j = x - viewRadius; j < x + viewRadius; j++) {
+    for (let i = y - viewRadius; i < y + viewRadius + 1; i++) {
+        for (let j = x - viewRadius; j < x + viewRadius + 1; j++) {
             const cell = getCell(Math.floor(j), Math.floor(i))
             if (cell !== null) {
                 const fovResult = doFov(Math.floor(j), Math.floor(i), x, y)
@@ -385,21 +385,20 @@ export function fov(viewRadius: number, x: number, y: number): MapCell[] {
     }
 
     function checkCardinal(x: number, y: number) {
-        const cell = getCell(x, y - 1)
+        const cell = getCell(x, y)
         if (cell?.cellType.blockVision) {
             cell.light = 1
-            cells.push(cell)
+            if (cells.filter(f => f.x === x && f.y === y).length === 0) {
+                cells.push(cell)
+            }
         }
     }
 
-    checkCardinal(x, y + 1)
     checkCardinal(x + 1, y)
-    checkCardinal(x - 1, y)
-    checkCardinal(x, y - 1)
     checkCardinal(x + 1, y + 1)
+    checkCardinal(x, y + 1)
     checkCardinal(x + 1, y - 1)
     checkCardinal(x - 1, y + 1)
-    checkCardinal(x - 1, y - 1)
 
     cells.forEach(cell => {
         setExplored(cell.x, cell.y)

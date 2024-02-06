@@ -9,7 +9,7 @@
             retrolib.initialize('gamecanvas', 720, 400, true, true)
             let ctx = retrolib.gameCanvas.getContext('2d')
             
-            var playerX = 5
+            var playerX = 55
             var playerY = 15
 
             const cellTypes = [
@@ -32,7 +32,7 @@
                 { x: 30, y: 20, id: 2 },
             ], [
                 'ground',
-                'trees',
+                'trees,ground',
                 'water',
             ], cellTypes)
             
@@ -47,7 +47,7 @@
                         null)
                 })
                 
-                let cells = retrolib.map.fov(4.5, playerX, playerY, [])
+                let cells = retrolib.map.fov(4, playerX, playerY, [])
                 cells.forEach((mapCell) => {
                     retrolib.terminal.setCell(mapCell.x, mapCell.y,
                         mapCell.cellType.characters[0],
