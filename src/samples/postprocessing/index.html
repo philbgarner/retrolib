@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Working with Images Sample</title></head>
+    <body>
+        <!--Include the retrolib web bundle.-->
+        <script src="../../../dist/retrolib.js"></script>
+        <script>
+            retrolib.setCanvasBackground('black')
+            retrolib.initialize('gamecanvas', 320, 200, true, true)
+            let ctx = retrolib.gameCanvas.getContext('2d')
+
+            retrolib.postprocessing.initialize()
+            
+            retrolib.scenes.addScene(new retrolib.Scene('logo', (delta) => {
+                retrolib.images.drawImage('logo', Math.floor(160 - 32), 100 - 43)
+                retrolib.postprocessing.draw()
+            }, true))
+
+            retrolib.images.addImageToManifest('logo', './logo.png')
+            retrolib.images.loadAllImages()
+
+        </script>
+    </body>
+</html>

@@ -9,7 +9,7 @@
             retrolib.initialize('gamecanvas', 720, 400, true, true)
             let ctx = retrolib.gameCanvas.getContext('2d')
             
-            var playerX = 55
+            var playerX = 15
             var playerY = 15
 
             const cellTypes = [
@@ -21,27 +21,21 @@
 
             retrolib.terminal.Initialize()
 
-            const points = []
-            const groups = []
+            retrolib.map.Initialize(80, 25, (x, y) => {
+                return cellTypes
+            })
 
-            for (let l = 0; l < retrolib.random.randInt(10, 15); l++) {
-                points.push({ x: retrolib.random.randInt(5, 75), y: retrolib.random.randInt(5, 20), id: l })
+            retrolib.map.GenerateCellsDungeonBSP(6, 6)
 
-                const potentialGroups = [
-                    'ground',
-                    'trees',
-                    'water',
-                ]
-
-                const groupCount = retrolib.random.randInt(1, 2)
-                const rowGroups = []
-                for (let g = 0; g < groupCount; g++) {
-                    rowGroups.push(potentialGroups[retrolib.random.randInt(0, potentialGroups.length - 1)])
-                }
-                groups.push(rowGroups.join(','))
-            }
-
-            retrolib.map.GenerateCellsVoronoi(80, 25, points, groups, cellTypes)
+            // retrolib.map.GenerateCellsVoronoi([
+            //     { x: 15, y: 5, id: 0 },
+            //     { x: 45, y: 5, id: 1 },
+            //     { x: 30, y: 20, id: 2 },
+            // ], [
+            //     'ground',
+            //     'trees,ground',
+            //     'water',
+            // ], cellTypes)
             
             function drawPlayer() {            
                 retrolib.terminal.clear()
@@ -66,20 +60,6 @@
                 retrolib.terminal.setCell(playerX, playerY, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 })
 
                 retrolib.terminal.drawTitleBox('Cell Info', 60, 0, 20, 25, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 }, 2)
-                
-                const playerCell = retrolib.map.getCell(playerX, playerY)
-                const playerVCell = retrolib.map.getVCell(playerX, playerY)
-                const playerRegion = retrolib.map.getRegion(playerVCell.voronoiId)
-                const playerEdge = playerRegion.edges.filter(f => f.x === playerCell.x && f.y === playerCell.y)
-                console.log('playerCell', playerCell, playerVCell, playerRegion, playerEdge)
-
-                retrolib.terminal.setCells(61, 1, `(${playerX},${playerY})`, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 })
-                retrolib.terminal.setCells(61, 2, `${playerCell.cellType.name}`, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 })
-                retrolib.terminal.setCells(61, 3, `Region Id ${playerRegion.id}`, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 })
-
-                if (playerEdge.length > 0) {
-                    retrolib.terminal.setCells(61, 4, `Border Ids: ${playerEdge.map(m => m.neighbouringRegions).join(',')}`, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 })
-                }
             }
            
             drawPlayer()

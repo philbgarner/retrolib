@@ -39,5 +39,8 @@
     "vga-nostalgia",
     "canvas",
     "gamedev"
-  ]
+  ],
+  "dependencies": {
+    "gl-matrix": "^3.4.3"
+  }
 }

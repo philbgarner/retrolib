@@ -1,5 +1,6 @@
 import { loadDefaultFonts } from './modules/font'
 
+export * as postprocessing from './modules/postprocessing'
 export * as images from './modules/images'
 export * as font from './modules/font'
 export * as scenes from './modules/scenes'

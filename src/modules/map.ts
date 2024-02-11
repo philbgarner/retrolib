@@ -8,8 +8,8 @@ export let mapCells: MapCell[][] = []
 export let exploredCells: boolean[][] = []
 export let exploredCellCache: MapCell[]
 export let voronoiCells: VoronoiCell[][] = []
-export let edges: VoronoiCoordinate[] = []
-export let corners: VoronoiCoordinate[] = []
+export let edges: EdgeCoordinate[] = []
+export let corners: EdgeCoordinate[] = []
 export let middles: VoronoiCoordinate[] = []
 export let voronoiRegions: VoronoiRegion[] = []
 
@@ -19,11 +19,18 @@ export type VoronoiCoordinate = {
     y: number
 }
 
+export type EdgeCoordinate = {
+    id: number,
+    x: number,
+    y: number,
+    neighbouringRegions: number[]
+}
+
 export type VoronoiRegion = {
     id: number,
     coords: VoronoiCoordinate,
-    edges: VoronoiCoordinate[],
-    corners: VoronoiCoordinate[],
+    edges: EdgeCoordinate[],
+    corners: EdgeCoordinate[],
     neighbours: number[],
     middles: VoronoiCoordinate[]
 }
@@ -91,17 +98,95 @@ export function distance(x1: number, y1: number, x2: number, y2: number) {
     return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 }
 
+export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wallCellType?: CellType) {
+    // Initialize the grid with unexplored, unlit and blocked cells (unless otherwise specified).
+    clearMap()
+
+    wallCellType = wallCellType === undefined ? { name: 'Block Wall', group: 'walls', colors: [{ r: 255, g: 255, b: 255, a: 255 }, { r: 200, g: 200, b: 200, a: 255 }], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true } : wallCellType
+
+    for (let y = 0; y < height; y++) {
+        const cols: MapCell[] = []
+        for (let x = 0; x < width; x++) {
+            const cell: MapCell = { x: x, y: y, light: 0, cellType: wallCellType }
+            cols.push(cell)
+        }
+        mapCells.push(cols)
+    }
+
+    // Partition map space into leaves on a tree.
+    type dungeonBSP = {
+        x: number,
+        y: number,
+        w: number,
+        h: number,
+        children: dungeonBSP[]
+    }
+
+    const dungeon: dungeonBSP = {
+        x: 0, y: 0, w: width, h: height,
+        children: []
+    }
+
+    const rooms: dungeonBSP[] = []
+    function divideSpace(leaf: dungeonBSP) {
+        if (leaf.w < minWidth || leaf.h < minHeight) {
+            return
+        }
+
+        const splitDir = randInt(0, 1) === 0 ? 'horizontal' : 'vertical'
+
+        if (splitDir === 'horizontal') {
+            const randPos = randInt(leaf.x + Math.floor(minWidth / 2), leaf.x + leaf.w - Math.floor(minWidth / 2))
+
+            const leafLeft = { x: randPos, y: leaf.y, w: leaf.w - randPos, h: leaf.h, children: [] }
+            if (leafLeft.w >= minWidth && leafLeft.x > 0) {
+                leaf.children.push(leafLeft)
+                divideSpace(leafLeft)
+            }
+            const leafRight = { x: leaf.w - randPos, y: leaf.y, w: randPos, h: leaf.h, children: [] }
+            if (leafRight.w >= minWidth && leafRight.x > 0) {
+                leaf.children.push(leafRight)
+                divideSpace(leafRight)
+            }
+        } else {
+            const randPos = randInt(leaf.y + Math.floor(minHeight / 2), leaf.y + leaf.h - Math.floor(minHeight / 2))
+
+            const leafTop = { x: leaf.x, y: leaf.h - randPos, w: leaf.w, h: randPos, children: [] }
+            if (leafTop.h >= minHeight && leafTop.y > 0) {
+                leaf.children.push(leafTop)
+                divideSpace(leafTop)
+            }
+            const leafBottom = { x: leaf.x, y: leaf.y, w: leaf.w, h: leaf.h - randPos, children: [] }
+            if (leafTop.h >= minHeight && leafTop.y > 0) {
+                leaf.children.push(leafBottom)
+                divideSpace(leafBottom)
+            }
+        }
+    }
+    divideSpace(dungeon)
+
+    console.log('rooms', dungeon)
+}
+
+export function getVCell(x: number, y: number) {
+    if (x < 0 || x > width - 1 || y < 0 || y > height - 1) {
+        return null
+    }
+    return voronoiCells[y][x]
+}
+
 /**
  * Calculate voronoi regions and populate the map based on the locations of region cells.
  * @param voronoiPointCoords Array of centre-points for each region to calculate.
  * @param voronoiPointGroups Group filter(s) to use from cell types palette for each region (Array position corresponds with coord index in first parameter). Multiple group filters separated by commas.
  * @param voronoiCellTypes Palette of cell types to use in the generator. Group property allows selecting certain cell types based on voronoi region.
  */
-export function GenerateCellsVoronoi(voronoiPointCoords: VoronoiCoordinate[], voronoiPointGroups: string[], voronoiCellTypes: CellType[]) {
-    // Initialize blank voronoi map.
-    voronoiCells = []
-    voronoiRegions = []
+export function GenerateCellsVoronoi(width: number, height: number, voronoiPointCoords: VoronoiCoordinate[], voronoiPointGroups: string[], voronoiCellTypes: CellType[]) {
+    clearMap()
 
+    Initialize(width, height, () => voronoiCellTypes)
+
+    // Initialize blank voronoi map.
     for (let y = 0; y < height; y++) {
         const cols: VoronoiCell[] = []
         for (let x = 0; x < width; x++) {
@@ -134,13 +219,6 @@ export function GenerateCellsVoronoi(voronoiPointCoords: VoronoiCoordinate[], vo
     corners = []
     middles = []
 
-    function getVCell(x: number, y: number) {
-        if (x < 0 || x > width - 1 || y < 0 || y > height - 1) {
-            return null
-        }
-        return voronoiCells[y][x]
-    }
-
     // Now we iterate the map again, but this time we annotate the 
     // graph with edges and corners populated.
     for (let y = 0; y < height; y++) {
@@ -153,14 +231,29 @@ export function GenerateCellsVoronoi(voronoiPointCoords: VoronoiCoordinate[], vo
 
             if (cell.voronoiId !== cellEast?.voronoiId || cell.voronoiId !== cellWest?.voronoiId
                 || cell.voronoiId !== cellNorth?.voronoiId || cell.voronoiId !== cellSouth?.voronoiId) {
-                    edges.push({ id: cell.voronoiId, x: x, y: y })
                     let cornerCount = 0
                     cornerCount += cell.voronoiId !== cellEast?.voronoiId ? 1 : 0
                     cornerCount += cell.voronoiId !== cellWest?.voronoiId ? 1 : 0
                     cornerCount += cell.voronoiId !== cellNorth?.voronoiId ? 1 : 0
                     cornerCount += cell.voronoiId !== cellSouth?.voronoiId ? 1 : 0
+
+                    const neighbourIds: number[] = []
+                    if (cellEast && cellEast.voronoiId !== cell.voronoiId) {
+                        neighbourIds.push(cellEast.voronoiId)
+                    }
+                    if (cellWest && cellWest.voronoiId !== cell.voronoiId) {
+                        neighbourIds.push(cellWest.voronoiId)
+                    }
+                    if (cellSouth && cellSouth.voronoiId !== cell.voronoiId) {
+                        neighbourIds.push(cellSouth.voronoiId)
+                    }
+                    if (cellNorth && cellNorth.voronoiId !== cell.voronoiId) {
+                        neighbourIds.push(cellNorth.voronoiId)
+                    }
+                    
+                    edges.push({ id: cell.voronoiId, x: x, y: y, neighbouringRegions: Array.from(new Set(neighbourIds)) })
                     if (cornerCount > 2) {
-                        corners.push({ id: cell.voronoiId, x: x, y: y })
+                        corners.push({ id: cell.voronoiId, x: x, y: y, neighbouringRegions: Array.from(new Set(neighbourIds)) })
                     }
                 }
             else {
@@ -184,10 +277,9 @@ export function GenerateCellsVoronoi(voronoiPointCoords: VoronoiCoordinate[], vo
     // Iterate regions and populate cells from cell types array.
     voronoiRegions.forEach((region, regionIndex) => {
         region.middles.forEach(cell => {
-            const mapCell = getCell(cell.x, cell.y)
             const cellTypes = voronoiCellTypes.filter(f => voronoiPointGroups[regionIndex].includes(f.group))
             if (cellTypes.length > 0) {
-                Object.assign(mapCell.cellType, cellTypes[randInt(0, cellTypes.length - 1)])
+                const mapCell: MapCell = { x: cell.x, y: cell.y, cellType: cellTypes[randInt(0, cellTypes.length - 1)], light: 0 }
                 if (mapCell.cellType.characters.length > 1) {
                     mapCell.cellType.characters = mapCell.cellType.characters.slice(randInt(0, mapCell.cellType.characters.length - 1))
                 }
@@ -199,12 +291,10 @@ export function GenerateCellsVoronoi(voronoiPointCoords: VoronoiCoordinate[], vo
         })
 
         region.edges.forEach(cell => {
-            const mapCell = getCell(cell.x, cell.y)
-
             const cellTypes = voronoiCellTypes.filter(f => f.group.includes(voronoiPointGroups[regionIndex]))
-// TODO: Calculate the neighbour Ids for the given cell and then push cell types from neighbouring regions.
+
             if (cellTypes.length > 0) {
-                Object.assign(mapCell.cellType, cellTypes[randInt(0, cellTypes.length - 1)])
+                const mapCell: MapCell = { x: cell.x, y: cell.y, cellType: cellTypes[randInt(0, cellTypes.length - 1)], light: 0 }
                 if (mapCell.cellType.characters.length > 1) {
                     mapCell.cellType.characters = mapCell.cellType.characters.slice(randInt(0, mapCell.cellType.characters.length - 1))
                 }
@@ -215,11 +305,23 @@ export function GenerateCellsVoronoi(voronoiPointCoords: VoronoiCoordinate[], vo
             }
         })
     })
+
+    console.log(voronoiRegions, mapCells)
+}
+
+export function getRegion(id: number): VoronoiRegion {
+    const regionIndex = voronoiRegions.findIndex(f => f.id === id)
+    if (regionIndex > -1) {
+        return voronoiRegions[regionIndex]
+    }
+    return null
 }
 
 export function clearMap() {
     mapCells = []
     exploredCells = []
+    voronoiCells = []
+    voronoiRegions = []
 }
 
 export function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypesFunction): CellType[] {
@@ -230,8 +332,7 @@ export function SelectCellTypes(x: number, y: number, selectFn?: SelectCellTypes
 }
 
 export function Initialize(mapWidth: number, mapHeight: number, selectCellTypesFunction?: SelectCellTypesFunction) {
-    mapCells = []
-    exploredCells = []
+    clearMap()
 
     width = mapWidth
     height = mapHeight
