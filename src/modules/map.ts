@@ -291,7 +291,14 @@ export function GenerateCellsVoronoi(width: number, height: number, voronoiPoint
         })
 
         region.edges.forEach(cell => {
-            const cellTypes = voronoiCellTypes.filter(f => f.group.includes(voronoiPointGroups[regionIndex]))
+            let cellTypes = voronoiCellTypes.filter(f => f.group.includes(voronoiPointGroups[regionIndex]))
+
+            // If this is an edge cell we want to mix cell types of the two regions in the potential list
+            // so you get a randomized blended edge.
+            if (cell.neighbouringRegions.length > 0) {
+                cellTypes = []
+                cell.neighbouringRegions.forEach(regionId => cellTypes = [...cellTypes, ...voronoiCellTypes.filter(f => f.group.includes(voronoiPointGroups[regionId]))])
+            }
 
             if (cellTypes.length > 0) {
                 const mapCell: MapCell = { x: cell.x, y: cell.y, cellType: cellTypes[randInt(0, cellTypes.length - 1)], light: 0 }
@@ -305,8 +312,6 @@ export function GenerateCellsVoronoi(width: number, height: number, voronoiPoint
             }
         })
     })
-
-    console.log(voronoiRegions, mapCells)
 }
 
 export function getRegion(id: number): VoronoiRegion {
