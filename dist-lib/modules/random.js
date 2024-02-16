@@ -5,7 +5,7 @@ export function useRandomFloatFn(randomFn) {
     randomFloatFunction = randomFn;
 }
 export function randInt(min, max) {
-    return Math.floor(randomFloatFunction(min, max));
+    return Math.round(randomFloatFunction(min, max));
 }
 export function rand(min, max) {
     return randomFloatFunction(min, max);

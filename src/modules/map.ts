@@ -13,6 +13,14 @@ export let corners: EdgeCoordinate[] = []
 export let middles: VoronoiCoordinate[] = []
 export let voronoiRegions: VoronoiRegion[] = []
 
+export type DungeonBSP = {
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    children: DungeonBSP[]
+}
+
 export type VoronoiCoordinate = {
     id: number,
     x: number,
@@ -114,58 +122,79 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wal
     }
 
     // Partition map space into leaves on a tree.
-    type dungeonBSP = {
-        x: number,
-        y: number,
-        w: number,
-        h: number,
-        children: dungeonBSP[]
-    }
 
-    const dungeon: dungeonBSP = {
+    const dungeon: DungeonBSP = {
         x: 0, y: 0, w: width, h: height,
         children: []
     }
 
-    const rooms: dungeonBSP[] = []
-    function divideSpace(leaf: dungeonBSP) {
+    const rooms: DungeonBSP[] = []
+    function divideSpace(leaf: DungeonBSP, depth?: number, maxDepth?: number) {
         if (leaf.w < minWidth || leaf.h < minHeight) {
             return
         }
+        depth = depth ? depth : 0
+        maxDepth = maxDepth ? maxDepth : 10
+        if (depth > maxDepth) {
+            return
+        }
 
-        const splitDir = randInt(0, 1) === 0 ? 'horizontal' : 'vertical'
-
-        if (splitDir === 'horizontal') {
-            const randPos = randInt(leaf.x + Math.floor(minWidth / 2), leaf.x + leaf.w - Math.floor(minWidth / 2))
-
-            const leafLeft = { x: randPos, y: leaf.y, w: leaf.w - randPos, h: leaf.h, children: [] }
-            if (leafLeft.w >= minWidth && leafLeft.x > 0) {
-                leaf.children.push(leafLeft)
-                divideSpace(leafLeft)
+        function horizontal(pos?: number) {
+            const randPos = pos ? pos : randInt(minWidth, leaf.w - minWidth)
+            const leafLeft = { x: leaf.x, y: leaf.y, w: randPos, h: leaf.h, children: [] }
+            leaf.children.push(leafLeft)
+            if (leafLeft.w > minWidth && leafLeft.x > 0) {
+                divideSpace(leafLeft, depth + 1)
+            } else if (leafLeft.h < minHeight && leafLeft.y > 0) {
+                divideSpace(leafLeft, depth + 1)
             }
-            const leafRight = { x: leaf.w - randPos, y: leaf.y, w: randPos, h: leaf.h, children: [] }
-            if (leafRight.w >= minWidth && leafRight.x > 0) {
-                leaf.children.push(leafRight)
-                divideSpace(leafRight)
+            const leafRight = { x: leaf.x + randPos, y: leaf.y, w: leaf.w - randPos, h: leaf.h, children: [] }
+            console.log('horizontal', randPos, 'left', leafLeft, 'right', leafRight, 'children', leaf.children)
+            leaf.children.push(leafRight)
+            if (leafRight.w > minWidth && leafRight.x > 0) {
+                divideSpace(leafRight, depth + 1)
+            } else if (leafRight.h < minHeight && leafRight.y > 0) {
+                divideSpace(leafRight, depth + 1)
             }
+        }
+
+        function vertical(pos?: number) {
+            const randPos = pos ? pos : randInt(minHeight, leaf.h - minHeight)
+            const leafTop = { x: leaf.x, y: leaf.y, w: leaf.w, h: randPos, children: [] }
+            leaf.children.push(leafTop)
+            if (leafTop.h > minHeight && leafTop.y > 0) {
+                divideSpace(leafTop, depth + 1)
+            } else if (leafTop.w < minWidth && leafTop.x > 0) {
+                divideSpace(leafTop, depth + 1)
+            }
+            const leafBottom = { x: leaf.x, y: leaf.y + randPos, w: leaf.w, h: leaf.h - randPos, children: [] }
+            console.log('vertical', randPos, 'top', leafTop, 'right', leafBottom, 'children', leaf.children)
+            leaf.children.push(leafBottom)
+            if (leafBottom.h > minHeight && leafBottom.y > 0) {
+                divideSpace(leafBottom, depth + 1)
+            } else if (leafBottom.w < minWidth && leafBottom.x > 0) {
+                divideSpace(leafBottom, depth + 1)
+            }
+        }
+
+        if (leaf.h / leaf.w < 1) {
+            horizontal()
+        } else if (leaf.w / leaf.h < 1) {
+            vertical()
         } else {
-            const randPos = randInt(leaf.y + Math.floor(minHeight / 2), leaf.y + leaf.h - Math.floor(minHeight / 2))
-
-            const leafTop = { x: leaf.x, y: leaf.h - randPos, w: leaf.w, h: randPos, children: [] }
-            if (leafTop.h >= minHeight && leafTop.y > 0) {
-                leaf.children.push(leafTop)
-                divideSpace(leafTop)
-            }
-            const leafBottom = { x: leaf.x, y: leaf.y, w: leaf.w, h: leaf.h - randPos, children: [] }
-            if (leafTop.h >= minHeight && leafTop.y > 0) {
-                leaf.children.push(leafBottom)
-                divideSpace(leafBottom)
+            const splitDir = randInt(0, 1) === 0 ? 'horizontal' : 'vertical'
+    
+            if (splitDir === 'horizontal') {
+                horizontal()
+            } else {
+                vertical()
             }
         }
     }
     divideSpace(dungeon)
 
     console.log('rooms', dungeon)
+    return dungeon
 }
 
 export function getVCell(x: number, y: number) {

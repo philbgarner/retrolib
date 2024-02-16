@@ -26,4 +26,4 @@ Function that fires when an input event occurs on a selected menu item.
 
 #### Defined in
 
-[modules/menu.ts:40](https://github.com/philbgarner/retrolib/blob/9851c78/src/modules/menu.ts#L40)
+[modules/menu.ts:40](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/menu.ts#L40)

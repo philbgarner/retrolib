@@ -4,6 +4,15 @@ retrolib / [Exports](modules.md)
 
 Render low-res scenes to the canvas in a retro 8-bit era style.  Aseprite exported animation wrapper, scene management, sound and image management, particle support.
 
+![Terminal emulator, map generation framework and field of view (FOV) algorithm.](terminal-map-fov.png)
+> Terminal emulator, map generation framework and field of view (FOV) algorithm.
+
+![Terminal emulator box drawing. Supports single, double or empty borders.](terminal-boxes.png)
+> Terminal emulator box drawing. Supports single, double or empty borders.
+
+![Sprite controller with image management.  Aseprite JSON Export animation support.](aseprite-animation-image-management.png)
+> Sprite controller with image management.  Aseprite JSON Export animation support.
+
 # Resource Management Modules
 
 ## Images Module
@@ -76,7 +85,7 @@ retrolib.initialize('gamecanvas', 320, 200, true, true) // Creates a <Canvas/> e
 
 # Documentation
 
-Generated markdown documentation available in the [docs folder](./docs/modules.md).
+Generated markdown documentation available in the [docs folder](https://github.com/philbgarner/retrolib/blob/master/docs/modules.md).
 
 ## Sample Projects
 

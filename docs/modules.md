@@ -29,6 +29,7 @@
 - [menu](modules/menu.md)
 - [menus](modules/menus.md)
 - [music](modules/music.md)
+- [postprocessing](modules/postprocessing.md)
 - [random](modules/random.md)
 - [scenes](modules/scenes.md)
 - [sfx](modules/sfx.md)
@@ -132,7 +133,7 @@ X and Y coordinates.
 
 #### Defined in
 
-[retrolib.ts:41](https://github.com/philbgarner/retrolib/blob/9851c78/src/retrolib.ts#L41)
+[retrolib.ts:42](https://github.com/philbgarner/retrolib/blob/3f51de3/src/retrolib.ts#L42)
 
 ## Variables
 
@@ -144,7 +145,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:57](https://github.com/philbgarner/retrolib/blob/9851c78/src/retrolib.ts#L57)
+[retrolib.ts:58](https://github.com/philbgarner/retrolib/blob/3f51de3/src/retrolib.ts#L58)
 
 ___
 
@@ -156,7 +157,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:53](https://github.com/philbgarner/retrolib/blob/9851c78/src/retrolib.ts#L53)
+[retrolib.ts:54](https://github.com/philbgarner/retrolib/blob/3f51de3/src/retrolib.ts#L54)
 
 ___
 
@@ -168,7 +169,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:49](https://github.com/philbgarner/retrolib/blob/9851c78/src/retrolib.ts#L49)
+[retrolib.ts:50](https://github.com/philbgarner/retrolib/blob/3f51de3/src/retrolib.ts#L50)
 
 ## Functions
 
@@ -191,7 +192,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:76](https://github.com/philbgarner/retrolib/blob/9851c78/src/retrolib.ts#L76)
+[retrolib.ts:77](https://github.com/philbgarner/retrolib/blob/3f51de3/src/retrolib.ts#L77)
 
 ___
 
@@ -217,7 +218,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:115](https://github.com/philbgarner/retrolib/blob/9851c78/src/retrolib.ts#L115)
+[retrolib.ts:116](https://github.com/philbgarner/retrolib/blob/3f51de3/src/retrolib.ts#L116)
 
 ___
 
@@ -239,4 +240,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:100](https://github.com/philbgarner/retrolib/blob/9851c78/src/retrolib.ts#L100)
+[retrolib.ts:101](https://github.com/philbgarner/retrolib/blob/3f51de3/src/retrolib.ts#L101)

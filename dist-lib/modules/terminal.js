@@ -65,9 +65,9 @@ export function setCells(startX, startY, text, color, bgColor) {
         setCell(startX + index, startY, character, colr, bgColor);
     });
 }
-export function setRect(x1, x2, w, h, color) {
+export function setRect(x, y, w, h, color) {
     for (var r = 0; r < h; r++) {
-        setCells(x1, x2 + r, ' '.repeat(w), color, color);
+        setCells(x, y + r, ' '.repeat(w), color, color);
     }
 }
 export function getCell(x, y) {
@@ -90,10 +90,34 @@ export function drawBox(x, y, w, h, color, bgColor, borderStyle) {
         setRect(x, y, w, h, bgColor);
     }
     if (borderStyle === BoxBorder.Single && h >= 2) {
-        for (var row = y + 1; row < h - 1; row++) {
-            setCell(x, row, '│', color, bgColor);
-            setCell(x + w, row, '│', color, bgColor);
+        setCells(x, y, '─'.repeat(w), color, bgColor);
+        setCell(x, y, '┌', color, bgColor);
+        setCell(x + w - 1, y, '┐', color, bgColor);
+        for (var row = 1; row < h - 1; row++) {
+            setCell(x, y + row, '│', color, bgColor);
+            setCell(x + w - 1, y + row, '│', color, bgColor);
         }
+        setCells(x, y + h - 1, '─'.repeat(w), color, bgColor);
+        setCell(x, y + h - 1, '└', color, bgColor);
+        setCell(x + w - 1, y + h - 1, '┘', color, bgColor);
+    }
+    else if (borderStyle === BoxBorder.Double && h >= 2) {
+        setCells(x, y, '═'.repeat(w), color, bgColor);
+        setCell(x, y, '╔', color, bgColor);
+        setCell(x + w - 1, y, '╗', color, bgColor);
+        for (var row = 1; row < h - 1; row++) {
+            setCell(x, y + row, '║', color, bgColor);
+            setCell(x + w - 1, y + row, '║', color, bgColor);
+        }
+        setCells(x, y + h - 1, '═'.repeat(w), color, bgColor);
+        setCell(x, y + h - 1, '╚', color, bgColor);
+        setCell(x + w - 1, y + h - 1, '╝', color, bgColor);
+    }
+}
+export function drawTitleBox(title, x, y, w, h, color, bgColor, borderStyle) {
+    drawBox(x, y, w, h, color, bgColor, borderStyle);
+    if (w > 5) {
+        setCells(x + 1, y, '[ ' + title + ' ]', color, bgColor);
     }
 }
 export function Initialize() {

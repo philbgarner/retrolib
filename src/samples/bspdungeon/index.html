@@ -8,7 +8,6 @@
             retrolib.setCanvasBackground('black')
             retrolib.initialize('gamecanvas', 720, 400, true, true)
             let ctx = retrolib.gameCanvas.getContext('2d')
-            
             var playerX = 15
             var playerY = 15
 
@@ -25,17 +24,7 @@
                 return cellTypes
             })
 
-            retrolib.map.GenerateCellsDungeonBSP(6, 6)
-
-            // retrolib.map.GenerateCellsVoronoi([
-            //     { x: 15, y: 5, id: 0 },
-            //     { x: 45, y: 5, id: 1 },
-            //     { x: 30, y: 20, id: 2 },
-            // ], [
-            //     'ground',
-            //     'trees,ground',
-            //     'water',
-            // ], cellTypes)
+            var bsp = retrolib.map.GenerateCellsDungeonBSP(6, 6)
             
             function drawPlayer() {            
                 retrolib.terminal.clear()
@@ -59,7 +48,19 @@
     
                 retrolib.terminal.setCell(playerX, playerY, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 })
 
-                retrolib.terminal.drawTitleBox('Cell Info', 60, 0, 20, 25, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 }, 2)
+                var rooms = []
+                function listRooms(rms) {
+                    if (rms.children.length === 0) {
+                        rooms.push(rms)
+                    } else {
+                        rms.children.forEach(rm => {
+                            listRooms(rm)
+                        })
+                    }
+                }
+                listRooms(bsp)
+                console.log('room>>', bsp, 'rooms>>', rooms)
+                rooms.forEach(room => retrolib.terminal.drawBox(room.x, room.y, room.w, room.h, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 }, 1))
             }
            
             drawPlayer()

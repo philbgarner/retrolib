@@ -1,4 +1,6 @@
 import { loadDefaultFonts } from './modules/font';
+import * as postprocessing_1 from './modules/postprocessing';
+export { postprocessing_1 as postprocessing };
 import * as images_1 from './modules/images';
 export { images_1 as images };
 import * as font_1 from './modules/font';
