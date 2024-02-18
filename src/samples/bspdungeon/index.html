@@ -24,7 +24,9 @@
                 return cellTypes
             })
 
-            var bsp = retrolib.map.GenerateCellsDungeonBSP(6, 6)
+            var [bsp, rooms] = retrolib.map.GenerateCellsDungeonBSP(6, 6)
+            console.log('bsp =', bsp, 'rooms =', rooms)
+            retrolib.map.setAllExplored()
             
             function drawPlayer() {            
                 retrolib.terminal.clear()
@@ -33,34 +35,24 @@
                 explored.forEach((mapCell) => {
                     retrolib.terminal.setCell(mapCell.x, mapCell.y,
                         mapCell.cellType.characters[0],
-                        { r: 64, g: 56, b: 74, a: 150 },
-                        null)
-                })
-                
-                let cells = retrolib.map.fov(4, playerX, playerY, [])
-                cells.forEach((mapCell) => {
-                    retrolib.terminal.setCell(mapCell.x, mapCell.y,
-                        mapCell.cellType.characters[0],
                         mapCell.cellType.colors[0],
                         mapCell.cellType.bgColor)
                 })
+                
+                // let cells = retrolib.map.fov(4, playerX, playerY, [])
+                // cells.forEach((mapCell) => {
+                //     retrolib.terminal.setCell(mapCell.x, mapCell.y,
+                //         mapCell.cellType.characters[0],
+                //         mapCell.cellType.colors[0],
+                //         mapCell.cellType.bgColor)
+                // })
 
     
                 retrolib.terminal.setCell(playerX, playerY, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 })
-
-                var rooms = []
-                function listRooms(rms) {
-                    if (rms.children.length === 0) {
-                        rooms.push(rms)
-                    } else {
-                        rms.children.forEach(rm => {
-                            listRooms(rm)
-                        })
-                    }
+                
+                if (retrolib.input.inputPressed('action')) {
+                    rooms.forEach(room => retrolib.terminal.drawBox(room.x, room.y, room.w, room.h, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 }, 1))
                 }
-                listRooms(bsp)
-                console.log('room>>', bsp, 'rooms>>', rooms)
-                rooms.forEach(room => retrolib.terminal.drawBox(room.x, room.y, room.w, room.h, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 }, 1))
             }
            
             drawPlayer()

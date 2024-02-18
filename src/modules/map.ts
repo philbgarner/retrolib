@@ -1,6 +1,6 @@
 import { randInt } from "./random"
 import { ColorRGBA } from "./font"
-import { Coordinates } from "../retrolib"
+import { Coordinates, Rect } from "../retrolib"
 
 export let width: number
 export let height: number
@@ -13,12 +13,13 @@ export let corners: EdgeCoordinate[] = []
 export let middles: VoronoiCoordinate[] = []
 export let voronoiRegions: VoronoiRegion[] = []
 
-export type DungeonBSP = {
+export type RoomsBSP = {
     x: number,
     y: number,
     w: number,
     h: number,
-    children: DungeonBSP[]
+    parent: RoomsBSP,
+    children: RoomsBSP[]
 }
 
 export type VoronoiCoordinate = {
@@ -106,11 +107,14 @@ export function distance(x1: number, y1: number, x2: number, y2: number) {
     return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 }
 
-export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wallCellType?: CellType) {
+export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wallCellType?: CellType, maxIterations?: number) {
     // Initialize the grid with unexplored, unlit and blocked cells (unless otherwise specified).
     clearMap()
 
+    maxIterations = maxIterations === undefined ? 60 : maxIterations
+    
     wallCellType = wallCellType === undefined ? { name: 'Block Wall', group: 'walls', colors: [{ r: 255, g: 255, b: 255, a: 255 }, { r: 200, g: 200, b: 200, a: 255 }], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true } : wallCellType
+    Initialize(width, height, () => [wallCellType])
 
     for (let y = 0; y < height; y++) {
         const cols: MapCell[] = []
@@ -123,78 +127,99 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wal
 
     // Partition map space into leaves on a tree.
 
-    const dungeon: DungeonBSP = {
+    const dungeon: RoomsBSP = {
         x: 0, y: 0, w: width, h: height,
+        parent: null,
         children: []
     }
 
-    const rooms: DungeonBSP[] = []
-    function divideSpace(leaf: DungeonBSP, depth?: number, maxDepth?: number) {
+    let deepestLeaf = 0
+    const zones: RoomsBSP[] = []
+    function divideSpace(leaf: RoomsBSP, depth?: number, maxDepth?: number): RoomsBSP[] {
         if (leaf.w < minWidth || leaf.h < minHeight) {
             return
         }
         depth = depth ? depth : 0
-        maxDepth = maxDepth ? maxDepth : 10
+        maxDepth = maxDepth ? maxDepth : 8
         if (depth > maxDepth) {
             return
         }
 
-        function horizontal(pos?: number) {
-            const randPos = pos ? pos : randInt(minWidth, leaf.w - minWidth)
-            const leafLeft = { x: leaf.x, y: leaf.y, w: randPos, h: leaf.h, children: [] }
-            leaf.children.push(leafLeft)
-            if (leafLeft.w > minWidth && leafLeft.x > 0) {
-                divideSpace(leafLeft, depth + 1)
-            } else if (leafLeft.h < minHeight && leafLeft.y > 0) {
-                divideSpace(leafLeft, depth + 1)
+        deepestLeaf = depth > deepestLeaf ? depth : deepestLeaf
+
+        function horizontal(iteration?: number) {
+            iteration = iteration === undefined ? 0 : iteration
+            if (iteration > maxIterations) {
+                return
             }
-            const leafRight = { x: leaf.x + randPos, y: leaf.y, w: leaf.w - randPos, h: leaf.h, children: [] }
-            console.log('horizontal', randPos, 'left', leafLeft, 'right', leafRight, 'children', leaf.children)
-            leaf.children.push(leafRight)
-            if (leafRight.w > minWidth && leafRight.x > 0) {
-                divideSpace(leafRight, depth + 1)
-            } else if (leafRight.h < minHeight && leafRight.y > 0) {
-                divideSpace(leafRight, depth + 1)
+
+            const randPos = randInt(minWidth, leaf.w - 1 - minWidth)
+            const leafLeft = { x: leaf.x, y: leaf.y, w: randPos, h: leaf.h, children: [], parent: leaf }
+            const leafRight = { x: leaf.x + randPos, y: leaf.y, w: leaf.w - randPos, h: leaf.h, children: [], parent: leaf }
+
+            if (leafLeft.w < minWidth || leafRight.w < minWidth) {
+                return horizontal(iteration + 1)
             }
+
+            return [leafLeft, leafRight]
         }
 
-        function vertical(pos?: number) {
-            const randPos = pos ? pos : randInt(minHeight, leaf.h - minHeight)
-            const leafTop = { x: leaf.x, y: leaf.y, w: leaf.w, h: randPos, children: [] }
-            leaf.children.push(leafTop)
-            if (leafTop.h > minHeight && leafTop.y > 0) {
-                divideSpace(leafTop, depth + 1)
-            } else if (leafTop.w < minWidth && leafTop.x > 0) {
-                divideSpace(leafTop, depth + 1)
+        function vertical(iteration?: number) {
+            iteration = iteration === undefined ? 0 : iteration
+
+            if (iteration > maxIterations) {
+                return []
             }
-            const leafBottom = { x: leaf.x, y: leaf.y + randPos, w: leaf.w, h: leaf.h - randPos, children: [] }
-            console.log('vertical', randPos, 'top', leafTop, 'right', leafBottom, 'children', leaf.children)
-            leaf.children.push(leafBottom)
-            if (leafBottom.h > minHeight && leafBottom.y > 0) {
-                divideSpace(leafBottom, depth + 1)
-            } else if (leafBottom.w < minWidth && leafBottom.x > 0) {
-                divideSpace(leafBottom, depth + 1)
+
+            const randPos =  randInt(minHeight, leaf.h - 1 - minHeight)
+            const leafTop = { x: leaf.x, y: leaf.y, w: leaf.w, h: randPos, children: [], parent: leaf }
+            const leafBottom = { x: leaf.x, y: leaf.y + randPos, w: leaf.w, h: leaf.h - randPos, children: [], parent: leaf }
+
+            if (leafTop.h < minHeight || leafBottom.h < minHeight) {
+                return vertical(iteration + 1)
             }
+
+            return [leafTop, leafBottom]
         }
 
-        if (leaf.h / leaf.w < 1) {
-            horizontal()
-        } else if (leaf.w / leaf.h < 1) {
-            vertical()
+        
+        const splitDir = randInt(0, 1) === 0 ? 'horizontal' : 'vertical'
+        
+        if (splitDir === 'horizontal') {
+            leaf.children.push(...horizontal())
+            leaf.children.forEach(child => divideSpace(child, depth + 1, maxDepth))
         } else {
-            const splitDir = randInt(0, 1) === 0 ? 'horizontal' : 'vertical'
-    
-            if (splitDir === 'horizontal') {
-                horizontal()
-            } else {
-                vertical()
-            }
+            leaf.children.push(...vertical())
+            leaf.children.forEach(child => divideSpace(child, depth + 1, maxDepth))
         }
     }
     divideSpace(dungeon)
 
-    console.log('rooms', dungeon)
-    return dungeon
+    // Iterate the rooms with no children on the hierarchy and use those zones
+    // to dig cells in the map.
+    var rooms = []
+    function listRooms(rms: RoomsBSP) {
+        if (rms.children.length === 0) {
+            rooms.push(rms)
+        } else {
+            rms.children.forEach(rm => {
+                listRooms(rm)
+            })
+        }
+    }
+    listRooms(dungeon)
+
+    // Dig out rooms.
+    rooms.forEach(room => {
+        const roomRect: Rect = { x: room.x + 1, y: room.y + 1, w: room.w - 2, h: room.h - 2}
+        for (let j = roomRect.y; j < roomRect.y + roomRect.h; j++) {
+            for (let i = roomRect.x; i < roomRect.x + roomRect.w; i++) {
+                setCell({ x: i, y: j, light: 1,
+                    cellType: { name: 'Floor', group: 'floors', characters: ['.'], blockMovement: false, blockVision: false, colors: [{ r: 90, g: 90, b: 90, a: 255 }], bgColor: { r: 0, g: 0, b: 0, a: 255 } } })
+            }
+        }
+    })
+    return [dungeon, rooms, deepestLeaf]
 }
 
 export function getVCell(x: number, y: number) {
@@ -436,6 +461,14 @@ export function setExplored(x: number, y: number) {
         exploredCells[y][x] = true
     } catch {
         // Ignore no-empty lint rule.
+    }
+}
+
+export function setAllExplored() {
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            exploredCells[y][x] = true
+        }
     }
 }
 

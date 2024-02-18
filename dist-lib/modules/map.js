@@ -63,7 +63,7 @@ export function GenerateCellsDungeonBSP(minWidth, minHeight, wallCellType) {
         x: 0, y: 0, w: width, h: height,
         children: []
     };
-    var rooms = [];
+    var zones = [];
     function divideSpace(leaf, depth, maxDepth) {
         if (leaf.w < minWidth || leaf.h < minHeight) {
             return;
@@ -130,7 +130,34 @@ export function GenerateCellsDungeonBSP(minWidth, minHeight, wallCellType) {
         }
     }
     divideSpace(dungeon);
-    console.log('rooms', dungeon);
+    // Iterate the rooms with no children on the hierarchy and use those zones
+    // to dig cells in the map.
+    var rooms = [];
+    function listRooms(rms) {
+        if (rms.children.length === 0) {
+            rooms.push(rms);
+        }
+        else {
+            rms.children.forEach(function (rm) {
+                listRooms(rm);
+            });
+        }
+    }
+    listRooms(zones);
+    console.log('rooms', rooms);
+    rooms.forEach(function (room) {
+        var x = randInt(1, room.w - 2);
+        var y = randInt(1, room.h - 2);
+        var w = randInt(0, room.w - x);
+        var h = randInt(0, room.h - y);
+        var roomRect = { x: x, y: y, w: w, h: h };
+        for (var y_1 = 0; y_1 < roomRect.h; y_1++) {
+            for (var x_1 = 0; x_1 < roomRect.w; x_1++) {
+                setCell({ x: x_1, y: y_1, light: 1,
+                    cellType: { name: 'Floor', group: 'floors', characters: ['.'], blockMovement: false, blockVision: false, colors: [{ r: 90, g: 90, b: 90, a: 255 }], bgColor: { r: 0, g: 0, b: 0, a: 255 } } });
+            }
+        }
+    });
     return dungeon;
 }
 export function getVCell(x, y) {

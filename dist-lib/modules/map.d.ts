@@ -9,12 +9,13 @@ export declare let edges: EdgeCoordinate[];
 export declare let corners: EdgeCoordinate[];
 export declare let middles: VoronoiCoordinate[];
 export declare let voronoiRegions: VoronoiRegion[];
-export type DungeonBSP = {
+export type RoomsBSP = {
     x: number;
     y: number;
     w: number;
     h: number;
-    children: DungeonBSP[];
+    parent: RoomsBSP;
+    children: RoomsBSP[];
 };
 export type VoronoiCoordinate = {
     id: number;
@@ -71,7 +72,7 @@ export interface SelectCellTypesFunction {
  */
 export declare let selectCellTypes: SelectCellTypesFunction;
 export declare function distance(x1: number, y1: number, x2: number, y2: number): number;
-export declare function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wallCellType?: CellType): DungeonBSP;
+export declare function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wallCellType?: CellType, maxIterations?: number): (number | any[] | RoomsBSP)[];
 export declare function getVCell(x: number, y: number): VoronoiCell;
 /**
  * Calculate voronoi regions and populate the map based on the locations of region cells.
@@ -91,6 +92,7 @@ export declare function getCells(filterFn: GetCellsFilterFunction): MapCell[];
 export declare function getCell(x: number, y: number): MapCell;
 export declare function setCell(mapCell: MapCell): void;
 export declare function setExplored(x: number, y: number): void;
+export declare function setAllExplored(): void;
 export declare function isExplored(x: number, y: number): boolean;
 export declare function getExploredCells(): MapCell[];
 export declare function fov(viewRadius: number, x: number, y: number): MapCell[];
