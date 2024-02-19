@@ -1,4 +1,5 @@
 import { ColorRGBA } from "./font";
+import { Coordinates } from "../retrolib";
 export declare let width: number;
 export declare let height: number;
 export declare let mapCells: MapCell[][];
@@ -9,13 +10,26 @@ export declare let edges: EdgeCoordinate[];
 export declare let corners: EdgeCoordinate[];
 export declare let middles: VoronoiCoordinate[];
 export declare let voronoiRegions: VoronoiRegion[];
-export type RoomsBSP = {
+export type RoomBSP = {
     x: number;
     y: number;
     w: number;
     h: number;
-    parent: RoomsBSP;
-    children: RoomsBSP[];
+    id: string;
+    siblingIds: string[];
+    siblings: RoomBSP[];
+    walls: Coordinates[];
+    doors: Coordinates[];
+    floors: Coordinates[];
+};
+export type ZoneBSP = {
+    id: string;
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    parent: ZoneBSP;
+    children: ZoneBSP[];
 };
 export type VoronoiCoordinate = {
     id: number;
@@ -72,7 +86,7 @@ export interface SelectCellTypesFunction {
  */
 export declare let selectCellTypes: SelectCellTypesFunction;
 export declare function distance(x1: number, y1: number, x2: number, y2: number): number;
-export declare function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wallCellType?: CellType, maxIterations?: number): (number | any[] | RoomsBSP)[];
+export declare function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, maxWidth: number, maxHeight: number, wallCellType?: CellType, maxIterations?: number): (RoomBSP[] | ZoneBSP | ZoneBSP[])[];
 export declare function getVCell(x: number, y: number): VoronoiCell;
 /**
  * Calculate voronoi regions and populate the map based on the locations of region cells.

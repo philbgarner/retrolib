@@ -13,13 +13,27 @@ export let corners: EdgeCoordinate[] = []
 export let middles: VoronoiCoordinate[] = []
 export let voronoiRegions: VoronoiRegion[] = []
 
-export type RoomsBSP = {
+export type RoomBSP = {
     x: number,
     y: number,
     w: number,
     h: number,
-    parent: RoomsBSP,
-    children: RoomsBSP[]
+    id: string,
+    siblingIds: string[],
+    siblings: RoomBSP[],
+    walls: Coordinates[],
+    doors: Coordinates[],
+    floors: Coordinates[] 
+}
+
+export type ZoneBSP = {
+    id: string,
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    parent: ZoneBSP,
+    children: ZoneBSP[]
 }
 
 export type VoronoiCoordinate = {
@@ -107,7 +121,7 @@ export function distance(x1: number, y1: number, x2: number, y2: number) {
     return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 }
 
-export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wallCellType?: CellType, maxIterations?: number) {
+export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, maxWidth: number, maxHeight: number, wallCellType?: CellType, maxIterations?: number) {
     // Initialize the grid with unexplored, unlit and blocked cells (unless otherwise specified).
     clearMap()
 
@@ -127,15 +141,16 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wal
 
     // Partition map space into leaves on a tree.
 
-    const dungeon: RoomsBSP = {
+    const dungeon: ZoneBSP = {
+        id: crypto.randomUUID(),
         x: 0, y: 0, w: width, h: height,
         parent: null,
         children: []
     }
 
     let deepestLeaf = 0
-    const zones: RoomsBSP[] = []
-    function divideSpace(leaf: RoomsBSP, depth?: number, maxDepth?: number): RoomsBSP[] {
+    const zones: ZoneBSP[] = []
+    function divideSpace(leaf: ZoneBSP, depth?: number, maxDepth?: number): ZoneBSP[] {
         if (leaf.w < minWidth || leaf.h < minHeight) {
             return
         }
@@ -154,8 +169,8 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wal
             }
 
             const randPos = randInt(minWidth, leaf.w - 1 - minWidth)
-            const leafLeft = { x: leaf.x, y: leaf.y, w: randPos, h: leaf.h, children: [], parent: leaf }
-            const leafRight = { x: leaf.x + randPos, y: leaf.y, w: leaf.w - randPos, h: leaf.h, children: [], parent: leaf }
+            const leafLeft = { x: leaf.x, y: leaf.y, w: randPos, h: leaf.h, children: [], parent: leaf, id: crypto.randomUUID() }
+            const leafRight = { x: leaf.x + randPos, y: leaf.y, w: leaf.w - randPos, h: leaf.h, children: [], parent: leaf, id: crypto.randomUUID() }
 
             if (leafLeft.w < minWidth || leafRight.w < minWidth) {
                 return horizontal(iteration + 1)
@@ -172,8 +187,8 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wal
             }
 
             const randPos =  randInt(minHeight, leaf.h - 1 - minHeight)
-            const leafTop = { x: leaf.x, y: leaf.y, w: leaf.w, h: randPos, children: [], parent: leaf }
-            const leafBottom = { x: leaf.x, y: leaf.y + randPos, w: leaf.w, h: leaf.h - randPos, children: [], parent: leaf }
+            const leafTop = { x: leaf.x, y: leaf.y, w: leaf.w, h: randPos, children: [], parent: leaf, id: crypto.randomUUID() }
+            const leafBottom = { x: leaf.x, y: leaf.y + randPos, w: leaf.w, h: leaf.h - randPos, children: [], parent: leaf, id: crypto.randomUUID() }
 
             if (leafTop.h < minHeight || leafBottom.h < minHeight) {
                 return vertical(iteration + 1)
@@ -197,10 +212,9 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wal
 
     // Iterate the rooms with no children on the hierarchy and use those zones
     // to dig cells in the map.
-    var rooms = []
-    function listRooms(rms: RoomsBSP) {
+    function listRooms(rms: ZoneBSP) {
         if (rms.children.length === 0) {
-            rooms.push(rms)
+            zones.push(rms)
         } else {
             rms.children.forEach(rm => {
                 listRooms(rm)
@@ -209,17 +223,36 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, wal
     }
     listRooms(dungeon)
 
+    const rooms: RoomBSP[] = []
     // Dig out rooms.
-    rooms.forEach(room => {
-        const roomRect: Rect = { x: room.x + 1, y: room.y + 1, w: room.w - 2, h: room.h - 2}
+    zones.forEach(zone => {
+        let w = zone.w - 2
+        let h = zone.h - 2
+        if (w > minWidth) {
+            w = randInt(minWidth, maxWidth > zone.w - 2 ? zone.w - 2 : maxWidth)
+        }
+        if (h > minHeight) {
+            h = randInt(minHeight, maxHeight > zone.h - 2 ? zone.h - 2 : maxHeight)
+        }
+        
+        const roomRect: Rect = { x: zone.x + 1, y: zone.y + 1, w: w, h: h }
+        const newRoom = { id: zone.id, x: roomRect.x, y: roomRect.y, w: roomRect.w, h: roomRect.h, siblings: [], siblingIds: zone.parent.children.filter(f => f.id !== zone.id).map(m => m.id), floors: [], walls: [], doors: []}
+        rooms.push(newRoom)
         for (let j = roomRect.y; j < roomRect.y + roomRect.h; j++) {
             for (let i = roomRect.x; i < roomRect.x + roomRect.w; i++) {
+                newRoom.floors.push({ x: i, y: i })
                 setCell({ x: i, y: j, light: 1,
                     cellType: { name: 'Floor', group: 'floors', characters: ['.'], blockMovement: false, blockVision: false, colors: [{ r: 90, g: 90, b: 90, a: 255 }], bgColor: { r: 0, g: 0, b: 0, a: 255 } } })
             }
         }
     })
-    return [dungeon, rooms, deepestLeaf]
+    // Calculate siblings.
+    rooms.forEach(room => {
+        room.siblings = rooms.filter(f => room.siblingIds.includes(f.id))
+        console.log('room', room)
+    })
+
+    return [dungeon, zones, rooms]
 }
 
 export function getVCell(x: number, y: number) {
