@@ -20,11 +20,11 @@
 
             retrolib.terminal.Initialize()
 
-            retrolib.map.Initialize(80, 25, (x, y) => {
+            retrolib.map.Initialize(25, 25, (x, y) => {
                 return cellTypes
             })
 
-            var [bsp, rooms] = retrolib.map.GenerateCellsDungeonBSP(10, 6, 20, 12)
+            var [bsp, rooms] = retrolib.map.GenerateCellsDungeonBSP(6, 6, 8, 8)
             console.log('bsp =', bsp, 'rooms =', rooms)
             retrolib.map.setAllExplored()
             
@@ -48,11 +48,14 @@
                 // })
 
     
-                retrolib.terminal.setCell(playerX, playerY, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 })
                 
                 if (retrolib.input.inputPressed('action')) {
                     rooms.forEach(room => retrolib.terminal.drawBox(room.x, room.y, room.w, room.h, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 }, 1))
                 }
+                
+                retrolib.terminal.setCell(playerX, playerY, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 })
+                retrolib.terminal.setCells(playerX, playerY + 1, `${playerX},${playerY}`, { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 })
+                
             }
            
             drawPlayer()

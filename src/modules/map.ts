@@ -224,7 +224,7 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
     listRooms(dungeon)
 
     const rooms: RoomBSP[] = []
-    // Dig out rooms.
+    // Calculate rooms.
     zones.forEach(zone => {
         let w = zone.w - 2
         let h = zone.h - 2
@@ -234,22 +234,76 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
         if (h > minHeight) {
             h = randInt(minHeight, maxHeight > zone.h - 2 ? zone.h - 2 : maxHeight)
         }
+        const x = randInt(1, zone.w - w - 1)
+        const y = randInt(1, zone.h - h - 1)
         
-        const roomRect: Rect = { x: zone.x + 1, y: zone.y + 1, w: w, h: h }
+        const roomRect: Rect = { x: zone.x + x, y: zone.y + y, w: w, h: h }
         const newRoom = { id: zone.id, x: roomRect.x, y: roomRect.y, w: roomRect.w, h: roomRect.h, siblings: [], siblingIds: zone.parent.children.filter(f => f.id !== zone.id).map(m => m.id), floors: [], walls: [], doors: []}
-        rooms.push(newRoom)
+        
+        // Calculate floors.
         for (let j = roomRect.y; j < roomRect.y + roomRect.h; j++) {
             for (let i = roomRect.x; i < roomRect.x + roomRect.w; i++) {
-                newRoom.floors.push({ x: i, y: i })
-                setCell({ x: i, y: j, light: 1,
-                    cellType: { name: 'Floor', group: 'floors', characters: ['.'], blockMovement: false, blockVision: false, colors: [{ r: 90, g: 90, b: 90, a: 255 }], bgColor: { r: 0, g: 0, b: 0, a: 255 } } })
+                newRoom.floors.push({ x: i, y: j })
             }
         }
+        
+        // Calculate Walls.
+        for (let j = roomRect.y - 1; j < roomRect.y + roomRect.h + 1; j++) {
+            newRoom.walls.push({ x: roomRect.x - 1, y: j })
+            newRoom.walls.push({ x: roomRect.x + roomRect.w, y: j })
+        }
+        for (let i = roomRect.x; i < roomRect.x + roomRect.w; i++) {
+            newRoom.walls.push({ x: i, y: roomRect.y - 1 })
+            newRoom.walls.push({ x: i, y: roomRect.y + roomRect.h })
+        }
+
+        rooms.push(newRoom)
     })
     // Calculate siblings.
     rooms.forEach(room => {
         room.siblings = rooms.filter(f => room.siblingIds.includes(f.id))
-        console.log('room', room)
+        console.log('room', room.id, room.x, room.y, ...room.siblings.map(m => [m.x, m.y]))
+    })
+
+    rooms.forEach(compareFromRoom => {
+        // Calculate doors and connecting corridors.
+        const newRoomMid: Coordinates = { x: compareFromRoom.x + compareFromRoom.w / 2, y: compareFromRoom.y + compareFromRoom.h / 2 }
+        compareFromRoom.siblings.forEach(siblingRoom => {
+            const midRoom: Coordinates = { x: siblingRoom.x + siblingRoom.w / 2, y: siblingRoom.y + siblingRoom.h / 2 }
+            const diffX = midRoom.x - newRoomMid.x
+            const diffY = midRoom.y - newRoomMid.y
+            console.log('diffx', diffX, 'diffy', diffY)
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                // Horizontally aligned
+                if (midRoom.x > newRoomMid.x) {
+                    // This room is to the right.
+                } else {
+                    // This room is to the left.
+                    const wallsStart = compareFromRoom.walls.filter(f => f.x === compareFromRoom.x - 1 && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h)
+                    const wallStartCoords = wallsStart[randInt(0, wallsStart.length - 1)]
+                    if (wallStartCoords) {
+                        const wallEndCoords = siblingRoom.walls.filter(f => f.x === siblingRoom.x + siblingRoom.w && f.y === wallStartCoords.y && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h)
+                        console.log('left', wallStartCoords, wallEndCoords, siblingRoom)
+                        if (wallEndCoords.length > 0) {
+                            for (let l = wallStartCoords.x + 1; l >= wallEndCoords[0].x; l--) {
+                                compareFromRoom.floors.push({ x: l, y: wallStartCoords.y })
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Vertically aligned
+            }
+        })
+    
+    })
+
+    // Dig out floors.
+    rooms.forEach(room => {
+        room.floors.forEach(floor => {
+            setCell({ x: floor.x, y: floor.y, light: 1,
+                cellType: { name: 'Floor', group: 'floors', characters: ['.'], blockMovement: false, blockVision: false, colors: [{ r: 90, g: 90, b: 90, a: 255 }], bgColor: { r: 0, g: 0, b: 0, a: 255 } } })
+        })
     })
 
     return [dungeon, zones, rooms]
