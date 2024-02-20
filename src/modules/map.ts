@@ -13,6 +13,14 @@ export let corners: EdgeCoordinate[] = []
 export let middles: VoronoiCoordinate[] = []
 export let voronoiRegions: VoronoiRegion[] = []
 
+export type Connection = {
+    startDoor: Coordinates,
+    endDoor: Coordinates,
+    startRoom: RoomBSP,
+    endRoom: RoomBSP,
+    floors: Coordinates[]
+}
+
 export type RoomBSP = {
     x: number,
     y: number,
@@ -23,7 +31,8 @@ export type RoomBSP = {
     siblings: RoomBSP[],
     walls: Coordinates[],
     doors: Coordinates[],
-    floors: Coordinates[] 
+    floors: Coordinates[],
+    connections: Connection[]
 }
 
 export type ZoneBSP = {
@@ -238,7 +247,7 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
         const y = randInt(1, zone.h - h - 1)
         
         const roomRect: Rect = { x: zone.x + x, y: zone.y + y, w: w, h: h }
-        const newRoom = { id: zone.id, x: roomRect.x, y: roomRect.y, w: roomRect.w, h: roomRect.h, siblings: [], siblingIds: zone.parent.children.filter(f => f.id !== zone.id).map(m => m.id), floors: [], walls: [], doors: []}
+        const newRoom = { id: zone.id, x: roomRect.x, y: roomRect.y, w: roomRect.w, h: roomRect.h, connections: [], siblings: [], siblingIds: zone.parent.children.filter(f => f.id !== zone.id).map(m => m.id), floors: [], walls: [], doors: []}
         
         // Calculate floors.
         for (let j = roomRect.y; j < roomRect.y + roomRect.h; j++) {
@@ -268,15 +277,31 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
     rooms.forEach(compareFromRoom => {
         // Calculate doors and connecting corridors.
         const newRoomMid: Coordinates = { x: compareFromRoom.x + compareFromRoom.w / 2, y: compareFromRoom.y + compareFromRoom.h / 2 }
-        compareFromRoom.siblings.forEach(siblingRoom => {
+        compareFromRoom.siblings
+        .filter(f => f.connections.filter(c => c.startRoom.id === f.id || c.endRoom.id === f.id).length === 0)
+        .forEach(siblingRoom => {
             const midRoom: Coordinates = { x: siblingRoom.x + siblingRoom.w / 2, y: siblingRoom.y + siblingRoom.h / 2 }
             const diffX = midRoom.x - newRoomMid.x
             const diffY = midRoom.y - newRoomMid.y
-            console.log('diffx', diffX, 'diffy', diffY)
+            const connection: Connection = { startRoom: compareFromRoom, endRoom: siblingRoom, startDoor: null, endDoor: null, floors: [] }
             if (Math.abs(diffX) > Math.abs(diffY)) {
                 // Horizontally aligned
                 if (midRoom.x > newRoomMid.x) {
                     // This room is to the right.
+                    const wallsStart = compareFromRoom.walls.filter(f => f.x === compareFromRoom.x + compareFromRoom.w && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h)
+                    const wallStartCoords = wallsStart[randInt(0, wallsStart.length - 1)]
+                    if (wallStartCoords) {
+                        const wallEndCoords = siblingRoom.walls.filter(f => f.x === siblingRoom.x - 1 && f.y === wallStartCoords.y && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h)
+                        console.log('right', wallStartCoords, wallEndCoords, siblingRoom)
+                        if (wallEndCoords.length > 0) {
+                            for (let l = wallStartCoords.x; l <= wallEndCoords[0].x; l++) {
+                                compareFromRoom.floors.push({ x: l, y: wallStartCoords.y })
+                                connection.startDoor = wallStartCoords
+                                connection.endDoor = wallEndCoords[0]
+                                connection.floors.push({ x: l, y: wallStartCoords.y })
+                            }
+                        }
+                    }
                 } else {
                     // This room is to the left.
                     const wallsStart = compareFromRoom.walls.filter(f => f.x === compareFromRoom.x - 1 && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h)
@@ -287,6 +312,9 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
                         if (wallEndCoords.length > 0) {
                             for (let l = wallStartCoords.x + 1; l >= wallEndCoords[0].x; l--) {
                                 compareFromRoom.floors.push({ x: l, y: wallStartCoords.y })
+                                connection.startDoor = wallStartCoords
+                                connection.endDoor = wallEndCoords[0]
+                                connection.floors.push({ x: l, y: wallStartCoords.y })
                             }
                         }
                     }
@@ -294,6 +322,7 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
             } else {
                 // Vertically aligned
             }
+            compareFromRoom.connections.push(connection)
         })
     
     })

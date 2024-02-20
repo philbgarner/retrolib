@@ -10,6 +10,13 @@ export declare let edges: EdgeCoordinate[];
 export declare let corners: EdgeCoordinate[];
 export declare let middles: VoronoiCoordinate[];
 export declare let voronoiRegions: VoronoiRegion[];
+export type Connection = {
+    startDoor: Coordinates;
+    endDoor: Coordinates;
+    startRoom: RoomBSP;
+    endRoom: RoomBSP;
+    floors: Coordinates[];
+};
 export type RoomBSP = {
     x: number;
     y: number;
@@ -21,6 +28,7 @@ export type RoomBSP = {
     walls: Coordinates[];
     doors: Coordinates[];
     floors: Coordinates[];
+    connections: Connection[];
 };
 export type ZoneBSP = {
     id: string;
