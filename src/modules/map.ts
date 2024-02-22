@@ -247,8 +247,11 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
         const y = randInt(1, zone.h - h - 1)
         
         const roomRect: Rect = { x: zone.x + x, y: zone.y + y, w: w, h: h }
-        const newRoom = { id: zone.id, x: roomRect.x, y: roomRect.y, w: roomRect.w, h: roomRect.h, connections: [], siblings: [], siblingIds: zone.parent.children.filter(f => f.id !== zone.id).map(m => m.id), floors: [], walls: [], doors: []}
+        const newRoom = { id: zone.id, x: roomRect.x, y: roomRect.y, w: roomRect.w, h: roomRect.h,
+            connections: [], siblings: [], siblingIds: zone.parent.children.filter(f => f.id !== zone.id).map(m => m.id),
+            floors: [], walls: [], doors: [] }
         
+
         // Calculate floors.
         for (let j = roomRect.y; j < roomRect.y + roomRect.h; j++) {
             for (let i = roomRect.x; i < roomRect.x + roomRect.w; i++) {
@@ -321,6 +324,40 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
                 }
             } else {
                 // Vertically aligned
+                console.log('vertically aligned', midRoom.y, newRoomMid.yv)
+                if (midRoom.y > newRoomMid.y) {
+                    // This room is to the bottom.
+                    const wallsStart = compareFromRoom.walls.filter(f => f.y === compareFromRoom.y + compareFromRoom.h && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w)
+                    const wallStartCoords = wallsStart[randInt(0, wallsStart.length - 1)]
+                    if (wallStartCoords) {
+                        const wallEndCoords = siblingRoom.walls.filter(f => f.y === siblingRoom.y - 1 && f.x === wallStartCoords.x && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w)
+                        console.log('bottom', wallStartCoords, wallEndCoords, siblingRoom)
+                        if (wallEndCoords.length > 0) {
+                            for (let l = wallStartCoords.y; l <= wallEndCoords[0].y; l++) {
+                                compareFromRoom.floors.push({ x: wallStartCoords.x, y: l })
+                                connection.startDoor = wallStartCoords
+                                connection.endDoor = wallEndCoords[0]
+                                connection.floors.push({ x: wallStartCoords.x, y: l })
+                            }
+                        }
+                    }
+                } else {
+                    // This room is to the top.
+                    const wallsStart = compareFromRoom.walls.filter(f => f.y === compareFromRoom.y - 1 && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w)
+                    const wallStartCoords = wallsStart[randInt(0, wallsStart.length - 1)]
+                    if (wallStartCoords) {
+                        const wallEndCoords = siblingRoom.walls.filter(f => f.y === siblingRoom.y + siblingRoom.h && f.x === wallStartCoords.x && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w)
+                        console.log('top', wallStartCoords, wallEndCoords, siblingRoom)
+                        if (wallEndCoords.length > 0) {
+                            for (let l = wallStartCoords.y + 1; l >= wallEndCoords[0].y; l--) {
+                                compareFromRoom.floors.push({ x: wallStartCoords.x, y: l })
+                                connection.startDoor = wallStartCoords
+                                connection.endDoor = wallEndCoords[0]
+                                connection.floors.push({ x: wallStartCoords.x, y: l })
+                            }
+                        }
+                    }
+                }
             }
             compareFromRoom.connections.push(connection)
         })
