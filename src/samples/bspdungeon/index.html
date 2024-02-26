@@ -24,8 +24,10 @@
                 return cellTypes
             })
 
-            var [bsp, rooms] = retrolib.map.GenerateCellsDungeonBSP(6, 6, 8, 8)
-            console.log('bsp =', bsp, 'rooms =', rooms)
+            var [bsp, zones, rooms] = retrolib.map.GenerateCellsDungeonBSP(6, 6, 8, 8)
+            // console.log('bsp =', bsp, 'rooms =', rooms)
+            // console.log('missing corridors', zones.filter(f => rooms.filter(f => f.connections.length === 0).map(m => m.id).includes(f.id)))
+
             retrolib.map.setAllExplored()
             
             function drawPlayer() {            
@@ -50,9 +52,14 @@
     
                 
                 if (retrolib.input.inputPressed('action')) {
-                    rooms.forEach(room => retrolib.terminal.drawBox(room.x, room.y, room.w, room.h, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 }, 1))
+                    zones.forEach(room => retrolib.terminal.drawBox(room.x, room.y, room.w, room.h, { r: 0, g: 0, b: 0, a: 255 }, { r: 128, g: 128, b: 128, a: 255 }, 1))
                 }
                 
+                rooms.forEach(room => {
+                    retrolib.terminal.setCells(room.x, room.y, room.id.slice(-4), { r: 80   , g: 0, b: 0, a: 255 })
+                })
+
+
                 retrolib.terminal.setCell(playerX, playerY, '@', { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 })
                 retrolib.terminal.setCells(playerX, playerY + 1, `${playerX},${playerY}`, { r: 255, g: 255, b: 0, a: 255 }, { r: 0, g: 0, b: 0, a: 255 })
                 

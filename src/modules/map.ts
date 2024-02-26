@@ -279,17 +279,17 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
 
     rooms.forEach(compareFromRoom => {
         // Calculate doors and connecting corridors.
-        const newRoomMid: Coordinates = { x: compareFromRoom.x + compareFromRoom.w / 2, y: compareFromRoom.y + compareFromRoom.h / 2 }
+        const compareFromRoomMid: Coordinates = { x: compareFromRoom.x + compareFromRoom.w / 2, y: compareFromRoom.y + compareFromRoom.h / 2 }
         compareFromRoom.siblings
         .filter(f => f.connections.filter(c => c.startRoom.id === f.id || c.endRoom.id === f.id).length === 0)
         .forEach(siblingRoom => {
             const midRoom: Coordinates = { x: siblingRoom.x + siblingRoom.w / 2, y: siblingRoom.y + siblingRoom.h / 2 }
-            const diffX = midRoom.x - newRoomMid.x
-            const diffY = midRoom.y - newRoomMid.y
+            const diffX = midRoom.x - compareFromRoomMid.x
+            const diffY = midRoom.y - compareFromRoomMid.y
             const connection: Connection = { startRoom: compareFromRoom, endRoom: siblingRoom, startDoor: null, endDoor: null, floors: [] }
             if (Math.abs(diffX) > Math.abs(diffY)) {
                 // Horizontally aligned
-                if (midRoom.x > newRoomMid.x) {
+                if (midRoom.x > compareFromRoomMid.x) {
                     // This room is to the right.
                     const wallsStart = compareFromRoom.walls.filter(f => f.x === compareFromRoom.x + compareFromRoom.w && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h)
                     const wallStartCoords = wallsStart[randInt(0, wallsStart.length - 1)]
@@ -324,8 +324,8 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
                 }
             } else {
                 // Vertically aligned
-                console.log('vertically aligned', midRoom.y, newRoomMid.yv)
-                if (midRoom.y > newRoomMid.y) {
+                console.log('vertically aligned', midRoom.y > compareFromRoomMid.y, midRoom.y, compareFromRoomMid.y)
+                if (midRoom.y < compareFromRoomMid.y) {
                     // This room is to the bottom.
                     const wallsStart = compareFromRoom.walls.filter(f => f.y === compareFromRoom.y + compareFromRoom.h && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w)
                     const wallStartCoords = wallsStart[randInt(0, wallsStart.length - 1)]
@@ -343,13 +343,13 @@ export function GenerateCellsDungeonBSP(minWidth: number, minHeight: number, max
                     }
                 } else {
                     // This room is to the top.
-                    const wallsStart = compareFromRoom.walls.filter(f => f.y === compareFromRoom.y - 1 && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w)
+                    const wallsStart = compareFromRoom.walls.filter(f => f.y === compareFromRoom.y + compareFromRoom.h && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w)
                     const wallStartCoords = wallsStart[randInt(0, wallsStart.length - 1)]
                     if (wallStartCoords) {
-                        const wallEndCoords = siblingRoom.walls.filter(f => f.y === siblingRoom.y + siblingRoom.h && f.x === wallStartCoords.x && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w)
+                        const wallEndCoords = siblingRoom.walls.filter(f => f.y === siblingRoom.y - 1 && f.x === wallStartCoords.x && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w)
                         console.log('top', wallStartCoords, wallEndCoords, siblingRoom)
                         if (wallEndCoords.length > 0) {
-                            for (let l = wallStartCoords.y + 1; l >= wallEndCoords[0].y; l--) {
+                            for (let l = wallStartCoords.y; l <= wallEndCoords[0].y; l++) {
                                 compareFromRoom.floors.push({ x: wallStartCoords.x, y: l })
                                 connection.startDoor = wallStartCoords
                                 connection.endDoor = wallEndCoords[0]
