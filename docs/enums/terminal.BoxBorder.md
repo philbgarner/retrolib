@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[modules/terminal.ts:104](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L104)
+[modules/terminal.ts:104](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L104)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:102](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L102)
+[modules/terminal.ts:102](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L102)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:103](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L103)
+[modules/terminal.ts:103](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L103)

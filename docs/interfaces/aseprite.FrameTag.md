@@ -23,7 +23,7 @@ Sprite frame tags.
 
 #### Defined in
 
-[modules/aseprite.ts:64](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L64)
+[modules/aseprite.ts:64](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L64)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:62](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L62)
+[modules/aseprite.ts:62](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L62)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:61](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L61)
+[modules/aseprite.ts:61](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L61)
 
 ___
 
@@ -53,4 +53,4 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:63](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L63)
+[modules/aseprite.ts:63](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L63)

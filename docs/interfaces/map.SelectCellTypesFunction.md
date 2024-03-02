@@ -23,4 +23,4 @@
 
 #### Defined in
 
-[modules/map.ts:87](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/map.ts#L87)
+[modules/map.ts:111](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L111)

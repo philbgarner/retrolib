@@ -25,7 +25,7 @@ Animation frame value object.
 
 #### Defined in
 
-[modules/aseprite.ts:20](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L20)
+[modules/aseprite.ts:20](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L20)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:15](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L15)
+[modules/aseprite.ts:15](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L15)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:16](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L16)
+[modules/aseprite.ts:16](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L16)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:19](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L19)
+[modules/aseprite.ts:19](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L19)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:18](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L18)
+[modules/aseprite.ts:18](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L18)
 
 ___
 
@@ -75,4 +75,4 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:17](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/aseprite.ts#L17)
+[modules/aseprite.ts:17](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L17)

@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[modules/terminal.ts:12](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L12)
+[modules/terminal.ts:12](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L12)
 
 ## Variables
 
@@ -65,7 +65,7 @@
 
 #### Defined in
 
-[modules/terminal.ts:20](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L20)
+[modules/terminal.ts:20](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L20)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:21](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L21)
+[modules/terminal.ts:21](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L21)
 
 ## Functions
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:170](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L170)
+[modules/terminal.ts:170](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L170)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:30](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L30)
+[modules/terminal.ts:30](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L30)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:144](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L144)
+[modules/terminal.ts:144](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L144)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:166](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L166)
+[modules/terminal.ts:166](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L166)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:185](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L185)
+[modules/terminal.ts:185](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L185)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:107](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L107)
+[modules/terminal.ts:107](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L107)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:137](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L137)
+[modules/terminal.ts:137](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L137)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:93](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L93)
+[modules/terminal.ts:93](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L93)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:181](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L181)
+[modules/terminal.ts:181](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L181)
 
 ___
 
@@ -247,7 +247,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:192](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L192)
+[modules/terminal.ts:192](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L192)
 
 ___
 
@@ -271,7 +271,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:66](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L66)
+[modules/terminal.ts:66](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L66)
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:75](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L75)
+[modules/terminal.ts:75](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L75)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:177](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L177)
+[modules/terminal.ts:177](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L177)
 
 ___
 
@@ -339,7 +339,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:87](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L87)
+[modules/terminal.ts:87](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L87)
 
 ___
 
@@ -359,7 +359,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:26](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L26)
+[modules/terminal.ts:26](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L26)
 
 ___
 
@@ -379,7 +379,7 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:207](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L207)
+[modules/terminal.ts:207](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L207)
 
 ___
 
@@ -399,4 +399,4 @@ ___
 
 #### Defined in
 
-[modules/terminal.ts:199](https://github.com/philbgarner/retrolib/blob/3f51de3/src/modules/terminal.ts#L199)
+[modules/terminal.ts:199](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/terminal.ts#L199)

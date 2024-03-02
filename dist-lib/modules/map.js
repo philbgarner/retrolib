@@ -46,10 +46,12 @@ export var selectCellTypes = function (x, y) {
 export function distance(x1, y1, x2, y2) {
     return Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
 }
-export function GenerateCellsDungeonBSP(minWidth, minHeight, wallCellType) {
+export function GenerateCellsDungeonBSP(minWidth, minHeight, maxWidth, maxHeight, wallCellType, maxIterations) {
     // Initialize the grid with unexplored, unlit and blocked cells (unless otherwise specified).
     clearMap();
+    maxIterations = maxIterations === undefined ? 60 : maxIterations;
     wallCellType = wallCellType === undefined ? { name: 'Block Wall', group: 'walls', colors: [{ r: 255, g: 255, b: 255, a: 255 }, { r: 200, g: 200, b: 200, a: 255 }], bgColor: null, characters: ['#'], blockVision: true, blockMovement: true } : wallCellType;
+    Initialize(width, height, function () { return [wallCellType]; });
     for (var y = 0; y < height; y++) {
         var cols = [];
         for (var x = 0; x < width; x++) {
@@ -60,82 +62,66 @@ export function GenerateCellsDungeonBSP(minWidth, minHeight, wallCellType) {
     }
     // Partition map space into leaves on a tree.
     var dungeon = {
+        id: crypto.randomUUID(),
         x: 0, y: 0, w: width, h: height,
+        parent: null,
         children: []
     };
+    var deepestLeaf = 0;
     var zones = [];
     function divideSpace(leaf, depth, maxDepth) {
+        var _a, _b;
         if (leaf.w < minWidth || leaf.h < minHeight) {
             return;
         }
         depth = depth ? depth : 0;
-        maxDepth = maxDepth ? maxDepth : 10;
+        maxDepth = maxDepth ? maxDepth : 8;
         if (depth > maxDepth) {
             return;
         }
-        function horizontal(pos) {
-            var randPos = pos ? pos : randInt(minWidth, leaf.w - minWidth);
-            var leafLeft = { x: leaf.x, y: leaf.y, w: randPos, h: leaf.h, children: [] };
-            leaf.children.push(leafLeft);
-            if (leafLeft.w > minWidth && leafLeft.x > 0) {
-                divideSpace(leafLeft, depth + 1);
+        deepestLeaf = depth > deepestLeaf ? depth : deepestLeaf;
+        function horizontal(iteration) {
+            iteration = iteration === undefined ? 0 : iteration;
+            if (iteration > maxIterations) {
+                return;
             }
-            else if (leafLeft.h < minHeight && leafLeft.y > 0) {
-                divideSpace(leafLeft, depth + 1);
+            var randPos = randInt(minWidth, leaf.w - 1 - minWidth);
+            var leafLeft = { x: leaf.x, y: leaf.y, w: randPos, h: leaf.h, children: [], parent: leaf, id: crypto.randomUUID() };
+            var leafRight = { x: leaf.x + randPos, y: leaf.y, w: leaf.w - randPos, h: leaf.h, children: [], parent: leaf, id: crypto.randomUUID() };
+            if (leafLeft.w < minWidth || leafRight.w < minWidth) {
+                return horizontal(iteration + 1);
             }
-            var leafRight = { x: leaf.x + randPos, y: leaf.y, w: leaf.w - randPos, h: leaf.h, children: [] };
-            console.log('horizontal', randPos, 'left', leafLeft, 'right', leafRight, 'children', leaf.children);
-            leaf.children.push(leafRight);
-            if (leafRight.w > minWidth && leafRight.x > 0) {
-                divideSpace(leafRight, depth + 1);
-            }
-            else if (leafRight.h < minHeight && leafRight.y > 0) {
-                divideSpace(leafRight, depth + 1);
-            }
+            return [leafLeft, leafRight];
         }
-        function vertical(pos) {
-            var randPos = pos ? pos : randInt(minHeight, leaf.h - minHeight);
-            var leafTop = { x: leaf.x, y: leaf.y, w: leaf.w, h: randPos, children: [] };
-            leaf.children.push(leafTop);
-            if (leafTop.h > minHeight && leafTop.y > 0) {
-                divideSpace(leafTop, depth + 1);
+        function vertical(iteration) {
+            iteration = iteration === undefined ? 0 : iteration;
+            if (iteration > maxIterations) {
+                return [];
             }
-            else if (leafTop.w < minWidth && leafTop.x > 0) {
-                divideSpace(leafTop, depth + 1);
+            var randPos = randInt(minHeight, leaf.h - 1 - minHeight);
+            var leafTop = { x: leaf.x, y: leaf.y, w: leaf.w, h: randPos, children: [], parent: leaf, id: crypto.randomUUID() };
+            var leafBottom = { x: leaf.x, y: leaf.y + randPos, w: leaf.w, h: leaf.h - randPos, children: [], parent: leaf, id: crypto.randomUUID() };
+            if (leafTop.h < minHeight || leafBottom.h < minHeight) {
+                return vertical(iteration + 1);
             }
-            var leafBottom = { x: leaf.x, y: leaf.y + randPos, w: leaf.w, h: leaf.h - randPos, children: [] };
-            console.log('vertical', randPos, 'top', leafTop, 'right', leafBottom, 'children', leaf.children);
-            leaf.children.push(leafBottom);
-            if (leafBottom.h > minHeight && leafBottom.y > 0) {
-                divideSpace(leafBottom, depth + 1);
-            }
-            else if (leafBottom.w < minWidth && leafBottom.x > 0) {
-                divideSpace(leafBottom, depth + 1);
-            }
+            return [leafTop, leafBottom];
         }
-        if (leaf.h / leaf.w < 1) {
-            horizontal();
-        }
-        else if (leaf.w / leaf.h < 1) {
-            vertical();
+        var splitDir = randInt(0, 1) === 0 ? 'horizontal' : 'vertical';
+        if (splitDir === 'horizontal') {
+            (_a = leaf.children).push.apply(_a, horizontal());
+            leaf.children.forEach(function (child) { return divideSpace(child, depth + 1, maxDepth); });
         }
         else {
-            var splitDir = randInt(0, 1) === 0 ? 'horizontal' : 'vertical';
-            if (splitDir === 'horizontal') {
-                horizontal();
-            }
-            else {
-                vertical();
-            }
+            (_b = leaf.children).push.apply(_b, vertical());
+            leaf.children.forEach(function (child) { return divideSpace(child, depth + 1, maxDepth); });
         }
     }
     divideSpace(dungeon);
     // Iterate the rooms with no children on the hierarchy and use those zones
     // to dig cells in the map.
-    var rooms = [];
     function listRooms(rms) {
         if (rms.children.length === 0) {
-            rooms.push(rms);
+            zones.push(rms);
         }
         else {
             rms.children.forEach(function (rm) {
@@ -143,22 +129,142 @@ export function GenerateCellsDungeonBSP(minWidth, minHeight, wallCellType) {
             });
         }
     }
-    listRooms(zones);
-    console.log('rooms', rooms);
-    rooms.forEach(function (room) {
-        var x = randInt(1, room.w - 2);
-        var y = randInt(1, room.h - 2);
-        var w = randInt(0, room.w - x);
-        var h = randInt(0, room.h - y);
-        var roomRect = { x: x, y: y, w: w, h: h };
-        for (var y_1 = 0; y_1 < roomRect.h; y_1++) {
-            for (var x_1 = 0; x_1 < roomRect.w; x_1++) {
-                setCell({ x: x_1, y: y_1, light: 1,
-                    cellType: { name: 'Floor', group: 'floors', characters: ['.'], blockMovement: false, blockVision: false, colors: [{ r: 90, g: 90, b: 90, a: 255 }], bgColor: { r: 0, g: 0, b: 0, a: 255 } } });
+    listRooms(dungeon);
+    var rooms = [];
+    // Calculate rooms.
+    zones.forEach(function (zone) {
+        var w = zone.w - 2;
+        var h = zone.h - 2;
+        if (w > minWidth) {
+            w = randInt(minWidth, maxWidth > zone.w - 2 ? zone.w - 2 : maxWidth);
+        }
+        if (h > minHeight) {
+            h = randInt(minHeight, maxHeight > zone.h - 2 ? zone.h - 2 : maxHeight);
+        }
+        var x = randInt(1, zone.w - w - 1);
+        var y = randInt(1, zone.h - h - 1);
+        var roomRect = { x: zone.x + x, y: zone.y + y, w: w, h: h };
+        var newRoom = { id: zone.id, x: roomRect.x, y: roomRect.y, w: roomRect.w, h: roomRect.h,
+            connections: [], siblings: [], siblingIds: zone.parent.children.filter(function (f) { return f.id !== zone.id; }).map(function (m) { return m.id; }),
+            floors: [], walls: [], doors: [] };
+        // Calculate floors.
+        for (var j = roomRect.y; j < roomRect.y + roomRect.h; j++) {
+            for (var i = roomRect.x; i < roomRect.x + roomRect.w; i++) {
+                newRoom.floors.push({ x: i, y: j });
             }
         }
+        // Calculate Walls.
+        for (var j = roomRect.y - 1; j < roomRect.y + roomRect.h + 1; j++) {
+            newRoom.walls.push({ x: roomRect.x - 1, y: j });
+            newRoom.walls.push({ x: roomRect.x + roomRect.w, y: j });
+        }
+        for (var i = roomRect.x; i < roomRect.x + roomRect.w; i++) {
+            newRoom.walls.push({ x: i, y: roomRect.y - 1 });
+            newRoom.walls.push({ x: i, y: roomRect.y + roomRect.h });
+        }
+        rooms.push(newRoom);
     });
-    return dungeon;
+    // Calculate siblings.
+    rooms.forEach(function (room) {
+        room.siblings = rooms.filter(function (f) { return room.siblingIds.includes(f.id); });
+        console.log.apply(console, __spreadArray(['room', room.id, room.x, room.y], room.siblings.map(function (m) { return [m.x, m.y]; }), false));
+    });
+    rooms.forEach(function (compareFromRoom) {
+        // Calculate doors and connecting corridors.
+        var compareFromRoomMid = { x: compareFromRoom.x + compareFromRoom.w / 2, y: compareFromRoom.y + compareFromRoom.h / 2 };
+        compareFromRoom.siblings
+            .filter(function (f) { return f.connections.filter(function (c) { return c.startRoom.id === f.id || c.endRoom.id === f.id; }).length === 0; })
+            .forEach(function (siblingRoom) {
+            var midRoom = { x: siblingRoom.x + siblingRoom.w / 2, y: siblingRoom.y + siblingRoom.h / 2 };
+            var diffX = midRoom.x - compareFromRoomMid.x;
+            var diffY = midRoom.y - compareFromRoomMid.y;
+            var connection = { startRoom: compareFromRoom, endRoom: siblingRoom, startDoor: null, endDoor: null, floors: [] };
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                // Horizontally aligned
+                if (midRoom.x > compareFromRoomMid.x) {
+                    // This room is to the right.
+                    var wallsStart = compareFromRoom.walls.filter(function (f) { return f.x === compareFromRoom.x + compareFromRoom.w && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h; });
+                    var wallStartCoords_1 = wallsStart[randInt(0, wallsStart.length - 1)];
+                    if (wallStartCoords_1) {
+                        var wallEndCoords = siblingRoom.walls.filter(function (f) { return f.x === siblingRoom.x - 1 && f.y === wallStartCoords_1.y && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h; });
+                        console.log('right', wallStartCoords_1, wallEndCoords, siblingRoom);
+                        if (wallEndCoords.length > 0) {
+                            for (var l = wallStartCoords_1.x; l <= wallEndCoords[0].x; l++) {
+                                compareFromRoom.floors.push({ x: l, y: wallStartCoords_1.y });
+                                connection.startDoor = wallStartCoords_1;
+                                connection.endDoor = wallEndCoords[0];
+                                connection.floors.push({ x: l, y: wallStartCoords_1.y });
+                            }
+                        }
+                    }
+                }
+                else {
+                    // This room is to the left.
+                    var wallsStart = compareFromRoom.walls.filter(function (f) { return f.x === compareFromRoom.x - 1 && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h; });
+                    var wallStartCoords_2 = wallsStart[randInt(0, wallsStart.length - 1)];
+                    if (wallStartCoords_2) {
+                        var wallEndCoords = siblingRoom.walls.filter(function (f) { return f.x === siblingRoom.x + siblingRoom.w && f.y === wallStartCoords_2.y && f.y > siblingRoom.y && f.y < siblingRoom.y + siblingRoom.h; });
+                        console.log('left', wallStartCoords_2, wallEndCoords, siblingRoom);
+                        if (wallEndCoords.length > 0) {
+                            for (var l = wallStartCoords_2.x + 1; l >= wallEndCoords[0].x; l--) {
+                                compareFromRoom.floors.push({ x: l, y: wallStartCoords_2.y });
+                                connection.startDoor = wallStartCoords_2;
+                                connection.endDoor = wallEndCoords[0];
+                                connection.floors.push({ x: l, y: wallStartCoords_2.y });
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                // Vertically aligned
+                console.log('vertically aligned', midRoom.y > compareFromRoomMid.y, midRoom.y, compareFromRoomMid.y);
+                if (midRoom.y < compareFromRoomMid.y) {
+                    // This room is to the bottom.
+                    var wallsStart = compareFromRoom.walls.filter(function (f) { return f.y === compareFromRoom.y + compareFromRoom.h && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w; });
+                    var wallStartCoords_3 = wallsStart[randInt(0, wallsStart.length - 1)];
+                    if (wallStartCoords_3) {
+                        var wallEndCoords = siblingRoom.walls.filter(function (f) { return f.y === siblingRoom.y - 1 && f.x === wallStartCoords_3.x && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w; });
+                        console.log('bottom', wallStartCoords_3, wallEndCoords, siblingRoom);
+                        if (wallEndCoords.length > 0) {
+                            for (var l = wallStartCoords_3.y; l <= wallEndCoords[0].y; l++) {
+                                compareFromRoom.floors.push({ x: wallStartCoords_3.x, y: l });
+                                connection.startDoor = wallStartCoords_3;
+                                connection.endDoor = wallEndCoords[0];
+                                connection.floors.push({ x: wallStartCoords_3.x, y: l });
+                            }
+                        }
+                    }
+                }
+                else {
+                    // This room is to the top.
+                    var wallsStart = compareFromRoom.walls.filter(function (f) { return f.y === compareFromRoom.y + compareFromRoom.h && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w; });
+                    var wallStartCoords_4 = wallsStart[randInt(0, wallsStart.length - 1)];
+                    if (wallStartCoords_4) {
+                        var wallEndCoords = siblingRoom.walls.filter(function (f) { return f.y === siblingRoom.y - 1 && f.x === wallStartCoords_4.x && f.x > siblingRoom.x && f.x < siblingRoom.x + siblingRoom.w; });
+                        console.log('top', wallStartCoords_4, wallEndCoords, siblingRoom);
+                        if (wallEndCoords.length > 0) {
+                            for (var l = wallStartCoords_4.y; l <= wallEndCoords[0].y; l++) {
+                                compareFromRoom.floors.push({ x: wallStartCoords_4.x, y: l });
+                                connection.startDoor = wallStartCoords_4;
+                                connection.endDoor = wallEndCoords[0];
+                                connection.floors.push({ x: wallStartCoords_4.x, y: l });
+                            }
+                        }
+                    }
+                }
+            }
+            compareFromRoom.connections.push(connection);
+        });
+    });
+    // Dig out floors.
+    rooms.forEach(function (room) {
+        room.floors.forEach(function (floor) {
+            setCell({ x: floor.x, y: floor.y, light: 1,
+                cellType: { name: 'Floor', group: 'floors', characters: ['.'], blockMovement: false, blockVision: false, colors: [{ r: 90, g: 90, b: 90, a: 255 }], bgColor: { r: 0, g: 0, b: 0, a: 255 } } });
+        });
+    });
+    return [dungeon, zones, rooms];
 }
 export function getVCell(x, y) {
     if (x < 0 || x > width - 1 || y < 0 || y > height - 1) {
@@ -383,6 +489,13 @@ export function setExplored(x, y) {
     }
     catch (_a) {
         // Ignore no-empty lint rule.
+    }
+}
+export function setAllExplored() {
+    for (var y = 0; y < height; y++) {
+        for (var x = 0; x < width; x++) {
+            exploredCells[y][x] = true;
+        }
     }
 }
 export function isExplored(x, y) {
