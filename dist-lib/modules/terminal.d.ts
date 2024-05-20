@@ -1,5 +1,6 @@
 import { FontData } from '../retrolib';
 import { ColorRGBA } from './font';
+export declare function setChangeTimestamp(): void;
 export type TerminalCell = {
     x: number;
     y: number;

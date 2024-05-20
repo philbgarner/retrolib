@@ -9,6 +9,10 @@ let terminalBackground: ColorRGBA = null
 let changeTimestamp: number = 0
 let drawTimestamp: number = 0
 
+export function setChangeTimestamp() {
+    changeTimestamp = new Date().getMilliseconds()
+}
+
 export type TerminalCell = {
     x: number,
     y: number,

@@ -25,7 +25,7 @@ Animation header section.
 
 #### Defined in
 
-[modules/aseprite.ts:7](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L7)
+[modules/aseprite.ts:7](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L7)
 
 ___
 
@@ -35,4 +35,4 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:8](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/aseprite.ts#L8)
+[modules/aseprite.ts:8](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L8)

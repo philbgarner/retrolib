@@ -78,7 +78,7 @@
 
 #### Defined in
 
-[modules/map.ts:75](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L75)
+[modules/map.ts:75](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L75)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:16](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L16)
+[modules/map.ts:16](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L16)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:54](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L54)
+[modules/map.ts:54](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L54)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:85](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L85)
+[modules/map.ts:85](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L85)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:24](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L24)
+[modules/map.ts:24](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L24)
 
 ___
 
@@ -179,7 +179,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:70](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L70)
+[modules/map.ts:70](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L70)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:48](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L48)
+[modules/map.ts:48](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L48)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:61](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L61)
+[modules/map.ts:61](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L61)
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:38](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L38)
+[modules/map.ts:38](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L38)
 
 ## Variables
 
@@ -250,7 +250,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:12](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L12)
+[modules/map.ts:12](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L12)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:11](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L11)
+[modules/map.ts:11](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L11)
 
 ___
 
@@ -270,7 +270,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:9](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L9)
+[modules/map.ts:9](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L9)
 
 ___
 
@@ -280,7 +280,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:8](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L8)
+[modules/map.ts:8](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L8)
 
 ___
 
@@ -290,7 +290,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:6](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L6)
+[modules/map.ts:6](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L6)
 
 ___
 
@@ -300,7 +300,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:7](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L7)
+[modules/map.ts:7](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L7)
 
 ___
 
@@ -310,7 +310,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:13](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L13)
+[modules/map.ts:13](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L13)
 
 ___
 
@@ -320,7 +320,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:10](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L10)
+[modules/map.ts:10](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L10)
 
 ___
 
@@ -330,7 +330,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:14](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L14)
+[modules/map.ts:14](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L14)
 
 ___
 
@@ -340,7 +340,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:5](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L5)
+[modules/map.ts:5](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L5)
 
 ## Functions
 
@@ -362,7 +362,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:106](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L106)
+[modules/map.ts:106](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L106)
 
 ___
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:133](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L133)
+[modules/map.ts:133](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L133)
 
 ___
 
@@ -413,7 +413,7 @@ Calculate voronoi regions and populate the map based on the locations of region 
 
 #### Defined in
 
-[modules/map.ts:391](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L391)
+[modules/map.ts:391](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L391)
 
 ___
 
@@ -435,7 +435,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:546](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L546)
+[modules/map.ts:546](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L546)
 
 ___
 
@@ -457,7 +457,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:539](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L539)
+[modules/map.ts:539](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L539)
 
 ___
 
@@ -471,7 +471,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:532](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L532)
+[modules/map.ts:532](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L532)
 
 ___
 
@@ -494,7 +494,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:129](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L129)
+[modules/map.ts:129](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L129)
 
 ___
 
@@ -516,7 +516,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:648](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L648)
+[modules/map.ts:648](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L648)
 
 ___
 
@@ -538,7 +538,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:93](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L93)
+[modules/map.ts:93](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L93)
 
 ___
 
@@ -559,7 +559,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:591](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L591)
+[modules/map.ts:591](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L591)
 
 ___
 
@@ -579,7 +579,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:579](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L579)
+[modules/map.ts:579](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L579)
 
 ___
 
@@ -593,7 +593,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:636](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L636)
+[modules/map.ts:636](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L636)
 
 ___
 
@@ -613,7 +613,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:524](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L524)
+[modules/map.ts:524](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L524)
 
 ___
 
@@ -634,7 +634,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:378](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L378)
+[modules/map.ts:378](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L378)
 
 ___
 
@@ -655,7 +655,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:628](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L628)
+[modules/map.ts:628](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L628)
 
 ___
 
@@ -678,7 +678,7 @@ Default function for selecting the palette of cell types to pass to the generato
 
 #### Defined in
 
-[modules/map.ts:111](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L111)
+[modules/map.ts:111](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L111)
 
 ___
 
@@ -692,7 +692,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:620](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L620)
+[modules/map.ts:620](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L620)
 
 ___
 
@@ -712,7 +712,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:604](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L604)
+[modules/map.ts:604](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L604)
 
 ___
 
@@ -733,7 +733,7 @@ ___
 
 #### Defined in
 
-[modules/map.ts:612](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L612)
+[modules/map.ts:612](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L612)
 
 ___
 
@@ -753,4 +753,4 @@ ___
 
 #### Defined in
 
-[modules/map.ts:102](https://github.com/philbgarner/retrolib/blob/2787147/src/modules/map.ts#L102)
+[modules/map.ts:102](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/map.ts#L102)

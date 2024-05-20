@@ -5,6 +5,9 @@ var terminalH;
 var terminalBackground = null;
 var changeTimestamp = 0;
 var drawTimestamp = 0;
+export function setChangeTimestamp() {
+    changeTimestamp = new Date().getMilliseconds();
+}
 export var cellData = [];
 export var emptyCellData = []; // Cache an empty version of terminal so clearing is quick.
 var terminalCanvas = null;
