@@ -98,6 +98,7 @@ export class Aseprite {
     elapsed: number
     frameElapsed: number
     direction: number
+    flipX: boolean
 
     listeners: Listener[]
 
@@ -112,6 +113,7 @@ export class Aseprite {
         this.elapsed = 0
         this.frameElapsed = 0
         this.direction = 1
+        this.flipX = false
 
         this.listeners = [
             { name: 'ended', frameNumber: 0, fnEvent: () => {} }
@@ -246,6 +248,6 @@ export class Aseprite {
         const frame = this.CurrentFrame()
         x = Math.floor(x) // Fractional numbers introduce anti-aliasing that breaks pixel feel on canvas contexts.
         y = Math.floor(y)
-        drawImage(this.meta.image, x, y, { x: frame.frame.x, y: frame.frame.y, w: frame.frame.w, h: frame.frame.h }, false)
+        drawImage(this.meta.image, x, y, { x: frame.frame.x, y: frame.frame.y, w: frame.frame.w, h: frame.frame.h }, this.flipX)
     }
 }
