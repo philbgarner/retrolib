@@ -21,7 +21,7 @@ Size object.
 
 #### Defined in
 
-[modules/aseprite.ts:38](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L38)
+[modules/aseprite.ts:38](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L38)
 
 ___
 
@@ -31,4 +31,4 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:37](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L37)
+[modules/aseprite.ts:37](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L37)

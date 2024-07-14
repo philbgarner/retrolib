@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[modules/random.ts:17](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/random.ts#L17)
+[modules/random.ts:17](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/random.ts#L17)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[modules/random.ts:13](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/random.ts#L13)
+[modules/random.ts:13](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/random.ts#L13)
 
 ___
 
@@ -74,4 +74,4 @@ ___
 
 #### Defined in
 
-[modules/random.ts:9](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/random.ts#L9)
+[modules/random.ts:9](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/random.ts#L9)

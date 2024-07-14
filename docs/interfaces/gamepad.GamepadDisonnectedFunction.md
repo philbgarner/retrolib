@@ -24,4 +24,4 @@ Callback function for disconnection event.
 
 #### Defined in
 
-[modules/input-gamepad.ts:77](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/input-gamepad.ts#L77)
+[modules/input-gamepad.ts:77](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/input-gamepad.ts#L77)

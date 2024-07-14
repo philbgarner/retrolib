@@ -12,6 +12,7 @@ var Aseprite = /** @class */ (function () {
         this.elapsed = 0;
         this.frameElapsed = 0;
         this.direction = 1;
+        this.flipX = false;
         this.listeners = [
             { name: 'ended', frameNumber: 0, fnEvent: function () { } }
         ];
@@ -127,7 +128,7 @@ var Aseprite = /** @class */ (function () {
         var frame = this.CurrentFrame();
         x = Math.floor(x); // Fractional numbers introduce anti-aliasing that breaks pixel feel on canvas contexts.
         y = Math.floor(y);
-        drawImage(this.meta.image, x, y, { x: frame.frame.x, y: frame.frame.y, w: frame.frame.w, h: frame.frame.h }, false);
+        drawImage(this.meta.image, x, y, { x: frame.frame.x, y: frame.frame.y, w: frame.frame.w, h: frame.frame.h }, this.flipX);
     };
     return Aseprite;
 }());

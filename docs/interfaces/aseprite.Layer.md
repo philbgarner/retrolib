@@ -22,7 +22,7 @@ Sprite layers.
 
 #### Defined in
 
-[modules/aseprite.ts:73](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L73)
+[modules/aseprite.ts:73](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L73)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:71](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L71)
+[modules/aseprite.ts:71](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L71)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:72](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L72)
+[modules/aseprite.ts:72](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L72)

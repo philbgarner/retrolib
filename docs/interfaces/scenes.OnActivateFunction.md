@@ -18,4 +18,4 @@ Callback function for the activation event.
 
 #### Defined in
 
-[modules/scenes.ts:17](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/scenes.ts#L17)
+[modules/scenes.ts:17](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scenes.ts#L17)

@@ -87,6 +87,7 @@ export declare class Aseprite {
     elapsed: number;
     frameElapsed: number;
     direction: number;
+    flipX: boolean;
     listeners: Listener[];
     constructor(name: string, animation: Animation);
     CallListener(name: string, frameNumber: number): void;

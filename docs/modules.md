@@ -133,7 +133,7 @@ X and Y coordinates.
 
 #### Defined in
 
-[retrolib.ts:42](https://github.com/philbgarner/retrolib/blob/cd6f581/src/retrolib.ts#L42)
+[retrolib.ts:42](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/retrolib.ts#L42)
 
 ## Variables
 
@@ -145,7 +145,7 @@ Canvas height (resolution y).
 
 #### Defined in
 
-[retrolib.ts:58](https://github.com/philbgarner/retrolib/blob/cd6f581/src/retrolib.ts#L58)
+[retrolib.ts:58](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/retrolib.ts#L58)
 
 ___
 
@@ -157,7 +157,7 @@ Canvas width (resolution x).
 
 #### Defined in
 
-[retrolib.ts:54](https://github.com/philbgarner/retrolib/blob/cd6f581/src/retrolib.ts#L54)
+[retrolib.ts:54](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/retrolib.ts#L54)
 
 ___
 
@@ -169,7 +169,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:50](https://github.com/philbgarner/retrolib/blob/cd6f581/src/retrolib.ts#L50)
+[retrolib.ts:50](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/retrolib.ts#L50)
 
 ## Functions
 
@@ -192,7 +192,7 @@ Canvas element to draw on.
 
 #### Defined in
 
-[retrolib.ts:77](https://github.com/philbgarner/retrolib/blob/cd6f581/src/retrolib.ts#L77)
+[retrolib.ts:77](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/retrolib.ts#L77)
 
 ___
 
@@ -218,7 +218,7 @@ Initialize the retrolib engine.
 
 #### Defined in
 
-[retrolib.ts:116](https://github.com/philbgarner/retrolib/blob/cd6f581/src/retrolib.ts#L116)
+[retrolib.ts:116](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/retrolib.ts#L116)
 
 ___
 
@@ -240,4 +240,4 @@ Set the canvas element's background value.
 
 #### Defined in
 
-[retrolib.ts:101](https://github.com/philbgarner/retrolib/blob/cd6f581/src/retrolib.ts#L101)
+[retrolib.ts:101](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/retrolib.ts#L101)

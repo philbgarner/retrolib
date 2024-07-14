@@ -17,6 +17,7 @@ Sprite controller, a wrapper for Aseprite JSON export format.
 - [animation](aseprite.Aseprite.md#animation)
 - [direction](aseprite.Aseprite.md#direction)
 - [elapsed](aseprite.Aseprite.md#elapsed)
+- [flipX](aseprite.Aseprite.md#flipx)
 - [frameElapsed](aseprite.Aseprite.md#frameelapsed)
 - [frameNumber](aseprite.Aseprite.md#framenumber)
 - [frames](aseprite.Aseprite.md#frames)
@@ -63,7 +64,7 @@ Sprite controller, a wrapper for Aseprite JSON export format.
 
 #### Defined in
 
-[modules/aseprite.ts:104](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L104)
+[modules/aseprite.ts:105](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L105)
 
 ## Properties
 
@@ -73,7 +74,7 @@ Sprite controller, a wrapper for Aseprite JSON export format.
 
 #### Defined in
 
-[modules/aseprite.ts:92](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L92)
+[modules/aseprite.ts:92](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L92)
 
 ___
 
@@ -83,7 +84,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:100](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L100)
+[modules/aseprite.ts:100](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L100)
 
 ___
 
@@ -93,7 +94,17 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:98](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L98)
+[modules/aseprite.ts:98](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L98)
+
+___
+
+### flipX
+
+• **flipX**: `boolean`
+
+#### Defined in
+
+[modules/aseprite.ts:101](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L101)
 
 ___
 
@@ -103,7 +114,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:99](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L99)
+[modules/aseprite.ts:99](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L99)
 
 ___
 
@@ -113,7 +124,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:97](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L97)
+[modules/aseprite.ts:97](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L97)
 
 ___
 
@@ -127,7 +138,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:93](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L93)
+[modules/aseprite.ts:93](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L93)
 
 ___
 
@@ -137,7 +148,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:102](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L102)
+[modules/aseprite.ts:103](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L103)
 
 ___
 
@@ -147,7 +158,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:96](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L96)
+[modules/aseprite.ts:96](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L96)
 
 ___
 
@@ -157,7 +168,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:91](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L91)
+[modules/aseprite.ts:91](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L91)
 
 ## Methods
 
@@ -179,7 +190,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:135](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L135)
+[modules/aseprite.ts:137](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L137)
 
 ___
 
@@ -200,7 +211,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:121](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L121)
+[modules/aseprite.ts:123](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L123)
 
 ___
 
@@ -221,7 +232,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:145](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L145)
+[modules/aseprite.ts:147](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L147)
 
 ___
 
@@ -235,7 +246,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:183](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L183)
+[modules/aseprite.ts:185](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L185)
 
 ___
 
@@ -249,7 +260,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:179](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L179)
+[modules/aseprite.ts:181](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L181)
 
 ___
 
@@ -270,7 +281,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:245](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L245)
+[modules/aseprite.ts:247](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L247)
 
 ___
 
@@ -290,7 +301,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:171](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L171)
+[modules/aseprite.ts:173](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L173)
 
 ___
 
@@ -304,7 +315,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:175](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L175)
+[modules/aseprite.ts:177](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L177)
 
 ___
 
@@ -324,7 +335,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:166](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L166)
+[modules/aseprite.ts:168](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L168)
 
 ___
 
@@ -344,7 +355,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:187](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L187)
+[modules/aseprite.ts:189](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L189)
 
 ___
 
@@ -365,7 +376,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:127](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L127)
+[modules/aseprite.ts:129](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L129)
 
 ___
 
@@ -386,7 +397,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:141](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L141)
+[modules/aseprite.ts:143](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L143)
 
 ___
 
@@ -406,7 +417,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:192](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L192)
+[modules/aseprite.ts:194](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L194)
 
 ___
 
@@ -420,7 +431,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:162](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L162)
+[modules/aseprite.ts:164](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L164)
 
 ___
 
@@ -434,7 +445,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:151](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L151)
+[modules/aseprite.ts:153](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L153)
 
 ___
 
@@ -448,7 +459,7 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:155](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L155)
+[modules/aseprite.ts:157](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L157)
 
 ___
 
@@ -468,4 +479,4 @@ ___
 
 #### Defined in
 
-[modules/aseprite.ts:196](https://github.com/philbgarner/retrolib/blob/cd6f581/src/modules/aseprite.ts#L196)
+[modules/aseprite.ts:198](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/aseprite.ts#L198)
