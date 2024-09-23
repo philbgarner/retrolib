@@ -136,6 +136,14 @@ export function initialize(): void {
     }
 }
 
+export function setOnInputPressed(handler: InputPressedFunction) {
+    onInputPressed = handler
+}
+
+export function setOnInputReleased(handler: InputPressedFunction) {
+    onInputReleased = handler
+}
+
 /**
  * Reset button mappings to defaults.
  */

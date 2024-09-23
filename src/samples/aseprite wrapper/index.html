@@ -27,6 +27,9 @@
             
             retrolib.images.loadAllImages().then(() => {
                 sprite = new retrolib.Aseprite('beam', beamjson)
+                sprite.AddListener('ended', 0, (sprite) => {
+                    console.log('sprite animation ended', sprite)
+                })
             })
 
         </script>

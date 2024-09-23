@@ -27,6 +27,8 @@ export declare enum TransitionEffect {
     Fade = 0,
     Instant = 1
 }
+export declare function getScenes(): Scene[];
+export declare function removeScene(sceneName: string): void;
 declare function addScene(scene: Scene): Scene;
 export declare function getScene(sceneId: string): Scene;
 declare function hasScene(id: string): boolean;

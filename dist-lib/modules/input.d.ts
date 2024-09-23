@@ -83,6 +83,8 @@ export interface InputPressedFunction {
  * Set the default states and mappings, set the event listeners and route input changes to the scenes' handleInput functions.
  */
 export declare function initialize(): void;
+export declare function setOnInputPressed(handler: InputPressedFunction): void;
+export declare function setOnInputReleased(handler: InputPressedFunction): void;
 /**
  * Reset button mappings to defaults.
  */

@@ -31,6 +31,7 @@ for keyboard/gamepad controls.
 - [dialogPauseTime](dialogscenes.default.md#dialogpausetime)
 - [dialogs](dialogscenes.default.md#dialogs)
 - [elapsed](dialogscenes.default.md#elapsed)
+- [font](dialogscenes.default.md#font)
 - [handleInput](dialogscenes.default.md#handleinput)
 - [id](dialogscenes.default.md#id)
 - [lastLetterTimestamp](dialogscenes.default.md#lastlettertimestamp)
@@ -74,7 +75,7 @@ for keyboard/gamepad controls.
 
 #### Defined in
 
-[modules/dialogscene.ts:39](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L39)
+[modules/dialogscene.ts:40](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L40)
 
 ## Properties
 
@@ -88,7 +89,7 @@ for keyboard/gamepad controls.
 
 #### Defined in
 
-[modules/scene.ts:13](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L13)
+[modules/scene.ts:13](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L13)
 
 ___
 
@@ -102,7 +103,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:12](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L12)
+[modules/scene.ts:12](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L12)
 
 ___
 
@@ -112,7 +113,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:29](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L29)
+[modules/dialogscene.ts:29](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L29)
 
 ___
 
@@ -126,7 +127,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L23)
+[modules/scene.ts:23](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L23)
 
 ___
 
@@ -136,7 +137,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:32](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L32)
+[modules/dialogscene.ts:32](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L32)
 
 ___
 
@@ -150,7 +151,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:11](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L11)
+[modules/scene.ts:11](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L11)
 
 ___
 
@@ -160,7 +161,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:27](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L27)
+[modules/dialogscene.ts:27](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L27)
 
 ___
 
@@ -170,7 +171,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:37](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L37)
+[modules/dialogscene.ts:37](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L37)
 
 ___
 
@@ -180,7 +181,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:26](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L26)
+[modules/dialogscene.ts:26](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L26)
 
 ___
 
@@ -194,7 +195,17 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:21](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L21)
+[modules/scene.ts:21](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L21)
+
+___
+
+### font
+
+• **font**: [`FontData`](FontData.md) = `undefined`
+
+#### Defined in
+
+[modules/dialogscene.ts:38](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L38)
 
 ___
 
@@ -210,7 +221,7 @@ Callback function for input directed at the scene.
 
 #### Defined in
 
-[modules/scene.ts:20](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L20)
+[modules/scene.ts:20](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L20)
 
 ___
 
@@ -224,7 +235,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:10](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L10)
+[modules/scene.ts:10](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L10)
 
 ___
 
@@ -234,7 +245,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:34](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L34)
+[modules/dialogscene.ts:34](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L34)
 
 ___
 
@@ -244,7 +255,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:30](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L30)
+[modules/dialogscene.ts:30](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L30)
 
 ___
 
@@ -254,7 +265,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:33](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L33)
+[modules/dialogscene.ts:33](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L33)
 
 ___
 
@@ -264,7 +275,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:28](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L28)
+[modules/dialogscene.ts:28](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L28)
 
 ___
 
@@ -274,7 +285,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:36](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L36)
+[modules/dialogscene.ts:36](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L36)
 
 ___
 
@@ -284,7 +295,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:31](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L31)
+[modules/dialogscene.ts:31](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L31)
 
 ___
 
@@ -298,7 +309,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:15](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L15)
+[modules/scene.ts:15](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L15)
 
 ___
 
@@ -312,7 +323,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:16](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L16)
+[modules/scene.ts:16](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L16)
 
 ___
 
@@ -326,7 +337,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:22](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L22)
+[modules/scene.ts:22](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L22)
 
 ___
 
@@ -340,7 +351,7 @@ ___
 
 #### Defined in
 
-[modules/scene.ts:14](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L14)
+[modules/scene.ts:14](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L14)
 
 ___
 
@@ -350,7 +361,7 @@ ___
 
 #### Defined in
 
-[modules/dialogscene.ts:35](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/dialogscene.ts#L35)
+[modules/dialogscene.ts:35](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/dialogscene.ts#L35)
 
 ## Methods
 
@@ -379,4 +390,4 @@ Transition from one scene to another using a predefined effect.
 
 #### Defined in
 
-[modules/scene.ts:53](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/scene.ts#L53)
+[modules/scene.ts:53](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/scene.ts#L53)

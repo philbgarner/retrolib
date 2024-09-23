@@ -29,7 +29,7 @@ var DialogScene = /** @class */ (function (_super) {
                         _this.characterNumber++;
                         if (_this.lineNumber < _this.dialogs[_this.dialogNumber].lines.length
                             && line_1.text.slice(_this.characterNumber, _this.characterNumber + 1) === ' '
-                            && font.textWidth(line_1.text.slice(0, _this.characterNumber)) < _this.dialogs[_this.dialogNumber].rect.w) {
+                            && font.textWidth(line_1.text.slice(0, _this.characterNumber), _this.font) < _this.dialogs[_this.dialogNumber].rect.w) {
                             _this.lastSpaceNumber = _this.characterNumber;
                         }
                         _this.lastLetterTimestamp = _this.elapsed;
@@ -72,14 +72,14 @@ var DialogScene = /** @class */ (function (_super) {
                 if (_this.dialogNumber < _this.dialogs.length && _this.lineNumber <= _this.dialogs[_this.dialogNumber].lines.length - 1) {
                     // If the current line would overflow the width, wrap from the last space character.
                     var linesUpTo = line_1.text.slice(0, _this.characterNumber);
-                    if (font.textWidth(linesUpTo) >= _this.dialogs[_this.dialogNumber].rect.w) {
+                    if (font.textWidth(linesUpTo, _this.font) >= _this.dialogs[_this.dialogNumber].rect.w) {
                         line_1.text = line_1.text.slice(0, _this.lastSpaceNumber) + '\n' + line_1.text.slice(_this.lastSpaceNumber + 1);
                     }
-                    var offsety = line_1.speaker.length > 0 ? font.textHeight(line_1.speaker + ':') : 0;
+                    var offsety = line_1.speaker.length > 0 ? font.textHeight(line_1.speaker, _this.font) : 0;
                     if (offsety > 0) {
-                        font.drawText(_this.dialogs[_this.dialogNumber].rect.x, _this.dialogs[_this.dialogNumber].rect.y, line_1.speaker + ':', line_1.color);
+                        font.drawText(_this.dialogs[_this.dialogNumber].rect.x, _this.dialogs[_this.dialogNumber].rect.y, line_1.speaker, line_1.color, _this.font);
                     }
-                    font.drawText(_this.dialogs[_this.dialogNumber].rect.x, _this.dialogs[_this.dialogNumber].rect.y + offsety, line_1.text.slice(0, _this.characterNumber), line_1.color);
+                    font.drawText(_this.dialogs[_this.dialogNumber].rect.x, _this.dialogs[_this.dialogNumber].rect.y + offsety, line_1.text.slice(0, _this.characterNumber), line_1.color, _this.font);
                 }
             }
         };
@@ -93,6 +93,7 @@ var DialogScene = /** @class */ (function (_super) {
         _this.pauseLetterIncrement = false;
         _this.linePauseTime = 1500;
         _this.dialogPauseTime = 3000;
+        _this.font = undefined;
         _this.handleInput = function (input) {
             if (['action', 'cancel'].includes(input) && !_this.pauseLetterIncrement) {
                 _this.pauseLetterIncrement = true;

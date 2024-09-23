@@ -9,6 +9,12 @@ export var TransitionEffect;
 var start = null;
 var scenes = [];
 var ctx = null;
+export function getScenes() {
+    return scenes;
+}
+export function removeScene(sceneName) {
+    scenes = scenes.filter(function (f) { return f.id !== sceneName; });
+}
 function addScene(scene) {
     scenes.push(scene);
     return scene;

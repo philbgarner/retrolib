@@ -26,8 +26,16 @@ export enum TransitionEffect {
 }
 
 let start: number = null
-const scenes: Scene[] = []
+let scenes: Scene[] = []
 let ctx = null
+
+export function getScenes(): Scene[] {
+    return scenes
+}
+
+export function removeScene(sceneName: string) {
+    scenes = scenes.filter(f => f.id !== sceneName)
+}
 
 function addScene(scene: Scene): Scene {
     scenes.push(scene)

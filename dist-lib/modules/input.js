@@ -93,6 +93,12 @@ export function initialize() {
         scenes.handleInput(inputName, 0, true);
     };
 }
+export function setOnInputPressed(handler) {
+    onInputPressed = handler;
+}
+export function setOnInputReleased(handler) {
+    onInputReleased = handler;
+}
 /**
  * Reset button mappings to defaults.
  */

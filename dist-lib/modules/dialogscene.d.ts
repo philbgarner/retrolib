@@ -1,3 +1,4 @@
+import { FontData } from "../retrolib";
 import { Rect } from "../retrolib";
 import { ColorRGBA } from "./font";
 import Scene from "./scene";
@@ -29,6 +30,7 @@ declare class DialogScene extends Scene {
     pauseLetterIncrement: boolean;
     linePauseTime: number;
     dialogPauseTime: number;
+    font: FontData;
     constructor(id: string, active: boolean, nextSceneId: string, dialogs: DialogSceneLines[]);
 }
 export default DialogScene;

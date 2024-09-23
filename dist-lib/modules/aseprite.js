@@ -16,9 +16,13 @@ var Aseprite = /** @class */ (function () {
         this.listeners = [
             { name: 'ended', frameNumber: 0, fnEvent: function () { } }
         ];
+        this.lastListenerExecuted = null;
     }
     Aseprite.prototype.CallListener = function (name, frameNumber) {
-        if (this.HasListener(name, frameNumber)) {
+        if (this.HasListener(name, frameNumber)
+            && ((this.lastListenerExecuted && this.lastListenerExecuted.frameNumber !== this.frameNumber && this.lastListenerExecuted.name !== name)
+                || this.lastListenerExecuted === null)) {
+            this.lastListenerExecuted = this.GetListener(name, frameNumber);
             this.GetListener(name, frameNumber).fnEvent(this);
         }
     };
@@ -45,8 +49,14 @@ var Aseprite = /** @class */ (function () {
     Aseprite.prototype.Play = function () {
         this.direction = 1;
     };
-    Aseprite.prototype.PlayFromStart = function () {
-        this.frameNumber = 0;
+    Aseprite.prototype.PlayFromStart = function (frameTag) {
+        var frameMeta = frameTag !== undefined ? this.MetaTag(frameTag) : null;
+        if (frameMeta) {
+            this.frameNumber = frameMeta[0].from;
+        }
+        else {
+            this.frameNumber = 0;
+        }
         this.frameElapsed = 0;
         this.direction = 1;
         this.elapsed = 0;
@@ -79,6 +89,9 @@ var Aseprite = /** @class */ (function () {
     };
     Aseprite.prototype.Update = function (delta) {
         this.frameElapsed += delta * this.direction;
+        if (this.direction !== 0) {
+            this.lastListenerExecuted = null;
+        }
         this.elapsed += delta * Math.abs(this.direction);
         var frame = this.CurrentFrame();
         var frameTag = this.FrameMetaTag(this.frameNumber);
@@ -86,9 +99,6 @@ var Aseprite = /** @class */ (function () {
             if (this.direction > 0 && this.frameElapsed >= frame.duration && frameTag.direction === 'forward') {
                 this.frameNumber += this.direction;
                 this.frameElapsed = 0;
-            }
-            if (this.frameNumber === Object.keys(this.frames).length - 1) {
-                this.CallListener('ended', 0);
             }
             if (this.direction > 0 && this.frameElapsed >= frame.duration
                 && frameTag.direction === 'pingpong' && frameTag.to === this.frameNumber) {
@@ -115,6 +125,7 @@ var Aseprite = /** @class */ (function () {
             }
             if (this.frameNumber > frameTag.to && frameTag.direction === 'forward') {
                 this.frameNumber = frameTag.from;
+                this.CallListener('ended', 0);
             }
             if (this.HasListener('frame', this.frameNumber)) {
                 this.CallListener('frame', this.frameNumber);

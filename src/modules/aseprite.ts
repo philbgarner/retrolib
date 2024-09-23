@@ -101,6 +101,7 @@ export class Aseprite {
     flipX: boolean
 
     listeners: Listener[]
+    lastListenerExecuted: Listener
 
     constructor(name: string, animation: Animation) {
         this.name = name
@@ -118,10 +119,16 @@ export class Aseprite {
         this.listeners = [
             { name: 'ended', frameNumber: 0, fnEvent: () => {} }
         ]
+        this.lastListenerExecuted = null
     }
 
     CallListener(name: string, frameNumber: number) {
-        if (this.HasListener(name, frameNumber)) {
+
+        if (this.HasListener(name, frameNumber)
+            && ((this.lastListenerExecuted && this.lastListenerExecuted.frameNumber !== this.frameNumber && this.lastListenerExecuted.name !== name)
+                    || this.lastListenerExecuted === null)
+        ) {
+            this.lastListenerExecuted = this.GetListener(name, frameNumber)
             this.GetListener(name, frameNumber).fnEvent(this)
         }
     }
@@ -154,8 +161,13 @@ export class Aseprite {
         this.direction = 1
     }
 
-    PlayFromStart() {
-        this.frameNumber = 0
+    PlayFromStart(frameTag: string) {
+        const frameMeta = frameTag !== undefined ? this.MetaTag(frameTag) : null
+        if (frameMeta) {
+            this.frameNumber = frameMeta[0].from
+        } else {
+            this.frameNumber = 0
+        }
         this.frameElapsed = 0
         this.direction = 1
         this.elapsed = 0
@@ -197,6 +209,11 @@ export class Aseprite {
 
     Update(delta: number) {
         this.frameElapsed += delta * this.direction
+
+        if (this.direction !== 0) {
+            this.lastListenerExecuted = null
+        }
+
         this.elapsed += delta * Math.abs(this.direction)
         const frame = this.CurrentFrame()
         const frameTag = this.FrameMetaTag(this.frameNumber)
@@ -204,10 +221,6 @@ export class Aseprite {
             if (this.direction > 0 && this.frameElapsed >= frame.duration && frameTag.direction === 'forward') {
                 this.frameNumber += this.direction
                 this.frameElapsed = 0
-            }
-            
-            if (this.frameNumber === Object.keys(this.frames).length - 1) {
-                this.CallListener('ended', 0)
             }
 
             if (this.direction > 0 && this.frameElapsed >= frame.duration
@@ -234,11 +247,13 @@ export class Aseprite {
             }
             if (this.frameNumber > frameTag.to && frameTag.direction === 'forward') {
                 this.frameNumber = frameTag.from
+                this.CallListener('ended', 0)
             }
 
             if (this.HasListener('frame', this.frameNumber)) {
                 this.CallListener('frame', this.frameNumber)
             }
+
         } catch (err) {
             console.log(err)
         }

@@ -1,4 +1,4 @@
-import { font } from "../retrolib"
+import { font, FontData } from "../retrolib"
 import { Rect } from "../retrolib"
 import { ColorRGBA } from "./font"
 import Scene from "./scene"
@@ -35,6 +35,7 @@ class DialogScene extends Scene {
     pauseLetterIncrement: boolean = false
     linePauseTime: number = 1500
     dialogPauseTime: number = 3000
+    font: FontData = undefined
 
     constructor(id: string, active: boolean, nextSceneId: string, dialogs: DialogSceneLines[]) {
         const animationFrame: AnimationFrameFunction = () => {
@@ -46,7 +47,7 @@ class DialogScene extends Scene {
                         this.characterNumber++
                         if (this.lineNumber < this.dialogs[this.dialogNumber].lines.length
                         && line.text.slice(this.characterNumber, this.characterNumber + 1) === ' '
-                        && font.textWidth(line.text.slice(0, this.characterNumber)) < this.dialogs[this.dialogNumber].rect.w) {
+                        && font.textWidth(line.text.slice(0, this.characterNumber), this.font) < this.dialogs[this.dialogNumber].rect.w) {
                             this.lastSpaceNumber = this.characterNumber
                         }
                         this.lastLetterTimestamp = this.elapsed
@@ -88,14 +89,14 @@ class DialogScene extends Scene {
                 if (this.dialogNumber < this.dialogs.length && this.lineNumber <= this.dialogs[this.dialogNumber].lines.length - 1) {
                     // If the current line would overflow the width, wrap from the last space character.
                     const linesUpTo = line.text.slice(0, this.characterNumber)
-                    if (font.textWidth(linesUpTo) >= this.dialogs[this.dialogNumber].rect.w) {
+                    if (font.textWidth(linesUpTo, this.font) >= this.dialogs[this.dialogNumber].rect.w) {
                         line.text = line.text.slice(0, this.lastSpaceNumber) + '\n' + line.text.slice(this.lastSpaceNumber + 1)
                     }
-                    const offsety = line.speaker.length > 0 ? font.textHeight(line.speaker + ':') : 0
+                    const offsety = line.speaker.length > 0 ? font.textHeight(line.speaker, this.font) : 0
                     if (offsety > 0) {
-                        font.drawText(this.dialogs[this.dialogNumber].rect.x, this.dialogs[this.dialogNumber].rect.y, line.speaker + ':', line.color)
+                        font.drawText(this.dialogs[this.dialogNumber].rect.x, this.dialogs[this.dialogNumber].rect.y, line.speaker, line.color, this.font)
                     }
-                    font.drawText(this.dialogs[this.dialogNumber].rect.x, this.dialogs[this.dialogNumber].rect.y + offsety, line.text.slice(0, this.characterNumber), line.color)
+                    font.drawText(this.dialogs[this.dialogNumber].rect.x, this.dialogs[this.dialogNumber].rect.y + offsety, line.text.slice(0, this.characterNumber), line.color, this.font)
                 }
             }
         }

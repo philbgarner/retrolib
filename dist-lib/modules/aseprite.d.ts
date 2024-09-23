@@ -89,6 +89,7 @@ export declare class Aseprite {
     direction: number;
     flipX: boolean;
     listeners: Listener[];
+    lastListenerExecuted: Listener;
     constructor(name: string, animation: Animation);
     CallListener(name: string, frameNumber: number): void;
     GetListener(name: string, frameNumber: number): Listener;
@@ -96,7 +97,7 @@ export declare class Aseprite {
     HasListener(name: string, frameNumber: number): boolean;
     ClearListener(name: string, frameNumber: number): void;
     Play(): void;
-    PlayFromStart(): void;
+    PlayFromStart(frameTag: string): void;
     Pause(): void;
     FrameId(frameNumber: number): string;
     Frame(frameNumber: number): FrameValue;

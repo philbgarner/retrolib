@@ -23,4 +23,4 @@
 
 #### Defined in
 
-[modules/random.ts:2](https://github.com/philbgarner/retrolib/blob/d7cbf0a/src/modules/random.ts#L2)
+[modules/random.ts:2](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/random.ts#L2)
