@@ -32,7 +32,7 @@ Optional argument with extra parameters for the layout function.
 
 #### Defined in
 
-[modules/menus.ts:18](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/menus.ts#L18)
+[modules/menus.ts:18](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/menus.ts#L18)
 
 ## Functions
 
@@ -62,4 +62,4 @@ Take a list of strings and create a menu with the options automatically laid out
 
 #### Defined in
 
-[modules/menus.ts:32](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/menus.ts#L32)
+[modules/menus.ts:32](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/menus.ts#L32)

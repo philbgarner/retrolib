@@ -47,11 +47,11 @@ export function getScene(sceneId: string): Scene {
     return scene.length > 0 ? scene[0] : null
 }
 
-function hasScene(id: string): boolean {
+export function hasScene(id: string): boolean {
     return scenes.filter(scene => scene.id === id).length > 0
 }
 
-function activateScene(id: string): void {
+export function activateScene(id: string): void {
     const index: number = scenes.findIndex((s: Scene) => s.id === id)
     if (index > -1) {
         scenes[index].active = true
@@ -60,7 +60,7 @@ function activateScene(id: string): void {
     }
 }
 
-function deActivateScene(id: string) {
+export function deActivateScene(id: string) {
     const index = scenes.findIndex(s => s.id === id)
     if (index > -1) {
         scenes[index].active = false
@@ -68,7 +68,7 @@ function deActivateScene(id: string) {
     }
 }
 
-function handleInput(input: string, amt: number, released: boolean) {
+export function handleInput(input: string, amt: number, released: boolean) {
     scenes.filter(f => f.active && !f.pauseInput).forEach(scene => {
         if (scene.handleInput) {
             scene.handleInput(input, amt, released)
@@ -76,7 +76,7 @@ function handleInput(input: string, amt: number, released: boolean) {
     })
 }
 
-function handleAnimationFrame(timeStamp: number) {
+export function handleAnimationFrame(timeStamp: number) {
     window.requestAnimationFrame(handleAnimationFrame)
     if (start === null) {
         start = timeStamp - 16 // If we don't do this, the first frame timestamp is too long so we fake 60fps by subtracting 16.
@@ -103,5 +103,3 @@ function handleAnimationFrame(timeStamp: number) {
     })
     ctx.globalAlpha = opacity
 }
-
-export { handleAnimationFrame, handleInput, addScene, activateScene, deActivateScene, hasScene }

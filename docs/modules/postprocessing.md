@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[modules/postprocessing.ts:129](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/postprocessing.ts#L129)
+[modules/postprocessing.ts:129](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/postprocessing.ts#L129)
 
 ___
 
@@ -35,4 +35,4 @@ ___
 
 #### Defined in
 
-[modules/postprocessing.ts:16](https://github.com/philbgarner/retrolib/blob/24a9c83/src/modules/postprocessing.ts#L16)
+[modules/postprocessing.ts:16](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/postprocessing.ts#L16)
