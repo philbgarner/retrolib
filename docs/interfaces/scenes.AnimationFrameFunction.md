@@ -24,4 +24,4 @@ Callback function for the animation frame event.
 
 #### Defined in
 
-[modules/scenes.ts:13](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/scenes.ts#L13)
+[modules/scenes.ts:13](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L13)

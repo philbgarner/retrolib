@@ -29,6 +29,7 @@ export declare enum TransitionEffect {
 }
 export declare function getScenes(): Scene[];
 export declare function removeScene(sceneName: string): void;
+export declare function addScene(scene: Scene): Scene;
 export declare function getScene(sceneId: string): Scene;
 export declare function hasScene(id: string): boolean;
 export declare function activateScene(id: string): void;

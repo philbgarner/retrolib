@@ -39,4 +39,4 @@ Menu item.
 
 #### Defined in
 
-[modules/menu.ts:11](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/menu.ts#L11)
+[modules/menu.ts:11](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/menu.ts#L11)

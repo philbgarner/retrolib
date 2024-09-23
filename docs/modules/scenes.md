@@ -18,6 +18,7 @@
 ### Functions
 
 - [activateScene](scenes.md#activatescene)
+- [addScene](scenes.md#addscene)
 - [deActivateScene](scenes.md#deactivatescene)
 - [getScene](scenes.md#getscene)
 - [getScenes](scenes.md#getscenes)
@@ -44,7 +45,27 @@
 
 #### Defined in
 
-[modules/scenes.ts:54](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/scenes.ts#L54)
+[modules/scenes.ts:54](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L54)
+
+___
+
+### addScene
+
+▸ **addScene**(`scene`): [`Scene`](../classes/Scene.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `scene` | [`Scene`](../classes/Scene.md) |
+
+#### Returns
+
+[`Scene`](../classes/Scene.md)
+
+#### Defined in
+
+[modules/scenes.ts:40](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L40)
 
 ___
 
@@ -64,7 +85,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:63](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/scenes.ts#L63)
+[modules/scenes.ts:63](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L63)
 
 ___
 
@@ -84,7 +105,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:45](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/scenes.ts#L45)
+[modules/scenes.ts:45](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L45)
 
 ___
 
@@ -98,7 +119,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:32](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/scenes.ts#L32)
+[modules/scenes.ts:32](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L32)
 
 ___
 
@@ -118,7 +139,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:79](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/scenes.ts#L79)
+[modules/scenes.ts:79](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L79)
 
 ___
 
@@ -140,7 +161,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:71](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/scenes.ts#L71)
+[modules/scenes.ts:71](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L71)
 
 ___
 
@@ -160,7 +181,7 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:50](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/scenes.ts#L50)
+[modules/scenes.ts:50](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L50)
 
 ___
 
@@ -180,4 +201,4 @@ ___
 
 #### Defined in
 
-[modules/scenes.ts:36](https://github.com/philbgarner/retrolib/blob/892bb86/src/modules/scenes.ts#L36)
+[modules/scenes.ts:36](https://github.com/philbgarner/retrolib/blob/daf23ad/src/modules/scenes.ts#L36)

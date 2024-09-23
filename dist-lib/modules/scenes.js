@@ -15,7 +15,7 @@ export function getScenes() {
 export function removeScene(sceneName) {
     scenes = scenes.filter(function (f) { return f.id !== sceneName; });
 }
-function addScene(scene) {
+export function addScene(scene) {
     scenes.push(scene);
     return scene;
 }

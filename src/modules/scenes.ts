@@ -37,7 +37,7 @@ export function removeScene(sceneName: string) {
     scenes = scenes.filter(f => f.id !== sceneName)
 }
 
-function addScene(scene: Scene): Scene {
+export function addScene(scene: Scene): Scene {
     scenes.push(scene)
     return scene
 }
